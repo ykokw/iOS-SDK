@@ -1,0 +1,12 @@
+source 'https://github.com/CocoaPods/Specs.git'
+use_frameworks!
+
+target 'MODE-iOSSDK_Example', :exclusive => true do
+  pod "MODE-iOSSDK", :path => "../"
+end
+
+target 'MODE-iOSSDK_Tests', :exclusive => true do
+  pod "MODE-iOSSDK", :path => "../"
+
+  pod 'Kiwi'
+end
