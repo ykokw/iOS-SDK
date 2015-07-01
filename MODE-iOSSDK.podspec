@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MODE-iOSSDK"
-  s.version          = "0.1.1"
+  s.version          = "0.1.3"
   s.summary          = "iOS API libraries to access MODE cloud."
   s.description      = <<-DESC
                        This is iOS API library to access MODE cloud.
@@ -25,8 +25,6 @@ Pod::Spec.new do |s|
 
   s.source_files = 'Mode/*'
 
-  s.dependency 'AFNetworking', '~> 2.5'
-  s.dependency 'AFNetworkActivityLogger'
   s.dependency 'Mantle'
   s.dependency 'SocketRocket'
 end

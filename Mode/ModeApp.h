@@ -2,6 +2,18 @@
 
 @interface MODEAppAPI : NSObject
 
+/**
+ *  All API funtions return NSURLSessionDataTask to controll the session if you want.
+ *  The task is queued so you don't have to care the object life.
+ *
+ *  You need to check the NSError object in each callback block if success or not.
+ *  If the error returned from MODE cloud, you can get the following information in NSError.
+ *
+ *  @param domain    If it's NSURLErrorDomain, it means MODE clound returns HTTP errors.
+ *  @param code      Shows HTTP status code. See more detail at http://dev.tinkermode.com/api/api_reference.html
+ *  @param userInfo  Has more detail information why it failed. It is NSDictionary parsed from JSON string.
+ */
+
 ////////////////////////////////////////////////
 // User API
 ////////////////////////////////////////////////

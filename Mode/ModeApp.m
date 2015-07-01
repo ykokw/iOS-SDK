@@ -10,7 +10,6 @@
 
 
 static NSString *const ModeURL = @"https://api.tinkermode.com";
-
 //static NSString *const ModeURL = @"http://akagi.local:7002";
 
 @implementation MODEAppAPI
@@ -121,7 +120,8 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
             NSInteger statusCode = [(NSHTTPURLResponse *)response statusCode];
             
             if (statusCode/100 != 2 ) {
-                NSError* err = [[NSError alloc] initWithDomain:NSURLErrorDomain code:statusCode userInfo:nil];
+                NSDictionary* reason = [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
+                NSError* err = [[NSError alloc] initWithDomain:NSURLErrorDomain code:statusCode userInfo:reason];
                 completion(nil, err);
 
                 return;
