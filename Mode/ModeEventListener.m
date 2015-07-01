@@ -1,10 +1,6 @@
 #import "ModeEventListener.h"
 
-
-// So far test mode for my test server...
-// We should combine together
-//NSString *const ModeURL = @"https://api.tinkermode.com";
-NSString *const ModeWebsocketURL = @"ws://akagi.local:7002/userSession/websocket";
+NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websocket";
 
 @implementation MODEEventListener
 
@@ -30,7 +26,6 @@ NSString *const ModeWebsocketURL = @"ws://akagi.local:7002/userSession/websocket
         MODEDeviceEvent* event = [MTLJSONAdapter modelOfClass:MODEDeviceEvent.class fromJSONDictionary:dict error:&err];
         didReceive(event, err);
     }
-
 }
 
 - (void)webSocketDidOpen:(SRWebSocket *)webSocket
@@ -55,6 +50,9 @@ NSString *const ModeWebsocketURL = @"ws://akagi.local:7002/userSession/websocket
     }
 }
 
+/**
+ *  Auto reconnection retry time interval is calculated by Fibonacci numbers.
+ */
 -(void)reconnect
 {
     int nextRetry = self.retryWait + self.fibCounter;
@@ -88,6 +86,7 @@ NSString *const ModeWebsocketURL = @"ws://akagi.local:7002/userSession/websocket
     NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
                 NULL, (CFStringRef)clientAuthentication.token, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]",kCFStringEncodingUTF8 ));
 
+    // SocketRocket library doesn't allow to pass 'Authorization' HTTP header, so pass the token as URL param. 
     self.url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"%@?authToken=%@", ModeWebsocketURL, encodedString]];
 
     return self;
@@ -106,7 +105,7 @@ NSString *const ModeWebsocketURL = @"ws://akagi.local:7002/userSession/websocket
     return self;
 }
 
-- (void)stopListenToEvent
+- (void)stopListenToEvents
 {
     [self.websocket close];
     self.websocket = nil;

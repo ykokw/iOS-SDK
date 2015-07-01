@@ -1,5 +1,8 @@
 #import "Mantle.h"
 
+//////////////////////////////////////////////////////////////////////////////////////////////////////
+// See mroe detail at http://dev.tinkermode.com/api/model_reference.html to get more detail schema
+//////////////////////////////////////////////////////////////////////////////////////////////////////
 
 // User Data
 
@@ -52,7 +55,7 @@
 
 @interface MODEDevice : MTLModel<MTLJSONSerializing>
 
-@property (nonatomic, copy)NSString* deviceId;
+@property (nonatomic, assign)int deviceId;
 @property (nonatomic, assign)int projectId;
 @property (nonatomic, copy)NSString* name;
 @property (nonatomic, copy)NSString* tag;
@@ -85,14 +88,12 @@
 
 @end
 
-
 @interface MODEClientAuthentication : MTLModel<MTLJSONSerializing>
 
 @property (nonatomic, copy) NSString* token;
 @property (nonatomic) int userId;
 
 @end
-
 
 typedef enum : NSUInteger {
     MODEAuthenticationInfoTypeUser = 1,
@@ -124,4 +125,3 @@ typedef enum : NSUInteger {
 @property (nonatomic, copy)NSString* originModuleId;
 
 @end
-

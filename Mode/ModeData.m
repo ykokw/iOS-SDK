@@ -11,9 +11,9 @@ NSDateFormatter* dateFormatter(BOOL hasMillisec) {
 }
 
 NSValueTransformer* instantiateTimeTransformer(BOOL hasMillisec) {
-    return [MTLValueTransformer reversibleTransformerWithForwardBlock:^(NSString *str) {
+    return [MTLValueTransformer transformerUsingForwardBlock:^id(NSString *str, BOOL *success, NSError **error) {
         return [dateFormatter(hasMillisec) dateFromString:str];
-    } reverseBlock:^(NSDate *date) {
+    } reverseBlock:^(NSDate *date, BOOL *success, NSError **error) {
         return [dateFormatter(hasMillisec) stringFromDate:date];
     }];
 }
@@ -86,7 +86,7 @@ JSONTransformerFunc(creationTime, TRUE)
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
     return @{
-             @"userId": @"id",
+             @"userId": @"userId",
              @"creationTime": @"creationTime",
              @"name": @"name",
              @"phoneNumber": @"phoneNumber",
@@ -117,11 +117,6 @@ JSONTransformerFunc(creationTime, TRUE)
 
 JSONTransformerFunc(creationTime, TRUE)
 
-+(NSValueTransformer*)scribedEventsJSONTtransformer {
-    return [NSValueTransformer
-            mtl_JSONArrayTransformerWithModelClass:NSString.class];
-}
-
 @end
 
 // Device Data
@@ -145,7 +140,7 @@ JSONTransformerFunc(creationTime, TRUE)
              };
 }
 
-JSONTransformerFunc(claimeTime, FALSE)
+JSONTransformerFunc(claimTime, FALSE)
 JSONTransformerFunc(claimExpirationTime, FALSE)
 
 JSONTransformerFunc(lastConnectTime, TRUE)
