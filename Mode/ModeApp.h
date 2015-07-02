@@ -3,15 +3,15 @@
 @interface MODEAppAPI : NSObject
 
 /**
- *  All API funtions return NSURLSessionDataTask to controll the session if you want.
- *  The task is queued so you don't have to care the object life.
+ *  All API functions return NSURLSessionDataTask to control the session you want.
+ *  The task is queued so you won't have to worry about the object life.
  *
- *  You need to check the NSError object in each callback block if success or not.
+ *  You need to check the NSError object in each callback block to see if it was a success or not.
  *  If the error returned from MODE cloud, you can get the following information in NSError.
  *
- *  @param domain    If it's NSURLErrorDomain, it means MODE clound returns HTTP errors.
+ *  @param domain    If it's NSURLErrorDomain, it means MODE could returns HTTP errors.
  *  @param code      Shows HTTP status code. See more detail at http://dev.tinkermode.com/api/api_reference.html
- *  @param userInfo  Has more detail information why it failed. It is NSDictionary parsed from JSON string.
+ *  @param userInfo  Has more detailed information on why it failed. It is NSDictionary parsed from JSON string.
  */
 
 ////////////////////////////////////////////////
@@ -21,12 +21,12 @@
 typedef void(^MODEUserBlock)(MODEUser*, NSError*);
 
 /**
- *  Register a new user. The user which is the phoneNumber owner will get SMS code to be veified.
+ *  Register a new user. An SMS code will be sent to the user (i.e. phone number owner) in order to verify the account.
  *
- *  @param projectId    projectId where you want to register a new user.
- *  @param phoneNumber  phoneNumber you want to register and not registered yet in the project.
+ *  @param projectId    ID of project which you want to register a new user.
+ *  @param phoneNumber  New phone number to be registered in the database.
  *  @param name         Name you want to assign.
- *  @param completion   Can get a valid MODEUser object and NSError is nil when success.
+ *  @param completion   Callback block: MODEUser is valid if successful.
  *
  *  @return
  */
@@ -34,11 +34,11 @@ typedef void(^MODEUserBlock)(MODEUser*, NSError*);
         completion:(MODEUserBlock)completion;
 
 /**
- *  Return the user with the specified ID, you can only get your own information.
+ *  Returns the account information of the user with the specified ID.
  *
- *  @param clientAuthentication USER_TOKEN you want to get the info.
- *  @param userId               userId associated to USER_TOKEN.
- *  @param completion           Can get a valid MODEUser object and NSError is nil when USER_TOKEN and userId are valid.
+ *  @param clientAuthentication USER_TOKEN of the user you want information for.
+ *  @param userId               ID of user associated with USER_TOKEN.
+ *  @param completion           Callback block: MODEUser is valid if successful.
  *
  *  @return
  */
@@ -46,12 +46,12 @@ typedef void(^MODEUserBlock)(MODEUser*, NSError*);
      completion:(MODEUserBlock)completion;
 
 /**
- *  Update the user with the specified ID, you can change your name only by youself.
+ *  Only you can make changes to the name of the user with the specified ID.
  *
- *  @param clientAuthentication USER_TOKEN you want to update.
- *  @param userId               userId associated to USER_TOKEN.
- *  @param name                 New name you want to update.
- *  @param completion           MODEUser is always nil and NSError is nil when success.
+ *  @param clientAuthentication USER_TOKEN of the user you want to update.
+ *  @param userId               ID of user associated with USER_TOKEN.
+ *  @param name                 Updated name.
+ *  @param completion           Callback block: MODEUser is nil.
  *
  *  @return
  */
@@ -59,11 +59,11 @@ typedef void(^MODEUserBlock)(MODEUser*, NSError*);
             completion:(MODEUserBlock)completion;
 
 /**
- *  Delete the user with the specified ID, you can delete only youself.
+ *  Only you can delete users with the specified ID.
  *
- *  @param clientAuthentication USER_TOKEN you want to delete.
- *  @param userId               userId associated to USER_TOKEN and want to delete.
- *  @param completion           MODEUser is always nil and NSError will be nil when success.
+ *  @param clientAuthentication USER_TOKEN of the user you want to delete.
+ *  @param userId               ID of the user associated with USER_TOKEN and whom you want to delete.
+ *  @param completion           Callback block: MODEUser is nil.
  *
  *  @return
  */
@@ -81,7 +81,7 @@ typedef void(^MODEHomeBlock)(MODEHome*, NSError*);
  *
  *  @param clientAuthentication USER_TOKEN belonging to the homes.
  *  @param userId               userID belonging to the homes.
- *  @param completion           Can get a valid NSArray of MODEHome when success.
+ *  @param completion           Callback block: NSArray is valid as an array of MODEHome if successful.
  *
  *  @return
  */
@@ -89,12 +89,12 @@ typedef void(^MODEHomeBlock)(MODEHome*, NSError*);
       completion:(void (^)(NSArray*, NSError *))completion;
 
 /**
- *  Ceate a new home for the user who is making this request.
+ *  Create a new home for the user who is making this request.
  *
- *  @param clientAuthentication USER_TOKEN
- *  @param name                 Whatever name you want to set.
+ *  @param clientAuthentication USER_TOKEN.
+ *  @param name                 New name of home.
  *  @param timezone             Specify a TZ from https://en.wikipedia.org/wiki/List_of_tz_database_time_zones (e.g. "America/Los_Angeles").
- *  @param completion           Can get a valid MODEHome object and NSError is nil when success.
+ *  @param completion           Callback block: MODEHome is valid if successful.
  *
  *  @return
  */
@@ -105,8 +105,8 @@ typedef void(^MODEHomeBlock)(MODEHome*, NSError*);
  *  Return the home with the specified ID.
  *
  *  @param clientAuthentication USER_TOKEN belonging to the home.
- *  @param homeId               homeId you want to get the info. The home has to be belonged to by the user.
- *  @param completion           Can get a valid MODEHome object when success.
+ *  @param homeId               ID of home with the info you want. The home must belong to a user.
+ *  @param completion           Callback block: MODEHome is valid if successful.
  *
  *  @return
  */
@@ -117,10 +117,10 @@ typedef void(^MODEHomeBlock)(MODEHome*, NSError*);
  *  Update the home with the specified ID. You can change 
  *
  *  @param clientAuthentication USER_TOKEN belonging to the home.
- *  @param homeId               homeId you want to delete. The home has to be belonged to by the user.
+ *  @param homeId               ID of home you want to delete. The home must belong to the user.
  *  @param name                 New name you want to update. If nil, not updated.
  *  @param timezone             New TZ from https://en.wikipedia.org/wiki/List_of_tz_database_time_zones (e.g. "America/Los_Angeles"), if nil, not updated.
- *  @param completion           MODEHome is always nil and NSError will be nil when success.
+ *  @param completion           Callback block: MODEHome is nil.
  *
  *  @return
  */
@@ -131,8 +131,8 @@ typedef void(^MODEHomeBlock)(MODEHome*, NSError*);
  *  Delete the home with the specified ID.
  *
  *  @param clientAuthentication USER_TOKEN belonging to the home.
- *  @param homeId               homeId you want to delete. The home has to be belonged to by the user.
- *  @param completion           MODEHome is always nil and NSError will be nil when success.
+ *  @param homeId               homeId you want to delete. The home must belong to the user.
+ *  @param completion           Callback block: MODEHome is nil.
  *
  *  @return
  */
@@ -149,8 +149,8 @@ typedef void(^MODEHomeMemberBlock)(MODEHomeMember*, NSError*);
  *  Get all members belonging to the specified home.
  *
  *  @param clientAuthentication USER_TOKEN belonging to the home.
- *  @param homeId               homeId you want get the all members belonging to.
- *  @param completion           Can get a valid NSArray of MODEHomeMember if success.
+ *  @param homeId               ID of the home you want a list of members from.
+ *  @param completion           Callback block: NSArray is valid as an array of MODEHomeMember if successful.
  *
  *  @return
  */
@@ -159,12 +159,12 @@ typedef void(^MODEHomeMemberBlock)(MODEHomeMember*, NSError*);
 
 /**
  *  Add a member to the home. The member's phone number must be specified. If the member is not an existing user, the "verified" field of the returned member object will be false.
- *  It is the app's responsibility to send an SMS invite to the invited member.
+ *  The app will send an SMS invite to the new invited member.
  *
  *  @param clientAuthentication USER_TOKEN belonging to the home.
- *  @param homeId               homeID you want to add a member at.
- *  @param phoneNumber          phoneNumber you want to add as a member.
- *  @param completion           Can get the added MODEHomeMember when success.
+ *  @param homeId               ID of home you want to add a member at.
+ *  @param phoneNumber          Phone number of the user you want to add as a member.
+ *  @param completion           Callback block: MODEHomeMember is valid if successful.
  *
  *  @return
  */
@@ -175,9 +175,9 @@ typedef void(^MODEHomeMemberBlock)(MODEHomeMember*, NSError*);
  *  Get the home member with the specified user ID.
  *
  *  @param clientAuthentication USER_TOKEN belonging to the home.
- *  @param homeId               homeId the specified member belongs to.
- *  @param userId               userId you want to get the info.
- *  @param completion           Can get a valid MODEHomeMmber when success.
+ *  @param homeId               ID of home the specified member belongs to.
+ *  @param userId               ID of user you want to get the info.
+ *  @param completion           Callback block: MODEHomeMember is valid if successful.
  *
  *  @return
  */
@@ -188,9 +188,9 @@ typedef void(^MODEHomeMemberBlock)(MODEHomeMember*, NSError*);
  *  Delete the specified user as a member of the home.
  *
  *  @param clientAuthentication USER_TOKEN belonging to the home.
- *  @param homeId               homeId the specified member belongs to.
- *  @param userId               userId you want to delete from the home.
- *  @param completion           MODEHomeMember is always nil and NSError will be nil when success.
+ *  @param homeId               ID of home the specified member belongs to.
+ *  @param userId               ID of user you want to delete from the home.
+ *  @param completion           Callback block: MODEHomeMember is valid if successful.
  *
  *  @return
  */
@@ -207,9 +207,9 @@ typedef void(^MODESmartModuleBlock)(MODESmartModule*, NSError*);
  *  Get the list of Smart Modules available for the home.
  *
  *  @param clientAuthentication USER_TOKEN belonging to the home.
- *  @param homeId               homeId Smart Module belongs to.
+ *  @param homeId               ID of home Smart Module belongs to.
  *  @param moduleId             Smart Module Id.
- *  @param completion           Can get a valid MODESmartModule object when success.
+ *  @param completion           Callback block: MODESmartModule is valid if successful.
  *
  *  @return
  */
@@ -220,11 +220,11 @@ typedef void(^MODESmartModuleBlock)(MODESmartModule*, NSError*);
  *  Issue a command to the specified Smart Module.
  *
  *  @param clientAuthentication USER_TOKEN belonging to the home.
- *  @param homeId               homeId Smart Module belongs to.
- *  @param moduleId             Smart Module Id to which the command issued.
+ *  @param homeId               ID of home Smart Module belongs to.
+ *  @param moduleId             Smart Module Id to which the command was issued.
  *  @param action               Command action name.
  *  @param eventParameters      Event parameters as dictionary. It will be sent as JSON.
- *  @param completion           MODEHomeMember is always nil and NSError will be nil when success.
+ *  @param completion           Callback block: MODESmartModule is nil.
  *
  *  @return
  */
@@ -243,8 +243,8 @@ typedef void(^MODEDeviceBlock)(MODEDevice*, NSError*);
  *  Get a list of devices attached to the home.
  *
  *  @param clientAuthentication USER_TOKEN belonging to the home.
- *  @param homeId               homeId which the devices is beloging to.
- *  @param completion           Can get a valid NSArray of MODEDevice if success.
+ *  @param homeId               ID of home which contains the devices.
+ *  @param completion           Callback block: NSArray is valid as an array of MODEDevice if successful.
  *
  *  @return
  */
@@ -255,8 +255,8 @@ typedef void(^MODEDeviceBlock)(MODEDevice*, NSError*);
  *  Return the device with the specified ID.
  *
  *  @param clientAuthentication USER_TOKEN.
- *  @param deviceId             deviceId you want get the info.
- *  @param completion           Can get a valid MODEDevice object if success.
+ *  @param deviceId             ID of the device with the information you want.
+ *  @param completion           Callback block: MODEDevice is valid if successful.
  *
  *  @return
  */
@@ -268,8 +268,8 @@ typedef void(^MODEDeviceBlock)(MODEDevice*, NSError*);
  *
  *  @param clientAuthentication USER_TOKEN belonging to the home.
  *  @param claimCode            claim code for the device.
- *  @param homeId               Id of the home that the device is added with a successful claim.
- *  @param completion           Can get a valid ModeDevice object if success.
+ *  @param homeId               ID of the home that the device is added with a successful claim.
+ *  @param completion           Callback block: MODEDevice is valid if successful.
  *
  *  @return
  */
@@ -281,9 +281,9 @@ typedef void(^MODEDeviceBlock)(MODEDevice*, NSError*);
  *  Update the device with the specified ID.
  *
  *  @param clientAuthentication USER_TOKEN
- *  @param deviceId             deviceId you want to update the name.
+ *  @param deviceId             ID of device with the name you want to update.
  *  @param name                 New name you want to update.
- *  @param completion           MODEDevice is always nil and NSError will be nil when success.
+ *  @param completion           Callback block: MODEDevice is nil.
  *
  *  @return
  */
@@ -291,11 +291,11 @@ typedef void(^MODEDeviceBlock)(MODEDevice*, NSError*);
           completion:(MODEDeviceBlock)completion;
 
 /**
- *  Update the device with the specified ID.
+ *  Delete the device with the specified ID.
  *
  *  @param clientAuthentication USER_TOKEN
- *  @param deviceId             deviceId you want to delete.
- *  @param completion           MODEDevice is always nil and NSError will be nil when success.
+ *  @param deviceId             ID of device you want to delete.
+ *  @param completion           Callback block: MODEDevice is nil.
  *
  *  @return
  */
@@ -306,10 +306,10 @@ typedef void(^MODEDeviceBlock)(MODEDevice*, NSError*);
  *  Issue a command to the specified device.
  *
  *  @param clientAuthentication USER_TOKEN
- *  @param deviceId             deviceId you want to issue a command to.
+ *  @param deviceId             ID of device you want to issue a command to.
  *  @param action               Event action name.
  *  @param parameters           Event parameters as dictionary. It will be sent as JSON.
- *  @param completion           MODEDevice is always nil and NSError will be nil when success.
+ *  @param completion           Callback block: MODEDevice is nil.
  *
  *  @return
  */
@@ -327,8 +327,8 @@ typedef void(^MODEUserSessionInfoBlock)(MODEUserSessionInfo*, NSError*);
 /**
  *  Get info about the current user session.
  *
- *  @param clientAuthentication USER_TOKEN you want to get the info.
- *  @param completion           Can get a valid MODEUserSessionInfo object when success.
+ *  @param clientAuthentication USER_TOKEN for the session with information you want.
+ *  @param completion           Callback block: MODEUserSessionInfo is valid if successful.
  *
  *  @return
  */
@@ -338,8 +338,8 @@ typedef void(^MODEUserSessionInfoBlock)(MODEUserSessionInfo*, NSError*);
 /**
  *  Terminate a user session. The associated auth token will also be invalidated.
  *
- *  @param clientAuthentication USER_TOKEN you want to terminate.
- *  @param completion           MODEUserSessionInfo is always nil and NSError will be nil when success.
+ *  @param clientAuthentication USER_TOKEN of the session you want to terminate.
+ *  @param completion           Callback block: MODEUserSessionInfo is nil.
  *
  *  @return
  */
@@ -352,11 +352,11 @@ typedef void(^MODEUserSessionInfoBlock)(MODEUserSessionInfo*, NSError*);
 ////////////////////////////////////////////////
 
 /**
- *  Initiate the authentication process by triggering an SMS text to a user. The text contains an auth code for the user to exchange for an authentication token.
+ *  Initiate the authentication process by triggering an SMS text to a user. The text contains an auth code for the user to authenticate their account.
  *
  *  @param projectId   ID of project to which the user belongs.
- *  @param phoneNumber Phone number of user to be authenticated, the phoneNumber has to be registered with createUser API.
- *  @param completion  Can get a valid MODESMSMessageReceipt object when success.
+ *  @param phoneNumber Phone number of the user. The phoneNumber must be registered viar createUser API.
+ *  @param completion  Callback block: MODESMSMessageReceipt is valid if successful.
  *
  *  @return
  */
@@ -367,10 +367,10 @@ typedef void(^MODEUserSessionInfoBlock)(MODEUserSessionInfo*, NSError*);
  *  Exchange the auth code sent to user via SMS for an authentication token.
  *
  *  @param projectId   ID of project to which the user belongs.
- *  @param phoneNumber Phone number of user to be authenticated.
- *  @param appId       ID of the app being used to access the API.
+ *  @param phoneNumber Phone number of the user.
+ *  @param appId       ID of the app accessing the API.
  *  @param code        Auth code sent to user via SMS.
- *  @param completion  Can get a valid MODEClientAuthentication object when success.
+ *  @param completion  Callback block: MODEClientAuthentication is valid if successful.
  *
  *  @return
  */
@@ -381,7 +381,7 @@ typedef void(^MODEUserSessionInfoBlock)(MODEUserSessionInfo*, NSError*);
  *  Test the authentication token used in the HTTP Authorization header of the API request.
  *
  *  @param clientAuthentication USER_TOKEN you want to test.
- *  @param completion           Can get MODEAuthenticationInfo when USER_TOKEN is valid and success to call.
+ *  @param completion           Callback block: MODEAuthenticationInfo is valid if successful.
  *
  *  @return 
  */
