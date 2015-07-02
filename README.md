@@ -32,7 +32,7 @@ pod "MODE-iOSSDK"
 All classes start with `MODE` as prefix.
 
 ### MODEAppAPI
-`MODEAppAPI` is API wrappter class to call `MODE cloud` service from `App`. Each function is corresponding to [each MODE cloud API](http://dev.tinkermode.com/api/api_reference.html).
+`MODEAppAPI.h` defines API wrappter classes to call `MODE cloud` service from `App`. Each function is corresponding to [each MODE cloud API](http://dev.tinkermode.com/api/api_reference.html).
 
 All function call is aysnc, so you need to pass callback function as `Objective-C` block and check `NSError` object when the block is called. Whenever an error happens, `NSError` has non-`nil`. Otherwise it means success to call.
 
@@ -41,7 +41,7 @@ All callback block is called in main GUI thread as default behavior. So you can 
 The detail parameter meaning is written in `ModeApp.h` as comments.
 
 ### MODEData
-`ModeData` is data schema class and each class corresponding to each JSON data at [Data Model Reference](http://dev.tinkermode.com/api/model_reference.html). All JSON data is parsed and stored to each properties as proper type in the class.  But `eventData` in `MODEDeviceEvent` is `NSDictionary`, because it can be defined by developers.
+`ModeData.h` defines data classes and each class corresponding to each JSON data at [Data Model Reference](http://dev.tinkermode.com/api/model_reference.html). All JSON data is parsed and stored to each properties as proper type in the class.  But `eventData` in `MODEDeviceEvent` is `NSDictionary`, because it can be defined by developers.
 
 The classes are sub-classes of `MTLModel`, so you can use nifty [Mantle](https://github.com/Mantle/Mantle) functions.
 
