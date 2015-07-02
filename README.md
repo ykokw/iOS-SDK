@@ -6,9 +6,9 @@
 [![Platform](https://img.shields.io/cocoapods/p/MODE-iOSSDK.svg?style=flat)](http://cocoapods.org/pods/MODE-iOSSDK)
 
 ## Overview
-MODE-iOSDK provides API call wrapper to [MODE cloud](http://www.tinkermode.com) and handles the data to connect between iOS app and devices and smart modules.
+MODE-iOSDK provides API call wrapper to [MODE cloud](http://www.tinkermode.com) and handles the data to connect iOS app, devices and smart modules.
 
-You can write MODE cloud iOS app without this SDK, but it makes developers more easy to use MODE cloud service to communicate each other with IoT devices.
+You can write MODE cloud iOS app without this SDK, but it makes developers easier to use MODE cloud to communicate each other with IoT devices.
 
 ## Usage
 
@@ -32,11 +32,11 @@ pod "MODE-iOSSDK"
 All classes start with `MODE` as prefix.
 
 ### MODEAppAPI
-`MODEAppAPI` is API wrappter class to call MODE cloud service from `App`. Each function is corresponding to [each MODE cloud API](http://dev.tinkermode.com/api/api_reference.html).
+`MODEAppAPI` is API wrappter class to call `MODE cloud` service from `App`. Each function is corresponding to [each MODE cloud API](http://dev.tinkermode.com/api/api_reference.html).
 
-All function call is aysnc, so you need to pass callback function as `Objective-C` block and check `NSError` object when the function is called. Whenever an error happens, `NSError` has `nil`. Otherwise it means success to call.
+All function call is aysnc, so you need to pass callback function as `Objective-C` block and check `NSError` object when the block is called. Whenever an error happens, `NSError` has non-`nil`. Otherwise it means success to call.
 
-All callback block is called in main GUI thread as default behavior. So you can call other UI related API from callback. If you want to change the behavior, please set `EXECUTE_BLOCK_IN_MAIN_THREAD` macro value to `0` in `ModeApp.m`.
+All callback block is called in main GUI thread as default behavior. So you can call other UI related APIs from callback. If you want to change the behavior, please set `EXECUTE_BLOCK_IN_MAIN_THREAD` macro value to `0` in `ModeApp.m`.
 
 The detail parameter meaning is written in `ModeApp.h` as comments.
 
@@ -46,14 +46,14 @@ The detail parameter meaning is written in `ModeApp.h` as comments.
 The classes are sub-classes of `MTLModel`, so you can use nifty [Mantle](https://github.com/Mantle/Mantle) functions.
 
 ### MODEEventListener
-`MODEEventListener` is a class to receive events delivered by `MODE cloud`. So you need to keep connection to `MODE cloud` and don't delete the object while you are waiting for events.
+`MODEEventListener` is a class to receive events delivered by `MODE cloud`. So you need to keep connection to `MODE cloud` and don't delete the object while `App` is waiting for events.
 
 
 ## Simple example
 
-The following is the simple example code to listen the events. The sample code doesn't check errors, so you need more error checks if you want to reuse the code.
+The following is a simple example code to listen to events. The sample code doesn't check errors, so you need more error checks if you want to reuse the code.
 
-You need to define project already on `MODE cloud` console page. Also you need to define `appId` on the page. Here we assume, projectId is `1234` and `appId` is `SampleApp1`
+You need to define project already on `MODE cloud` console page. Also you need to define `appId` on the page. If you want to know detail what are `appId` and `projectId`, please read [Getting Started with MODE](http://dev.tinkermode.com/tutorials/getting_started.html). Here we assume, `projectId` is `1234` and `appId` is `SampleApp1`
 
 ~~~
     // You have to trigger somewhere with button or menu.
@@ -64,7 +64,8 @@ You need to define project already on `MODE cloud` console page. Also you need t
 Then you can get verification code via SMS.
 
 ~~~
-  MODEEventListener* listener = nil; // Maybe you should define as object property.*
+  MODEEventListener* listener = nil; // Maybe you should define as property in the class to keep the object alive.
+
   [MODEAppAPI authenticateWithCode:1234 phoneNumber:@"YOUR PHONE NUMBER" appId:@"SampleApp1" code:@"CODE VIA SMS"
       completion:(void(^)(MODEClientAuthentication* auth, NSError* err)){
 
