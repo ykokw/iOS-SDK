@@ -34,7 +34,7 @@ All classes start with `MODE` as prefix.
 ### MODEAppAPI
 `MODEAppAPI.h` defines API wrappter classes to call `MODE cloud` service from `App`. Each function is corresponding to [each MODE cloud API](http://dev.tinkermode.com/api/api_reference.html).
 
-All function call is aysnc, so you need to pass callback function as `Objective-C` block and check `NSError` object when the block is called. Whenever an error happens, `NSError` has non-`nil`. Otherwise it means success to call.
+All function calls are aysnc, so you need to pass callback function as `Objective-C` block and check `NSError` object when the block is called. Whenever an error happens, `NSError` has non-`nil`. Otherwise it means success to call.
 
 All callback block is called in main GUI thread as default behavior. So you can call other UI related APIs from callback. If you want to change the behavior, please set `EXECUTE_BLOCK_IN_MAIN_THREAD` macro value to `0` in `ModeApp.m`.
 
@@ -53,7 +53,7 @@ The classes are sub-classes of `MTLModel`, so you can use nifty [Mantle](https:/
 
 The following is a simple example code to listen to events. The sample code doesn't check errors, so you need more error checks if you want to reuse the code.
 
-You need to define project already on `MODE cloud` console page. Also you need to define `appId` on the page. If you want to know detail what are `appId` and `projectId`, please read [Getting Started with MODE](http://dev.tinkermode.com/tutorials/getting_started.html). Here we assume, `projectId` is `1234` and `appId` is `SampleApp1`
+You need to define a project on `MODE cloud` console page. Also you need to define `appId` on the page. If you want to know detail what are `appId` and `projectId`, please read [Getting Started with MODE](http://dev.tinkermode.com/tutorials/getting_started.html). Here we assume, `projectId` is `1234` and `appId` is `SampleApp1`
 
 ~~~
     // You have to trigger somewhere with button or menu.
@@ -61,7 +61,7 @@ You need to define project already on `MODE cloud` console page. Also you need t
         completion:(void(^)(MODESMSMessageReceipt* obj, NSError* err)){ /* Need to error check */ };
 ~~~
 
-Then you can get verification code via SMS.
+Then you can get verification code via SMS. Please set the code into the following `CODE VIA SMS`. Then your App can listen to the events coming from devices or Smart Modules.
 
 ~~~
   MODEEventListener* listener = nil; // Maybe you should define as property in the class to keep the object alive.
