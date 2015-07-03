@@ -10,10 +10,6 @@ MODE-iOSDK provides API call wrapper to [MODE cloud](http://www.tinkermode.com) 
 
 You can write MODE cloud iOS app without this SDK, but it makes developers easier to use MODE cloud to communicate each other with IoT devices.
 
-## Usage
-
-To run the example project, clone the repo, and run `pod install` from the Example directory first.
-
 ## Requirements
 
 You need to use the SDK on at least iOS7 platform. The library depends on [Mantle](https://github.com/Mantle/Mantle) and [SocketRocket](https://github.com/square/SocketRocket). See more detail `MODE-iOSSDK.podspec`.
@@ -79,6 +75,10 @@ Then you can get verification code via SMS. Please set the code into the followi
         }];
       }];
 ~~~
+
+## Todo
+
+Example is not implemented.
 
 ## Author
 
