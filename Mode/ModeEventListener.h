@@ -2,14 +2,13 @@
 #import "SRWebSocket.h"
 #import "ModeData.h"
 
-@interface MODEEventListener : NSObject<SRWebSocketDelegate>
-
-@property (nonatomic, strong)SRWebSocket* websocket;
-@property (nonatomic, strong)id <SRWebSocketDelegate> delegate;
-@property (nonatomic, strong)NSURL* url;
-
-@property (nonatomic, assign)int retryWait;
-@property (nonatomic, assign)int fibCounter;
+@interface MODEEventListener : NSObject<SRWebSocketDelegate> {
+    SRWebSocket* websocket;
+    id <SRWebSocketDelegate> delegate;
+    NSURL* url;
+    int retryWait;
+    int fibCounter;
+}
 
 /**
  *  If you want to disable auto-reconnect, set the flag @NO.

@@ -4,6 +4,7 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
 
 @implementation MODEEventListener
 
+
 @synthesize didClose;
 @synthesize didFail;
 @synthesize didOpen;
@@ -34,8 +35,8 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
         self.didOpen();
     }
 
-    self.retryWait = 1;
-    self.fibCounter = 1;
+    retryWait = 1;
+    fibCounter = 1;
 
 }
 
@@ -46,7 +47,7 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
     }
 
     if (self.autoReconnect) {
-        [NSTimer scheduledTimerWithTimeInterval:self.retryWait target:self selector:@selector(reconnect) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:retryWait target:self selector:@selector(reconnect) userInfo:nil repeats:NO];
     }
 }
 
@@ -55,15 +56,15 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
  */
 -(void)reconnect
 {
-    int nextRetry = self.retryWait + self.fibCounter;
+    int nextRetry = retryWait + fibCounter;
     if (nextRetry < 60) {
-        self.fibCounter = self.retryWait;
-        self.retryWait = nextRetry;
+        fibCounter = retryWait;
+        retryWait = nextRetry;
     }
     // this is cyclic reference, but SRWebSocket.delegate is weak reference, so it is fine.
-    self.websocket = [[SRWebSocket alloc] initWithURL:self.url];
-    self.websocket.delegate = self;
-    [self.websocket open];
+    websocket = [[SRWebSocket alloc] initWithURL:url];
+    websocket.delegate = self;
+    [websocket open];
 }
 
 -(void)webSocket:(SRWebSocket *)webSocket didCloseWithCode:(NSInteger)code reason:(NSString *)reason wasClean:(BOOL)wasClean
@@ -73,21 +74,21 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
     }
 
     if (self.autoReconnect) {
-        [NSTimer scheduledTimerWithTimeInterval:self.retryWait target:self selector:@selector(reconnect) userInfo:nil repeats:NO];
+        [NSTimer scheduledTimerWithTimeInterval:retryWait target:self selector:@selector(reconnect) userInfo:nil repeats:NO];
     }
 }
 
 -(MODEEventListener *)initWithClientAuthentication:(MODEClientAuthentication *)clientAuthentication
 {
     self.autoReconnect = @YES;
-    self.retryWait = 1;
-    self.fibCounter = 1;
+    retryWait = 1;
+    fibCounter = 1;
 
     NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
                 NULL, (CFStringRef)clientAuthentication.token, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]",kCFStringEncodingUTF8 ));
 
     // SocketRocket library doesn't allow to pass 'Authorization' HTTP header, so pass the token as URL param. 
-    self.url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"%@?authToken=%@", ModeWebsocketURL, encodedString]];
+    url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"%@?authToken=%@", ModeWebsocketURL, encodedString]];
 
     return self;
 }
@@ -98,19 +99,19 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
     self.didReceive = didReceiveLocal;
 
     // this is cyclic reference, but SRWebSocket.delegate is weak reference, so it is fine.
-    self.websocket = [[SRWebSocket alloc] initWithURL:self.url];
-    self.websocket.delegate = self;
-    [self.websocket open];
+    websocket = [[SRWebSocket alloc] initWithURL:url];
+    websocket.delegate = self;
+    [websocket open];
 
     return self;
 }
 
 - (void)stopListenToEvents
 {
-    [self.websocket close];
-    self.websocket = nil;
-    self.retryWait = 1;
-    self.fibCounter = 1;
+    [websocket close];
+    websocket = nil;
+    retryWait = 1;
+    fibCounter = 1;
 }
 
 @end
