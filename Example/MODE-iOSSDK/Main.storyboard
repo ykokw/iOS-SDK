@@ -49,7 +49,8 @@
                     </view>
                     <navigationItem key="navigationItem" id="kDY-dj-mQf"/>
                     <connections>
-                        <segue destination="HVX-T4-fJz" kind="push" identifier="BypassSignUpSegue" id="VJ2-Rb-8I4"/>
+                        <segue destination="HVX-T4-fJz" kind="push" identifier="BypassCongratzSegue" id="VJ2-Rb-8I4"/>
+                        <segue destination="f6O-Dq-1Lv" kind="push" identifier="BypassSignUpSegue" id="Zu0-Q4-fzh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mL5-uE-rdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -146,35 +147,72 @@
             </objects>
             <point key="canvasLocation" x="672" y="389"/>
         </scene>
-        <!--View Controller-->
+        <!--Congratz View Controller-->
         <scene sceneID="45j-P5-xNL">
             <objects>
-                <viewController id="f6O-Dq-1Lv" sceneMemberID="viewController">
+                <viewController id="f6O-Dq-1Lv" customClass="CongratzViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GJ8-IB-S3N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="Euw-el-Fsd"/>
+                    <navigationItem key="navigationItem" id="Euw-el-Fsd">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="GAk-4Q-k6Z">
+                            <connections>
+                                <action selector="handleNext:" destination="f6O-Dq-1Lv" id="zrI-BZ-Xa5"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <segue destination="HVX-T4-fJz" kind="push" identifier="AddDevicesSegue" id="oNx-c2-bhl"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8F-Nr-XsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057" y="389"/>
+            <point key="canvasLocation" x="1071" y="943"/>
         </scene>
         <!--Add devices-->
         <scene sceneID="Zmq-Fl-whk">
             <objects>
-                <viewController id="HVX-T4-fJz" sceneMemberID="viewController">
+                <viewController id="HVX-T4-fJz" customClass="AddDevicesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ESy-au-i5Q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="CRg-Cs-zhp">
+                                <rect key="frame" x="55" y="262" width="210" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="0.0" maxX="200" maxY="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EGj-EE-f2y">
+                                <rect key="frame" x="65" y="134" width="200" height="105"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="XNB-1u-TRI">
+                                <rect key="frame" x="37" y="380" width="256" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Next">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleNext:" destination="HVX-T4-fJz" eventType="touchUpInside" id="IUd-zs-Vr3"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add devices" id="und-Nb-avA"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xj9-jv-2dx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057" y="1044"/>
+            <point key="canvasLocation" x="1057" y="1693"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EXK-Gf-3Ia">
@@ -201,4 +239,8 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="iKu-R9-eIc"/>
+        <segue reference="oNx-c2-bhl"/>
+    </inferredMetricsTieBreakers>
 </document>

@@ -1,13 +1,15 @@
-//
-//  DataHolder.h
-//  MODE-iOSSDK
-//
-//  Created by TakanoNaoki on 7/6/15.
-//  Copyright (c) 2015 Naoki Takano. All rights reserved.
-//
-
 #import <Foundation/Foundation.h>
 #import "MODEData.h"
+
+#import "Mantle.h"
+
+@interface DataHolderMembers : MTLModel<MTLJSONSerializing>
+
+@property (strong, nonatomic) NSString* userName;
+@property (strong, nonatomic) NSString* phoneNumber;
+@property (assign, nonatomic) int homeId;
+
+@end
 
 @interface DataHolder : NSObject
 
@@ -17,9 +19,7 @@
 @property (strong, nonatomic) NSString* appId;
 
 @property (strong, nonatomic) MODEClientAuthentication* clientAuth;
-@property (strong, nonatomic) NSString* userName;
-@property (strong, nonatomic) NSString* phoneNumber;
-
+@property (strong, nonatomic) DataHolderMembers* members;
 
 -(void) saveData;
 -(void) loadData;

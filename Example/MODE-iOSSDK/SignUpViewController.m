@@ -49,8 +49,8 @@
     [MODEAppAPI createUser:data.projectId phoneNumber:self.phoneNumberField.text name:self.nameField.text
                 completion:^(MODEUser *user, NSError *err) {
                     if (err == nil) {
-                        data.userName = self.nameField.text;
-                        data.phoneNumber = self.phoneNumberField.text;
+                        data.members.userName = self.nameField.text;
+                        data.members.phoneNumber = self.phoneNumberField.text;
                         [self performSegueWithIdentifier:@"VerifyAccountSegue" sender:self];
             
                     } else {

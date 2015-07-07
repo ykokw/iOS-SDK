@@ -35,7 +35,7 @@
 - (IBAction)handleNext:(id)sender {
     DataHolder* data = [DataHolder sharedInstance];
     
-    [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.phoneNumber appId:data.appId code:self.verificationCodeField.text
+    [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
                           completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
                               if (err == nil) {
                                   data.clientAuth = clientAuth;

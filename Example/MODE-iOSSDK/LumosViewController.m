@@ -17,7 +17,8 @@
     // Do any additional setup after loading the view, typically from a nib.
 
     if ( [[DataHolder sharedInstance] clientAuth] != nil ) {
-        [self performSegueWithIdentifier:@"BypassSignUpSegue" sender:self];
+        NSString* segue = [DataHolder sharedInstance].members.homeId == 0 ? @"BypassSignUpSegue" : @"BypassCongratzSegue";
+        [self performSegueWithIdentifier:segue sender:self];
     }
 }
 
