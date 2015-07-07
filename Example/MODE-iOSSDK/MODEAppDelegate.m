@@ -1,11 +1,3 @@
-//
-//  MODEAppDelegate.m
-//  MODE-iOSSDK
-//
-//  Created by CocoaPods on 06/29/2015.
-//  Copyright (c) 2014 Naoki Takano. All rights reserved.
-//
-
 #import "MODEAppDelegate.h"
 #import "DataHolder.h"
 

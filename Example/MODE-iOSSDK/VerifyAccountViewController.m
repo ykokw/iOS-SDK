@@ -42,7 +42,7 @@
                                   
                                   [data saveData];
                                   
-                                  [self performSegueWithIdentifier:@"CongratzSegue" sender:self];
+                                  [self performSegueWithIdentifier:@"RegisteredSegue" sender:self];
                               } else {
                                   showAlert(err);
                               }

@@ -49,7 +49,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="kDY-dj-mQf"/>
                     <connections>
-                        <segue destination="HVX-T4-fJz" kind="push" identifier="BypassCongratzSegue" id="VJ2-Rb-8I4"/>
+                        <segue destination="HVX-T4-fJz" kind="push" identifier="BypassRegisteredSegue" id="VJ2-Rb-8I4"/>
                         <segue destination="f6O-Dq-1Lv" kind="push" identifier="BypassSignUpSegue" id="Zu0-Q4-fzh"/>
                     </connections>
                 </viewController>
@@ -140,17 +140,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="verificationCodeField" destination="EqS-DP-Rdt" id="goS-KD-9Y2"/>
-                        <segue destination="f6O-Dq-1Lv" kind="push" identifier="CongratzSegue" id="iKu-R9-eIc"/>
+                        <segue destination="f6O-Dq-1Lv" kind="push" identifier="RegisteredSegue" id="iKu-R9-eIc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bcw-Ll-gUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="672" y="389"/>
         </scene>
-        <!--Congratz View Controller-->
+        <!--Registered View Controller-->
         <scene sceneID="45j-P5-xNL">
             <objects>
-                <viewController id="f6O-Dq-1Lv" customClass="CongratzViewController" sceneMemberID="viewController">
+                <viewController id="f6O-Dq-1Lv" customClass="RegisteredViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GJ8-IB-S3N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -159,7 +159,7 @@
                     <navigationItem key="navigationItem" id="Euw-el-Fsd">
                         <barButtonItem key="rightBarButtonItem" title="Next" id="GAk-4Q-k6Z">
                             <connections>
-                                <action selector="handleNext:" destination="f6O-Dq-1Lv" id="zrI-BZ-Xa5"/>
+                                <action selector="handleNext:" destination="f6O-Dq-1Lv" id="EFm-dJ-jRA"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -209,10 +209,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add devices" id="und-Nb-avA"/>
+                    <connections>
+                        <segue destination="YCA-Ap-At1" kind="push" id="9Rw-st-cK7"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xj9-jv-2dx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057" y="1693"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="RuW-ed-klF">
+            <objects>
+                <viewController id="YCA-Ap-At1" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Zp3-mg-qtm">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="J0j-OW-CKa"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2oD-ko-9J5" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1516" y="1685"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EXK-Gf-3Ia">

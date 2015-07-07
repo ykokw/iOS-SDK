@@ -1,4 +1,3 @@
-
 #import "AddDevicesViewController.h"
 #import "ModeApp.h"
 #import "Utils.h"
@@ -15,23 +14,19 @@
 - (IBAction)handleNext:(id)sender {
     DataHolder* data = [DataHolder sharedInstance];
 //    
-//    MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:data.homeId completion:^(MODEDevice *, NSError *) {
-//        
-//        
+//    MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:data.members.homeId
+//        completion:^(MODEDevice *device, NSError *err) {
+//            if (err == nil) {
+//                data.clientAuth = clientAuth;
+//                
+//                [data saveData];
+//                
+//                [self performSegueWithIdentifier:@"CongratzSegue" sender:self];
+//            } else {
+//                showAlert(err);
+//            }
+//            
 //    }
-//    
-//    [MODEAppAPI cl:data.projectId phoneNumber:data.phoneNumber appId:data.appId code:self.verificationCodeField.text
-//                          completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
-//                              if (err == nil) {
-//                                  data.clientAuth = clientAuth;
-//                                  
-//                                  [data saveData];
-//                                  
-//                                  [self performSegueWithIdentifier:@"CongratzSegue" sender:self];
-//                              } else {
-//                                  showAlert(err);
-//                              }
-//                          }];
 
 }
 

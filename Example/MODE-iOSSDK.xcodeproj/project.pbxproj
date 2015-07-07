@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		212A69151B4C46DC00D5DAEE /* LumosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A69141B4C46DC00D5DAEE /* LumosViewController.m */; };
 		212A691B1B4C499C00D5DAEE /* AddDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A691A1B4C499C00D5DAEE /* AddDevicesViewController.m */; };
-		212A691E1B4C4C5A00D5DAEE /* CongratzViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A691D1B4C4C5A00D5DAEE /* CongratzViewController.m */; };
+		212A69211B4C5E1D00D5DAEE /* RegisteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A69201B4C5E1D00D5DAEE /* RegisteredViewController.m */; };
 		219841B11B4B526C00F57B09 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B01B4B526C00F57B09 /* SignUpViewController.m */; };
 		219841B41B4B5B6200F57B09 /* DataHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B31B4B5B6200F57B09 /* DataHolder.m */; };
 		219841B61B4C35E600F57B09 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B51B4C35E600F57B09 /* Utils.m */; };
@@ -48,8 +48,8 @@
 		212A69141B4C46DC00D5DAEE /* LumosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LumosViewController.m; sourceTree = "<group>"; };
 		212A69191B4C499C00D5DAEE /* AddDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDevicesViewController.h; sourceTree = "<group>"; };
 		212A691A1B4C499C00D5DAEE /* AddDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDevicesViewController.m; sourceTree = "<group>"; };
-		212A691C1B4C4C5A00D5DAEE /* CongratzViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CongratzViewController.h; sourceTree = "<group>"; };
-		212A691D1B4C4C5A00D5DAEE /* CongratzViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CongratzViewController.m; sourceTree = "<group>"; };
+		212A691F1B4C5E1D00D5DAEE /* RegisteredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisteredViewController.h; sourceTree = "<group>"; };
+		212A69201B4C5E1D00D5DAEE /* RegisteredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisteredViewController.m; sourceTree = "<group>"; };
 		219841AF1B4B526C00F57B09 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		219841B01B4B526C00F57B09 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		219841B21B4B5B6200F57B09 /* DataHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHolder.h; sourceTree = "<group>"; };
@@ -170,8 +170,8 @@
 				212A69141B4C46DC00D5DAEE /* LumosViewController.m */,
 				212A69191B4C499C00D5DAEE /* AddDevicesViewController.h */,
 				212A691A1B4C499C00D5DAEE /* AddDevicesViewController.m */,
-				212A691C1B4C4C5A00D5DAEE /* CongratzViewController.h */,
-				212A691D1B4C4C5A00D5DAEE /* CongratzViewController.m */,
+				212A691F1B4C5E1D00D5DAEE /* RegisteredViewController.h */,
+				212A69201B4C5E1D00D5DAEE /* RegisteredViewController.m */,
 			);
 			name = "Example for MODE-iOSSDK";
 			path = "MODE-iOSSDK";
@@ -427,8 +427,8 @@
 			files = (
 				219841B41B4B5B6200F57B09 /* DataHolder.m in Sources */,
 				6003F59E195388D20070C39A /* MODEAppDelegate.m in Sources */,
-				212A691E1B4C4C5A00D5DAEE /* CongratzViewController.m in Sources */,
 				219841BA1B4C38A300F57B09 /* VerifyAccountViewController.m in Sources */,
+				212A69211B4C5E1D00D5DAEE /* RegisteredViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* MODEViewController.m in Sources */,
 				219841B61B4C35E600F57B09 /* Utils.m in Sources */,
 				212A691B1B4C499C00D5DAEE /* AddDevicesViewController.m in Sources */,

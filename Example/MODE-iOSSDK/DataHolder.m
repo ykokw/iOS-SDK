@@ -111,33 +111,6 @@ id loadObj(NSString* key, Class class) {
 {
     self.clientAuth = loadObj(@"auth", MODEClientAuthentication.class);
     self.members = loadObj(@"members", DataHolderMembers.class);
-    
-//    if ([[NSUserDefaults standardUserDefaults] objectForKey:@"auth"])
-//    {
-//        NSString* str = [[NSUserDefaults standardUserDefaults] objectForKey:@"auth"];
-//        
-//        NSLog(@"loaded: %@", str);
-//        
-//        NSError *err;
-//        NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
-//        NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
-//        
-//        MODEClientAuthentication* auth = [MTLJSONAdapter modelOfClass:MODEClientAuthentication.class fromJSONDictionary:dict error:&err];
-//        
-//        if (err) {
-//            NSLog(@"%@", err);
-//        }
-//        
-//        if (auth) {
-//            NSLog(@"Auth %@", auth);
-//        }
-//        
-//        self.clientAuth = auth;
-//    }
-//    else
-//    {
-//        NSLog(@"You need to autheticate first");
-//    }
 }
 
 @end
