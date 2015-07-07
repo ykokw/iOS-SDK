@@ -210,7 +210,8 @@
                     </view>
                     <navigationItem key="navigationItem" title="Add devices" id="und-Nb-avA"/>
                     <connections>
-                        <segue destination="YCA-Ap-At1" kind="push" id="9Rw-st-cK7"/>
+                        <outlet property="verificationCodeField" destination="CRg-Cs-zhp" id="5oB-bx-Gqh"/>
+                        <segue destination="YCA-Ap-At1" kind="push" identifier="CongratzSegue" id="9Rw-st-cK7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xj9-jv-2dx" userLabel="First Responder" sceneMemberID="firstResponder"/>
