@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
 
-@interface VerifyAccountViewController : UIViewController<UITextFieldDelegate>
+@interface VerifyAccountViewController : UIViewController
 
 @end

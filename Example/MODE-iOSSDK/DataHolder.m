@@ -109,9 +109,9 @@ id loadObj(NSString* key, Class class) {
 
 -(void)loadData
 {
-    self.clientAuth = loadObj(@"auth", MODEClientAuthentication.class);
-    self.members = loadObj(@"members", DataHolderMembers.class);
-    self.targetDevice = loadObj(@"targetDevice", MODEDevice.class);
+//    self.clientAuth = loadObj(@"auth", MODEClientAuthentication.class);
+//    self.members = loadObj(@"members", DataHolderMembers.class);
+//    self.targetDevice = loadObj(@"targetDevice", MODEDevice.class);
 }
 
 @end

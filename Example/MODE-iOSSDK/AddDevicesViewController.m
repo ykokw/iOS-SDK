@@ -6,6 +6,7 @@
 @interface AddDevicesViewController ()
 
 @property(strong, nonatomic) IBOutlet UITextField* verificationCodeField;
+@property(strong, nonatomic) NumericTextFieldDelegate* numericDelegate;
 
 @end
 
@@ -16,12 +17,8 @@
 {
     self.navigationItem.hidesBackButton = YES;
     self.verificationCodeField.keyboardType = UIKeyboardTypeNumberPad;
-    self.verificationCodeField.delegate = self;
-}
-
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
-    NSCharacterSet *nonNumberSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
-    return ([string stringByTrimmingCharactersInSet:nonNumberSet].length > 0) || [string isEqualToString:@""];
+    self.numericDelegate = [[NumericTextFieldDelegate alloc] init];
+    self.verificationCodeField.delegate = self.numericDelegate;
 }
 
 - (IBAction)handleNext:(id)sender {

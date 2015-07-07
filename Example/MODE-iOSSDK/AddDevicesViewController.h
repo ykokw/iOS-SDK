@@ -1,5 +1,4 @@
 #import <UIKit/UIKit.h>
 
-@interface AddDevicesViewController : UIViewController<UITextFieldDelegate>
-
+@interface AddDevicesViewController : UIViewController
 @end
