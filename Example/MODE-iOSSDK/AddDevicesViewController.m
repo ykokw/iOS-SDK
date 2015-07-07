@@ -11,6 +11,19 @@
 
 @implementation AddDevicesViewController
 
+
+- (void)viewDidLoad
+{
+    self.navigationItem.hidesBackButton = YES;
+    self.verificationCodeField.keyboardType = UIKeyboardTypeNumberPad;
+    self.verificationCodeField.delegate = self;
+}
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    NSCharacterSet *nonNumberSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+    return ([string stringByTrimmingCharactersInSet:nonNumberSet].length > 0) || [string isEqualToString:@""];
+}
+
 - (IBAction)handleNext:(id)sender {
     DataHolder* data = [DataHolder sharedInstance];
     

@@ -5,6 +5,12 @@
 
 @implementation RegisteredViewController
 
+
+- (void)viewDidLoad
+{
+    self.navigationItem.hidesBackButton = YES;
+}
+
 - (IBAction)handleNext:(id)sender {
     DataHolder* data = [DataHolder sharedInstance];
     
