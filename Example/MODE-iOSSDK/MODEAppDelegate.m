@@ -7,12 +7,14 @@
 //
 
 #import "MODEAppDelegate.h"
+#import "DataHolder.h"
 
 @implementation MODEAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     // Override point for customization after application launch.
+    [[DataHolder sharedInstance] loadData];
     return YES;
 }
 							

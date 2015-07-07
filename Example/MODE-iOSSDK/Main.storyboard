@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Lumos View Controller-->
         <scene sceneID="3nQ-xT-1jA">
             <objects>
-                <viewController id="xWX-b4-Ikw" sceneMemberID="viewController">
+                <viewController id="xWX-b4-Ikw" customClass="LumosViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ojv-6h-sTs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -48,6 +48,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="kDY-dj-mQf"/>
+                    <connections>
+                        <segue destination="HVX-T4-fJz" kind="push" identifier="BypassSignUpSegue" id="VJ2-Rb-8I4"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mL5-uE-rdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -157,6 +160,21 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8F-Nr-XsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1057" y="389"/>
+        </scene>
+        <!--Add devices-->
+        <scene sceneID="Zmq-Fl-whk">
+            <objects>
+                <viewController id="HVX-T4-fJz" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="ESy-au-i5Q">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Add devices" id="und-Nb-avA"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xj9-jv-2dx" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1057" y="1044"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EXK-Gf-3Ia">

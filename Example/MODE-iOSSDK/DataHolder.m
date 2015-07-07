@@ -17,7 +17,7 @@
     {
         self.projectId = 3; // set you projectID here.
         self.appId = @"app1";
-        self.clientAuth = [[MODEClientAuthentication alloc] init];
+//        self.clientAuth = [[MODEClientAuthentication alloc] init];
     }
     return self;
 }
