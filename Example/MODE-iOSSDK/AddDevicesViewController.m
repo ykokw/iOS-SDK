@@ -3,6 +3,7 @@
 #import "Utils.h"
 #import "DataHolder.h"
 #import "Messages.h"
+#import "OverlayViewProtocol.h"
 
 @interface AddDevicesViewController ()
 
@@ -24,21 +25,28 @@
     self.verificationCodeField.delegate = self.numericDelegate;
     
     setupMessage(self.message, MESSAGE_ADD_DEVICES);
+    setupOverlayView(self.navigationController, @"Setting up home...");
+}
+
+- (void)removeOverlayViews
+{
+    removeOverlayViewSub(self.navigationController);
 }
 
 - (IBAction)handleNext:(id)sender
 {
+    [self performSegueWithIdentifier:@"CongratzSegue" sender:self];
+
     DataHolder* data = [DataHolder sharedInstance];
     
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:data.members.homeId
         completion:^(MODEDevice *device, NSError *err) {
             if (err == nil) {
-                
                 data.targetDevice = device;
                 [data saveData];
-                
-                [self performSegueWithIdentifier:@"CongratzSegue" sender:self];
             } else {
+                // You need to rollback because auth failed.
+                [self.navigationController popToViewController:self animated:YES];
                 showAlert(err);
             }
             

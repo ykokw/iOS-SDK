@@ -25,14 +25,13 @@
 - (IBAction)handleNext:(id)sender
 {
     DataHolder* data = [DataHolder sharedInstance];
-    
+
+    data.members.phoneNumber = self.phoneNumberField.text;
+    [self performSegueWithIdentifier:@"AuthenticateAccountSegue" sender:self];
+
     [MODEAppAPI initiateAuthenticationWithSMS:data.projectId phoneNumber:self.phoneNumberField.text
             completion:^(MODESMSMessageReceipt *receipt, NSError *err) {
-                if (err == nil) {
-                    data.members.phoneNumber = receipt.recipient;
-                    [self performSegueWithIdentifier:@"AuthenticateAccountSegue" sender:self];
-                    
-                } else {
+                if (err != nil) {
                     showAlert(err);
                 }
     }];

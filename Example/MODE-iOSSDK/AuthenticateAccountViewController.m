@@ -3,6 +3,7 @@
 #import "DataHolder.h"
 #import "Utils.h"
 #import "Messages.h"
+#import "OverlayViewProtocol.h"
 
 @interface AuthenticateAccountViewController ()
 
@@ -24,10 +25,15 @@
 
 - (IBAction)handleNext:(id)sender
 {
+    setupOverlayView(self.navigationController, @"Verifying...");
+    
     DataHolder* data = [DataHolder sharedInstance];
 
     [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
                           completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
+                              
+                              removeOverlayViewSub(self.navigationController);
+                              
                               if (err == nil) {
                                   data.clientAuth = clientAuth;
                                   

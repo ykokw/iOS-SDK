@@ -8,8 +8,7 @@
     [super viewDidLoad];
     
     if ( [[DataHolder sharedInstance] clientAuth].token != nil ) {
-        DataHolder* data = [DataHolder sharedInstance];
-        NSString* segue = [DataHolder sharedInstance].members.homeId == 0 ? @"BypassSignUpSegue" : @"@console";
+         NSString* segue = [DataHolder sharedInstance].members.homeId == 0 ? @"BypassSignUpSegue" : @"@console";
         [self performSegueWithIdentifier:segue sender:self];
     }
 }

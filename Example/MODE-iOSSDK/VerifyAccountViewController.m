@@ -3,6 +3,7 @@
 #import "DataHolder.h"
 #import "Utils.h"
 #import "Messages.h"
+#import "OverlayViewProtocol.h"
 
 @interface VerifyAccountViewController ()
 
@@ -24,17 +25,27 @@
 
 - (IBAction)handleNext:(id)sender
 {
+    [self performSegueWithIdentifier:@"RegisteredSegue" sender:self];
+}
+
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+{
     DataHolder* data = [DataHolder sharedInstance];
+    
+    UIViewController<OverlayViewProtocol> *destVC = [segue destinationViewController];
     
     [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
                           completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
+                              
+                              [destVC removeOverlayViews];
+                              
                               if (err == nil) {
                                   data.clientAuth = clientAuth;
-                                  
                                   [data saveData];
                                   
-                                  [self performSegueWithIdentifier:@"RegisteredSegue" sender:self];
                               } else {
+                                  // You need to rollback because auth failed.
+                                  [self.navigationController popToViewController:self animated:YES];
                                   showAlert(err);
                               }
                           }];
