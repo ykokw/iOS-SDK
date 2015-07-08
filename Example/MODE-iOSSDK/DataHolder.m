@@ -1,13 +1,4 @@
-//
-//  DataHolder.m
-//  MODE-iOSSDK
-//
-//  Created by TakanoNaoki on 7/6/15.
-//  Copyright (c) 2015 Naoki Takano. All rights reserved.
-//
-
 #import "DataHolder.h"
-
 
 @implementation DataHolderMembers
 
@@ -109,9 +100,9 @@ id loadObj(NSString* key, Class class) {
 
 -(void)loadData
 {
-//    self.clientAuth = loadObj(@"auth", MODEClientAuthentication.class);
-//    self.members = loadObj(@"members", DataHolderMembers.class);
-//    self.targetDevice = loadObj(@"targetDevice", MODEDevice.class);
+    self.clientAuth = loadObj(@"auth", MODEClientAuthentication.class);
+    self.members = loadObj(@"members", DataHolderMembers.class);
+    self.targetDevice = loadObj(@"targetDevice", MODEDevice.class);
 }
 
 @end

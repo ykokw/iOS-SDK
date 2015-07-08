@@ -1,6 +1,4 @@
-#import <Foundation/Foundation.h>
 #import "MODEData.h"
-
 #import "Mantle.h"
 
 @interface DataHolderMembers : MTLModel<MTLJSONSerializing>
