@@ -17,11 +17,7 @@
     [super viewDidLoad];
 
     [self.nameField setPlaceholder:@"Name"];
-    [self.phoneNumberField setPlaceholder:@"Phonenumber"];
-
-    self.phoneNumberField.keyboardType = UIKeyboardTypeNumberPad;
-    self.phoneNumberDelegate = [[PhoneNumberFieldDelegate alloc] initWithTextField:self.phoneNumberField];
-    self.phoneNumberField.delegate = self.phoneNumberDelegate;
+     self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
 }
 
 - (IBAction)handleNext:(id)sender {

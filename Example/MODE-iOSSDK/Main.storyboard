@@ -258,17 +258,11 @@
         <!--Log In-->
         <scene sceneID="9MD-nd-4R2">
             <objects>
-                <viewController id="Dcr-ej-Qex" sceneMemberID="viewController">
+                <viewController id="Dcr-ej-Qex" customClass="LoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Fe-K3-Ixk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="p64-KE-O6j">
-                                <rect key="frame" x="50" y="202" width="221" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2eY-El-X21">
                                 <rect key="frame" x="104" y="129" width="113" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -276,28 +270,78 @@
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="p64-KE-O6j">
+                                <rect key="frame" x="50" y="202" width="221" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Log In" id="b3O-e5-C48"/>
+                    <navigationItem key="navigationItem" title="Log In" id="b3O-e5-C48">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="q16-au-OeV">
+                            <connections>
+                                <action selector="handleNext:" destination="Dcr-ej-Qex" id="s46-1E-QPj"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="phoneNumberField" destination="p64-KE-O6j" id="vFU-5u-G7c"/>
+                        <segue destination="ZB1-S3-Zf2" kind="push" identifier="AuthenticateAccountSegue" id="Qrb-ff-O7J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k5N-zm-ABe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-494" y="1282"/>
         </scene>
-        <!--View Controller-->
+        <!--Authenticate Account-->
         <scene sceneID="dew-E7-d5c">
             <objects>
-                <viewController id="ZB1-S3-Zf2" sceneMemberID="viewController">
+                <viewController id="ZB1-S3-Zf2" customClass="AuthenticateAccountViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ayr-qj-GVv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="aMC-jp-AKh">
+                                <rect key="frame" x="50" y="208" width="221" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Authenticate Account" id="SZd-8D-fsh">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="xgZ-Y2-6nf">
+                            <connections>
+                                <action selector="handleNext:" destination="ZB1-S3-Zf2" id="uFg-Ds-uif"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="verificationCodeField" destination="aMC-jp-AKh" id="bJv-Nz-nVA"/>
+                        <segue destination="if3-rQ-Zbo" kind="push" identifier="AuthenticatedSegue" id="dzl-tM-zvx"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ms9-bj-5Ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-65" y="1282"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="UNm-nV-qhV">
+            <objects>
+                <viewController id="if3-rQ-Zbo" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Lxe-91-dpc">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WeX-ze-xGY"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ucM-ET-EL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="321" y="1282"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

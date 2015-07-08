@@ -1,27 +1,27 @@
-#import "VerifyAccountViewController.h"
+#import "AuthenticateAccountViewController.h"
 #import "MODEApp.h"
 #import "DataHolder.h"
 #import "Utils.h"
 
-@interface VerifyAccountViewController ()
+@interface AuthenticateAccountViewController ()
 
 @property(strong, nonatomic) IBOutlet UITextField* verificationCodeField;
 @property(strong, nonatomic) NumericTextFieldDelegate* numericDelegate;
 
 @end
 
-@implementation VerifyAccountViewController
+@implementation AuthenticateAccountViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Verification Code");
+    self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Authentication Code");
 }
 
 - (IBAction)handleNext:(id)sender {
     DataHolder* data = [DataHolder sharedInstance];
-    
+
     [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
                           completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
                               if (err == nil) {

@@ -14,6 +14,27 @@ void showAlert(NSError* err) {
 
 }
 
+NumericTextFieldDelegate* setupNumericTextField(UITextField* numericField, NSString* name)
+{
+    [numericField setPlaceholder:name];
+    numericField.keyboardType = UIKeyboardTypeNumberPad;
+    NumericTextFieldDelegate* numericDelegate = [[NumericTextFieldDelegate alloc] init];
+    numericField.delegate = numericDelegate;
+
+    return numericDelegate;
+}
+
+PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* phoneNumberField)
+{
+    [phoneNumberField setPlaceholder:@"Phonenumber"];
+    
+    phoneNumberField.keyboardType = UIKeyboardTypeNumberPad;
+    PhoneNumberFieldDelegate* phoneNumberDelegate = [[PhoneNumberFieldDelegate alloc] initWithTextField:phoneNumberField];
+    phoneNumberField.delegate = phoneNumberDelegate;
+
+    return phoneNumberDelegate;
+}
+
 
 @implementation NumericTextFieldDelegate
 
