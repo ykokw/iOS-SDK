@@ -2,9 +2,11 @@
 #import "MODEApp.h"
 #import "DataHolder.h"
 #import "Utils.h"
+#import "Messages.h"
 
 @interface AuthenticateAccountViewController ()
 
+@property(strong, nonatomic) IBOutlet UILabel* message;
 @property(strong, nonatomic) IBOutlet UITextField* verificationCodeField;
 @property(strong, nonatomic) NumericTextFieldDelegate* numericDelegate;
 
@@ -17,6 +19,7 @@
     // Do any additional setup after loading the view.
     
     self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Authentication Code");
+    setupMessage(self.message, MESSAGE_VERIFY_YOU);
 }
 
 - (IBAction)handleNext:(id)sender {
@@ -34,6 +37,19 @@
                                   showAlert(err);
                               }
                           }];
+}
+
+- (IBAction)handleResend:(id)sender {
+
+    DataHolder* data = [DataHolder sharedInstance];
+    
+    [MODEAppAPI initiateAuthenticationWithSMS:data.projectId phoneNumber:data.members.phoneNumber
+                                   completion:^(MODESMSMessageReceipt *receipt, NSError *err) {
+        if (err != nil) {
+            showAlert(err);
+        }
+    }];
+
 }
 
 @end

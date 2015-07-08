@@ -64,6 +64,7 @@
 		219841B71B4C363B00F57B09 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		219841B81B4C38A300F57B09 /* VerifyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyAccountViewController.h; sourceTree = "<group>"; };
 		219841B91B4C38A300F57B09 /* VerifyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyAccountViewController.m; sourceTree = "<group>"; };
+		21C16CD61B4CAFAD00D58890 /* Messages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Messages.h; sourceTree = "<group>"; };
 		2DFF3826F5A3A2128C83B9FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		47B286A23B4CB7AFC0DD9486 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* MODE-iOSSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MODE-iOSSDK_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -182,6 +183,7 @@
 				212A69201B4C5E1D00D5DAEE /* RegisteredViewController.m */,
 				212A692B1B4C8F9600D5DAEE /* AuthenticateAccountViewController.h */,
 				212A692C1B4C8F9600D5DAEE /* AuthenticateAccountViewController.m */,
+				21C16CD61B4CAFAD00D58890 /* Messages.h */,
 			);
 			name = "Example for MODE-iOSSDK";
 			path = "MODE-iOSSDK";

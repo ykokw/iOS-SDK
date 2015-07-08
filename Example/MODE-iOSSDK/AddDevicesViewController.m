@@ -2,9 +2,11 @@
 #import "ModeApp.h"
 #import "Utils.h"
 #import "DataHolder.h"
+#import "Messages.h"
 
 @interface AddDevicesViewController ()
 
+@property(strong, nonatomic) IBOutlet UILabel* message;
 @property(strong, nonatomic) IBOutlet UITextField* verificationCodeField;
 @property(strong, nonatomic) NumericTextFieldDelegate* numericDelegate;
 
@@ -19,6 +21,8 @@
     self.verificationCodeField.keyboardType = UIKeyboardTypeNumberPad;
     self.numericDelegate = [[NumericTextFieldDelegate alloc] init];
     self.verificationCodeField.delegate = self.numericDelegate;
+    
+    setupMessage(self.message, MESSAGE_ADD_DEVICES);
 }
 
 - (IBAction)handleNext:(id)sender {

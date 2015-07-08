@@ -124,13 +124,24 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="sent sms" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GeM-Wu-eKy">
-                                <rect key="frame" x="65" y="141" width="200" height="105"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great! We just texted yoyu a code via SMS - Enter the code to prove you're a real person." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="GeM-Wu-eKy">
+                                <rect key="frame" x="60" y="133" width="200" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="i9i-FR-R29">
+                                <rect key="frame" x="55" y="332" width="197" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Resend Authentication Code">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleResend:" destination="7Fs-y1-ANo" eventType="touchUpInside" id="W3r-BV-fYh"/>
+                                    <action selector="handleResend:" destination="ZB1-S3-Zf2" eventType="touchUpInside" id="ewc-nC-bnY"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -142,6 +153,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="message" destination="GeM-Wu-eKy" id="qrZ-Yf-WAN"/>
                         <outlet property="verificationCodeField" destination="EqS-DP-Rdt" id="goS-KD-9Y2"/>
                         <segue destination="f6O-Dq-1Lv" kind="push" identifier="RegisteredSegue" id="iKu-R9-eIc"/>
                     </connections>
@@ -157,6 +169,15 @@
                     <view key="view" contentMode="scaleToFill" id="GJ8-IB-S3N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="sdY-20-bGW">
+                                <rect key="frame" x="60" y="156" width="200" height="247"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="Euw-el-Fsd">
@@ -167,6 +188,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="message" destination="sdY-20-bGW" id="Wbj-7A-QSS"/>
                         <segue destination="HVX-T4-fJz" kind="push" identifier="AddDevicesSegue" id="oNx-c2-bhl"/>
                     </connections>
                 </viewController>
@@ -182,15 +204,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="CRg-Cs-zhp">
-                                <rect key="frame" x="55" y="262" width="210" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="0.0" maxX="200" maxY="0.0"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter code" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EGj-EE-f2y">
-                                <rect key="frame" x="65" y="134" width="200" height="105"/>
+                                <rect key="frame" x="65" y="123" width="200" height="105"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -208,11 +223,19 @@
                                     <action selector="handleNext:" destination="HVX-T4-fJz" eventType="touchUpInside" id="IUd-zs-Vr3"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="CRg-Cs-zhp">
+                                <rect key="frame" x="55" y="269" width="210" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <inset key="insetFor6xAndEarlier" minX="0.0" minY="0.0" maxX="200" maxY="0.0"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Add devices" id="und-Nb-avA"/>
                     <connections>
+                        <outlet property="message" destination="EGj-EE-f2y" id="2qR-VL-2wU"/>
                         <outlet property="verificationCodeField" destination="CRg-Cs-zhp" id="5oB-bx-Gqh"/>
                         <segue destination="YCA-Ap-At1" kind="push" identifier="CongratzSegue" id="9Rw-st-cK7"/>
                     </connections>
@@ -263,19 +286,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2eY-El-X21">
-                                <rect key="frame" x="104" y="129" width="113" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="p64-KE-O6j">
-                                <rect key="frame" x="50" y="202" width="221" height="30"/>
+                                <rect key="frame" x="55" y="218" width="221" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome back" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="2eY-El-X21">
+                                <rect key="frame" x="65" y="83" width="200" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -287,6 +310,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="message" destination="2eY-El-X21" id="qaA-Oj-Fwp"/>
                         <outlet property="phoneNumberField" destination="p64-KE-O6j" id="vFU-5u-G7c"/>
                         <segue destination="ZB1-S3-Zf2" kind="push" identifier="AuthenticateAccountSegue" id="Qrb-ff-O7J"/>
                     </connections>
@@ -309,6 +333,23 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Great!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bhZ-Qe-4FB">
+                                <rect key="frame" x="50" y="86" width="200" height="114"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="E9N-vD-And">
+                                <rect key="frame" x="62" y="269" width="197" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Resend Authentication Code">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleResend:" destination="ZB1-S3-Zf2" eventType="touchUpInside" id="Kuw-dP-Xuq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -320,6 +361,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="message" destination="bhZ-Qe-4FB" id="IlJ-W0-IzJ"/>
                         <outlet property="verificationCodeField" destination="aMC-jp-AKh" id="bJv-Nz-nVA"/>
                         <segue destination="if3-rQ-Zbo" kind="push" identifier="AuthenticatedSegue" id="dzl-tM-zvx"/>
                     </connections>

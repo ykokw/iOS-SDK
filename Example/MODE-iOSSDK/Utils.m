@@ -34,6 +34,14 @@ PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* phoneNumberField)
     return phoneNumberDelegate;
 }
 
+void setupMessage(UILabel* message, NSString* text)
+{
+    message.adjustsFontSizeToFitWidth = NO;
+    message.lineBreakMode = NSLineBreakByWordWrapping;
+    message.numberOfLines = 0;
+    message.textAlignment = NSTextAlignmentCenter;
+    message.text = text;
+}
 
 @implementation NumericTextFieldDelegate
 

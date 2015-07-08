@@ -2,13 +2,21 @@
 #import "ModeApp.h"
 #import "DataHolder.h"
 #import "Utils.h"
+#import "Messages.h"
+
+@interface RegisteredViewController ()
+
+@property(strong, nonatomic) IBOutlet UILabel* message;
+
+@end
 
 @implementation RegisteredViewController
-
 
 - (void)viewDidLoad
 {
     self.navigationItem.hidesBackButton = YES;
+  
+    setupMessage(self.message, MESSAGE_REGISTERED);
 }
 
 - (IBAction)handleNext:(id)sender {

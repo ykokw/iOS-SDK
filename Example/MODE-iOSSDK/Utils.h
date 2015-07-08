@@ -12,3 +12,5 @@ void showAlert(NSError* err);
 
 NumericTextFieldDelegate* setupNumericTextField(UITextField* textField, NSString* name);
 PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* textField);
+
+void setupMessage(UILabel* message, NSString* text);
