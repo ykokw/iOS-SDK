@@ -1,6 +1,6 @@
 
 #define MESSAGE_VERIFY_YOU @"\
-Great! We just texted yoyu a code \
+Great! We just texted you a code \
 via SMS - Enter the code to prove \
 you're a real person."
 
@@ -15,7 +15,7 @@ Claim Your Devices.\n\n\
 2. Enter Claim Code on your device."
 
 #define MESSAGE_REGISTERED @"\
-Through this app, you'll be abel to control all Lumos lights!\n\n\
+Through this app, you'll be able to control all Lumos lights!\n\n\
 To start, we will create a home for you called \"My Home\".\
 "
 
