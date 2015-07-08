@@ -44,4 +44,8 @@
 
 }
 
+- (IBAction)handleSkip:(id)sender {
+     [self performSegueWithIdentifier:@"CongratzSegue" sender:self];
+}
+
 @end

@@ -52,13 +52,13 @@
                     </view>
                     <navigationItem key="navigationItem" id="kDY-dj-mQf"/>
                     <connections>
-                        <segue destination="HVX-T4-fJz" kind="push" identifier="BypassRegisteredSegue" id="VJ2-Rb-8I4"/>
                         <segue destination="f6O-Dq-1Lv" kind="push" identifier="BypassSignUpSegue" id="Zu0-Q4-fzh"/>
+                        <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LinkedStoryBoardSegue" id="kfA-9g-xNS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mL5-uE-rdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-96" y="384"/>
+            <point key="canvasLocation" x="-350" y="384"/>
         </scene>
         <!--Sign Up-->
         <scene sceneID="1Gv-Ql-n5x">
@@ -107,7 +107,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHD-yx-hT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="288" y="389"/>
+            <point key="canvasLocation" x="84" y="384"/>
         </scene>
         <!--Verify Account View Controller-->
         <scene sceneID="DKT-sh-6Sr">
@@ -160,7 +160,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bcw-Ll-gUA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="672" y="389"/>
+            <point key="canvasLocation" x="546" y="384"/>
         </scene>
         <!--Registered View Controller-->
         <scene sceneID="45j-P5-xNL">
@@ -194,7 +194,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8F-Nr-XsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1071" y="943"/>
+            <point key="canvasLocation" x="1109" y="-139"/>
         </scene>
         <!--Add devices-->
         <scene sceneID="Zmq-Fl-whk">
@@ -233,7 +233,13 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Add devices" id="und-Nb-avA"/>
+                    <navigationItem key="navigationItem" title="Add devices" id="und-Nb-avA">
+                        <barButtonItem key="rightBarButtonItem" title="Skip" id="heB-u4-xWz">
+                            <connections>
+                                <action selector="handleSkip:" destination="HVX-T4-fJz" id="wUZ-Aa-9cA"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="message" destination="EGj-EE-f2y" id="2qR-VL-2wU"/>
                         <outlet property="verificationCodeField" destination="CRg-Cs-zhp" id="5oB-bx-Gqh"/>
@@ -242,22 +248,48 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xj9-jv-2dx" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1057" y="1693"/>
+            <point key="canvasLocation" x="1109" y="579"/>
         </scene>
-        <!--View Controller-->
+        <!--Congratz View Controller-->
         <scene sceneID="RuW-ed-klF">
             <objects>
-                <viewController id="YCA-Ap-At1" sceneMemberID="viewController">
+                <viewController id="YCA-Ap-At1" customClass="CongratzViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Zp3-mg-qtm">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Congratz" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="j0h-Ob-OYL">
+                                <rect key="frame" x="60" y="167" width="200" height="233"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uNU-2o-mFb">
+                                <rect key="frame" x="32" y="442" width="256" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94117647059999998" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Take Me to My Home">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="handleNext:" destination="HVX-T4-fJz" eventType="touchUpInside" id="gf2-xl-vhL"/>
+                                    <action selector="handleTakeMeHome:" destination="YCA-Ap-At1" eventType="touchUpInside" id="llI-7B-1hu"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="J0j-OW-CKa"/>
+                    <connections>
+                        <outlet property="message" destination="j0h-Ob-OYL" id="Sw7-01-ZLB"/>
+                        <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LinkedStoryBoardSegue" id="15S-q8-yKK"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2oD-ko-9J5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1516" y="1685"/>
+            <point key="canvasLocation" x="1109" y="1290"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="EXK-Gf-3Ia">
@@ -276,7 +308,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="d2P-YJ-Mf8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-488" y="379"/>
+            <point key="canvasLocation" x="-822" y="384"/>
         </scene>
         <!--Log In-->
         <scene sceneID="9MD-nd-4R2">
@@ -354,7 +386,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" title="Authenticate Account" id="SZd-8D-fsh">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="xgZ-Y2-6nf">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="xgZ-Y2-6nf">
                             <connections>
                                 <action selector="handleNext:" destination="ZB1-S3-Zf2" id="uFg-Ds-uif"/>
                             </connections>
@@ -363,7 +395,7 @@
                     <connections>
                         <outlet property="message" destination="bhZ-Qe-4FB" id="IlJ-W0-IzJ"/>
                         <outlet property="verificationCodeField" destination="aMC-jp-AKh" id="bJv-Nz-nVA"/>
-                        <segue destination="if3-rQ-Zbo" kind="push" identifier="AuthenticatedSegue" id="dzl-tM-zvx"/>
+                        <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LinkedStoryBoardSegue" id="nae-TT-8aK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ms9-bj-5Ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -371,19 +403,27 @@
             <point key="canvasLocation" x="-65" y="1282"/>
         </scene>
         <!--View Controller-->
-        <scene sceneID="UNm-nV-qhV">
+        <scene sceneID="UqN-FO-Rg4">
             <objects>
-                <viewController id="if3-rQ-Zbo" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Lxe-91-dpc">
+                <viewController id="4iK-Au-IvT" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="GLL-Wt-CRo">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Placeholder to Console" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ToV-fk-tNG">
+                                <rect key="frame" x="71" y="273" width="179" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" id="WeX-ze-xGY"/>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ucM-ET-EL3" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="IFT-R7-Fyr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="321" y="1282"/>
+            <point key="canvasLocation" x="399" y="1282"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -393,6 +433,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="iKu-R9-eIc"/>
-        <segue reference="oNx-c2-bhl"/>
+        <segue reference="nae-TT-8aK"/>
     </inferredMetricsTieBreakers>
 </document>

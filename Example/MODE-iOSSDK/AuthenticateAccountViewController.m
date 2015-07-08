@@ -32,7 +32,7 @@
                                   
                                   [data saveData];
                                   
-                                  [self performSegueWithIdentifier:@"AuthenticatedSegue" sender:self];
+                                  [self performSegueWithIdentifier:@"@console" sender:self];
                               } else {
                                   showAlert(err);
                               }

@@ -18,3 +18,10 @@ Claim Your Devices.\n\n\
 Through this app, you'll be abel to control all Lumos lights!\n\n\
 To start, we will create a home for you called \"My Home\".\
 "
+
+#define MESSAGE_CONGRATZ @"\
+Congratulations!\n\
+You've successfully set up your home/devices!\
+Now you can control them from your phone.\
+"
+
