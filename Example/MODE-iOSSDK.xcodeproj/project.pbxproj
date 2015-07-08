@@ -134,8 +134,8 @@
 			children = (
 				219841B21B4B5B6200F57B09 /* DataHolder.h */,
 				219841B31B4B5B6200F57B09 /* DataHolder.m */,
-				219841B51B4C35E600F57B09 /* Utils.m */,
 				219841B71B4C363B00F57B09 /* Utils.h */,
+				219841B51B4C35E600F57B09 /* Utils.m */,
 				21C16CD61B4CAFAD00D58890 /* Messages.h */,
 				2142865B1B4D99D5006E3C1F /* LinkedStoryBoardSegue.h */,
 				2142865C1B4D99D5006E3C1F /* LinkedStoryBoardSegue.m */,
@@ -158,8 +158,8 @@
 				212A69201B4C5E1D00D5DAEE /* RegisteredViewController.m */,
 				212A692B1B4C8F9600D5DAEE /* AuthenticateAccountViewController.h */,
 				212A692C1B4C8F9600D5DAEE /* AuthenticateAccountViewController.m */,
-				212A69281B4C8A1600D5DAEE /* LoginViewController.m */,
 				212A69291B4C8A1600D5DAEE /* LoginViewController.h */,
+				212A69281B4C8A1600D5DAEE /* LoginViewController.m */,
 				2142865E1B4D9D86006E3C1F /* CongratzViewController.h */,
 				2142865F1B4D9D86006E3C1F /* CongratzViewController.m */,
 			);

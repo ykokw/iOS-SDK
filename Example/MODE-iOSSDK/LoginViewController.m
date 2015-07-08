@@ -22,19 +22,19 @@
     setupMessage(self.message, MESSAGE_WELCOME_BACK);
 }
 
-- (IBAction)handleNext:(id)sender {
+- (IBAction)handleNext:(id)sender
+{
     DataHolder* data = [DataHolder sharedInstance];
     
-    [MODEAppAPI initiateAuthenticationWithSMS:data.projectId phoneNumber:self.phoneNumberField.text completion:^(MODESMSMessageReceipt *receipt, NSError *err) {
-                            if (err == nil) {
-                                data.members.phoneNumber = receipt.recipient;
-                                [self performSegueWithIdentifier:@"AuthenticateAccountSegue" sender:self];
-        
-                            } else {
-                                showAlert(err);
-                            }
-        
-        
+    [MODEAppAPI initiateAuthenticationWithSMS:data.projectId phoneNumber:self.phoneNumberField.text
+            completion:^(MODESMSMessageReceipt *receipt, NSError *err) {
+                if (err == nil) {
+                    data.members.phoneNumber = receipt.recipient;
+                    [self performSegueWithIdentifier:@"AuthenticateAccountSegue" sender:self];
+                    
+                } else {
+                    showAlert(err);
+                }
     }];
 }
 

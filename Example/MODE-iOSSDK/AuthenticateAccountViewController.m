@@ -14,15 +14,16 @@
 
 @implementation AuthenticateAccountViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+
     self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Authentication Code");
     setupMessage(self.message, MESSAGE_VERIFY_YOU);
 }
 
-- (IBAction)handleNext:(id)sender {
+- (IBAction)handleNext:(id)sender
+{
     DataHolder* data = [DataHolder sharedInstance];
 
     [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
@@ -39,7 +40,8 @@
                           }];
 }
 
-- (IBAction)handleResend:(id)sender {
+- (IBAction)handleResend:(id)sender
+{
 
     DataHolder* data = [DataHolder sharedInstance];
     

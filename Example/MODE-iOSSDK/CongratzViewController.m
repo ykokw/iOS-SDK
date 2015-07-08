@@ -10,13 +10,15 @@
 
 @implementation CongratzViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     setupMessage(self.message, MESSAGE_CONGRATZ);
 
 }
-- (IBAction)handleTakeMeHome:(id)sender {
+- (IBAction)handleTakeMeHome:(id)sender
+{
        [self performSegueWithIdentifier:@"@console" sender:self];
 }
 

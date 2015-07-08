@@ -1,7 +1,11 @@
 #import "Utils.h"
 
-void showAlert(NSError* err) {
-    
+/**
+ * This is very basic alert function.
+ * You should rewrite the error to get more user friendly.
+ */
+void showAlert(NSError* err)
+{
     NSString* msg = err.userInfo[@"reason"];
     NSLog(@"Failed to call createUser: %@", err);
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:err.domain
@@ -45,12 +49,14 @@ void setupMessage(UILabel* message, NSString* text)
 
 @implementation NumericTextFieldDelegate
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
     NSCharacterSet *nonNumberSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     return ([string stringByTrimmingCharactersInSet:nonNumberSet].length > 0) || [string isEqualToString:@""];
 }
 
 @end
+
 
 @interface PhoneNumberFieldDelegate ()
 
@@ -62,7 +68,8 @@ void setupMessage(UILabel* message, NSString* text)
 @implementation PhoneNumberFieldDelegate
 
 
-- (id)initWithTextField:(UITextField*)textField {
+- (id)initWithTextField:(UITextField*)textField
+{
     self = [super init];
     if (self)
     {
@@ -72,7 +79,8 @@ void setupMessage(UILabel* message, NSString* text)
     return self;
 }
 
-- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
     NSString *resultString = [textField.text stringByReplacingCharactersInRange:range withString:string];
     
     _shouldAttemptFormat = resultString.length > self.phoneNumberField.text.length;
@@ -80,7 +88,8 @@ void setupMessage(UILabel* message, NSString* text)
     return YES;
 }
 
-- (void)formatPhoneNumber {
+- (void)formatPhoneNumber
+{
      if (!_shouldAttemptFormat) {
         return;
     }

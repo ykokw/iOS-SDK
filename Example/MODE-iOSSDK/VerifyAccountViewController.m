@@ -14,21 +14,16 @@
 
 @implementation VerifyAccountViewController
 
-- (void)viewWillLayoutSubviews
+- (void)viewDidLoad
 {
-}
-
-- (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
-    self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Verification Code");
-    
-   setupMessage(self.message, MESSAGE_VERIFY_YOU);
 
+    self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Verification Code");
+    setupMessage(self.message, MESSAGE_VERIFY_YOU);
 }
 
-- (IBAction)handleNext:(id)sender {
+- (IBAction)handleNext:(id)sender
+{
     DataHolder* data = [DataHolder sharedInstance];
     
     [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text

@@ -13,14 +13,16 @@
 
 @implementation SignUpViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     [self.nameField setPlaceholder:@"Name"];
      self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
 }
 
-- (IBAction)handleNext:(id)sender {
+- (IBAction)handleNext:(id)sender
+{
     DataHolder* data = [DataHolder sharedInstance];
     
     [MODEAppAPI createUser:data.projectId phoneNumber:self.phoneNumberField.text name:self.nameField.text

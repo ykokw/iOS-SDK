@@ -14,9 +14,10 @@
 
 @implementation AddDevicesViewController
 
-
 - (void)viewDidLoad
 {
+    [super viewDidLoad];
+    
     self.navigationItem.hidesBackButton = YES;
     self.verificationCodeField.keyboardType = UIKeyboardTypeNumberPad;
     self.numericDelegate = [[NumericTextFieldDelegate alloc] init];
@@ -25,7 +26,8 @@
     setupMessage(self.message, MESSAGE_ADD_DEVICES);
 }
 
-- (IBAction)handleNext:(id)sender {
+- (IBAction)handleNext:(id)sender
+{
     DataHolder* data = [DataHolder sharedInstance];
     
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:data.members.homeId
@@ -44,7 +46,8 @@
 
 }
 
-- (IBAction)handleSkip:(id)sender {
+- (IBAction)handleSkip:(id)sender
+{
      [self performSegueWithIdentifier:@"CongratzSegue" sender:self];
 }
 

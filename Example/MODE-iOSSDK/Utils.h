@@ -10,6 +10,8 @@ void showAlert(NSError* err);
 
 @end
 
+// These functions are for mixin to restrict UITextField only for numbers and phone numbers.
+// You could make your subclasses derived from UITextField, but up to you.
 NumericTextFieldDelegate* setupNumericTextField(UITextField* textField, NSString* name);
 PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* textField);
 

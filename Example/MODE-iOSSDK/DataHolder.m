@@ -19,9 +19,12 @@
     self = [super init];
     if (self)
     {
-        self.projectId = 3; // set you projectID here.
-        self.appId = @"app1";
         self.members = [[DataHolderMembers alloc] init];
+        
+        // You need to setup projectId and appId according to your project and App settings.
+        // Please see more detail (http://dev.tinkermode.com/tutorials/getting_started.html) to get them.
+        self.projectId = 3;
+        self.appId = @"app1";
     }
     return self;
 }
@@ -39,7 +42,8 @@
 }
 
 
-void saveObject(NSString* key, id<MTLJSONSerializing> obj) {
+void saveObject(NSString* key, id<MTLJSONSerializing> obj)
+{
     if (obj == nil) {
         NSLog(@"Object is nil: %@", key);
         return;
@@ -67,7 +71,8 @@ void saveObject(NSString* key, id<MTLJSONSerializing> obj) {
     saveObject(@"targetDevice", self.targetDevice);
 }
 
-id loadObj(NSString* key, Class class) {
+id loadObj(NSString* key, Class class)
+{
     if ([[NSUserDefaults standardUserDefaults] objectForKey:key])
     {
         NSString* str = [[NSUserDefaults standardUserDefaults] objectForKey:key];
@@ -78,22 +83,19 @@ id loadObj(NSString* key, Class class) {
         NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
         NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
         
-        id auth = [MTLJSONAdapter modelOfClass:class fromJSONDictionary:dict error:&err];
+        id obj = [MTLJSONAdapter modelOfClass:class fromJSONDictionary:dict error:&err];
         
         if (err) {
             NSLog(@"%@", err);
         }
         
-        if (auth) {
-            NSLog(@"Auth %@", auth);
+        if (obj) {
+            NSLog(@"Auth %@", obj);
         }
         
-        return auth;
-        //self.clientAuth = auth;
-    }
-    else
-    {
-        NSLog(@"You need to autheticate first");
+        return obj;
+    } else {
+        NSLog(@"Cannot find object in key: %@", key);
     }
     return [[class alloc] init];
 }
