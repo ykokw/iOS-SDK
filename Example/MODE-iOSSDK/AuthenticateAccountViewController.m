@@ -32,15 +32,17 @@
     [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
                           completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
                               
-                              removeOverlayViewSub(self.navigationController);
-                              
                               if (err == nil) {
                                   data.clientAuth = clientAuth;
                                   
                                   [data saveData];
-                                  
-                                  [self performSegueWithIdentifier:@"@console" sender:self];
+
+                                  removeOverlayViewSub(self.navigationController, ^(){
+                                      [self performSegueWithIdentifier:@"@console" sender:self];
+                                  });
                               } else {
+                                  removeOverlayViewSub(self.navigationController, nil);
+                                  
                                   showAlert(err);
                               }
                           }];

@@ -1,7 +1,7 @@
 #import "OverlayViewProtocol.h"
 
 
-void removeOverlayViewSub(UINavigationController* navigationController)
+void removeOverlayViewSub(UINavigationController* navigationController, void(^completion)())
 {
     UIView *view = (UIView *)[navigationController.view viewWithTag:88];
     UILabel *label = (UILabel *)[navigationController.view viewWithTag:99];
@@ -14,6 +14,9 @@ void removeOverlayViewSub(UINavigationController* navigationController)
                      completion:^(BOOL finished){
                          [view removeFromSuperview];
                          [label removeFromSuperview];
+                         if (completion != nil) {
+                             completion();
+                         }
                      }
      ];
 

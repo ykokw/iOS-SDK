@@ -30,7 +30,7 @@
 
 - (void)removeOverlayViews
 {
-    removeOverlayViewSub(self.navigationController);
+    removeOverlayViewSub(self.navigationController, nil);
 }
 
 - (IBAction)handleNext:(id)sender
