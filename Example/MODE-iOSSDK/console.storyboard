@@ -34,7 +34,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZjU-Z5-h07" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="906" y="328"/>
+            <point key="canvasLocation" x="827" y="306"/>
         </scene>
         <!--Home Detailable View Controller-->
         <scene sceneID="K0h-Z8-Goa">
@@ -60,10 +60,28 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ScM-Gc-RcO"/>
+                    <connections>
+                        <segue destination="M9a-dh-LAe" kind="push" identifier="ProfileSegue" id="gyT-Re-dbN"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBb-np-iVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1336" y="288"/>
+            <point key="canvasLocation" x="1233" y="306"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="HMc-ab-XLM">
+            <objects>
+                <viewController id="M9a-dh-LAe" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="iCG-zp-zTZ">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="JfN-SG-VzT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="0O6-nl-XVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1595" y="309"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">

@@ -16,3 +16,11 @@ UIView* setupEditButtonsInSectionHeader(UIView* tableHeaderView) {
     [tableHeaderView insertSubview:view atIndex:0];
     return view;
 }
+
+UILabel* setupTitle(NSString* title) {
+    UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+    label.text = @"Homes";
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    return label;
+}

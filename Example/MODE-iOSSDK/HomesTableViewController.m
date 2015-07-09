@@ -7,7 +7,6 @@
 #import "UIColor+Extentions.h"
 #import "Utils.h"
 
-
 @interface HomesTableViewController ()
 
 @property (strong, nonatomic) NSArray* homes;
@@ -26,6 +25,9 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
   
     self.navigationController.navigationBar.barTintColor = [UIColor defaultThemeColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    
+    self.navigationItem.titleView = setupTitle(@"Homes");
     
     [self fetchHomes];
 

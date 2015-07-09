@@ -25,8 +25,20 @@
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.navigationController.navigationBar.barTintColor = [UIColor defaultThemeColor];
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+   
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Prof" style:UIBarButtonItemStylePlain target:self action:@selector(handleProfile)];
+    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+  
+    self.navigationItem.titleView = setupTitle(self.targetHome.name);
     
     [self fetchMembers];
+}
+
+-(void) handleProfile
+{
+    NSLog(@"Profile");
+    [self performSegueWithIdentifier:@"ProfileSegue" sender:nil];
 }
 
 - (void)fetchMembers
