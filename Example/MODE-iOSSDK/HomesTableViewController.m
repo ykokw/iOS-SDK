@@ -1,8 +1,12 @@
+#import "ButtonUtils.h"
+#import "DataHolder.h"
+#import "HomeDetailableViewController.h"
 #import "HomesTableViewController.h"
 #import "MODEApp.h"
 #import "OverlayViewProtocol.h"
+#import "UIColor+Extentions.h"
 #import "Utils.h"
-#import "DataHolder.h"
+
 
 @interface HomesTableViewController ()
 
@@ -20,25 +24,39 @@
     
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
+  
+    self.navigationController.navigationBar.barTintColor = [UIColor defaultThemeColor];
     
-    setupOverlayView(self.navigationController, @"Loading homes...");
-    
+    [self fetchHomes];
+
+}
+
+- (void) fetchHomes
+{
     DataHolder* data = [DataHolder sharedInstance];
     
     [MODEAppAPI getHomes:data.clientAuth userId:data.clientAuth.userId
               completion:^(NSArray *homes, NSError *err) {
                   
                   NSLog(@"%@", self.navigationController);
-                  
-                  removeOverlayViewSub(self.navigationController, nil);
-                  
+
                   if (homes != nil) {
                       self.homes = homes;
                       [self.tableView reloadData];
                   } else {
                       showAlert(err);
                   }
-    }];
+              }];
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
+{
+    return setupEditButtonsInSectionHeader(tableView.tableHeaderView);
+}
+
+- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 50.0;
 }
 
 #pragma mark - Table view data source
@@ -67,18 +85,18 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
-    
-//    NSDictionary *dictionary = self.countries[indexPath.section];
-//    NSArray *array = dictionary[@"countries"];
-//    NSString *cellvalue = array[indexPath.row];
 
     MODEHome* home = self.homes[indexPath.row];
     NSString* cellvalue = home.name;
     
     cell.textLabel.text = cellvalue;
     
-    
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+      [self performSegueWithIdentifier:@"HomeDetailSegue" sender:nil];
 }
 
 
@@ -116,14 +134,15 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    HomeDetailableViewController *view = [segue destinationViewController];
+    
+    NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+    view.targetHome = [self.homes objectAtIndex:indexPath.row];
 }
-*/
 
 @end
