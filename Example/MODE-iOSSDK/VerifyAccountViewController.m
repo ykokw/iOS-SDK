@@ -30,6 +30,8 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    setupOverlayView(self.navigationController, @"Verifying...");
+
     DataHolder* data = [DataHolder sharedInstance];
     
     UIViewController<OverlayViewProtocol> *destVC = [segue destinationViewController];

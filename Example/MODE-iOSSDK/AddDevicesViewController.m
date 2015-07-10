@@ -25,7 +25,7 @@
     self.verificationCodeField.delegate = self.numericDelegate;
     
     setupMessage(self.message, MESSAGE_ADD_DEVICES);
-    setupOverlayView(self.navigationController, @"Setting up home...");
+    //setupOverlayView(self.navigationController, @"Setting up home...");
 }
 
 - (void)removeOverlayViews

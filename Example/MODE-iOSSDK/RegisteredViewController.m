@@ -19,7 +19,7 @@
     
     self.navigationItem.hidesBackButton = YES;
     setupMessage(self.message, MESSAGE_REGISTERED);
-    setupOverlayView(self.navigationController, @"Verifying...");
+//    setupOverlayView(self.navigationController, @"Verifying...");
     
 }
 
@@ -35,6 +35,8 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     DataHolder* data = [DataHolder sharedInstance];
+ 
+    setupOverlayView(self.navigationController, @"Setting up home...");
     
     UIViewController<OverlayViewProtocol> *destVC = [segue destinationViewController];
  
