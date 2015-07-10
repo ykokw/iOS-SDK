@@ -70,7 +70,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vBb-np-iVk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1253" y="646"/>
+            <point key="canvasLocation" x="1239" y="-42"/>
         </scene>
         <!--Add Home View Controller-->
         <scene sceneID="3DX-Ow-QMg">
@@ -214,7 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0O6-nl-XVK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1595" y="309"/>
+            <point key="canvasLocation" x="1631" y="277"/>
         </scene>
     </scenes>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
@@ -223,6 +223,6 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="g8y-yd-fy3"/>
+        <segue reference="gyT-Re-dbN"/>
     </inferredMetricsTieBreakers>
 </document>

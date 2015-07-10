@@ -170,6 +170,10 @@
     if(self.members) {
         MODEHomeMember* member = self.members[row];
         cellvalue = member.name;
+        
+        cell.detailTextLabel.text = member.phoneNumber;
+
+        
     } else {
         MODEDevice* device = self.devices[row];
         cellvalue = [device.name isEqual:@""] ? device.tag : device.name;
@@ -184,7 +188,7 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
     [self setupCell:cell row:indexPath.row];
