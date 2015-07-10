@@ -2,4 +2,6 @@
 
 @interface HomesTableViewController : UITableViewController
 
+- (void) fetchHomes;
+
 @end

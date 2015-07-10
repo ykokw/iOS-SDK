@@ -1,3 +1,4 @@
+#import "AddHomeViewController.h"
 #import "ButtonUtils.h"
 #import "DataHolder.h"
 #import "HomeDetailableViewController.h"
@@ -10,7 +11,7 @@
 @interface HomesTableViewController ()
 
 @property(strong, nonatomic) UIButton* editButton;
-@property (strong, nonatomic) NSArray* homes;
+@property (strong, nonatomic) NSMutableArray* homes;
 
 @end
 
@@ -44,7 +45,7 @@
                   NSLog(@"%@", self.navigationController);
 
                   if (homes != nil) {
-                      self.homes = homes;
+                      self.homes = [NSMutableArray arrayWithArray:homes];
                       [self.tableView reloadData];
                   } else {
                       showAlert(err);
@@ -54,6 +55,7 @@
 
 - (void) addItem
 {
+    [self performSegueWithIdentifier:@"AddHomeSegue" sender:nil];
     
 }
 
@@ -128,22 +130,38 @@
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+    DataHolder* data = [DataHolder sharedInstance];
+        MODEHome* targetHome = self.homes[indexPath.row];
+        [self.homes removeObjectAtIndex:indexPath.row];
+        [MODEAppAPI deleteHome:data.clientAuth homeId:targetHome.homeId completion:^(MODEHome *home, NSError *err) {
+            if (err != nil) {
+                showAlert(err);
+                [self fetchHomes];
+            }
+        }];
+    
+    // Then perform the action on the tableView
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [tableView beginUpdates];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+        [tableView endUpdates];
+    }
 }
 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    HomeDetailableViewController *view = [segue destinationViewController];
-    
-    NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
-    view.targetHome = [self.homes objectAtIndex:indexPath.row];
+    if ([segue.identifier isEqualToString:@"HomeDetailSegue"]) {
+        HomeDetailableViewController *view = [segue destinationViewController];
+        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        view.targetHome = [self.homes objectAtIndex:indexPath.row];
+    } else {
+        AddHomeViewController* view = [segue destinationViewController];
+        view.sourceVC = self;
+    }
 }
 
 @end

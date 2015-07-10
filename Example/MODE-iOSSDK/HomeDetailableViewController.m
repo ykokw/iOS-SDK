@@ -12,8 +12,8 @@
 @property(strong, nonatomic) UIButton* devicesButton;
 
 // Here we assume only either array is non nil to show which.
-@property(strong, nonatomic) NSArray* members;
-@property(strong, nonatomic) NSArray* devices;
+@property(strong, nonatomic) NSMutableArray* members;
+@property(strong, nonatomic) NSMutableArray* devices;
 
 @end
 
@@ -52,7 +52,7 @@
                     completion:^(NSArray *members, NSError *err) {
                         if (members != nil) {
                             self.devices = nil;
-                            self.members = members;
+                            self.members = [NSMutableArray arrayWithArray:members];
                             [self.tableView reloadData];
                         } else {
                             showAlert(err);
@@ -72,7 +72,7 @@
     [MODEAppAPI  getDevices:data.clientAuth homeId:self.targetHome.homeId
         completion:^(NSArray *devices, NSError *err) {
             if (devices != nil) {
-                self.devices = devices;
+                self.devices = [NSMutableArray arrayWithArray:devices];
                 self.members = nil;
                 [self.tableView reloadData];
             } else {
@@ -192,12 +192,38 @@
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
+
+    DataHolder* data = [DataHolder sharedInstance];
+    if (self.members != nil) {
+        MODEHomeMember* targetMember = self.members[indexPath.row];
+        [self.members removeObjectAtIndex:indexPath.row];
+        [MODEAppAPI deleteHomeMember:data.clientAuth homeId:self.targetHome.homeId userId:targetMember.userId
+            completion:^(MODEHomeMember *member, NSError *err) {
+                if (err != nil) {
+                    showAlert(err);
+                    [self fetchMembers];
+                }
+            }];
+    } else {
+        MODEDevice* targetDevice = self.devices[indexPath.row];
+        [self.devices removeObjectAtIndex:indexPath.row];
+        [MODEAppAPI deleteDevice:data.clientAuth deviceId:targetDevice.deviceId
+            completion:^(MODEDevice *device, NSError *err) {
+                if (err != nil) {
+                    showAlert(err);
+                    [self fetchDevices];
+                }
+        }];
+    }
+        
+    // Then perform the action on the tableView
+    if (editingStyle == UITableViewCellEditingStyleDelete)
+    {
+        [tableView beginUpdates];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
+                         withRowAnimation:UITableViewRowAnimationFade];
+        [tableView endUpdates];
+    }
 }
 
 
