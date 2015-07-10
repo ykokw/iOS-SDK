@@ -102,7 +102,11 @@
 
 - (void) addItem
 {
-    [self performSegueWithIdentifier:@"AddHomeMemberSegue" sender:nil];
+    if (self.members) {
+        [self performSegueWithIdentifier:@"AddHomeMemberSegue" sender:nil];
+    } else if (self.devices) {
+        [self performSegueWithIdentifier:@"AddDevicesViewController@Main" sender:nil];
+    }
 }
 
 - (void) editItem

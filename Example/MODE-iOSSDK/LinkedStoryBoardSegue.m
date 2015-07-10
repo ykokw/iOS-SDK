@@ -15,8 +15,7 @@
     
     if (scene_name.length == 0) {
         scene = [storyboard instantiateInitialViewController];
-    }
-    else {
+    } else {
         scene = [storyboard instantiateViewControllerWithIdentifier:scene_name];
     }
     

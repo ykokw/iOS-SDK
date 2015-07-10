@@ -199,7 +199,7 @@
         <!--Add devices-->
         <scene sceneID="Zmq-Fl-whk">
             <objects>
-                <viewController id="HVX-T4-fJz" customClass="AddDevicesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="AddDevicesViewController" id="HVX-T4-fJz" customClass="AddDevicesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ESy-au-i5Q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -433,6 +433,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="iKu-R9-eIc"/>
-        <segue reference="nae-TT-8aK"/>
+        <segue reference="15S-q8-yKK"/>
     </inferredMetricsTieBreakers>
 </document>
