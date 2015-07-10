@@ -23,10 +23,17 @@
     self.navigationController.navigationBar.barTintColor = [UIColor defaultThemeColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     
+    setupProfileButton(self.navigationItem, self, @selector(handleProfile));
+
     self.navigationItem.titleView = setupTitle(@"Homes");
     
     [self fetchHomes];
 
+}
+
+-(void)handleProfile
+{
+    [self performSegueWithIdentifier:@"ProfileSegue" sender:nil];
 }
 
 - (void) fetchHomes
@@ -152,7 +159,7 @@
         HomeDetailableViewController *view = [segue destinationViewController];
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         view.targetHome = [self.homes objectAtIndex:indexPath.row];
-    } else {
+    } else if ([segue.identifier isEqualToString:@"AddHomeSegue"]){
         AddHomeViewController* view = [segue destinationViewController];
         view.sourceVC = self;
     }

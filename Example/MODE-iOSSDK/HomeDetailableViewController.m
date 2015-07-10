@@ -27,9 +27,8 @@
     self.navigationController.navigationBar.barTintColor = [UIColor defaultThemeColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
    
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Prof" style:UIBarButtonItemStylePlain target:self action:@selector(handleProfile)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
-  
+    setupProfileButton(self.navigationItem, self, @selector(handleProfile));
+    
     self.navigationItem.titleView = setupTitle(self.targetHome.name);
     
     [self fetchMembers];
@@ -37,7 +36,6 @@
 
 -(void) handleProfile
 {
-    NSLog(@"Profile");
     [self performSegueWithIdentifier:@"ProfileSegue" sender:nil];
 }
 
@@ -245,7 +243,7 @@
     if ([segue.identifier isEqualToString:@"AddHomeMemberSegue"]) {
         AddHomeMemberViewController *view = [segue destinationViewController];
         view.sourceVC = self;
-    } else {
+    } else if ([segue.identifier isEqualToString:@"AddDeviceSegue"]){
         AddDeviceInConsoleViewController *view = [segue destinationViewController];
         view.sourceVC = self;
     }

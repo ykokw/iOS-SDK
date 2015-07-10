@@ -29,3 +29,11 @@ UILabel* setupTitle(NSString* title) {
     label.textAlignment = NSTextAlignmentCenter;
     return label;
 }
+
+
+void setupProfileButton(UINavigationItem* navigationItem, id target, SEL selector) {
+    navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Prof" style:UIBarButtonItemStylePlain target:target action:selector];
+
+
+    navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
+}
