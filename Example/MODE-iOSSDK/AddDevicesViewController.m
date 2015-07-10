@@ -1,9 +1,9 @@
 #import "AddDevicesViewController.h"
-#import "ModeApp.h"
-#import "Utils.h"
 #import "DataHolder.h"
 #import "Messages.h"
+#import "ModeApp.h"
 #import "OverlayViewProtocol.h"
+#import "Utils.h"
 
 @interface AddDevicesViewController ()
 
@@ -25,7 +25,6 @@
     self.verificationCodeField.delegate = self.numericDelegate;
     
     setupMessage(self.message, MESSAGE_ADD_DEVICES);
-    //setupOverlayView(self.navigationController, @"Setting up home...");
 }
 
 - (void)removeOverlayViews
@@ -42,7 +41,6 @@
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:data.members.homeId
         completion:^(MODEDevice *device, NSError *err) {
             if (err == nil) {
-                data.targetDevice = device;
                 [data saveData];
             } else {
                 // You need to rollback because auth failed.

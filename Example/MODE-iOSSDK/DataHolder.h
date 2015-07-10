@@ -24,8 +24,6 @@
 @property (strong, nonatomic) MODEClientAuthentication* clientAuth;
 @property (strong, nonatomic) DataHolderMembers* members;
 
-@property (strong, nonatomic) MODEDevice* targetDevice;
-
 -(void) saveData;
 -(void) loadData;
 

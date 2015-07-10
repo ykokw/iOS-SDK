@@ -22,6 +22,7 @@
 		214286711B4EF93D006E3C1F /* ButtonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286701B4EF93D006E3C1F /* ButtonUtils.m */; };
 		214286741B4F8889006E3C1F /* AddHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286731B4F8889006E3C1F /* AddHomeViewController.m */; };
 		214286771B4F95EA006E3C1F /* AddHomeMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286761B4F95EA006E3C1F /* AddHomeMemberViewController.m */; };
+		2142867A1B503E27006E3C1F /* AddDeviceInConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286791B503E27006E3C1F /* AddDeviceInConsoleViewController.m */; };
 		219841B11B4B526C00F57B09 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B01B4B526C00F57B09 /* SignUpViewController.m */; };
 		219841B41B4B5B6200F57B09 /* DataHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B31B4B5B6200F57B09 /* DataHolder.m */; };
 		219841B61B4C35E600F57B09 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B51B4C35E600F57B09 /* Utils.m */; };
@@ -85,6 +86,8 @@
 		214286731B4F8889006E3C1F /* AddHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddHomeViewController.m; sourceTree = "<group>"; };
 		214286751B4F95EA006E3C1F /* AddHomeMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddHomeMemberViewController.h; sourceTree = "<group>"; };
 		214286761B4F95EA006E3C1F /* AddHomeMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddHomeMemberViewController.m; sourceTree = "<group>"; };
+		214286781B503E27006E3C1F /* AddDeviceInConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDeviceInConsoleViewController.h; sourceTree = "<group>"; };
+		214286791B503E27006E3C1F /* AddDeviceInConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDeviceInConsoleViewController.m; sourceTree = "<group>"; };
 		219841AF1B4B526C00F57B09 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		219841B01B4B526C00F57B09 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		219841B21B4B5B6200F57B09 /* DataHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHolder.h; sourceTree = "<group>"; };
@@ -204,6 +207,8 @@
 				214286731B4F8889006E3C1F /* AddHomeViewController.m */,
 				214286751B4F95EA006E3C1F /* AddHomeMemberViewController.h */,
 				214286761B4F95EA006E3C1F /* AddHomeMemberViewController.m */,
+				214286781B503E27006E3C1F /* AddDeviceInConsoleViewController.h */,
+				214286791B503E27006E3C1F /* AddDeviceInConsoleViewController.m */,
 			);
 			name = ConsoleViewControllers;
 			sourceTree = "<group>";
@@ -528,6 +533,7 @@
 				219841B61B4C35E600F57B09 /* Utils.m in Sources */,
 				212A691B1B4C499C00D5DAEE /* AddDevicesViewController.m in Sources */,
 				219841B11B4B526C00F57B09 /* SignUpViewController.m in Sources */,
+				2142867A1B503E27006E3C1F /* AddDeviceInConsoleViewController.m in Sources */,
 				2142866E1B4EF603006E3C1F /* UIColor+Extentions.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
 				212A692A1B4C8A1600D5DAEE /* LoginViewController.m in Sources */,

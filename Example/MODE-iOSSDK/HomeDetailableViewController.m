@@ -1,3 +1,4 @@
+#import "AddDeviceInConsoleViewController.h"
 #import "AddHomeMemberViewController.h"
 #import "ButtonUtils.h"
 #import "DataHolder.h"
@@ -105,7 +106,7 @@
     if (self.members) {
         [self performSegueWithIdentifier:@"AddHomeMemberSegue" sender:nil];
     } else if (self.devices) {
-        [self performSegueWithIdentifier:@"AddDevicesViewController@Main" sender:nil];
+        [self performSegueWithIdentifier:@"AddDeviceSegue" sender:nil];
     }
 }
 
@@ -173,7 +174,7 @@
         cellvalue = member.name;
     } else {
         MODEDevice* device = self.devices[row];
-        cellvalue = device.name;
+        cellvalue = [device.name isEqual:@""] ? device.tag : device.name;
     }
     cell.textLabel.text = cellvalue;
 }
@@ -243,6 +244,9 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"AddHomeMemberSegue"]) {
         AddHomeMemberViewController *view = [segue destinationViewController];
+        view.sourceVC = self;
+    } else {
+        AddDeviceInConsoleViewController *view = [segue destinationViewController];
         view.sourceVC = self;
     }
 }

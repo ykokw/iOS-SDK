@@ -68,7 +68,6 @@ void saveObject(NSString* key, id<MTLJSONSerializing> obj)
 {
     saveObject(@"auth", self.clientAuth);
     saveObject(@"members", self.members);
-    saveObject(@"targetDevice", self.targetDevice);
 }
 
 id loadObj(NSString* key, Class class)
@@ -104,7 +103,6 @@ id loadObj(NSString* key, Class class)
 {
     self.clientAuth = loadObj(@"auth", MODEClientAuthentication.class);
     self.members = loadObj(@"members", DataHolderMembers.class);
-    self.targetDevice = loadObj(@"targetDevice", MODEDevice.class);
 }
 
 @end
