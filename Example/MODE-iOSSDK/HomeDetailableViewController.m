@@ -7,6 +7,10 @@
 
 @interface HomeDetailableViewController ()
 
+@property(strong, nonatomic) UIButton* editButton;
+@property(strong, nonatomic) UIButton* membersButton;
+@property(strong, nonatomic) UIButton* devicesButton;
+
 // Here we assume only either array is non nil to show which.
 @property(strong, nonatomic) NSArray* members;
 @property(strong, nonatomic) NSArray* devices;
@@ -17,12 +21,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    // Uncomment the following line to preserve selection between presentations.
-    // self.clearsSelectionOnViewWillAppear = NO;
-    
-    // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-    // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
     self.navigationController.navigationBar.barTintColor = [UIColor defaultThemeColor];
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
@@ -43,6 +41,12 @@
 
 - (void)fetchMembers
 {
+    self.membersButton.selected = true;
+    self.devicesButton.selected = false;
+
+    self.editButton.selected = false;
+    [self setEditing:false animated:true];
+
     DataHolder* data = [DataHolder sharedInstance];
     [MODEAppAPI getHomeMembers:data.clientAuth homeId:self.targetHome.homeId
                     completion:^(NSArray *members, NSError *err) {
@@ -58,6 +62,12 @@
 
 - (void)fetchDevices
 {
+    self.membersButton.selected = false;
+    self.devicesButton.selected = true;
+    
+    self.editButton.selected = false;
+    [self setEditing:false animated:true];
+    
     DataHolder* data = [DataHolder sharedInstance];
     [MODEAppAPI  getDevices:data.clientAuth homeId:self.targetHome.homeId
         completion:^(NSArray *devices, NSError *err) {
@@ -71,24 +81,47 @@
         }];
 }
 
-- (UIButton*) createRoundButton:(CGRect)rect title:(NSString*)title selector:(SEL)selector
+- (UIButton*) createRoundButton:(CGRect)rect title:(NSString*)title selector:(SEL)selector selected:(BOOL)selected
 {
     UIButton *button=[UIButton buttonWithType:UIButtonTypeRoundedRect];
     button.frame = rect;
     button.tintColor = [UIColor defaultThemeColor];
     [button setTitle:title forState:UIControlStateNormal];
+    button.selected = selected;
     [button sizeToFit];
     [button addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
 
     return button;
 }
 
+- (void) addItem
+{
+    
+}
+
+- (void) editItem
+{
+    NSLog(@"editItem");
+    self.editButton.selected = !self.editing;
+    [self setEditing:!self.editing animated:true];
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView* view = setupEditButtonsInSectionHeader(tableView.tableHeaderView);
- 
-    [view addSubview:[self createRoundButton:CGRectMake(80, 10, 100, 50) title:@"Members" selector:@selector(fetchMembers)]];
-    [view addSubview:[self createRoundButton:CGRectMake(170, 10, 100, 50) title:@"Devices" selector:@selector(fetchDevices)]];
+    UIView* tableHeaderView = tableView.tableHeaderView;
+    UIView *view=[[UIView alloc]init];
+    setupAddButton(view, self, @selector(addItem));
+    self.editButton = setupEditButton(view, self, @selector(editItem));
+    [tableHeaderView insertSubview:view atIndex:0];
+    
+    self.devicesButton = [self createRoundButton:CGRectMake(170, 10, 100, 50) title:@"Devices" selector:@selector(fetchDevices)
+                                        selected:self.devices ? true : false
+                          ];
+    self.membersButton = [self createRoundButton:CGRectMake(80, 10, 100, 50) title:@"Members" selector:@selector(fetchMembers)
+                                        selected:self.members ? true : false];
+
+    [view addSubview:self.membersButton];
+    [view addSubview:self.devicesButton];
     
     return view;
 }
@@ -151,25 +184,12 @@
 }
 
 
-/*
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:<#@"reuseIdentifier"#> forIndexPath:indexPath];
-    
-    // Configure the cell...
-    
-    return cell;
-}
-*/
-
-/*
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath {
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
+    return self.editing;
 }
-*/
 
-/*
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
@@ -179,7 +199,7 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
+
 
 /*
 // Override to support rearranging the table view.

@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
 
-UIView* setupEditButtonsInSectionHeader(UIView* tableHeaderView);
+UIButton* setupEditButton(UIView* view, id target, SEL edit);
+UIButton* setupAddButton(UIView* view, id target, SEL add);
 
 UILabel* setupTitle(NSString* title);

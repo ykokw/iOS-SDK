@@ -1,25 +1,30 @@
 #import "ButtonUtils.h"
 #import "UIColor+Extentions.h"
 
-UIView* setupEditButtonsInSectionHeader(UIView* tableHeaderView) {
-    UIView *view=[[UIView alloc]init];
-    UIButton *addButton=[UIButton buttonWithType:UIButtonTypeContactAdd];
-    addButton.frame=CGRectMake(250, 0, 100, 50);
-    addButton.tintColor = [UIColor defaultThemeColor];
-    [view addSubview:addButton];
-    
-    UIButton *editButton=[UIButton buttonWithType:UIButtonTypeInfoDark];
-    editButton.frame=CGRectMake(0, 0, 50, 50);
+UIButton* setupEditButton(UIView* view, id target, SEL edit) {
+    UIButton *editButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    editButton.frame = CGRectMake(0, 0, 50, 50);
     editButton.tintColor = [UIColor defaultThemeColor];
+    [editButton addTarget:target action:edit forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:editButton];
-    
-    [tableHeaderView insertSubview:view atIndex:0];
-    return view;
+
+    return editButton;
 }
+
+UIButton* setupAddButton(UIView* view, id target, SEL add) {
+    UIButton *addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    addButton.frame = CGRectMake(250, 0, 100, 50);
+    addButton.tintColor = [UIColor defaultThemeColor];
+    [addButton addTarget:target action:add forControlEvents:UIControlEventTouchUpInside];
+    [view addSubview:addButton];
+ 
+    return addButton;
+}
+
 
 UILabel* setupTitle(NSString* title) {
     UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
-    label.text = @"Homes";
+    label.text = title;
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
     return label;
