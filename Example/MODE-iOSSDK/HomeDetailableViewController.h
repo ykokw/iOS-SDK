@@ -5,4 +5,7 @@
 
 @property(strong, nonatomic) MODEHome* targetHome;
 
+- (void)fetchMembers;
+- (void)fetchDevices;
+
 @end

@@ -25,3 +25,9 @@ You've successfully set up your home/devices!\
 Now you can control them from your phone.\
 "
 
+#define MESSAGE_INVITE @"\
+Invite more members to join your home and share device access!\
+Just enter their phone number\
+"
+
+
