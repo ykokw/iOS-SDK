@@ -1,3 +1,4 @@
+#import "ButtonUtils.h"
 #import "VerifyAccountViewController.h"
 #import "MODEApp.h"
 #import "DataHolder.h"
@@ -20,6 +21,9 @@
     [super viewDidLoad];
 
     self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Verification Code", @"Authentication.png");
+
+    self.navigationItem.titleView = setupTitle(@"Verify Account");
+    
     setupMessage(self.message, MESSAGE_VERIFY_YOU);
 }
 

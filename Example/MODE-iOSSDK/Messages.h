@@ -1,4 +1,8 @@
 
+#define MESSAGE_SAMPLE_APP @"\
+A Sample App for your Smart Light \
+"
+
 #define MESSAGE_VERIFY_YOU @"\
 Great! We just texted you a code \
 via SMS - Enter the code to prove \

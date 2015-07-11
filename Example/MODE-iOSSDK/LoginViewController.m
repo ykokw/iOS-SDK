@@ -1,3 +1,4 @@
+#import "ButtonUtils.h"
 #import "LoginViewController.h"
 #import "MODEApp.h"
 #import "DataHolder.h"
@@ -19,6 +20,9 @@
     [super viewDidLoad];
     
     self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
+
+    self.navigationItem.titleView = setupTitle(@"Log In");
+
     setupMessage(self.message, MESSAGE_WELCOME_BACK);
 }
 

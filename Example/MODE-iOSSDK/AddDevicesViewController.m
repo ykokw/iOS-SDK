@@ -1,4 +1,5 @@
 #import "AddDevicesViewController.h"
+#import "ButtonUtils.h"
 #import "DataHolder.h"
 #import "Messages.h"
 #import "ModeApp.h"
@@ -20,6 +21,8 @@
     
     setupStandardTextField(self.verificationCodeField, @"Claim Code", @"ClaimCode.png");
     self.navigationItem.hidesBackButton = YES;
+    
+    self.navigationItem.titleView = setupTitle(@"Add Device");
     
     setupMessage(self.message, MESSAGE_ADD_DEVICES);
 }

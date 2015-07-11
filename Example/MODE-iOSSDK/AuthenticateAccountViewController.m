@@ -1,9 +1,10 @@
 #import "AuthenticateAccountViewController.h"
-#import "MODEApp.h"
+#import "ButtonUtils.h"
 #import "DataHolder.h"
-#import "Utils.h"
 #import "Messages.h"
+#import "MODEApp.h"
 #import "OverlayViewProtocol.h"
+#import "Utils.h"
 
 @interface AuthenticateAccountViewController ()
 
@@ -20,6 +21,9 @@
     [super viewDidLoad];
     
     self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Authentication Code", @"Authentication.png");
+    
+    self.navigationItem.titleView = setupTitle(@"Authenticate Account");
+    
     setupMessage(self.message, MESSAGE_VERIFY_YOU);
 }
 

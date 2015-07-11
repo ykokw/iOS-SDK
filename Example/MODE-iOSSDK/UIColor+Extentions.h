@@ -3,5 +3,6 @@
 @interface UIColor (Extensions)
 
 + (UIColor *)defaultThemeColor;
++ (UIColor *)defaultDisplayColor;
 
 @end

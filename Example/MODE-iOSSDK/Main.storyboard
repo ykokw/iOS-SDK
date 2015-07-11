@@ -13,30 +13,20 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <userGuides>
-                            <userLayoutGuide location="283" affinity="minY"/>
+                            <userLayoutGuide location="279" affinity="minY"/>
                         </userGuides>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lumos" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wmm-g0-KiD">
-                                <rect key="frame" x="139" y="273" width="53" height="21"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lumos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wmm-g0-KiD">
+                                <rect key="frame" x="85" y="163" width="150" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                <nil key="highlightedColor"/>
+                                <color key="tintColor" red="0.94117647059999998" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="40"/>
+                                <color key="textColor" red="0.94117647059999998" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="highlightedColor" red="0.94117647059999998" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="shadowColor" red="0.94117647059999998" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z2C-19-Snp">
-                                <rect key="frame" x="32" y="381" width="256" height="50"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="0.94117647058823528" green="0.43137254901960786" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
-                                <state key="normal" title="Sign Up">
-                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="FHp-6h-5bi" kind="push" id="2HZ-XF-H72"/>
-                                </connections>
-                            </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Bjx-EP-DRF">
-                                <rect key="frame" x="32" y="449" width="256" height="50"/>
+                                <rect key="frame" x="32" y="374" width="256" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" red="0.94117647059999998" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
                                 <state key="normal" title="Login">
@@ -47,11 +37,31 @@
                                     <segue destination="Dcr-ej-Qex" kind="push" id="aG4-m7-mzQ"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sample App" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="aff-9u-MgQ">
+                                <rect key="frame" x="60" y="213" width="200" height="45"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="Z2C-19-Snp">
+                                <rect key="frame" x="32" y="309" width="256" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.94117647058823528" green="0.43137254901960786" blue="0.43529411764705883" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" title="Sign Up">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="FHp-6h-5bi" kind="push" id="2HZ-XF-H72"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="kDY-dj-mQf"/>
                     <connections>
+                        <outlet property="message" destination="aff-9u-MgQ" id="1Ul-j6-gyB"/>
                         <segue destination="f6O-Dq-1Lv" kind="push" identifier="BypassSignUpSegue" id="Zu0-Q4-fzh"/>
                         <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LinkedStoryBoardSegue" id="kfA-9g-xNS"/>
                     </connections>
@@ -60,7 +70,7 @@
             </objects>
             <point key="canvasLocation" x="-350" y="384"/>
         </scene>
-        <!--Sign Up-->
+        <!--Sign Up View Controller-->
         <scene sceneID="1Gv-Ql-n5x">
             <objects>
                 <viewController id="FHp-6h-5bi" customClass="SignUpViewController" sceneMemberID="viewController">
@@ -83,26 +93,17 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Sign Up" id="Bta-NZ-Ila">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="rEQ-eg-3g5">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="5xg-ko-hR0">
-                                <rect key="frame" x="-23" y="-15" width="71" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Next">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <action selector="handleNext:" destination="FHp-6h-5bi" eventType="touchUpInside" id="YYa-e7-p01"/>
-                                </connections>
-                            </button>
+                    <navigationItem key="navigationItem" id="Bta-NZ-Ila">
+                        <barButtonItem key="rightBarButtonItem" title="Next" id="ZTz-CU-jC2">
                             <connections>
-                                <segue destination="7Fs-y1-ANo" kind="push" identifier="VerifyAccountSegue" id="eIm-sN-EB7"/>
+                                <action selector="handleNext:" destination="FHp-6h-5bi" id="QDW-lj-3EX"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="nameField" destination="f8W-Q6-0s1" id="hSv-5g-wBh"/>
                         <outlet property="phoneNumberField" destination="X9k-OY-lnP" id="RzO-fW-zjA"/>
+                        <segue destination="7Fs-y1-ANo" kind="push" identifier="VerifyAccountSegue" id="Qjs-p9-2aN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CHD-yx-hT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -262,7 +263,7 @@
                                 <rect key="frame" x="60" y="167" width="200" height="233"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="uNU-2o-mFb">
@@ -414,7 +415,7 @@
                                 <rect key="frame" x="71" y="273" width="179" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -433,6 +434,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="iKu-R9-eIc"/>
-        <segue reference="15S-q8-yKK"/>
+        <segue reference="nae-TT-8aK"/>
     </inferredMetricsTieBreakers>
 </document>

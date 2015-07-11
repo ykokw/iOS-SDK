@@ -1,3 +1,4 @@
+#import "ButtonUtils.h"
 #import "SignUpViewController.h"
 #import "MODEApp.h"
 #import "DataHolder.h"
@@ -19,6 +20,8 @@
 
     setupStandardTextField(self.nameField, @"Name", @"Name.png");
     
+    self.navigationItem.titleView = setupTitle(@"Sign Up");
+
      self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
 }
 
