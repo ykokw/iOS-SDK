@@ -1,12 +1,14 @@
 #import "AddHomeViewController.h"
 #import "DataHolder.h"
 #import "HomesTableViewController.h"
+#import "Messages.h"
 #import "MODEApp.h"
 #import "Utils.h"
 
 
 @interface AddHomeViewController ()
 
+@property(strong, nonatomic) IBOutlet UILabel* message;
 @property(strong, nonatomic) IBOutlet UITextField* nameField;
 @property(strong, nonatomic) IBOutlet UIPickerView* timezoneField;
 @property(strong, nonatomic) NSString* targetTimezone;
@@ -18,6 +20,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    setupMessage(self.message, MESSAGE_CREATE_HOME);
  
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(handleAdd)];
 

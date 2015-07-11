@@ -1,4 +1,5 @@
 #import "Utils.h"
+#import "UIColor+Extentions.h"
 
 /**
  * This is very basic alert function.
@@ -62,12 +63,17 @@ PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* phoneNumberField)
     return phoneNumberDelegate;
 }
 
-void setupMessage(UILabel* message, NSString* text)
+void setupMessage(UILabel* message, NSString* text) {
+    return setupMessageWithColor(message, text, [UIColor bodyTextColor]);
+}
+
+void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color)
 {
     message.adjustsFontSizeToFitWidth = NO;
     message.lineBreakMode = NSLineBreakByWordWrapping;
     message.numberOfLines = 0;
     message.textAlignment = NSTextAlignmentCenter;
+    message.textColor = color;
     message.text = text;
 }
 

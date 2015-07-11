@@ -12,4 +12,9 @@
     return [UIColor colorWithRed:240.0/255.0 green:110.0/255.0 blue:111.0/255.0 alpha:1.0];
 }
 
++(UIColor *)bodyTextColor
+{
+    return [UIColor colorWithRed:127.0/255.0 green:127.0/255.0 blue:127.0/255.0 alpha:1.0];
+}
+
 @end

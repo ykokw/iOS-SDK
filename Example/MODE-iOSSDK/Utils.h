@@ -19,3 +19,4 @@ void setupStandardTextField(UITextField* textField, NSString* name, NSString* ic
 //void setupTextFieldWithLeftIcon(UITextField* textField, NSString* iconName);
 
 void setupMessage(UILabel* message, NSString* text);
+void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color);

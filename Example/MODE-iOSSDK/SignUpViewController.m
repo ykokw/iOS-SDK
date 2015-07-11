@@ -1,10 +1,15 @@
 #import "ButtonUtils.h"
 #import "SignUpViewController.h"
+#import "Messages.h"
 #import "MODEApp.h"
 #import "DataHolder.h"
 #import "Utils.h"
 
 @interface SignUpViewController ()
+
+@property(strong, nonatomic) IBOutlet UILabel* message;
+@property(strong, nonatomic) IBOutlet UILabel* note;
+
 
 @property(strong, nonatomic) IBOutlet UITextField* nameField;
 @property(strong, nonatomic) IBOutlet UITextField* phoneNumberField;
@@ -18,6 +23,9 @@
 {
     [super viewDidLoad];
 
+    setupMessage(self.message, MESSAGE_WELCOME);
+    setupMessage(self.note, MESSAGE_NOTE);
+    
     setupStandardTextField(self.nameField, @"Name", @"Name.png");
     
     self.navigationItem.titleView = setupTitle(@"Sign Up");

@@ -2,6 +2,19 @@
 #define MESSAGE_SAMPLE_APP @"\
 A Sample App for your Smart Light \
 "
+#define MESSAGE_CREATE_HOME @"\
+Create a New Home.\
+"
+
+#define MESSAGE_WELCOME @"\
+Welcome! Please fill out the following information \
+to create an account.\
+"
+
+#define MESSAGE_NOTE @"\
+Note: Your phone number is used only for logging in.\
+We will never smap you.\
+"
 
 #define MESSAGE_VERIFY_YOU @"\
 Great! We just texted you a code \
@@ -19,7 +32,7 @@ Claim Your Devices.\n\n\
 2. Enter Claim Code on your device."
 
 #define MESSAGE_REGISTERED @"\
-Through this app, you'll be able to control all Lumos lights!\n\n\
+Through this app, you'll be able to control all Lumos lights.\n\n\
 To start, we will create a home for you called \"My Home\".\
 "
 

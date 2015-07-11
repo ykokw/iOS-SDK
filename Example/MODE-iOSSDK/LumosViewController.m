@@ -15,7 +15,7 @@
 {
     [super viewDidLoad];
 
-    setupMessage(self.message, MESSAGE_SAMPLE_APP);
+    setupMessageWithColor(self.message, MESSAGE_SAMPLE_APP, [UIColor whiteColor]);
     
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background.png"]];
     

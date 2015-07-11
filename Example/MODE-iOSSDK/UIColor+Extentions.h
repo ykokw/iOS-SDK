@@ -4,5 +4,6 @@
 
 + (UIColor *)defaultThemeColor;
 + (UIColor *)defaultDisplayColor;
++ (UIColor *)bodyTextColor;
 
 @end
