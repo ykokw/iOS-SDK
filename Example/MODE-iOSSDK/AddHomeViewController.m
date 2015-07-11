@@ -4,14 +4,13 @@
 #import "MODEApp.h"
 #import "Utils.h"
 
+
 @interface AddHomeViewController ()
 
 @property(strong, nonatomic) IBOutlet UITextField* nameField;
 @property(strong, nonatomic) IBOutlet UIPickerView* timezoneField;
 @property(strong, nonatomic) NSString* targetTimezone;
 @property(strong, nonatomic) NSArray* timezones;
-
-
 
 @end
 
@@ -22,6 +21,8 @@
  
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(handleAdd)];
 
+    setupStandardTextField(self.nameField, @"Name of Home", @"Home.png");
+    
     self.timezoneField.dataSource = self;
     self.timezoneField.delegate = self;
     

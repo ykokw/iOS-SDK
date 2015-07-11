@@ -17,9 +17,31 @@ void showAlert(NSError* err)
 
 }
 
-NumericTextFieldDelegate* setupNumericTextField(UITextField* numericField, NSString* name)
+void setupTextFieldWithLeftIcon(UITextField* textField, NSString* iconName)
+{
+    
+    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:iconName]];
+    imageView.frame = CGRectMake(10,0,16,16);
+    
+    UIView* objLeftView = [[UIView alloc] initWithFrame:CGRectMake(0,0,26,16)];
+    [objLeftView addSubview:imageView];
+    
+    [textField setLeftViewMode:UITextFieldViewModeAlways];
+    textField.leftView = objLeftView;
+}
+
+void setupStandardTextField(UITextField* textField, NSString* name, NSString* iconName)
+{
+    [textField setPlaceholder:name];
+    setupTextFieldWithLeftIcon(textField, iconName);
+}
+
+NumericTextFieldDelegate* setupNumericTextField(UITextField* numericField, NSString* name, NSString* iconName)
 {
     [numericField setPlaceholder:name];
+    
+    setupTextFieldWithLeftIcon(numericField, iconName);
+    
     numericField.keyboardType = UIKeyboardTypeNumberPad;
     NumericTextFieldDelegate* numericDelegate = [[NumericTextFieldDelegate alloc] init];
     numericField.delegate = numericDelegate;
@@ -30,6 +52,8 @@ NumericTextFieldDelegate* setupNumericTextField(UITextField* numericField, NSStr
 PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* phoneNumberField)
 {
     [phoneNumberField setPlaceholder:@"Phonenumber"];
+    
+    setupTextFieldWithLeftIcon(phoneNumberField, @"Phone.png");
     
     phoneNumberField.keyboardType = UIKeyboardTypeNumberPad;
     PhoneNumberFieldDelegate* phoneNumberDelegate = [[PhoneNumberFieldDelegate alloc] initWithTextField:phoneNumberField];

@@ -17,7 +17,8 @@
 {
     [super viewDidLoad];
 
-    [self.nameField setPlaceholder:@"Name"];
+    setupStandardTextField(self.nameField, @"Name", @"Name.png");
+    
      self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
 }
 

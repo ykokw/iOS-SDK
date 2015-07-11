@@ -18,8 +18,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-
-    self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Authentication Code");
+    
+    self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Authentication Code", @"Authentication.png");
     setupMessage(self.message, MESSAGE_VERIFY_YOU);
 }
 

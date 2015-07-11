@@ -3,6 +3,7 @@
 
 UIButton* setupEditButton(UIView* view, id target, SEL edit) {
     UIButton *editButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    [editButton setImage:[UIImage imageNamed:@"Settings.png"] forState:UIControlStateNormal];
     editButton.frame = CGRectMake(0, 0, 50, 50);
     editButton.tintColor = [UIColor defaultThemeColor];
     [editButton addTarget:target action:edit forControlEvents:UIControlEventTouchUpInside];
@@ -13,6 +14,7 @@ UIButton* setupEditButton(UIView* view, id target, SEL edit) {
 
 UIButton* setupAddButton(UIView* view, id target, SEL add) {
     UIButton *addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
+    [addButton setImage:[UIImage imageNamed:@"Add.png"] forState:UIControlStateNormal];
     addButton.frame = CGRectMake(250, 0, 100, 50);
     addButton.tintColor = [UIColor defaultThemeColor];
     [addButton addTarget:target action:add forControlEvents:UIControlEventTouchUpInside];
@@ -32,8 +34,8 @@ UILabel* setupTitle(NSString* title) {
 
 
 void setupProfileButton(UINavigationItem* navigationItem, id target, SEL selector) {
-    navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Prof" style:UIBarButtonItemStylePlain target:target action:selector];
-
+    navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
+                                         initWithImage:[UIImage imageNamed:@"Profile.png"] style:UIBarButtonItemStylePlain target:target action:selector];
 
     navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
 }

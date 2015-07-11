@@ -19,7 +19,7 @@
 {
     [super viewDidLoad];
 
-    self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Verification Code");
+    self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Verification Code", @"Authentication.png");
     setupMessage(self.message, MESSAGE_VERIFY_YOU);
 }
 

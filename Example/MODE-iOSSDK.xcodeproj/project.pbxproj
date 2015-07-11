@@ -24,6 +24,20 @@
 		214286771B4F95EA006E3C1F /* AddHomeMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286761B4F95EA006E3C1F /* AddHomeMemberViewController.m */; };
 		2142867A1B503E27006E3C1F /* AddDeviceInConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286791B503E27006E3C1F /* AddDeviceInConsoleViewController.m */; };
 		2142867D1B504C91006E3C1F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2142867C1B504C91006E3C1F /* ProfileViewController.m */; };
+		2142868C1B5093A9006E3C1F /* TimeZone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142867E1B5093A8006E3C1F /* TimeZone.png */; };
+		2142868D1B5093A9006E3C1F /* Settings White.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142867F1B5093A8006E3C1F /* Settings White.png */; };
+		2142868E1B5093A9006E3C1F /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286801B5093A8006E3C1F /* Settings.png */; };
+		2142868F1B5093A9006E3C1F /* Settings Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286811B5093A8006E3C1F /* Settings Red.png */; };
+		214286901B5093A9006E3C1F /* Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286821B5093A8006E3C1F /* Profile.png */; };
+		214286911B5093A9006E3C1F /* Phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286831B5093A8006E3C1F /* Phone.png */; };
+		214286921B5093A9006E3C1F /* Nickname.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286841B5093A8006E3C1F /* Nickname.png */; };
+		214286931B5093A9006E3C1F /* Name.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286851B5093A8006E3C1F /* Name.png */; };
+		214286941B5093A9006E3C1F /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286861B5093A9006E3C1F /* Home.png */; };
+		214286951B5093A9006E3C1F /* Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286871B5093A9006E3C1F /* Edit.png */; };
+		214286961B5093A9006E3C1F /* ClaimCode.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286881B5093A9006E3C1F /* ClaimCode.png */; };
+		214286971B5093A9006E3C1F /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286891B5093A9006E3C1F /* Background.png */; };
+		214286981B5093A9006E3C1F /* Authentication.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142868A1B5093A9006E3C1F /* Authentication.png */; };
+		214286991B5093A9006E3C1F /* Add.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142868B1B5093A9006E3C1F /* Add.png */; };
 		219841B11B4B526C00F57B09 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B01B4B526C00F57B09 /* SignUpViewController.m */; };
 		219841B41B4B5B6200F57B09 /* DataHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B31B4B5B6200F57B09 /* DataHolder.m */; };
 		219841B61B4C35E600F57B09 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B51B4C35E600F57B09 /* Utils.m */; };
@@ -91,6 +105,20 @@
 		214286791B503E27006E3C1F /* AddDeviceInConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDeviceInConsoleViewController.m; sourceTree = "<group>"; };
 		2142867B1B504C91006E3C1F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		2142867C1B504C91006E3C1F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		2142867E1B5093A8006E3C1F /* TimeZone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TimeZone.png; path = Images.xcassets/TimeZone.png; sourceTree = "<group>"; };
+		2142867F1B5093A8006E3C1F /* Settings White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Settings White.png"; path = "Images.xcassets/Settings White.png"; sourceTree = "<group>"; };
+		214286801B5093A8006E3C1F /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Settings.png; path = Images.xcassets/Settings.png; sourceTree = "<group>"; };
+		214286811B5093A8006E3C1F /* Settings Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Settings Red.png"; path = "Images.xcassets/Settings Red.png"; sourceTree = "<group>"; };
+		214286821B5093A8006E3C1F /* Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Profile.png; path = Images.xcassets/Profile.png; sourceTree = "<group>"; };
+		214286831B5093A8006E3C1F /* Phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Phone.png; path = Images.xcassets/Phone.png; sourceTree = "<group>"; };
+		214286841B5093A8006E3C1F /* Nickname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Nickname.png; path = Images.xcassets/Nickname.png; sourceTree = "<group>"; };
+		214286851B5093A8006E3C1F /* Name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Name.png; path = Images.xcassets/Name.png; sourceTree = "<group>"; };
+		214286861B5093A9006E3C1F /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Home.png; path = Images.xcassets/Home.png; sourceTree = "<group>"; };
+		214286871B5093A9006E3C1F /* Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Edit.png; path = Images.xcassets/Edit.png; sourceTree = "<group>"; };
+		214286881B5093A9006E3C1F /* ClaimCode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ClaimCode.png; path = Images.xcassets/ClaimCode.png; sourceTree = "<group>"; };
+		214286891B5093A9006E3C1F /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Images.xcassets/Background.png; sourceTree = "<group>"; };
+		2142868A1B5093A9006E3C1F /* Authentication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Authentication.png; path = Images.xcassets/Authentication.png; sourceTree = "<group>"; };
+		2142868B1B5093A9006E3C1F /* Add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Add.png; path = Images.xcassets/Add.png; sourceTree = "<group>"; };
 		219841AF1B4B526C00F57B09 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
 		219841B01B4B526C00F57B09 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		219841B21B4B5B6200F57B09 /* DataHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHolder.h; sourceTree = "<group>"; };
@@ -218,6 +246,27 @@
 			name = ConsoleViewControllers;
 			sourceTree = "<group>";
 		};
+		2142869A1B5093BE006E3C1F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				2142867E1B5093A8006E3C1F /* TimeZone.png */,
+				2142867F1B5093A8006E3C1F /* Settings White.png */,
+				214286801B5093A8006E3C1F /* Settings.png */,
+				214286811B5093A8006E3C1F /* Settings Red.png */,
+				214286821B5093A8006E3C1F /* Profile.png */,
+				214286831B5093A8006E3C1F /* Phone.png */,
+				214286841B5093A8006E3C1F /* Nickname.png */,
+				214286851B5093A8006E3C1F /* Name.png */,
+				214286861B5093A9006E3C1F /* Home.png */,
+				214286871B5093A9006E3C1F /* Edit.png */,
+				214286881B5093A9006E3C1F /* ClaimCode.png */,
+				214286891B5093A9006E3C1F /* Background.png */,
+				2142868A1B5093A9006E3C1F /* Authentication.png */,
+				2142868B1B5093A9006E3C1F /* Add.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -255,6 +304,7 @@
 		6003F593195388D20070C39A /* Example for MODE-iOSSDK */ = {
 			isa = PBXGroup;
 			children = (
+				2142869A1B5093BE006E3C1F /* Images */,
 				214286641B4DEE96006E3C1F /* ConsoleViewControllers */,
 				214286561B4D9823006E3C1F /* MainViewControllers */,
 				214286551B4D97FE006E3C1F /* misc */,
@@ -408,10 +458,24 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				214286931B5093A9006E3C1F /* Name.png in Resources */,
+				214286971B5093A9006E3C1F /* Background.png in Resources */,
+				2142868E1B5093A9006E3C1F /* Settings.png in Resources */,
+				214286991B5093A9006E3C1F /* Add.png in Resources */,
 				2142865A1B4D98A2006E3C1F /* console.storyboard in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				214286941B5093A9006E3C1F /* Home.png in Resources */,
+				214286961B5093A9006E3C1F /* ClaimCode.png in Resources */,
+				214286921B5093A9006E3C1F /* Nickname.png in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				214286911B5093A9006E3C1F /* Phone.png in Resources */,
+				214286981B5093A9006E3C1F /* Authentication.png in Resources */,
+				214286901B5093A9006E3C1F /* Profile.png in Resources */,
+				2142868D1B5093A9006E3C1F /* Settings White.png in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				214286951B5093A9006E3C1F /* Edit.png in Resources */,
+				2142868C1B5093A9006E3C1F /* TimeZone.png in Resources */,
+				2142868F1B5093A9006E3C1F /* Settings Red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

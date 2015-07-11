@@ -14,7 +14,6 @@
 
 @property(strong, nonatomic) IBOutlet UILabel* message;
 @property(strong, nonatomic) IBOutlet UITextField* verificationCodeField;
-@property(strong, nonatomic) NumericTextFieldDelegate* numericDelegate;
 
 @end
 
@@ -23,9 +22,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    self.verificationCodeField.keyboardType = UIKeyboardTypeNumberPad;
-    self.numericDelegate = [[NumericTextFieldDelegate alloc] init];
-    self.verificationCodeField.delegate = self.numericDelegate;
+    setupStandardTextField(self.verificationCodeField, @"Claim Code", @"ClaimCode.png");
     
     setupMessage(self.message, MESSAGE_ADD_DEVICES);
     

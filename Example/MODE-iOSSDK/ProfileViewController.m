@@ -1,5 +1,6 @@
 #import "DataHolder.h"
 #import "ProfileViewController.h"
+#import "Utils.h"
 
 @interface ProfileViewController ()
 
@@ -12,7 +13,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
  
-    [self.nameField setPlaceholder:@"Name"];
+    setupStandardTextField(self.nameField, @"Name", @"Name.png");
+
 }
 
 - (IBAction)handleLogout:(id)sender {
