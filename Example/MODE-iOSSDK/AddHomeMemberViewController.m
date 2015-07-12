@@ -23,7 +23,6 @@
     setupMessage(self.message, MESSAGE_INVITE);
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(handleAdd)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     
     self.navigationItem.titleView = setupTitle(@"Add Member");
 }

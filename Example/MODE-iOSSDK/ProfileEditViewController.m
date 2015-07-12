@@ -25,7 +25,6 @@
     setupMessage(self.message, MESSAGE_EDIT_PROFILE);
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Done" style:UIBarButtonItemStylePlain target:self action:@selector(handleDone)];
-    self.navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
     
     self.navigationItem.titleView = setupTitle(@"My Profile");
     

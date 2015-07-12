@@ -37,5 +37,4 @@ void setupProfileButton(UINavigationItem* navigationItem, id target, SEL selecto
     navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
                                          initWithImage:[UIImage imageNamed:@"Profile.png"] style:UIBarButtonItemStylePlain target:target action:selector];
 
-    navigationItem.rightBarButtonItem.tintColor = [UIColor whiteColor];
 }

@@ -1,3 +1,4 @@
+#import "ButtonUtils.h"
 #import "DataHolder.h"
 #import "ProfileEditViewController.h"
 #import "ProfileViewController.h"
@@ -23,6 +24,8 @@
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(handleEdit)];
     
+    self.navigationItem.titleView = setupTitle(@"My Profile");
+
     self.nameIcon.image = [UIImage imageNamed:@"Name.png"];
 
     self.phoneIcon.image = [UIImage imageNamed:@"Phone.png"];
