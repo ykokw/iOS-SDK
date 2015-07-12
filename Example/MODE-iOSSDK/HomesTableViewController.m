@@ -101,6 +101,10 @@
     return 0;
 }
 
+-(void)handleEdit:(UIButton*)sender
+{
+    NSLog(@"hoge %ld", sender.tag);
+}
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -110,8 +114,22 @@
   
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        
+        // set up edit icon at the right of UITableViewCell.
+        UIButton *editButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+        [editButton setImage:[UIImage imageNamed:@"Edit.png"] forState:UIControlStateNormal];
+        editButton.frame = CGRectMake(0, 0, 50, 50);
+        editButton.tintColor = [UIColor bodyTextColor];
+        [editButton addTarget:self action:@selector(handleEdit:) forControlEvents:UIControlEventTouchUpInside];
+        cell.editingAccessoryView = editButton;
+        cell.editingAccessoryView.userInteractionEnabled = YES;
     }
 
+    // Need to set the tag to identify accessory icon click.
+    // The tag is used as index in handleEdit:
+    UIButton* editButton = (UIButton*)cell.editingAccessoryView;
+    editButton.tag = indexPath.row;
+    
     MODEHome* home = self.homes[indexPath.row];
     NSString* cellvalue = home.name;
     
