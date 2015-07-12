@@ -32,6 +32,12 @@ UILabel* setupTitle(NSString* title) {
     return label;
 }
 
+void setupRightBarButtonItem(UINavigationItem* navigationItem, NSString* title, id target, SEL selector) {
+    
+    navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:target action:selector];
+    
+}
+
 
 void setupProfileButton(UINavigationItem* navigationItem, id target, SEL selector) {
     navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]

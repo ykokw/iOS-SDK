@@ -22,7 +22,7 @@
     self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
     setupMessage(self.message, MESSAGE_INVITE);
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(handleAdd)];
+    setupRightBarButtonItem(self.navigationItem, @"Add", self, @selector(handleAdd));
     
     self.navigationItem.titleView = setupTitle(@"Add Member");
 }

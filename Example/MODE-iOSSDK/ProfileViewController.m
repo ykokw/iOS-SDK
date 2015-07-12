@@ -22,7 +22,7 @@
 
     [self fetchUserInfo];
     
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Edit" style:UIBarButtonItemStylePlain target:self action:@selector(handleEdit)];
+    setupRightBarButtonItem(self.navigationItem, @"Edit", self, @selector(handleEdit));
     
     self.navigationItem.titleView = setupTitle(@"My Profile");
 

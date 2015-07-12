@@ -1,4 +1,5 @@
 #import "AddHomeViewController.h"
+#import "ButtonUtils.h"
 #import "DataHolder.h"
 #import "HomesTableViewController.h"
 #import "Messages.h"
@@ -23,8 +24,8 @@
     
     setupMessage(self.message, MESSAGE_CREATE_HOME);
  
-    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(handleAdd)];
-
+    setupRightBarButtonItem(self.navigationItem, @"Add", self, @selector(handleAdd));
+    
     setupStandardTextField(self.nameField, @"Name of Home", @"Home.png");
     
     self.timezoneField.dataSource = self;
