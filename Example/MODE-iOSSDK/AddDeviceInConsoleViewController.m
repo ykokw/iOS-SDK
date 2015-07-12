@@ -14,6 +14,7 @@
 
 @property(strong, nonatomic) IBOutlet UILabel* message;
 @property(strong, nonatomic) IBOutlet UITextField* verificationCodeField;
+@property(strong, nonatomic) IBOutlet UITextField* deviceNameField;
 
 @end
 
@@ -23,7 +24,9 @@
     [super viewDidLoad];
 
     setupStandardTextField(self.verificationCodeField, @"Claim Code", @"ClaimCode.png");
-    
+
+    setupStandardTextField(self.deviceNameField, @"Nickname (e.g. Office Lamp)", @"Nickname.png");
+
     setupMessage(self.message, MESSAGE_ADD_DEVICES);
     
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"Add" style:UIBarButtonItemStylePlain target:self action:@selector(handleAdd)];
@@ -33,6 +36,17 @@
 
 }
 
+-(void)updateDeviceName:(MODEDevice*)device
+{
+    DataHolder* data = [DataHolder sharedInstance];
+    [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text completion:^(MODEDevice *device, NSError *err) {
+        if ( err != nil) {
+            showAlert(err);
+        }
+        [self.sourceVC fetchDevices];
+    }];
+}
+
 -(void)handleAdd {
     DataHolder* data = [DataHolder sharedInstance];
     
@@ -40,14 +54,13 @@
                  completion:^(MODEDevice *device, NSError *err) {
                      if (err != nil) {
                          showAlert(err);
+                     } else {
+                         NSLog(@"added %@", device);
+                         [self updateDeviceName:device];
                      }
-                     
-                     NSLog(@"added %@", device);
-                     [self.sourceVC fetchDevices];
                  }];
     
      [self.navigationController popToViewController:self.sourceVC animated:YES];
-
 }
 
 @end

@@ -42,6 +42,7 @@
 		219841B41B4B5B6200F57B09 /* DataHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B31B4B5B6200F57B09 /* DataHolder.m */; };
 		219841B61B4C35E600F57B09 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B51B4C35E600F57B09 /* Utils.m */; };
 		219841BA1B4C38A300F57B09 /* VerifyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B91B4C38A300F57B09 /* VerifyAccountViewController.m */; };
+		21E4511D1B5238AA0080885F /* ProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E4511C1B5238AA0080885F /* ProfileEditViewController.m */; };
 		240900B08EFA32630145814C /* Pods_MODE_iOSSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E38AC9A22CAC1AA226C9880 /* Pods_MODE_iOSSDK_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -128,6 +129,8 @@
 		219841B81B4C38A300F57B09 /* VerifyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyAccountViewController.h; sourceTree = "<group>"; };
 		219841B91B4C38A300F57B09 /* VerifyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyAccountViewController.m; sourceTree = "<group>"; };
 		21C16CD61B4CAFAD00D58890 /* Messages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Messages.h; sourceTree = "<group>"; };
+		21E4511B1B5238AA0080885F /* ProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditViewController.h; sourceTree = "<group>"; };
+		21E4511C1B5238AA0080885F /* ProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditViewController.m; sourceTree = "<group>"; };
 		2DFF3826F5A3A2128C83B9FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		47B286A23B4CB7AFC0DD9486 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* MODE-iOSSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MODE-iOSSDK_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,6 +245,8 @@
 				214286791B503E27006E3C1F /* AddDeviceInConsoleViewController.m */,
 				2142867B1B504C91006E3C1F /* ProfileViewController.h */,
 				2142867C1B504C91006E3C1F /* ProfileViewController.m */,
+				21E4511B1B5238AA0080885F /* ProfileEditViewController.h */,
+				21E4511C1B5238AA0080885F /* ProfileEditViewController.m */,
 			);
 			name = ConsoleViewControllers;
 			sourceTree = "<group>";
@@ -591,6 +596,7 @@
 				2142866A1B4EE277006E3C1F /* HomeDetailableViewController.m in Sources */,
 				214286631B4DDAE7006E3C1F /* OverlayViewProtocol.m in Sources */,
 				212A692D1B4C8F9600D5DAEE /* AuthenticateAccountViewController.m in Sources */,
+				21E4511D1B5238AA0080885F /* ProfileEditViewController.m in Sources */,
 				6003F59E195388D20070C39A /* MODEAppDelegate.m in Sources */,
 				2142865D1B4D99D5006E3C1F /* LinkedStoryBoardSegue.m in Sources */,
 				214286601B4D9D86006E3C1F /* CongratzViewController.m in Sources */,

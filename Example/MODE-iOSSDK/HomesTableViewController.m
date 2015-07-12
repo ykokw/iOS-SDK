@@ -26,6 +26,7 @@
     setupProfileButton(self.navigationItem, self, @selector(handleProfile));
 
     self.navigationItem.titleView = setupTitle(@"Homes");
+    self.navigationItem.hidesBackButton = YES;
     
     [self fetchHomes];
 

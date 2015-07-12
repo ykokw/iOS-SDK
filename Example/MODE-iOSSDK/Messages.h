@@ -47,4 +47,7 @@ Invite more members to join your home and share device access!\
 Just enter their phone number\
 "
 
+#define MESSAGE_EDIT_PROFILE @"\
+Edit Your Profile Information\
+"
 

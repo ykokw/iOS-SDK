@@ -2,4 +2,6 @@
 
 @interface ProfileViewController : UIViewController
 
+-(void)fetchUserInfo;
+
 @end
