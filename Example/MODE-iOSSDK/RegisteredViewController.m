@@ -1,9 +1,9 @@
-#import "RegisteredViewController.h"
-#import "ModeApp.h"
 #import "DataHolder.h"
-#import "Utils.h"
+#import "ModeApp.h"
 #import "Messages.h"
 #import "OverlayViewProtocol.h"
+#import "RegisteredViewController.h"
+#import "Utils.h"
 
 @interface RegisteredViewController ()
 

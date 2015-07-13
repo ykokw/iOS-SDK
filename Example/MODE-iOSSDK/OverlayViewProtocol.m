@@ -1,6 +1,5 @@
 #import "OverlayViewProtocol.h"
 
-
 void removeOverlayViewSub(UINavigationController* navigationController, void(^completion)())
 {
     UIView *view = (UIView *)[navigationController.view viewWithTag:88];

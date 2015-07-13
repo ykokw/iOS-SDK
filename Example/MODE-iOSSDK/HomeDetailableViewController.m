@@ -2,8 +2,8 @@
 #import "AddHomeMemberViewController.h"
 #import "ButtonUtils.h"
 #import "DataHolder.h"
-#import "HomeDetailableViewController.h"
 #import "MODEApp.h"
+#import "HomeDetailableViewController.h"
 #import "UIColor+Extentions.h"
 #import "Utils.h"
 

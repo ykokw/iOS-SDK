@@ -1,8 +1,8 @@
 #import "ButtonUtils.h"
-#import "SignUpViewController.h"
+#import "DataHolder.h"
 #import "Messages.h"
 #import "MODEApp.h"
-#import "DataHolder.h"
+#import "SignUpViewController.h"
 #import "Utils.h"
 
 @interface SignUpViewController ()

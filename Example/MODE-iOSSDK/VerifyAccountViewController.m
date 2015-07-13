@@ -1,10 +1,10 @@
 #import "ButtonUtils.h"
-#import "VerifyAccountViewController.h"
-#import "MODEApp.h"
 #import "DataHolder.h"
-#import "Utils.h"
 #import "Messages.h"
+#import "MODEApp.h"
 #import "OverlayViewProtocol.h"
+#import "VerifyAccountViewController.h"
+#import "Utils.h"
 
 @interface VerifyAccountViewController ()
 

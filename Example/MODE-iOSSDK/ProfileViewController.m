@@ -1,8 +1,8 @@
 #import "ButtonUtils.h"
 #import "DataHolder.h"
+#import "MODEApp.h"
 #import "ProfileEditViewController.h"
 #import "ProfileViewController.h"
-#import "MODEApp.h"
 
 #import "Utils.h"
 

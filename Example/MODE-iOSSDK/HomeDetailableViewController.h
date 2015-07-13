@@ -1,5 +1,6 @@
 #import <UIKit/UIKit.h>
-#import "MODEData.h"
+
+@class MODEHome;
 
 @interface HomeDetailableViewController : UITableViewController
 
