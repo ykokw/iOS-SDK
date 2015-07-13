@@ -2,6 +2,7 @@
 #import "LumosViewController.h"
 #import "Messages.h"
 #import "Utils.h"
+#import "UIColor+Extentions.h"
 
 @interface LumosViewController ()
 
@@ -14,6 +15,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
+    self.navigationController.navigationBar.barTintColor = [UIColor defaultThemeColor];
 
     setupMessageWithColor(self.message, MESSAGE_SAMPLE_APP, [UIColor whiteColor]);
     
@@ -23,7 +27,7 @@
     [self.view sendSubviewToBack:backgroundImage];
     
     if ( [[DataHolder sharedInstance] clientAuth].token != nil ) {
-         NSString* segue = [DataHolder sharedInstance].members.homeId == 0 ? @"BypassSignUpSegue" : @"@console";
+         NSString* segue = @"@console";
         [self performSegueWithIdentifier:segue sender:self];
     }
 }

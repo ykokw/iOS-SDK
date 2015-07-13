@@ -24,9 +24,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.navigationController.navigationBar.barTintColor = [UIColor defaultThemeColor];
-    self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-   
     setupProfileButton(self.navigationItem, self, @selector(handleProfile));
     
     self.navigationItem.titleView = setupTitle(self.targetHome.name);
