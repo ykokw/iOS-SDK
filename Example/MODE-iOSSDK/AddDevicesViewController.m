@@ -40,9 +40,14 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
     removeOverlayViewSub(self.navigationController, nil);
 }
 
+
+- (IBAction)handleSkip:(id)sender {
+    [self performSegueWithIdentifier:@"@console" sender:self];
+}
+
 - (IBAction)handleNext:(id)sender
 {
-    [self performSegueWithIdentifier:@"CongratzSegue" sender:self];
+    [self performSegueWithIdentifier:@"@console" sender:self];
 
     DataHolder* data = [DataHolder sharedInstance];
     

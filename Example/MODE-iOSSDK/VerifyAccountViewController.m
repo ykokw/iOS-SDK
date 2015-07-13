@@ -34,12 +34,7 @@
 
 -(void)createMyHome:(UIViewController<OverlayViewProtocol>*)destVC
 {
-    
     DataHolder* data = [DataHolder sharedInstance];
-    
-    //setupOverlayView(self.navigationController, @"Setting up home...");
-    
-    //UIViewController<OverlayViewProtocol> *destVC = [segue destinationViewController];
     
     // Here we just create default "My Home" and set "Los Angeles" timezone.
     // But you have to rewrite according to users' environment.
