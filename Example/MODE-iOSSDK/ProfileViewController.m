@@ -57,8 +57,8 @@
     
     DataHolder* data = [DataHolder sharedInstance];
     
-    data.members = nil;
-    data.clientAuth = nil;
+    data.members = [[DataHolderMembers alloc] init];
+    data.clientAuth = [[MODEClientAuthentication alloc] init];
     [data saveData];
     
     [self.navigationController popToRootViewControllerAnimated:YES];

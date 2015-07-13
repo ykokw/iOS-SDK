@@ -1,3 +1,4 @@
+#import "AddDevicesViewController.h"
 #import "AddDeviceInConsoleViewController.h"
 #import "ButtonUtils.h"
 #import "DataHolder.h"
@@ -23,15 +24,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    setupStandardTextField(self.verificationCodeField, @"Claim Code", @"ClaimCode.png");
-
-    setupStandardTextField(self.deviceNameField, @"Nickname (e.g. Office Lamp)", @"Nickname.png");
-
-    setupMessage(self.message, MESSAGE_ADD_DEVICES);
+    self.navigationItem.titleView = setupCommonAddDeviceWidgets(self.verificationCodeField, self.deviceNameField, self.message);
     
     setupRightBarButtonItem(self.navigationItem, @"Add", self, @selector(handleAdd));
-    
-    self.navigationItem.titleView = setupTitle(@"Add device");
 
 }
 

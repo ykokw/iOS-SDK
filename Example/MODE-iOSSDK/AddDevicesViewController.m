@@ -6,10 +6,19 @@
 #import "OverlayViewProtocol.h"
 #import "Utils.h"
 
+
+UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextField* devicenameField, UILabel*message) {
+    setupStandardTextField(verificationCodeField, @"Claim Code", @"ClaimCode.png");
+    setupStandardTextField(devicenameField, @"Nickname (e.g. Office Lamp)", @"Nickname.png");
+    setupMessage(message, MESSAGE_ADD_DEVICES);
+    return setupTitle(@"Add device");
+}
+
 @interface AddDevicesViewController ()
 
 @property(strong, nonatomic) IBOutlet UILabel* message;
 @property(strong, nonatomic) IBOutlet UITextField* verificationCodeField;
+@property(strong, nonatomic) IBOutlet UITextField* deviceNameField;
 
 @end
 
@@ -19,10 +28,9 @@
 {
     [super viewDidLoad];
     
-    setupStandardTextField(self.verificationCodeField, @"Claim Code", @"ClaimCode.png");
-    self.navigationItem.hidesBackButton = YES;
+    self.navigationItem.titleView = setupCommonAddDeviceWidgets(self.verificationCodeField, self.deviceNameField, self.message);
     
-    self.navigationItem.titleView = setupTitle(@"Add Device");
+    self.navigationItem.hidesBackButton = YES;
     
     setupMessage(self.message, MESSAGE_ADD_DEVICES);
 }
@@ -41,7 +49,7 @@
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:data.members.homeId
         completion:^(MODEDevice *device, NSError *err) {
             if (err == nil) {
-                [data saveData];
+                [self updateDeviceName:device];
             } else {
                 // You need to rollback because auth failed.
                 [self.navigationController popToViewController:self animated:YES];
@@ -52,9 +60,14 @@
 
 }
 
-- (IBAction)handleSkip:(id)sender
+-(void)updateDeviceName:(MODEDevice*)device
 {
-     [self performSegueWithIdentifier:@"CongratzSegue" sender:self];
+    DataHolder* data = [DataHolder sharedInstance];
+    [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text completion:^(MODEDevice *device, NSError *err) {
+        if ( err != nil) {
+            showAlert(err);
+        }
+    }];
 }
 
 @end
