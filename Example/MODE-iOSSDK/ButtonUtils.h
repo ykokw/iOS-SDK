@@ -6,3 +6,4 @@ void setupProfileButton(UINavigationItem* navigationItem, id target, SEL selecto
 void setupRightBarButtonItem(UINavigationItem* navigationItem, NSString* title, id target, SEL selector);
 
 UILabel* setupTitle(NSString* title);
+

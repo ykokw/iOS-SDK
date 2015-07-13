@@ -11,7 +11,8 @@
 @interface HomesTableViewController ()
 
 @property(strong, nonatomic) UIButton* editButton;
-@property (strong, nonatomic) NSMutableArray* homes;
+@property(strong, nonatomic) NSMutableArray* homes;
+@property(strong, nonatomic) MODEHome* editTargetHome;
 
 @end
 
@@ -104,6 +105,9 @@
 -(void)handleEdit:(UIButton*)sender
 {
     NSLog(@"hoge %ld", sender.tag);
+    self.editTargetHome = [self.homes objectAtIndex:sender.tag];
+    
+    [self performSegueWithIdentifier:@"EditHomeSegue" sender:nil];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -178,9 +182,14 @@
         HomeDetailableViewController *view = [segue destinationViewController];
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         view.targetHome = [self.homes objectAtIndex:indexPath.row];
-    } else if ([segue.identifier isEqualToString:@"AddHomeSegue"]){
+    } else if ([segue.identifier isEqualToString:@"AddHomeSegue"] ||
+        [segue.identifier isEqualToString:@"EditHomeSegue"] ){
         AddHomeViewController* view = [segue destinationViewController];
         view.sourceVC = self;
+        
+        if([segue.identifier isEqualToString:@"EditHomeSegue"]) {
+            view.targetHome = self.editTargetHome;
+        }
     }
 }
 

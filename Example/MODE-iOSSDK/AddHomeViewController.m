@@ -6,6 +6,7 @@
 #import "MODEApp.h"
 #import "Utils.h"
 
+// AddHomeViewController is shared for Edit/Add Home.
 
 @interface AddHomeViewController ()
 
@@ -19,22 +20,60 @@
 
 @implementation AddHomeViewController
 
+-(NSString*) getMessage {
+    return self.targetHome ? MESSAGE_EDIT_HOME : MESSAGE_CREATE_HOME;
+}
+
+-(NSString*) getTitle {
+    return self.targetHome ? @"Edit Home" : @"Add Home";
+}
+
+-(void) setupRightBarButton
+{
+    if (self.targetHome) {
+        setupRightBarButtonItem(self.navigationItem, @"Done", self, @selector(handleDone));
+    } else {
+        setupRightBarButtonItem(self.navigationItem, @"Add", self, @selector(handleAdd));
+    }
+}
+
+-(NSString*)getHomeName
+{
+    return self.targetHome ? self.targetHome.name : @"Name of Home";
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    setupMessage(self.message, MESSAGE_CREATE_HOME);
+    setupMessage(self.message, [self getMessage]);
  
-    setupRightBarButtonItem(self.navigationItem, @"Add", self, @selector(handleAdd));
+    [self setupRightBarButton];
     
-    setupStandardTextField(self.nameField, @"Name of Home", @"Home.png");
+    setupStandardTextField(self.nameField, [self getHomeName], @"Home.png");
     
-    self.timezoneField.dataSource = self;
+    self.navigationItem.titleView = setupTitle([self getTitle]);
+    
     self.timezoneField.delegate = self;
+    self.timezoneField.dataSource = self;
     
+    int timezoneIdx = 0;
     self.timezones = @[@"America/Los_Angeles", @"America/Detroit", @"America/Denver"];
-    [self.timezoneField selectRow:0 inComponent:0 animated:TRUE];
-    self.targetTimezone = self.timezones[0];
+    if (self.targetHome != nil) {
+        int cnt = 0;
+        for (NSString* tz in self.timezones) {
+            if ([tz isEqualToString:self.targetHome.timezone]) {
+                timezoneIdx = cnt;
+                break;
+            }
+            cnt++;
+        }
+    }
+    
+    [self.timezoneField selectRow:timezoneIdx inComponent:0 animated:TRUE];
+    
+    self.targetTimezone = self.timezones[timezoneIdx];
 }
+
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
@@ -57,22 +96,37 @@
     return self.timezones[row];
 }
 
+-(void)completion:(NSError*)err
+{
+    if(err != nil) {
+        showAlert(err);
+    } else {
+        // You have to refresh loading homes at this timing, otherwise homes list is not updated.
+        [self.sourceVC fetchHomes];
+    }
+}
+
 -(void)handleAdd
 {
     DataHolder* data = [DataHolder sharedInstance];
     
     [MODEAppAPI createHome:data.clientAuth name:self.nameField.text timezone:self.targetTimezone completion:^(MODEHome *home, NSError *err) {
-        if(err != nil) {
-            showAlert(err);
-        } else {
-            // You have to refresh loading homes at this timing, otherwise homes list is not updated.
-            [self.sourceVC fetchHomes];
-        }
+        [self completion:err];
     }];
 
     [self.navigationController popToViewController:self.sourceVC animated:YES];
 
 }
 
+-(void)handleDone
+{
+    DataHolder* data = [DataHolder sharedInstance];
+    
+   [MODEAppAPI updateHome:data.clientAuth homeId:self.targetHome.homeId name:self.nameField.text timezone:self.targetTimezone completion:^(MODEHome *home, NSError *err) {
+       [self completion:err];
+    }];
+    
+    [self.navigationController popToViewController:self.sourceVC animated:YES];
+}
 
 @end

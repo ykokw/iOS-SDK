@@ -5,6 +5,9 @@ A Sample App for your Smart Light \
 #define MESSAGE_CREATE_HOME @"\
 Create a New Home.\
 "
+#define MESSAGE_EDIT_HOME @"\
+Edit your Home Information.\
+"
 
 #define MESSAGE_WELCOME @"\
 Welcome! Please fill out the following information \

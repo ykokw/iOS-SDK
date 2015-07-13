@@ -32,6 +32,7 @@
                         <segue destination="uHG-7S-5eH" kind="push" identifier="HomeDetailSegue" id="aPY-IB-lXN"/>
                         <segue destination="WZP-a0-YMi" kind="push" identifier="AddHomeSegue" id="ILo-4J-82q"/>
                         <segue destination="h0W-VN-ZoX" kind="push" identifier="ProfileSegue" id="Wfk-OP-574"/>
+                        <segue destination="WZP-a0-YMi" kind="push" identifier="EditHomeSegue" id="nRF-LK-rSQ"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZjU-Z5-h07" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -293,6 +294,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Dhu-8c-9nI"/>
+        <segue reference="Wfk-OP-574"/>
+        <segue reference="nRF-LK-rSQ"/>
     </inferredMetricsTieBreakers>
 </document>
