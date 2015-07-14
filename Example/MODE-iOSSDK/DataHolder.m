@@ -1,4 +1,5 @@
 #import "DataHolder.h"
+#import "DeviceManager.h"
 
 @implementation DataHolderMembers
 
@@ -103,6 +104,17 @@ id loadObj(NSString* key, Class class)
 {
     self.clientAuth = loadObj(@"auth", MODEClientAuthentication.class);
     self.members = loadObj(@"members", DataHolderMembers.class);
+}
+
+-(void)setClientAuth:(MODEClientAuthentication *)clientAuth
+{
+    self->_clientAuth = clientAuth;
+    if (clientAuth.token) {
+        // Only when Authentication is valid, start listening to events.
+        [[DeviceManager sharedInstance] startListenToEvents:self.clientAuth];
+    } else {
+        [[DeviceManager sharedInstance] stopListenToEvents];
+    }
 }
 
 @end

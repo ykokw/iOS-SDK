@@ -4,7 +4,7 @@
 
 @protocol MODEDeviceEventDelegate <NSObject>
 
--(void)receivedEvent:(MODEDeviceEvent*)event err:(NSError*)err;
+-(void)receivedEvent:(int)deviceId status:(BOOL)status;
 
 @end
 
@@ -12,9 +12,14 @@
 
 + (DeviceManager *)sharedInstance;
 
-- (void)queryDeviceStatus;
 - (void)addMODEDeviceDelegate:(id<MODEDeviceEventDelegate>) delegate;
+- (void)removeMODEDeviceDelegate:(id<MODEDeviceEventDelegate>) delegate;
 
-- (void) checkAndStartListenToEvents:(MODEClientAuthentication*)clientAuth;
+
+- (void)startListenToEvents:(MODEClientAuthentication*)clientAuth;
+- (void)stopListenToEvents;
+
+- (void)queryDeviceStatus;
+- (void)triggerSwitch:(int)deviceId status:(BOOL)status;
 
 @end

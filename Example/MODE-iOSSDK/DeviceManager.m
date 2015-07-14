@@ -1,13 +1,13 @@
 #import "DataHolder.h"
 #import "DeviceManager.h"
+#import "MODEApp.h"
 #import "ModeEventListener.h"
+#import "Utils.h"
 
 @interface DeviceManager ()
 
 @property(strong, nonatomic)NSMutableArray* deviceEventDelegates;
-
-@property(strong, nonatomic) MODEEventListener* listener;
-@property(strong, nonatomic)MODEClientAuthentication* currentClientAuth;
+@property(strong, nonatomic)MODEEventListener* listener;
 
 @end
 
@@ -40,29 +40,58 @@
     [self.deviceEventDelegates addObject:delegate];
 }
 
+- (void)removeMODEDeviceDelegate:(id<MODEDeviceEventDelegate>)delegate
+{
+    [self.deviceEventDelegates removeObject:delegate];
+}
+
 - (void) callDeviceEventDelegates:(MODEDeviceEvent*) event err:(NSError*) err
 {
     for (id<MODEDeviceEventDelegate> delegate in self.deviceEventDelegates) {
-        [delegate receivedEvent:event err:err];
+        if (err) {
+            NSLog(@"Receive event error %@", err);
+        }
+        
+        if (event && [event.eventType isEqualToString:@"light"]) {
+            if([event.eventData[@"status"] isEqualToString:@"on"] ) {
+                [delegate receivedEvent:event.originDeviceId status:TRUE];
+            } else if ([event.eventData[@"status"] isEqualToString:@"off"] ) {
+                [delegate receivedEvent:event.originDeviceId status:FALSE];
+            }
+        }
     }
-    
 }
 
-- (void) checkAndStartListenToEvents:(MODEClientAuthentication*)clientAuth
+- (void) startListenToEvents:(MODEClientAuthentication*)clientAuth
 {
-    if (![self.currentClientAuth.token isEqualToString:clientAuth.token]) {
-        self.currentClientAuth = clientAuth;
-        self.listener = [[MODEEventListener alloc] initWithClientAuthentication:clientAuth];
-        [self.listener startListenToEvents:^(MODEDeviceEvent *event, NSError *err) {
-            [self callDeviceEventDelegates:event err:err];
-        }];
-    }
     
+    self.listener = [[MODEEventListener alloc] initWithClientAuthentication:clientAuth];
+    [self.listener startListenToEvents:^(MODEDeviceEvent *event, NSError *err) {
+        [self callDeviceEventDelegates:event err:err];
+    }];
+}
+
+-(void)stopListenToEvents
+{
+    [self.listener stopListenToEvents];
 }
 
 - (void)queryDeviceStatus
 {
     
 }
+
+- (void) triggerSwitch:(int)deviceId status:(BOOL)status
+{
+    DataHolder* data = [DataHolder sharedInstance];
+    NSNumber* value = [NSNumber numberWithInt:status];
+    [MODEAppAPI sendCommandToDevice:data.clientAuth deviceId:deviceId action:@"light" parameters:@{@"switch":value}
+        completion:^(MODEDevice *device, NSError *err) {
+            if (err != nil) {
+                showAlert(err);
+            }
+        }];
+}
+
 
 @end

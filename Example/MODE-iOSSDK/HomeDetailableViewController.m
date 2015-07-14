@@ -20,7 +20,9 @@
 // Here we assume only either array is non nil to show which.
 @property(strong, nonatomic) NSMutableArray* items;
 
-@property(strong, nonatomic)NSMutableDictionary* deviceIdToswitches;
+@property(strong, nonatomic)NSMutableDictionary* deviceIdToSwitches;
+// We need this status dictionary to sync out of order query result arrival.
+@property(strong, nonatomic)NSMutableDictionary* deviceIdToStatus;
 
 @end
 
@@ -29,23 +31,26 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.deviceIdToswitches = [[NSMutableDictionary alloc]init];
+    self.deviceIdToSwitches = [[NSMutableDictionary alloc]init];
+    self.deviceIdToStatus = [[NSMutableDictionary alloc]init];
+    
     
     setupProfileButton(self.navigationItem, self, @selector(handleProfile));
-    
     self.navigationItem.titleView = setupTitle(self.targetHome.name);
     
+    [[DeviceManager sharedInstance] addMODEDeviceDelegate:self];
+
     [self fetchDevices];
-    
-    DeviceManager* deviceManager = [DeviceManager sharedInstance];
-    
-    [deviceManager addMODEDeviceDelegate:self];
-    [deviceManager checkAndStartListenToEvents:[DataHolder sharedInstance].clientAuth];
+}
+
+- (void)didReceiveMemoryWarning
+{
+    [[DeviceManager sharedInstance]removeMODEDeviceDelegate:self];
 }
 
 -(BOOL)isMembers
 {
-     return self.devicesOrMembersControl.selectedSegmentIndex == MEMBERS_IDX;
+    return self.devicesOrMembersControl.selectedSegmentIndex == MEMBERS_IDX;
 }
 
 -(void) handleProfile
@@ -147,7 +152,6 @@
     return 50.0;
 }
 
-
 #pragma mark - Table view data source
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
@@ -164,17 +168,11 @@
     return [self isMembers] ? @"membersCellId" : @"devicesCellId";
 }
 
-
--(void)receivedEvent:(MODEDeviceEvent *)event err:(NSError *)err
-{
-    if (event && [event.eventType isEqualToString:@"light"]) {
-        UISwitch* switchView = self.deviceIdToswitches[[NSNumber numberWithInt:event.originDeviceId]];
-        if([event.eventData[@"status"] isEqualToString:@"on"] ) {
-            [switchView setOn:TRUE animated:TRUE];
-        } else if ([event.eventData[@"status"] isEqualToString:@"off"] ) {
-            [switchView setOn:FALSE animated:TRUE];
-        }
-    }
+-(void)receivedEvent:(int)deviceId status:(BOOL)status {
+    UISwitch* switchView = self.deviceIdToSwitches[[NSNumber numberWithInt:deviceId]];
+    [switchView setOn:status animated:TRUE];
+    // The status is used when UISwitch is intialized in setupCell.
+    self.deviceIdToStatus[[NSNumber numberWithInt:deviceId]] = [NSNumber numberWithBool:status];
 }
 
 - (void)switchChanged:(UISwitch*)sw
@@ -185,17 +183,8 @@
         return;
     }
     
-    DataHolder* data = [DataHolder sharedInstance];
-    
-    NSNumber* value = [NSNumber numberWithInt:sw.on];
-    
     MODEDevice* device = self.items[sw.tag];
-    [MODEAppAPI sendCommandToDevice:data.clientAuth deviceId:device.deviceId action:@"light" parameters:@{@"switch":value}
-         completion:^(MODEDevice *device, NSError *err) {
-             if (err != nil) {
-                 showAlert(err);
-             }
-         }];
+    [[DeviceManager sharedInstance] triggerSwitch:device.deviceId status:sw.on];
 }
 
 - (void) setupCell:(UITableViewCell*) cell row:(long)row
@@ -222,9 +211,11 @@
         MODEDevice* device = self.items[row];
         cellvalue = [device.name isEqual:@""] ? device.tag : device.name;
         
-        // Set up lookup table deviceId -> UISwitch*
         UISwitch* switchView = (UISwitch*)cell.accessoryView;
-        self.deviceIdToswitches[[NSNumber numberWithInt:device.deviceId]] = switchView;
+        
+        self.deviceIdToSwitches[[NSNumber numberWithInt:device.deviceId]] = switchView;
+        // This initialization is needed, because status query would be already received.
+        switchView.on = self.deviceIdToStatus[[NSNumber numberWithInt:device.deviceId]] ? TRUE : FALSE;
     }
     cell.textLabel.text = cellvalue;
 }
