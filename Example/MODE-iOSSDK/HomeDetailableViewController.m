@@ -7,11 +7,15 @@
 #import "UIColor+Extentions.h"
 #import "Utils.h"
 
+#define DEVICES_IDX 0
+#define MEMBERS_IDX 1
+
+
 @interface HomeDetailableViewController ()
 
+@property(strong, nonatomic) UIView * tableHeaderSubView;
 @property(strong, nonatomic) UIButton* editButton;
-@property(strong, nonatomic) UIButton* membersButton;
-@property(strong, nonatomic) UIButton* devicesButton;
+@property(strong, nonatomic) UISegmentedControl* devicesOrMembersControl;
 
 // Here we assume only either array is non nil to show which.
 @property(strong, nonatomic) NSMutableArray* members;
@@ -28,7 +32,7 @@
     
     self.navigationItem.titleView = setupTitle(self.targetHome.name);
     
-    [self fetchMembers];
+    [self fetchDevices];
 }
 
 -(void) handleProfile
@@ -38,41 +42,37 @@
 
 - (void)fetchMembers
 {
-    self.membersButton.selected = true;
-    self.devicesButton.selected = false;
-
     self.editButton.selected = false;
     [self setEditing:false animated:true];
 
     DataHolder* data = [DataHolder sharedInstance];
     [MODEAppAPI getHomeMembers:data.clientAuth homeId:self.targetHome.homeId
-                    completion:^(NSArray *members, NSError *err) {
-                        if (members != nil) {
-                            self.devices = nil;
-                            self.members = [NSMutableArray arrayWithArray:members];
-                            for (MODEHomeMember* member in members) {
-                                if (member.verified == false) {
-                                    member.name = @"(Unverified)";
-                                }
-                            }
-                            [self.tableView reloadData];
-                        } else {
-                            showAlert(err);
-                        }
-                    }];
+        completion:^(NSArray *members, NSError *err) {
+            self.devicesOrMembersControl.selectedSegmentIndex = MEMBERS_IDX;
+            if (members != nil) {
+                self.devices = nil;
+                self.members = [NSMutableArray arrayWithArray:members];
+                for (MODEHomeMember* member in members) {
+                    if (member.verified == false) {
+                        member.name = @"(Unverified)";
+                    }
+                }
+                [self.tableView reloadData];
+            } else {
+                showAlert(err);
+            }
+        }];
 }
 
 - (void)fetchDevices
 {
-    self.membersButton.selected = false;
-    self.devicesButton.selected = true;
-    
     self.editButton.selected = false;
     [self setEditing:false animated:true];
     
     DataHolder* data = [DataHolder sharedInstance];
     [MODEAppAPI  getDevices:data.clientAuth homeId:self.targetHome.homeId
         completion:^(NSArray *devices, NSError *err) {
+            self.devicesOrMembersControl.selectedSegmentIndex = DEVICES_IDX;
             if (devices != nil) {
                 self.devices = [NSMutableArray arrayWithArray:devices];
                 self.members = nil;
@@ -112,24 +112,39 @@
     [self setEditing:!self.editing animated:true];
 }
 
+-(void)handleDevicesOrMembers:(UISegmentedControl*)segment
+{
+    if (segment.selectedSegmentIndex == DEVICES_IDX) {
+        [self fetchDevices];
+    } else {
+        [self fetchMembers];
+    }
+}
+
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView* tableHeaderView = tableView.tableHeaderView;
-    UIView *view=[[UIView alloc]init];
-    setupAddButton(view, self, @selector(addItem));
-    self.editButton = setupEditButton(view, self, @selector(editItem));
-    [tableHeaderView insertSubview:view atIndex:0];
+    if (self.tableHeaderSubView == nil) {
+        UIView* tableHeaderView = tableView.tableHeaderView;
+        UIView *view=[[UIView alloc]init];
+        setupAddButton(view, self, @selector(addItem));
+        self.editButton = setupEditButton(view, self, @selector(editItem));
+        [tableHeaderView insertSubview:view atIndex:0];
     
-    self.devicesButton = [self createRoundButton:CGRectMake(170, 10, 100, 50) title:@"Devices" selector:@selector(fetchDevices)
-                                        selected:self.devices ? true : false
-                          ];
-    self.membersButton = [self createRoundButton:CGRectMake(80, 10, 100, 50) title:@"Members" selector:@selector(fetchMembers)
-                                        selected:self.members ? true : false];
-
-    [view addSubview:self.membersButton];
-    [view addSubview:self.devicesButton];
-    
-    return view;
+        NSArray *itemArray = [NSArray arrayWithObjects: @"Devices", @"Members", nil];
+        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
+        segmentedControl.frame = CGRectMake(80, 10, 180, 26);
+        [segmentedControl addTarget:self action:@selector(handleDevicesOrMembers:) forControlEvents: UIControlEventValueChanged];
+        segmentedControl.tintColor = [UIColor defaultThemeColor];
+        
+        segmentedControl.selectedSegmentIndex = DEVICES_IDX;
+        
+        [view addSubview:segmentedControl];
+        self.devicesOrMembersControl = segmentedControl;
+        
+        self.tableHeaderSubView = view;
+        
+    }
+    return self.tableHeaderSubView;
 }
 
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
