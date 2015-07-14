@@ -2,6 +2,7 @@
 #import "AddHomeMemberViewController.h"
 #import "ButtonUtils.h"
 #import "DataHolder.h"
+#import "DeviceManager.h"
 #import "MODEApp.h"
 #import "HomeDetailableViewController.h"
 #import "UIColor+Extentions.h"
@@ -17,7 +18,9 @@
 @property(strong, nonatomic) UISegmentedControl* devicesOrMembersControl;
 
 // Here we assume only either array is non nil to show which.
-@property(strong, nonatomic) NSMutableArray* instances;
+@property(strong, nonatomic) NSMutableArray* items;
+
+@property(strong, nonatomic)NSMutableDictionary* deviceIdToswitches;
 
 @end
 
@@ -26,11 +29,18 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
+    self.deviceIdToswitches = [[NSMutableDictionary alloc]init];
+    
     setupProfileButton(self.navigationItem, self, @selector(handleProfile));
     
     self.navigationItem.titleView = setupTitle(self.targetHome.name);
     
     [self fetchDevices];
+    
+    DeviceManager* deviceManager = [DeviceManager sharedInstance];
+    
+    [deviceManager addMODEDeviceDelegate:self];
+    [deviceManager checkAndStartListenToEvents:[DataHolder sharedInstance].clientAuth];
 }
 
 -(BOOL)isMembers
@@ -53,7 +63,7 @@
         completion:^(NSArray *members, NSError *err) {
             self.devicesOrMembersControl.selectedSegmentIndex = MEMBERS_IDX;
             if (members != nil) {
-                self.instances = [NSMutableArray arrayWithArray:members];
+                self.items = [NSMutableArray arrayWithArray:members];
                 for (MODEHomeMember* member in members) {
                     if (member.verified == false) {
                         member.name = @"(Unknown)";
@@ -76,7 +86,7 @@
         completion:^(NSArray *devices, NSError *err) {
             self.devicesOrMembersControl.selectedSegmentIndex = DEVICES_IDX;
             if (devices != nil) {
-                self.instances = [NSMutableArray arrayWithArray:devices];
+                self.items = [NSMutableArray arrayWithArray:devices];
                 [self.tableView reloadData];
             } else {
                 showAlert(err);
@@ -146,12 +156,25 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.instances.count;
+    return self.items.count;
 }
 
 - (NSString*) getCellIdentifier
 {
     return [self isMembers] ? @"membersCellId" : @"devicesCellId";
+}
+
+
+-(void)receivedEvent:(MODEDeviceEvent *)event err:(NSError *)err
+{
+    if (event && [event.eventType isEqualToString:@"light"]) {
+        UISwitch* switchView = self.deviceIdToswitches[[NSNumber numberWithInt:event.originDeviceId]];
+        if([event.eventData[@"status"] isEqualToString:@"on"] ) {
+            [switchView setOn:TRUE animated:TRUE];
+        } else if ([event.eventData[@"status"] isEqualToString:@"off"] ) {
+            [switchView setOn:FALSE animated:TRUE];
+        }
+    }
 }
 
 - (void)switchChanged:(UISwitch*)sw
@@ -166,7 +189,7 @@
     
     NSNumber* value = [NSNumber numberWithInt:sw.on];
     
-    MODEDevice* device = self.instances[sw.tag];
+    MODEDevice* device = self.items[sw.tag];
     [MODEAppAPI sendCommandToDevice:data.clientAuth deviceId:device.deviceId action:@"light" parameters:@{@"switch":value}
          completion:^(MODEDevice *device, NSError *err) {
              if (err != nil) {
@@ -180,7 +203,7 @@
     NSString* cellvalue;
     
     if([self isMembers]) {
-        MODEHomeMember* member = self.instances[row];
+        MODEHomeMember* member = self.items[row];
         cellvalue = member.name;
         
         cell.detailTextLabel.text = formatPhonenumberFromString(member.phoneNumber);
@@ -196,8 +219,12 @@
         }
         
     } else {
-        MODEDevice* device = self.instances[row];
+        MODEDevice* device = self.items[row];
         cellvalue = [device.name isEqual:@""] ? device.tag : device.name;
+        
+        // Set up lookup table deviceId -> UISwitch*
+        UISwitch* switchView = (UISwitch*)cell.accessoryView;
+        self.deviceIdToswitches[[NSNumber numberWithInt:device.deviceId]] = switchView;
     }
     cell.textLabel.text = cellvalue;
 }
@@ -215,7 +242,6 @@
             cell.accessoryView = switchView;
             switchView.tag = indexPath.row;
             [switchView setOn:NO animated:YES];
-            
             [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
         }
     }
@@ -237,8 +263,8 @@
 
     DataHolder* data = [DataHolder sharedInstance];
     if ([self isMembers]) {
-        MODEHomeMember* targetMember = self.instances[indexPath.row];
-        [self.instances removeObjectAtIndex:indexPath.row];
+        MODEHomeMember* targetMember = self.items[indexPath.row];
+        [self.items removeObjectAtIndex:indexPath.row];
         [MODEAppAPI deleteHomeMember:data.clientAuth homeId:self.targetHome.homeId userId:targetMember.userId
             completion:^(MODEHomeMember *member, NSError *err) {
                 if (err != nil) {
@@ -247,8 +273,8 @@
                 }
             }];
     } else {
-        MODEDevice* targetDevice = self.instances[indexPath.row];
-        [self.instances removeObjectAtIndex:indexPath.row];
+        MODEDevice* targetDevice = self.items[indexPath.row];
+        [self.items removeObjectAtIndex:indexPath.row];
         [MODEAppAPI deleteDevice:data.clientAuth deviceId:targetDevice.deviceId
             completion:^(MODEDevice *device, NSError *err) {
                 if (err != nil) {

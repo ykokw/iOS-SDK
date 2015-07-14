@@ -12,6 +12,7 @@
 		212A69211B4C5E1D00D5DAEE /* RegisteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A69201B4C5E1D00D5DAEE /* RegisteredViewController.m */; };
 		212A692A1B4C8A1600D5DAEE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A69281B4C8A1600D5DAEE /* LoginViewController.m */; };
 		212A692D1B4C8F9600D5DAEE /* AuthenticateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A692C1B4C8F9600D5DAEE /* AuthenticateAccountViewController.m */; };
+		213CD2C31B55855B0032C5B5 /* DeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 213CD2C21B55855B0032C5B5 /* DeviceManager.m */; };
 		2142865A1B4D98A2006E3C1F /* console.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214286591B4D98A2006E3C1F /* console.storyboard */; };
 		2142865D1B4D99D5006E3C1F /* LinkedStoryBoardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2142865C1B4D99D5006E3C1F /* LinkedStoryBoardSegue.m */; };
 		214286631B4DDAE7006E3C1F /* OverlayViewProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286621B4DDAE7006E3C1F /* OverlayViewProtocol.m */; };
@@ -82,6 +83,8 @@
 		212A69291B4C8A1600D5DAEE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
 		212A692B1B4C8F9600D5DAEE /* AuthenticateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticateAccountViewController.h; sourceTree = "<group>"; };
 		212A692C1B4C8F9600D5DAEE /* AuthenticateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticateAccountViewController.m; sourceTree = "<group>"; };
+		213CD2C11B55855B0032C5B5 /* DeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceManager.h; sourceTree = "<group>"; };
+		213CD2C21B55855B0032C5B5 /* DeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManager.m; sourceTree = "<group>"; };
 		214286591B4D98A2006E3C1F /* console.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = console.storyboard; sourceTree = "<group>"; };
 		2142865B1B4D99D5006E3C1F /* LinkedStoryBoardSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedStoryBoardSegue.h; sourceTree = "<group>"; };
 		2142865C1B4D99D5006E3C1F /* LinkedStoryBoardSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedStoryBoardSegue.m; sourceTree = "<group>"; };
@@ -189,6 +192,8 @@
 			children = (
 				219841B21B4B5B6200F57B09 /* DataHolder.h */,
 				219841B31B4B5B6200F57B09 /* DataHolder.m */,
+				213CD2C11B55855B0032C5B5 /* DeviceManager.h */,
+				213CD2C21B55855B0032C5B5 /* DeviceManager.m */,
 				219841B71B4C363B00F57B09 /* Utils.h */,
 				219841B51B4C35E600F57B09 /* Utils.m */,
 				21C16CD61B4CAFAD00D58890 /* Messages.h */,
@@ -600,6 +605,7 @@
 				214286671B4DEEC9006E3C1F /* HomesTableViewController.m in Sources */,
 				6003F5A7195388D20070C39A /* MODEViewController.m in Sources */,
 				214286711B4EF93D006E3C1F /* ButtonUtils.m in Sources */,
+				213CD2C31B55855B0032C5B5 /* DeviceManager.m in Sources */,
 				219841B61B4C35E600F57B09 /* Utils.m in Sources */,
 				212A691B1B4C499C00D5DAEE /* AddDevicesViewController.m in Sources */,
 				219841B11B4B526C00F57B09 /* SignUpViewController.m in Sources */,
