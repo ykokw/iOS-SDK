@@ -56,7 +56,7 @@
                 self.instances = [NSMutableArray arrayWithArray:members];
                 for (MODEHomeMember* member in members) {
                     if (member.verified == false) {
-                        member.name = @"(Unverified)";
+                        member.name = @"(Unknown)";
                     }
                 }
                 [self.tableView reloadData];
@@ -154,25 +154,6 @@
     return [self isMembers] ? @"membersCellId" : @"devicesCellId";
 }
 
-- (void) setupCell:(UITableViewCell*) cell row:(long)row
-{
-    NSString* cellvalue;
-    
-    if( [self isMembers]) {
-        MODEHomeMember* member = self.instances[row];
-        cellvalue = member.name;
-        
-        cell.detailTextLabel.text = formatPhonenumberFromString(member.phoneNumber);
-
-        
-    } else {
-        MODEDevice* device = self.instances[row];
-        cellvalue = [device.name isEqual:@""] ? device.tag : device.name;
-    }
-    cell.textLabel.text = cellvalue;
-}
-
-
 - (void)switchChanged:(UISwitch*)sw
 {
     if ([self isMembers]) {
@@ -194,6 +175,33 @@
          }];
 }
 
+- (void) setupCell:(UITableViewCell*) cell row:(long)row
+{
+    NSString* cellvalue;
+    
+    if([self isMembers]) {
+        MODEHomeMember* member = self.instances[row];
+        cellvalue = member.name;
+        
+        cell.detailTextLabel.text = formatPhonenumberFromString(member.phoneNumber);
+        cell.detailTextLabel.textColor = [UIColor bodyTextColor];
+        
+        if (member.verified == false) {
+            UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 20)];
+            label.text = @"Pending";
+            label.font = [label.font fontWithSize:12];
+            label.textColor = [UIColor bodyTextColor];
+            label.textAlignment = NSTextAlignmentRight;
+            cell.accessoryView = label;
+        }
+        
+    } else {
+        MODEDevice* device = self.instances[row];
+        cellvalue = [device.name isEqual:@""] ? device.tag : device.name;
+    }
+    cell.textLabel.text = cellvalue;
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *cellIdentifier = [self getCellIdentifier];
@@ -202,13 +210,14 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         
-        UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
-        cell.accessoryView = switchView;
-        switchView.tag = indexPath.row;
-        [switchView setOn:NO animated:YES];
-        
-       [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
-        
+        if ([self isMembers] == false) {
+            UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
+            cell.accessoryView = switchView;
+            switchView.tag = indexPath.row;
+            [switchView setOn:NO animated:YES];
+            
+            [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+        }
     }
     
     [self setupCell:cell row:indexPath.row];
