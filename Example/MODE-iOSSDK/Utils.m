@@ -77,6 +77,27 @@ void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color)
     message.text = text;
 }
 
+@interface NSString (Extensions)
+
+-(NSString*)subString:(int)start end:(int)end;
+
+@end
+
+@implementation NSString (Extensions)
+
+-(NSString *)subString:(int)start end:(int)end
+{
+    return [self substringWithRange:NSMakeRange(start, end-start)];
+}
+
+@end
+
+// It assumes only US phonenumber.
+NSString* formatPhonenumberFromString(NSString* phonenumber)
+{
+    return [NSString stringWithFormat:@"(%@) %@-%@", [phonenumber subString:2 end:5], [phonenumber subString:5 end:8], [phonenumber subString:8 end:12]];
+}
+
 @implementation NumericTextFieldDelegate
 
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string

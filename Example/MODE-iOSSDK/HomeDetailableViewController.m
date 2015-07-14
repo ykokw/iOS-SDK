@@ -162,7 +162,7 @@
         MODEHomeMember* member = self.instances[row];
         cellvalue = member.name;
         
-        cell.detailTextLabel.text = member.phoneNumber;
+        cell.detailTextLabel.text = formatPhonenumberFromString(member.phoneNumber);
 
         
     } else {

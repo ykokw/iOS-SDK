@@ -47,7 +47,7 @@
                      showAlert(err);
                  } else {
                      setupMessage(self.userName, user.name);
-                     setupMessage(self.phonenumber, user.phoneNumber);
+                     setupMessage(self.phonenumber, formatPhonenumberFromString(user.phoneNumber));
                  }
              }];
 }

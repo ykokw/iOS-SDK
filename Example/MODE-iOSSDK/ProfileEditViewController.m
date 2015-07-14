@@ -61,7 +61,7 @@
                      showAlert(err);
                  } else {
                      setupStandardTextField(self.nameField, user.name, @"Name.png");
-                     setupStandardTextField(self.phonenumberField, user.phoneNumber, @"Phone.png");
+                     setupStandardTextField(self.phonenumberField, formatPhonenumberFromString(user.phoneNumber), @"Phone.png");
                  }
              }];
 }
