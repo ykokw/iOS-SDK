@@ -18,8 +18,7 @@
 @property(strong, nonatomic) UISegmentedControl* devicesOrMembersControl;
 
 // Here we assume only either array is non nil to show which.
-@property(strong, nonatomic) NSMutableArray* members;
-@property(strong, nonatomic) NSMutableArray* devices;
+@property(strong, nonatomic) NSMutableArray* instances;
 
 @end
 
@@ -33,6 +32,11 @@
     self.navigationItem.titleView = setupTitle(self.targetHome.name);
     
     [self fetchDevices];
+}
+
+-(BOOL)isMembers
+{
+     return self.devicesOrMembersControl.selectedSegmentIndex == MEMBERS_IDX;
 }
 
 -(void) handleProfile
@@ -50,8 +54,7 @@
         completion:^(NSArray *members, NSError *err) {
             self.devicesOrMembersControl.selectedSegmentIndex = MEMBERS_IDX;
             if (members != nil) {
-                self.devices = nil;
-                self.members = [NSMutableArray arrayWithArray:members];
+                self.instances = [NSMutableArray arrayWithArray:members];
                 for (MODEHomeMember* member in members) {
                     if (member.verified == false) {
                         member.name = @"(Unverified)";
@@ -74,8 +77,7 @@
         completion:^(NSArray *devices, NSError *err) {
             self.devicesOrMembersControl.selectedSegmentIndex = DEVICES_IDX;
             if (devices != nil) {
-                self.devices = [NSMutableArray arrayWithArray:devices];
-                self.members = nil;
+                self.instances = [NSMutableArray arrayWithArray:devices];
                 [self.tableView reloadData];
             } else {
                 showAlert(err);
@@ -83,26 +85,10 @@
         }];
 }
 
-- (UIButton*) createRoundButton:(CGRect)rect title:(NSString*)title selector:(SEL)selector selected:(BOOL)selected
-{
-    UIButton *button=[UIButton buttonWithType:UIButtonTypeRoundedRect];
-    button.frame = rect;
-    button.tintColor = [UIColor defaultThemeColor];
-    [button setTitle:title forState:UIControlStateNormal];
-    button.selected = selected;
-    [button sizeToFit];
-    [button addTarget:self action:selector forControlEvents:UIControlEventTouchUpInside];
-
-    return button;
-}
-
 - (void) addItem
 {
-    if (self.members) {
-        [self performSegueWithIdentifier:@"AddHomeMemberSegue" sender:nil];
-    } else if (self.devices) {
-        [self performSegueWithIdentifier:@"AddDeviceSegue" sender:nil];
-    }
+    [self performSegueWithIdentifier:
+     ([self isMembers] ? @"AddHomeMemberSegue" : @"AddDeviceSegue") sender:nil];
 }
 
 - (void) editItem
@@ -114,10 +100,10 @@
 
 -(void)handleDevicesOrMembers:(UISegmentedControl*)segment
 {
-    if (segment.selectedSegmentIndex == DEVICES_IDX) {
-        [self fetchDevices];
-    } else {
+    if ([self isMembers]) {
         [self fetchMembers];
+    } else {
+        [self fetchDevices];
     }
 }
 
@@ -161,33 +147,27 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (self.members != nil) {
-        return self.members.count;
-    } else if(self.devices != nil) {
-        return self.devices.count;
-    }
-    
-    return 0;
+    return self.instances.count;
 }
 
 - (NSString*) getCellIdentifier
 {
-    return self.members ? @"membersCellId" : @"devicesCellId";
+    return [self isMembers] ? @"membersCellId" : @"devicesCellId";
 }
 
 - (void) setupCell:(UITableViewCell*) cell row:(long)row
 {
     NSString* cellvalue;
     
-    if(self.members) {
-        MODEHomeMember* member = self.members[row];
+    if( [self isMembers]) {
+        MODEHomeMember* member = self.instances[row];
         cellvalue = member.name;
         
         cell.detailTextLabel.text = member.phoneNumber;
 
         
     } else {
-        MODEDevice* device = self.devices[row];
+        MODEDevice* device = self.instances[row];
         cellvalue = [device.name isEqual:@""] ? device.tag : device.name;
     }
     cell.textLabel.text = cellvalue;
@@ -219,9 +199,9 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
 
     DataHolder* data = [DataHolder sharedInstance];
-    if (self.members != nil) {
-        MODEHomeMember* targetMember = self.members[indexPath.row];
-        [self.members removeObjectAtIndex:indexPath.row];
+    if ([self isMembers]) {
+        MODEHomeMember* targetMember = self.instances[indexPath.row];
+        [self.instances removeObjectAtIndex:indexPath.row];
         [MODEAppAPI deleteHomeMember:data.clientAuth homeId:self.targetHome.homeId userId:targetMember.userId
             completion:^(MODEHomeMember *member, NSError *err) {
                 if (err != nil) {
@@ -230,8 +210,8 @@
                 }
             }];
     } else {
-        MODEDevice* targetDevice = self.devices[indexPath.row];
-        [self.devices removeObjectAtIndex:indexPath.row];
+        MODEDevice* targetDevice = self.instances[indexPath.row];
+        [self.instances removeObjectAtIndex:indexPath.row];
         [MODEAppAPI deleteDevice:data.clientAuth deviceId:targetDevice.deviceId
             completion:^(MODEDevice *device, NSError *err) {
                 if (err != nil) {
