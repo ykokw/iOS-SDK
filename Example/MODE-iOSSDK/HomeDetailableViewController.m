@@ -92,6 +92,7 @@
             self.devicesOrMembersControl.selectedSegmentIndex = DEVICES_IDX;
             if (devices != nil) {
                 self.items = [NSMutableArray arrayWithArray:devices];
+                [[DeviceManager sharedInstance] queryDeviceStatus:devices];
                 [self.tableView reloadData];
             } else {
                 showAlert(err);

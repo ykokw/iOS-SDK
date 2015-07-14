@@ -19,7 +19,7 @@
 - (void)startListenToEvents:(MODEClientAuthentication*)clientAuth;
 - (void)stopListenToEvents;
 
-- (void)queryDeviceStatus;
+- (void)queryDeviceStatus:(NSArray*)devices;
 - (void)triggerSwitch:(int)deviceId status:(BOOL)status;
 
 @end

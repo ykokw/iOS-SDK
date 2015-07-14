@@ -76,9 +76,18 @@
     [self.listener stopListenToEvents];
 }
 
-- (void)queryDeviceStatus
+- (void)queryDeviceStatus:(NSArray*)devices
 {
-    
+    // Broad cast query to all devices.
+    DataHolder* data = [DataHolder sharedInstance];
+    for (MODEDevice* device in devices) {
+        [MODEAppAPI sendCommandToDevice:data.clientAuth deviceId:device.deviceId action:@"light" parameters:@{@"qeury":@"status"}
+                             completion:^(MODEDevice *device, NSError *err) {
+                                 if (err != nil) {
+                                     showAlert(err);
+                                 }
+                             }];
+    }
 }
 
 - (void) triggerSwitch:(int)deviceId status:(BOOL)status
