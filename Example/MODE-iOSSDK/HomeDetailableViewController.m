@@ -10,7 +10,6 @@
 #define DEVICES_IDX 0
 #define MEMBERS_IDX 1
 
-
 @interface HomeDetailableViewController ()
 
 @property(strong, nonatomic) UIView * tableHeaderSubView;
@@ -174,6 +173,27 @@
 }
 
 
+- (void)switchChanged:(UISwitch*)sw
+{
+    if ([self isMembers]) {
+        NSDictionary* reason = @{@"reason": @"Wrong state"};
+        showAlert([NSError errorWithDomain:@"App" code:-1 userInfo:reason]);
+        return;
+    }
+    
+    DataHolder* data = [DataHolder sharedInstance];
+    
+    NSNumber* value = [NSNumber numberWithInt:sw.on];
+    
+    MODEDevice* device = self.instances[sw.tag];
+    [MODEAppAPI sendCommandToDevice:data.clientAuth deviceId:device.deviceId action:@"light" parameters:@{@"switch":value}
+         completion:^(MODEDevice *device, NSError *err) {
+             if (err != nil) {
+                 showAlert(err);
+             }
+         }];
+}
+
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     
     NSString *cellIdentifier = [self getCellIdentifier];
@@ -181,6 +201,14 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        
+        UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
+        cell.accessoryView = switchView;
+        switchView.tag = indexPath.row;
+        [switchView setOn:NO animated:YES];
+        
+       [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+        
     }
     
     [self setupCell:cell row:indexPath.row];
