@@ -25,15 +25,6 @@ UIButton* setupAddButton(UIView* view, id target, SEL add)
     return addButton;
 }
 
-UILabel* setupTitle(NSString* title)
-{
-    UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
-    label.text = title;
-    label.textColor = [UIColor whiteColor];
-    label.textAlignment = NSTextAlignmentCenter;
-    return label;
-}
-
 void setupRightBarButtonItem(UINavigationItem* navigationItem, NSString* title, id target, SEL selector)
 {
     navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:title

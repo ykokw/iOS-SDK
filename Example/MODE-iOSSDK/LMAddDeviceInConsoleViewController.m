@@ -4,7 +4,6 @@
 #import "LMDataHolder.h"
 #import "LMHomeDetailableViewController.h"
 #import "LMMessages.h"
-#import "LMOverlayViewProtocol.h"
 #import "LMUIColor+Extentions.h"
 #import "LMUtils.h"
 #import "ModeApp.h"
@@ -28,7 +27,6 @@
     self.navigationItem.titleView = setupCommonAddDeviceWidgets(self.verificationCodeField, self.deviceNameField, self.message);
     
     setupRightBarButtonItem(self.navigationItem, @"Add", self, @selector(handleAdd));
-
 }
 
 -(void)updateDeviceName:(MODEDevice*)device

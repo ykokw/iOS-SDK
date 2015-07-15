@@ -33,7 +33,6 @@
     return self;
 }
 
-
 - (void)addMODEDeviceDelegate:(id<MODEDeviceEventDelegate>) delegate
 {
     [self.deviceEventDelegates addObject:delegate];

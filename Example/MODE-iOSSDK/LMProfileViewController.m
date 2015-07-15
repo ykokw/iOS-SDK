@@ -48,7 +48,6 @@
 
 - (IBAction)handleLogout:(id)sender
 {
-    
     LMDataHolder* data = [LMDataHolder sharedInstance];
     data.members = [[LMDataHolderMembers alloc] init];
     data.clientAuth = [[MODEClientAuthentication alloc] init];

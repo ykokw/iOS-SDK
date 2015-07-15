@@ -63,7 +63,8 @@ PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* phoneNumberField)
     return phoneNumberDelegate;
 }
 
-void setupMessage(UILabel* message, NSString* text) {
+void setupMessage(UILabel* message, NSString* text)
+{
     return setupMessageWithColor(message, text, [UIColor bodyTextColor]);
 }
 
@@ -75,6 +76,15 @@ void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color)
     message.textAlignment = NSTextAlignmentCenter;
     message.textColor = color;
     message.text = text;
+}
+
+UILabel* setupTitle(NSString* title)
+{
+    UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+    label.text = title;
+    label.textColor = [UIColor whiteColor];
+    label.textAlignment = NSTextAlignmentCenter;
+    return label;
 }
 
 @interface NSString (Extensions)

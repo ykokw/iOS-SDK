@@ -34,8 +34,6 @@
 - (IBAction)handleNext:(id)sender
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
-
-    data.members.userName = self.nameField.text;
     data.members.phoneNumber = self.phoneNumberField.text;
     [self performSegueWithIdentifier:@"VerifyAccountSegue" sender:self];
 

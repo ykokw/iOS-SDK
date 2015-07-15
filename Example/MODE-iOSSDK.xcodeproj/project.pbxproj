@@ -190,6 +190,8 @@
 		214286551B4D97FE006E3C1F /* misc */ = {
 			isa = PBXGroup;
 			children = (
+				2124EA5F1B561CD700D35D97 /* LMButtonUtils.h */,
+				2124EA601B561CD700D35D97 /* LMButtonUtils.m */,
 				2124EA931B561D4900D35D97 /* LMUIColor+Extentions.h */,
 				2124EA941B561D4900D35D97 /* LMUIColor+Extentions.m */,
 				2124EA951B561D4900D35D97 /* LMUtils.h */,
@@ -237,8 +239,6 @@
 				2124EA5C1B561CD700D35D97 /* LMAddHomeMemberViewController.m */,
 				2124EA5D1B561CD700D35D97 /* LMAddHomeViewController.h */,
 				2124EA5E1B561CD700D35D97 /* LMAddHomeViewController.m */,
-				2124EA5F1B561CD700D35D97 /* LMButtonUtils.h */,
-				2124EA601B561CD700D35D97 /* LMButtonUtils.m */,
 				2124EA611B561CD700D35D97 /* LMHomeDetailableViewController.h */,
 				2124EA621B561CD700D35D97 /* LMHomeDetailableViewController.m */,
 				2124EA631B561CD700D35D97 /* LMHomesTableViewController.h */,

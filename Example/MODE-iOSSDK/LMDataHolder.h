@@ -3,7 +3,6 @@
 
 @interface LMDataHolderMembers : MTLModel<MTLJSONSerializing>
 
-@property (strong, nonatomic) NSString* userName;
 @property (strong, nonatomic) NSString* phoneNumber;
 @property (assign, nonatomic) int homeId;
 
