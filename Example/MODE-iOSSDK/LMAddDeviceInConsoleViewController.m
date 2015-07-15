@@ -33,26 +33,27 @@
 -(void)updateDeviceName:(MODEDevice*)device
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
-    [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text completion:^(MODEDevice *device, NSError *err) {
-        if ( err != nil) {
-            showAlert(err);
-        }
-        [self.sourceVC fetchDevices];
-    }];
+    [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text
+        completion:^(MODEDevice *device, NSError *err) {
+            if ( err != nil) {
+                showAlert(err);
+            }
+            [self.sourceVC fetchDevices];
+        }];
 }
 
 -(void)handleAdd {
     LMDataHolder* data = [LMDataHolder sharedInstance];
     
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:self.sourceVC.targetHome.homeId
-                 completion:^(MODEDevice *device, NSError *err) {
-                     if (err != nil) {
-                         showAlert(err);
-                     } else {
-                         NSLog(@"added %@", device);
-                         [self updateDeviceName:device];
-                     }
-                 }];
+         completion:^(MODEDevice *device, NSError *err) {
+             if (err != nil) {
+                 showAlert(err);
+             } else {
+                 NSLog(@"added %@", device);
+                 [self updateDeviceName:device];
+             }
+         }];
     
      [self.navigationController popToViewController:self.sourceVC animated:YES];
 }

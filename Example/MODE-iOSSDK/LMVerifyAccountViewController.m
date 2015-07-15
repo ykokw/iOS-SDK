@@ -72,7 +72,8 @@
           }];
 }
 
-- (IBAction)handleResend:(id)sender {
+- (IBAction)handleResend:(id)sender
+{
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI initiateAuthenticationWithSMS:data.projectId phoneNumber:data.members.phoneNumber
         completion:^(MODESMSMessageReceipt *receipt, NSError *err) {

@@ -3,7 +3,8 @@
 
 @implementation LMDataHolderMembers
 
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
++ (NSDictionary *)JSONKeyPathsByPropertyKey
+{
     return @{
              @"userName": @"userName",
              @"phoneNumber": @"phoneNumber",

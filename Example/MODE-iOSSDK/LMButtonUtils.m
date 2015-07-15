@@ -1,7 +1,8 @@
 #import "LMButtonUtils.h"
 #import "LMUIColor+Extentions.h"
 
-UIButton* setupEditButton(UIView* view, id target, SEL edit) {
+UIButton* setupEditButton(UIView* view, id target, SEL edit)
+{
     UIButton *editButton = [[UIButton alloc] init];
     [editButton setImage:[UIImage imageNamed:@"Settings.png"] forState:UIControlStateNormal];
     [editButton setImage:[UIImage imageNamed:@"Settings Red.png"] forState:UIControlStateSelected];
@@ -12,7 +13,8 @@ UIButton* setupEditButton(UIView* view, id target, SEL edit) {
     return editButton;
 }
 
-UIButton* setupAddButton(UIView* view, id target, SEL add) {
+UIButton* setupAddButton(UIView* view, id target, SEL add)
+{
     UIButton *addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [addButton setImage:[UIImage imageNamed:@"Add.png"] forState:UIControlStateNormal];
     addButton.frame = CGRectMake(250, 0, 100, 50);
@@ -23,7 +25,8 @@ UIButton* setupAddButton(UIView* view, id target, SEL add) {
     return addButton;
 }
 
-UILabel* setupTitle(NSString* title) {
+UILabel* setupTitle(NSString* title)
+{
     UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
     label.text = title;
     label.textColor = [UIColor whiteColor];
@@ -31,13 +34,15 @@ UILabel* setupTitle(NSString* title) {
     return label;
 }
 
-void setupRightBarButtonItem(UINavigationItem* navigationItem, NSString* title, id target, SEL selector) {
+void setupRightBarButtonItem(UINavigationItem* navigationItem, NSString* title, id target, SEL selector)
+{
     navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:title
         style:UIBarButtonItemStylePlain target:target action:selector];
     
 }
 
-void setupProfileButton(UINavigationItem* navigationItem, id target, SEL selector) {
+void setupProfileButton(UINavigationItem* navigationItem, id target, SEL selector)
+{
     navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Profile.png"]
         style:UIBarButtonItemStylePlain target:target action:selector];
 

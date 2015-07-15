@@ -21,11 +21,13 @@
     setupMessage(self.message, MESSAGE_REGISTERED);
 }
 
--(void) removeOverlayViews{
+-(void) removeOverlayViews
+{
     removeOverlayViewSub(self.navigationController, nil);
 }
 
-- (IBAction)handleSkip:(id)sender {
+- (IBAction)handleSkip:(id)sender
+{
     [self performSegueWithIdentifier:@"@console" sender:self];
 }
 @end
