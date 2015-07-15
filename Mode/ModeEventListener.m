@@ -1,9 +1,9 @@
 #import "ModeEventListener.h"
 
-NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websocket";
+//NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websocket";
+NSString *const ModeWebsocketURL = @"ws://akagi.local:7002/userSession/websocket";
 
 @implementation MODEEventListener
-
 
 @synthesize didClose;
 @synthesize didFail;
@@ -120,6 +120,7 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
     websocket = nil;
     retryWait = 1;
     fibCounter = 1;
+    autoReconnect = false;
 }
 
 @end

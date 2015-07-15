@@ -44,6 +44,10 @@
 
 - (void) callDeviceEventDelegates:(MODEDeviceEvent*) event err:(NSError*) err
 {
+    /**
+     * event.evenType == "light"
+     * event.eventData == {"status": "on"} or {"status": "off"}
+     */
     for (id<MODEDeviceEventDelegate> delegate in self.deviceEventDelegates) {
         if (err) {
             NSLog(@"Receive event error %@", err);
@@ -56,6 +60,8 @@
             } else if ([event.eventData[@"status"] isEqualToString:@"off"] ) {
                 [delegate receivedEvent:event.originDeviceId status:FALSE];
                 NSLog(@"Received status deeviceId: %d status FALSE", event.originDeviceId);
+            } else {
+                NSLog(@"Unknown eventData: %@", event.eventData);
             }
         }
     }
@@ -63,6 +69,7 @@
 
 - (void) startListenToEvents:(MODEClientAuthentication*)clientAuth
 {
+    NSLog(@"Start listenning to device events.");
     self.listener = [[MODEEventListener alloc] initWithClientAuthentication:clientAuth];
     
     [self.listener startListenToEvents:^(MODEDeviceEvent *event, NSError *err) {
@@ -72,7 +79,18 @@
 
 -(void)stopListenToEvents
 {
+    NSLog(@"Stop listenning to device events.");
     [self.listener stopListenToEvents];
+    self.listener = nil;
+}
+
+-(void)reconnect
+{
+    if (self.listener == nil) {
+        NSLog(@"Reconnect to listen to device events.");
+        LMDataHolder* data = [LMDataHolder sharedInstance];
+        [self startListenToEvents:data.clientAuth];
+    }
 }
 
 - (void)queryDeviceStatus:(NSArray*)devices
