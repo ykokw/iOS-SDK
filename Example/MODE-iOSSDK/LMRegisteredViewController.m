@@ -18,7 +18,7 @@
     [super viewDidLoad];
     
     self.navigationItem.hidesBackButton = YES;
-    setupMessage(self.message, MESSAGE_REGISTERED);
+    setupMessage(self.message, MESSAGE_REGISTERED, 15.0);
 }
 
 -(void) removeOverlayViews

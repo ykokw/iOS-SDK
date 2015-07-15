@@ -20,7 +20,7 @@
     [super viewDidLoad];
     
     setupStandardTextField(self.nameField, @"Name", @"Name.png");
-    setupMessage(self.message, MESSAGE_EDIT_PROFILE);
+    setupMessage(self.message, MESSAGE_EDIT_PROFILE, 15.0);
     setupRightBarButtonItem(self.navigationItem, @"Done", self, @selector(handleDone));
     self.navigationItem.titleView = setupTitle(@"My Profile");
     self.phonenumberField.enabled = false;

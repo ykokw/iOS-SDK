@@ -22,7 +22,7 @@
     
     self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Authentication Code", @"Authentication.png");
     self.navigationItem.titleView = setupTitle(@"Authenticate Account");
-    setupMessage(self.message, MESSAGE_VERIFY_YOU);
+    setupMessage(self.message, MESSAGE_VERIFY_YOU, 15.0);
 }
 
 - (IBAction)handleNext:(id)sender

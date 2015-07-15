@@ -15,8 +15,8 @@ PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* textField);
 
 void setupStandardTextField(UITextField* textField, NSString* name, NSString* iconName);
 
-void setupMessage(UILabel* message, NSString* text);
-void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color);
+void setupMessage(UILabel* message, NSString* text, CGFloat fontSize);
+void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color, CGFloat fontSize);
 
 NSString* formatPhonenumberFromString(NSString* phonenumber);
 

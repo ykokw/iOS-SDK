@@ -79,19 +79,30 @@ PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* phoneNumberField)
     return phoneNumberDelegate;
 }
 
-void setupMessage(UILabel* message, NSString* text)
+void setupMessage(UILabel* message, NSString* text, CGFloat fontSize)
 {
-    return setupMessageWithColor(message, text, [UIColor bodyTextColor]);
+    return setupMessageWithColor(message, text, [UIColor bodyTextColor], fontSize);
 }
 
-void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color)
+void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color, CGFloat fontSize)
 {
+    UIFont *font = [UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:fontSize];
+    
+    // Multiline line spacing is always 11px.
+    NSMutableParagraphStyle *paragraphStyle = [[NSParagraphStyle defaultParagraphStyle] mutableCopy];
+    [paragraphStyle setLineSpacing: 11];
+    
+    NSDictionary *attributes = @{ NSFontAttributeName: font, NSParagraphStyleAttributeName: paragraphStyle };
+    NSAttributedString *attributedString = [[NSAttributedString alloc] initWithString:text attributes:attributes];
+    
+    [message setAttributedText: attributedString];
+    
+    // You have to set ohter properties after calling setAttributedText.
     message.adjustsFontSizeToFitWidth = NO;
     message.lineBreakMode = NSLineBreakByWordWrapping;
     message.numberOfLines = 0;
     message.textAlignment = NSTextAlignmentCenter;
     message.textColor = color;
-    message.text = text;
 }
 
 UILabel* setupTitle(NSString* title)

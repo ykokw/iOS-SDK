@@ -21,7 +21,7 @@
     [super viewDidLoad];
     
     self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
-    setupMessage(self.message, MESSAGE_INVITE);
+    setupMessage(self.message, MESSAGE_INVITE, 15.0);
     
     setupRightBarButtonItem(self.navigationItem, @"Add", self, @selector(handleAdd));
     

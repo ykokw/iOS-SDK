@@ -47,7 +47,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    setupMessage(self.message, [self getMessage]);
+    setupMessage(self.message, [self getMessage], 15.0);
  
     [self setupRightBarButton];
     

@@ -19,7 +19,7 @@
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor defaultThemeColor];
 
-    setupMessageWithColor(self.message, MESSAGE_SAMPLE_APP, [UIColor whiteColor]);
+    setupMessageWithColor(self.message, MESSAGE_SAMPLE_APP, [UIColor whiteColor], 15.0);
     
     UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background.png"]];
     

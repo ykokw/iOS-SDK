@@ -41,8 +41,8 @@
                 showAlert(err);
             } else {
                 NSLog(@"Get user info: %@", user);
-                setupMessage(self.userName, user.name);
-                setupMessage(self.phonenumber, formatPhonenumberFromString(user.phoneNumber));
+                setupMessage(self.userName, user.name, 15.0);
+                setupMessage(self.phonenumber, formatPhonenumberFromString(user.phoneNumber), 15.0);
             }
         }];
 }

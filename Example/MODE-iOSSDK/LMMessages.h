@@ -16,7 +16,7 @@ to create an account.\
 
 #define MESSAGE_NOTE @"\
 Note: Your phone number is used only for logging in.\
-We will never smap you.\
+We will never spam you.\
 "
 
 #define MESSAGE_VERIFY_YOU @"\
@@ -30,13 +30,12 @@ Please enter your phone number below\
 "
 
 #define MESSAGE_ADD_DEVICES @"\
-Claim Your Devices.\n\n\
-1. Turn on Claim Mode.\n\n\
-2. Enter Claim Code on your device."
+1. Turn on Claim Mode on your Device.\n\
+2. Enter the Claim Code below."
 
 #define MESSAGE_REGISTERED @"\
-Through this app, you'll be able to control all Lumos lights.\n\n\
-To start, we will create a home for you called \"My Home\".\
+Control all your Lumos devices with just a tap on your screen anytime, anywhere.\n\n\
+To start, we've created a home for you called \"My Home\".\
 "
 
 #define MESSAGE_CONGRATZ @"\
@@ -47,7 +46,6 @@ Now you can control them from your phone.\
 
 #define MESSAGE_INVITE @"\
 Invite more members to join your home and share device access!\
-Just enter their phone number\
 "
 
 #define MESSAGE_EDIT_PROFILE @"\

@@ -9,7 +9,7 @@
 UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextField* devicenameField, UILabel*message) {
     setupStandardTextField(verificationCodeField, @"Claim Code", @"ClaimCode.png");
     setupStandardTextField(devicenameField, @"Nickname (e.g. Office Lamp)", @"Nickname.png");
-    setupMessage(message, MESSAGE_ADD_DEVICES);
+    setupMessage(message, MESSAGE_ADD_DEVICES, 15.0);
     return setupTitle(@"Add device");
 }
 
@@ -30,7 +30,7 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
     self.navigationItem.titleView = setupCommonAddDeviceWidgets(self.verificationCodeField, self.deviceNameField, self.message);
     self.navigationItem.hidesBackButton = YES;
     
-    setupMessage(self.message, MESSAGE_ADD_DEVICES);
+    setupMessage(self.message, MESSAGE_ADD_DEVICES, 15.0);
 }
 
 - (void)removeOverlayViews

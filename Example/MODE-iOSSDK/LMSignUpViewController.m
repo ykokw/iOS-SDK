@@ -23,8 +23,8 @@
 {
     [super viewDidLoad];
 
-    setupMessage(self.message, MESSAGE_WELCOME);
-    setupMessage(self.note, MESSAGE_NOTE);
+    setupMessage(self.message, MESSAGE_WELCOME, 15.0);
+    setupMessage(self.note, MESSAGE_NOTE, 15.0);
     
     setupStandardTextField(self.nameField, @"Name", @"Name.png");
     self.navigationItem.titleView = setupTitle(@"Sign Up");

@@ -20,7 +20,7 @@
     
     self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
     self.navigationItem.titleView = setupTitle(@"Log In");
-    setupMessage(self.message, MESSAGE_WELCOME_BACK);
+    setupMessage(self.message, MESSAGE_WELCOME_BACK, 15.0);
 }
 
 - (IBAction)handleNext:(id)sender
