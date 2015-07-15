@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" initialViewController="jnZ-Fk-Sqp">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
     </dependencies>
     <scenes>
         <!--Lumos View Controller-->
         <scene sceneID="3nQ-xT-1jA">
             <objects>
-                <viewController id="xWX-b4-Ikw" customClass="LumosViewController" sceneMemberID="viewController">
+                <viewController id="xWX-b4-Ikw" customClass="LMLumosViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ojv-6h-sTs">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -64,7 +63,7 @@
                     <connections>
                         <outlet property="message" destination="aff-9u-MgQ" id="1Ul-j6-gyB"/>
                         <segue destination="f6O-Dq-1Lv" kind="push" identifier="BypassSignUpSegue" id="Zu0-Q4-fzh"/>
-                        <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LinkedStoryBoardSegue" id="kfA-9g-xNS"/>
+                        <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LMLinkedStoryBoardSegue" id="kfA-9g-xNS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mL5-uE-rdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -74,7 +73,7 @@
         <!--Sign Up View Controller-->
         <scene sceneID="1Gv-Ql-n5x">
             <objects>
-                <viewController id="FHp-6h-5bi" customClass="SignUpViewController" sceneMemberID="viewController">
+                <viewController id="FHp-6h-5bi" customClass="LMSignUpViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="IHw-WV-i3Q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -130,7 +129,7 @@
         <!--Verify Account View Controller-->
         <scene sceneID="DKT-sh-6Sr">
             <objects>
-                <viewController id="7Fs-y1-ANo" customClass="VerifyAccountViewController" sceneMemberID="viewController">
+                <viewController id="7Fs-y1-ANo" customClass="LMVerifyAccountViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bqb-cQ-qm3">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -184,7 +183,7 @@
         <!--Registered View Controller-->
         <scene sceneID="45j-P5-xNL">
             <objects>
-                <viewController id="f6O-Dq-1Lv" customClass="RegisteredViewController" sceneMemberID="viewController">
+                <viewController id="f6O-Dq-1Lv" customClass="LMRegisteredViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GJ8-IB-S3N">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -238,7 +237,7 @@
                     <navigationItem key="navigationItem" id="Euw-el-Fsd"/>
                     <connections>
                         <outlet property="message" destination="sdY-20-bGW" id="Wbj-7A-QSS"/>
-                        <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LinkedStoryBoardSegue" id="TCP-fv-9g4"/>
+                        <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LMLinkedStoryBoardSegue" id="TCP-fv-9g4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="D8F-Nr-XsB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -248,7 +247,7 @@
         <!--Add devices-->
         <scene sceneID="Zmq-Fl-whk">
             <objects>
-                <viewController storyboardIdentifier="AddDevicesViewController" id="HVX-T4-fJz" customClass="AddDevicesViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LMAddDevicesViewController" id="HVX-T4-fJz" customClass="LMAddDevicesViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ESy-au-i5Q">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -311,7 +310,7 @@
                         <outlet property="deviceNameField" destination="5BI-4F-14v" id="ZuB-5X-c28"/>
                         <outlet property="message" destination="EGj-EE-f2y" id="2qR-VL-2wU"/>
                         <outlet property="verificationCodeField" destination="CRg-Cs-zhp" id="5oB-bx-Gqh"/>
-                        <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LinkedStoryBoardSegue" id="Qcv-2p-LtW"/>
+                        <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LMLinkedStoryBoardSegue" id="Qcv-2p-LtW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xj9-jv-2dx" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -340,7 +339,7 @@
         <!--Log In-->
         <scene sceneID="9MD-nd-4R2">
             <objects>
-                <viewController id="Dcr-ej-Qex" customClass="LoginViewController" sceneMemberID="viewController">
+                <viewController id="Dcr-ej-Qex" customClass="LMLoginViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8Fe-K3-Ixk">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -381,7 +380,7 @@
         <!--Authenticate Account-->
         <scene sceneID="dew-E7-d5c">
             <objects>
-                <viewController id="ZB1-S3-Zf2" customClass="AuthenticateAccountViewController" sceneMemberID="viewController">
+                <viewController id="ZB1-S3-Zf2" customClass="LMAuthenticateAccountViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="ayr-qj-GVv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -423,7 +422,7 @@
                     <connections>
                         <outlet property="message" destination="bhZ-Qe-4FB" id="IlJ-W0-IzJ"/>
                         <outlet property="verificationCodeField" destination="aMC-jp-AKh" id="bJv-Nz-nVA"/>
-                        <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LinkedStoryBoardSegue" id="nae-TT-8aK"/>
+                        <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LMLinkedStoryBoardSegue" id="nae-TT-8aK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ms9-bj-5Ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -461,7 +460,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Zu0-Q4-fzh"/>
-        <segue reference="Qcv-2p-LtW"/>
+        <segue reference="kfA-9g-xNS"/>
+        <segue reference="iKu-R9-eIc"/>
     </inferredMetricsTieBreakers>
 </document>

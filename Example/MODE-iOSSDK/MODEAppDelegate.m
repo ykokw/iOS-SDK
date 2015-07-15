@@ -1,5 +1,5 @@
 #import "MODEAppDelegate.h"
-#import "DataHolder.h"
+#import "LMDataHolder.h"
 
 @implementation MODEAppDelegate
 
@@ -7,7 +7,7 @@
 {
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Override point for customization after application launch.
-    [[DataHolder sharedInstance] loadData];
+    [[LMDataHolder sharedInstance] loadData];
     return YES;
 }
 							

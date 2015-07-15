@@ -7,23 +7,28 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		212A69151B4C46DC00D5DAEE /* LumosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A69141B4C46DC00D5DAEE /* LumosViewController.m */; };
-		212A691B1B4C499C00D5DAEE /* AddDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A691A1B4C499C00D5DAEE /* AddDevicesViewController.m */; };
-		212A69211B4C5E1D00D5DAEE /* RegisteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A69201B4C5E1D00D5DAEE /* RegisteredViewController.m */; };
-		212A692A1B4C8A1600D5DAEE /* LoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A69281B4C8A1600D5DAEE /* LoginViewController.m */; };
-		212A692D1B4C8F9600D5DAEE /* AuthenticateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 212A692C1B4C8F9600D5DAEE /* AuthenticateAccountViewController.m */; };
-		213CD2C31B55855B0032C5B5 /* DeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 213CD2C21B55855B0032C5B5 /* DeviceManager.m */; };
+		2124EA691B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5A1B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m */; };
+		2124EA6A1B561CD700D35D97 /* LMAddHomeMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5C1B561CD700D35D97 /* LMAddHomeMemberViewController.m */; };
+		2124EA6B1B561CD700D35D97 /* LMAddHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5E1B561CD700D35D97 /* LMAddHomeViewController.m */; };
+		2124EA6C1B561CD700D35D97 /* LMButtonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA601B561CD700D35D97 /* LMButtonUtils.m */; };
+		2124EA6D1B561CD700D35D97 /* LMHomeDetailableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA621B561CD700D35D97 /* LMHomeDetailableViewController.m */; };
+		2124EA6E1B561CD700D35D97 /* LMHomesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA641B561CD700D35D97 /* LMHomesTableViewController.m */; };
+		2124EA6F1B561CD700D35D97 /* LMProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA661B561CD700D35D97 /* LMProfileEditViewController.m */; };
+		2124EA701B561CD700D35D97 /* LMProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA681B561CD700D35D97 /* LMProfileViewController.m */; };
+		2124EA7F1B561D1A00D35D97 /* LMAddDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA721B561D1A00D35D97 /* LMAddDevicesViewController.m */; };
+		2124EA801B561D1A00D35D97 /* LMAuthenticateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA741B561D1A00D35D97 /* LMAuthenticateAccountViewController.m */; };
+		2124EA811B561D1A00D35D97 /* LMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA761B561D1A00D35D97 /* LMLoginViewController.m */; };
+		2124EA821B561D1A00D35D97 /* LMLumosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA781B561D1A00D35D97 /* LMLumosViewController.m */; };
+		2124EA831B561D1A00D35D97 /* LMRegisteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA7A1B561D1A00D35D97 /* LMRegisteredViewController.m */; };
+		2124EA841B561D1A00D35D97 /* LMSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA7C1B561D1A00D35D97 /* LMSignUpViewController.m */; };
+		2124EA851B561D1A00D35D97 /* LMVerifyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA7E1B561D1A00D35D97 /* LMVerifyAccountViewController.m */; };
+		2124EA8F1B561D3B00D35D97 /* LMDataHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA871B561D3B00D35D97 /* LMDataHolder.m */; };
+		2124EA901B561D3B00D35D97 /* LMDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA891B561D3B00D35D97 /* LMDeviceManager.m */; };
+		2124EA911B561D3B00D35D97 /* LMLinkedStoryBoardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA8B1B561D3B00D35D97 /* LMLinkedStoryBoardSegue.m */; };
+		2124EA921B561D3B00D35D97 /* LMOverlayViewProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA8E1B561D3B00D35D97 /* LMOverlayViewProtocol.m */; };
+		2124EA971B561D4900D35D97 /* LMUIColor+Extentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA941B561D4900D35D97 /* LMUIColor+Extentions.m */; };
+		2124EA981B561D4900D35D97 /* LMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA961B561D4900D35D97 /* LMUtils.m */; };
 		2142865A1B4D98A2006E3C1F /* console.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214286591B4D98A2006E3C1F /* console.storyboard */; };
-		2142865D1B4D99D5006E3C1F /* LinkedStoryBoardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2142865C1B4D99D5006E3C1F /* LinkedStoryBoardSegue.m */; };
-		214286631B4DDAE7006E3C1F /* OverlayViewProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286621B4DDAE7006E3C1F /* OverlayViewProtocol.m */; };
-		214286671B4DEEC9006E3C1F /* HomesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286661B4DEEC9006E3C1F /* HomesTableViewController.m */; };
-		2142866A1B4EE277006E3C1F /* HomeDetailableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286691B4EE277006E3C1F /* HomeDetailableViewController.m */; };
-		2142866E1B4EF603006E3C1F /* UIColor+Extentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2142866D1B4EF603006E3C1F /* UIColor+Extentions.m */; };
-		214286711B4EF93D006E3C1F /* ButtonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286701B4EF93D006E3C1F /* ButtonUtils.m */; };
-		214286741B4F8889006E3C1F /* AddHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286731B4F8889006E3C1F /* AddHomeViewController.m */; };
-		214286771B4F95EA006E3C1F /* AddHomeMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286761B4F95EA006E3C1F /* AddHomeMemberViewController.m */; };
-		2142867A1B503E27006E3C1F /* AddDeviceInConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 214286791B503E27006E3C1F /* AddDeviceInConsoleViewController.m */; };
-		2142867D1B504C91006E3C1F /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2142867C1B504C91006E3C1F /* ProfileViewController.m */; };
 		2142868C1B5093A9006E3C1F /* TimeZone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142867E1B5093A8006E3C1F /* TimeZone.png */; };
 		2142868D1B5093A9006E3C1F /* Settings White.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142867F1B5093A8006E3C1F /* Settings White.png */; };
 		2142868E1B5093A9006E3C1F /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286801B5093A8006E3C1F /* Settings.png */; };
@@ -38,11 +43,6 @@
 		214286971B5093A9006E3C1F /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286891B5093A9006E3C1F /* Background.png */; };
 		214286981B5093A9006E3C1F /* Authentication.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142868A1B5093A9006E3C1F /* Authentication.png */; };
 		214286991B5093A9006E3C1F /* Add.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142868B1B5093A9006E3C1F /* Add.png */; };
-		219841B11B4B526C00F57B09 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B01B4B526C00F57B09 /* SignUpViewController.m */; };
-		219841B41B4B5B6200F57B09 /* DataHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B31B4B5B6200F57B09 /* DataHolder.m */; };
-		219841B61B4C35E600F57B09 /* Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B51B4C35E600F57B09 /* Utils.m */; };
-		219841BA1B4C38A300F57B09 /* VerifyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 219841B91B4C38A300F57B09 /* VerifyAccountViewController.m */; };
-		21E4511D1B5238AA0080885F /* ProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21E4511C1B5238AA0080885F /* ProfileEditViewController.m */; };
 		240900B08EFA32630145814C /* Pods_MODE_iOSSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E38AC9A22CAC1AA226C9880 /* Pods_MODE_iOSSDK_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -73,39 +73,50 @@
 
 /* Begin PBXFileReference section */
 		030D11C9C043D5B1DD1B8AF4 /* Pods-MODE-iOSSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MODE-iOSSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MODE-iOSSDK_Tests/Pods-MODE-iOSSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
-		212A69131B4C46DC00D5DAEE /* LumosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LumosViewController.h; sourceTree = "<group>"; };
-		212A69141B4C46DC00D5DAEE /* LumosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LumosViewController.m; sourceTree = "<group>"; };
-		212A69191B4C499C00D5DAEE /* AddDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDevicesViewController.h; sourceTree = "<group>"; };
-		212A691A1B4C499C00D5DAEE /* AddDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDevicesViewController.m; sourceTree = "<group>"; };
-		212A691F1B4C5E1D00D5DAEE /* RegisteredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RegisteredViewController.h; sourceTree = "<group>"; };
-		212A69201B4C5E1D00D5DAEE /* RegisteredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RegisteredViewController.m; sourceTree = "<group>"; };
-		212A69281B4C8A1600D5DAEE /* LoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LoginViewController.m; sourceTree = "<group>"; };
-		212A69291B4C8A1600D5DAEE /* LoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewController.h; sourceTree = "<group>"; };
-		212A692B1B4C8F9600D5DAEE /* AuthenticateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticateAccountViewController.h; sourceTree = "<group>"; };
-		212A692C1B4C8F9600D5DAEE /* AuthenticateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuthenticateAccountViewController.m; sourceTree = "<group>"; };
-		213CD2C11B55855B0032C5B5 /* DeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceManager.h; sourceTree = "<group>"; };
-		213CD2C21B55855B0032C5B5 /* DeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceManager.m; sourceTree = "<group>"; };
+		2124EA591B561CD700D35D97 /* LMAddDeviceInConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAddDeviceInConsoleViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA5A1B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMAddDeviceInConsoleViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA5B1B561CD700D35D97 /* LMAddHomeMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAddHomeMemberViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA5C1B561CD700D35D97 /* LMAddHomeMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMAddHomeMemberViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA5D1B561CD700D35D97 /* LMAddHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAddHomeViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA5E1B561CD700D35D97 /* LMAddHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMAddHomeViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA5F1B561CD700D35D97 /* LMButtonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMButtonUtils.h; sourceTree = "<group>"; };
+		2124EA601B561CD700D35D97 /* LMButtonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMButtonUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA611B561CD700D35D97 /* LMHomeDetailableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMHomeDetailableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA621B561CD700D35D97 /* LMHomeDetailableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMHomeDetailableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA631B561CD700D35D97 /* LMHomesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMHomesTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA641B561CD700D35D97 /* LMHomesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMHomesTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA651B561CD700D35D97 /* LMProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMProfileEditViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA661B561CD700D35D97 /* LMProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMProfileEditViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA671B561CD700D35D97 /* LMProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMProfileViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA681B561CD700D35D97 /* LMProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMProfileViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA711B561D1A00D35D97 /* LMAddDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAddDevicesViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA721B561D1A00D35D97 /* LMAddDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMAddDevicesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA731B561D1A00D35D97 /* LMAuthenticateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAuthenticateAccountViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA741B561D1A00D35D97 /* LMAuthenticateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMAuthenticateAccountViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA751B561D1A00D35D97 /* LMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMLoginViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA761B561D1A00D35D97 /* LMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMLoginViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA771B561D1A00D35D97 /* LMLumosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLumosViewController.h; sourceTree = "<group>"; };
+		2124EA781B561D1A00D35D97 /* LMLumosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMLumosViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA791B561D1A00D35D97 /* LMRegisteredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMRegisteredViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA7A1B561D1A00D35D97 /* LMRegisteredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMRegisteredViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA7B1B561D1A00D35D97 /* LMSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSignUpViewController.h; sourceTree = "<group>"; };
+		2124EA7C1B561D1A00D35D97 /* LMSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMSignUpViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA7D1B561D1A00D35D97 /* LMVerifyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMVerifyAccountViewController.h; sourceTree = "<group>"; };
+		2124EA7E1B561D1A00D35D97 /* LMVerifyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMVerifyAccountViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA861B561D3B00D35D97 /* LMDataHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMDataHolder.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA871B561D3B00D35D97 /* LMDataHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMDataHolder.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA881B561D3B00D35D97 /* LMDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMDeviceManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA891B561D3B00D35D97 /* LMDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMDeviceManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA8A1B561D3B00D35D97 /* LMLinkedStoryBoardSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLinkedStoryBoardSegue.h; sourceTree = "<group>"; };
+		2124EA8B1B561D3B00D35D97 /* LMLinkedStoryBoardSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLinkedStoryBoardSegue.m; sourceTree = "<group>"; };
+		2124EA8C1B561D3B00D35D97 /* LMMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMMessages.h; sourceTree = "<group>"; };
+		2124EA8D1B561D3B00D35D97 /* LMOverlayViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMOverlayViewProtocol.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA8E1B561D3B00D35D97 /* LMOverlayViewProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMOverlayViewProtocol.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA931B561D4900D35D97 /* LMUIColor+Extentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LMUIColor+Extentions.h"; sourceTree = "<group>"; };
+		2124EA941B561D4900D35D97 /* LMUIColor+Extentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "LMUIColor+Extentions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA951B561D4900D35D97 /* LMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMUtils.h; sourceTree = "<group>"; };
+		2124EA961B561D4900D35D97 /* LMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		214286591B4D98A2006E3C1F /* console.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = console.storyboard; sourceTree = "<group>"; };
-		2142865B1B4D99D5006E3C1F /* LinkedStoryBoardSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LinkedStoryBoardSegue.h; sourceTree = "<group>"; };
-		2142865C1B4D99D5006E3C1F /* LinkedStoryBoardSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LinkedStoryBoardSegue.m; sourceTree = "<group>"; };
-		214286611B4DDAE7006E3C1F /* OverlayViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OverlayViewProtocol.h; sourceTree = "<group>"; };
-		214286621B4DDAE7006E3C1F /* OverlayViewProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OverlayViewProtocol.m; sourceTree = "<group>"; };
-		214286651B4DEEC9006E3C1F /* HomesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomesTableViewController.h; sourceTree = "<group>"; };
-		214286661B4DEEC9006E3C1F /* HomesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomesTableViewController.m; sourceTree = "<group>"; };
-		214286681B4EE277006E3C1F /* HomeDetailableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeDetailableViewController.h; sourceTree = "<group>"; };
-		214286691B4EE277006E3C1F /* HomeDetailableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeDetailableViewController.m; sourceTree = "<group>"; };
-		2142866C1B4EF603006E3C1F /* UIColor+Extentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Extentions.h"; sourceTree = "<group>"; };
-		2142866D1B4EF603006E3C1F /* UIColor+Extentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Extentions.m"; sourceTree = "<group>"; };
-		2142866F1B4EF93D006E3C1F /* ButtonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ButtonUtils.h; sourceTree = "<group>"; };
-		214286701B4EF93D006E3C1F /* ButtonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ButtonUtils.m; sourceTree = "<group>"; };
-		214286721B4F8889006E3C1F /* AddHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddHomeViewController.h; sourceTree = "<group>"; };
-		214286731B4F8889006E3C1F /* AddHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddHomeViewController.m; sourceTree = "<group>"; };
-		214286751B4F95EA006E3C1F /* AddHomeMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddHomeMemberViewController.h; sourceTree = "<group>"; };
-		214286761B4F95EA006E3C1F /* AddHomeMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddHomeMemberViewController.m; sourceTree = "<group>"; };
-		214286781B503E27006E3C1F /* AddDeviceInConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AddDeviceInConsoleViewController.h; sourceTree = "<group>"; };
-		214286791B503E27006E3C1F /* AddDeviceInConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddDeviceInConsoleViewController.m; sourceTree = "<group>"; };
-		2142867B1B504C91006E3C1F /* ProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
-		2142867C1B504C91006E3C1F /* ProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		2142867E1B5093A8006E3C1F /* TimeZone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TimeZone.png; path = Images.xcassets/TimeZone.png; sourceTree = "<group>"; };
 		2142867F1B5093A8006E3C1F /* Settings White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Settings White.png"; path = "Images.xcassets/Settings White.png"; sourceTree = "<group>"; };
 		214286801B5093A8006E3C1F /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Settings.png; path = Images.xcassets/Settings.png; sourceTree = "<group>"; };
@@ -120,17 +131,6 @@
 		214286891B5093A9006E3C1F /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Images.xcassets/Background.png; sourceTree = "<group>"; };
 		2142868A1B5093A9006E3C1F /* Authentication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Authentication.png; path = Images.xcassets/Authentication.png; sourceTree = "<group>"; };
 		2142868B1B5093A9006E3C1F /* Add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Add.png; path = Images.xcassets/Add.png; sourceTree = "<group>"; };
-		219841AF1B4B526C00F57B09 /* SignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SignUpViewController.h; sourceTree = "<group>"; };
-		219841B01B4B526C00F57B09 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
-		219841B21B4B5B6200F57B09 /* DataHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataHolder.h; sourceTree = "<group>"; };
-		219841B31B4B5B6200F57B09 /* DataHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataHolder.m; sourceTree = "<group>"; };
-		219841B51B4C35E600F57B09 /* Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utils.m; sourceTree = "<group>"; };
-		219841B71B4C363B00F57B09 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
-		219841B81B4C38A300F57B09 /* VerifyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerifyAccountViewController.h; sourceTree = "<group>"; };
-		219841B91B4C38A300F57B09 /* VerifyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerifyAccountViewController.m; sourceTree = "<group>"; };
-		21C16CD61B4CAFAD00D58890 /* Messages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Messages.h; sourceTree = "<group>"; };
-		21E4511B1B5238AA0080885F /* ProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProfileEditViewController.h; sourceTree = "<group>"; };
-		21E4511C1B5238AA0080885F /* ProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ProfileEditViewController.m; sourceTree = "<group>"; };
 		2DFF3826F5A3A2128C83B9FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		47B286A23B4CB7AFC0DD9486 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* MODE-iOSSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MODE-iOSSDK_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -190,19 +190,19 @@
 		214286551B4D97FE006E3C1F /* misc */ = {
 			isa = PBXGroup;
 			children = (
-				219841B21B4B5B6200F57B09 /* DataHolder.h */,
-				219841B31B4B5B6200F57B09 /* DataHolder.m */,
-				213CD2C11B55855B0032C5B5 /* DeviceManager.h */,
-				213CD2C21B55855B0032C5B5 /* DeviceManager.m */,
-				219841B71B4C363B00F57B09 /* Utils.h */,
-				219841B51B4C35E600F57B09 /* Utils.m */,
-				21C16CD61B4CAFAD00D58890 /* Messages.h */,
-				2142865B1B4D99D5006E3C1F /* LinkedStoryBoardSegue.h */,
-				2142865C1B4D99D5006E3C1F /* LinkedStoryBoardSegue.m */,
-				214286611B4DDAE7006E3C1F /* OverlayViewProtocol.h */,
-				214286621B4DDAE7006E3C1F /* OverlayViewProtocol.m */,
-				2142866C1B4EF603006E3C1F /* UIColor+Extentions.h */,
-				2142866D1B4EF603006E3C1F /* UIColor+Extentions.m */,
+				2124EA931B561D4900D35D97 /* LMUIColor+Extentions.h */,
+				2124EA941B561D4900D35D97 /* LMUIColor+Extentions.m */,
+				2124EA951B561D4900D35D97 /* LMUtils.h */,
+				2124EA961B561D4900D35D97 /* LMUtils.m */,
+				2124EA861B561D3B00D35D97 /* LMDataHolder.h */,
+				2124EA871B561D3B00D35D97 /* LMDataHolder.m */,
+				2124EA881B561D3B00D35D97 /* LMDeviceManager.h */,
+				2124EA891B561D3B00D35D97 /* LMDeviceManager.m */,
+				2124EA8A1B561D3B00D35D97 /* LMLinkedStoryBoardSegue.h */,
+				2124EA8B1B561D3B00D35D97 /* LMLinkedStoryBoardSegue.m */,
+				2124EA8C1B561D3B00D35D97 /* LMMessages.h */,
+				2124EA8D1B561D3B00D35D97 /* LMOverlayViewProtocol.h */,
+				2124EA8E1B561D3B00D35D97 /* LMOverlayViewProtocol.m */,
 			);
 			name = misc;
 			sourceTree = "<group>";
@@ -210,20 +210,20 @@
 		214286561B4D9823006E3C1F /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				219841AF1B4B526C00F57B09 /* SignUpViewController.h */,
-				219841B01B4B526C00F57B09 /* SignUpViewController.m */,
-				219841B81B4C38A300F57B09 /* VerifyAccountViewController.h */,
-				219841B91B4C38A300F57B09 /* VerifyAccountViewController.m */,
-				212A69131B4C46DC00D5DAEE /* LumosViewController.h */,
-				212A69141B4C46DC00D5DAEE /* LumosViewController.m */,
-				212A69191B4C499C00D5DAEE /* AddDevicesViewController.h */,
-				212A691A1B4C499C00D5DAEE /* AddDevicesViewController.m */,
-				212A691F1B4C5E1D00D5DAEE /* RegisteredViewController.h */,
-				212A69201B4C5E1D00D5DAEE /* RegisteredViewController.m */,
-				212A692B1B4C8F9600D5DAEE /* AuthenticateAccountViewController.h */,
-				212A692C1B4C8F9600D5DAEE /* AuthenticateAccountViewController.m */,
-				212A69291B4C8A1600D5DAEE /* LoginViewController.h */,
-				212A69281B4C8A1600D5DAEE /* LoginViewController.m */,
+				2124EA711B561D1A00D35D97 /* LMAddDevicesViewController.h */,
+				2124EA721B561D1A00D35D97 /* LMAddDevicesViewController.m */,
+				2124EA731B561D1A00D35D97 /* LMAuthenticateAccountViewController.h */,
+				2124EA741B561D1A00D35D97 /* LMAuthenticateAccountViewController.m */,
+				2124EA751B561D1A00D35D97 /* LMLoginViewController.h */,
+				2124EA761B561D1A00D35D97 /* LMLoginViewController.m */,
+				2124EA771B561D1A00D35D97 /* LMLumosViewController.h */,
+				2124EA781B561D1A00D35D97 /* LMLumosViewController.m */,
+				2124EA791B561D1A00D35D97 /* LMRegisteredViewController.h */,
+				2124EA7A1B561D1A00D35D97 /* LMRegisteredViewController.m */,
+				2124EA7B1B561D1A00D35D97 /* LMSignUpViewController.h */,
+				2124EA7C1B561D1A00D35D97 /* LMSignUpViewController.m */,
+				2124EA7D1B561D1A00D35D97 /* LMVerifyAccountViewController.h */,
+				2124EA7E1B561D1A00D35D97 /* LMVerifyAccountViewController.m */,
 			);
 			name = MainViewControllers;
 			sourceTree = "<group>";
@@ -231,22 +231,22 @@
 		214286641B4DEE96006E3C1F /* ConsoleViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				214286651B4DEEC9006E3C1F /* HomesTableViewController.h */,
-				214286661B4DEEC9006E3C1F /* HomesTableViewController.m */,
-				214286681B4EE277006E3C1F /* HomeDetailableViewController.h */,
-				214286691B4EE277006E3C1F /* HomeDetailableViewController.m */,
-				2142866F1B4EF93D006E3C1F /* ButtonUtils.h */,
-				214286701B4EF93D006E3C1F /* ButtonUtils.m */,
-				214286721B4F8889006E3C1F /* AddHomeViewController.h */,
-				214286731B4F8889006E3C1F /* AddHomeViewController.m */,
-				214286751B4F95EA006E3C1F /* AddHomeMemberViewController.h */,
-				214286761B4F95EA006E3C1F /* AddHomeMemberViewController.m */,
-				214286781B503E27006E3C1F /* AddDeviceInConsoleViewController.h */,
-				214286791B503E27006E3C1F /* AddDeviceInConsoleViewController.m */,
-				2142867B1B504C91006E3C1F /* ProfileViewController.h */,
-				2142867C1B504C91006E3C1F /* ProfileViewController.m */,
-				21E4511B1B5238AA0080885F /* ProfileEditViewController.h */,
-				21E4511C1B5238AA0080885F /* ProfileEditViewController.m */,
+				2124EA591B561CD700D35D97 /* LMAddDeviceInConsoleViewController.h */,
+				2124EA5A1B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m */,
+				2124EA5B1B561CD700D35D97 /* LMAddHomeMemberViewController.h */,
+				2124EA5C1B561CD700D35D97 /* LMAddHomeMemberViewController.m */,
+				2124EA5D1B561CD700D35D97 /* LMAddHomeViewController.h */,
+				2124EA5E1B561CD700D35D97 /* LMAddHomeViewController.m */,
+				2124EA5F1B561CD700D35D97 /* LMButtonUtils.h */,
+				2124EA601B561CD700D35D97 /* LMButtonUtils.m */,
+				2124EA611B561CD700D35D97 /* LMHomeDetailableViewController.h */,
+				2124EA621B561CD700D35D97 /* LMHomeDetailableViewController.m */,
+				2124EA631B561CD700D35D97 /* LMHomesTableViewController.h */,
+				2124EA641B561CD700D35D97 /* LMHomesTableViewController.m */,
+				2124EA651B561CD700D35D97 /* LMProfileEditViewController.h */,
+				2124EA661B561CD700D35D97 /* LMProfileEditViewController.m */,
+				2124EA671B561CD700D35D97 /* LMProfileViewController.h */,
+				2124EA681B561CD700D35D97 /* LMProfileViewController.m */,
 			);
 			name = ConsoleViewControllers;
 			sourceTree = "<group>";
@@ -592,30 +592,30 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				219841B41B4B5B6200F57B09 /* DataHolder.m in Sources */,
-				2142866A1B4EE277006E3C1F /* HomeDetailableViewController.m in Sources */,
-				214286631B4DDAE7006E3C1F /* OverlayViewProtocol.m in Sources */,
-				212A692D1B4C8F9600D5DAEE /* AuthenticateAccountViewController.m in Sources */,
-				21E4511D1B5238AA0080885F /* ProfileEditViewController.m in Sources */,
+				2124EA6D1B561CD700D35D97 /* LMHomeDetailableViewController.m in Sources */,
+				2124EA971B561D4900D35D97 /* LMUIColor+Extentions.m in Sources */,
+				2124EA6A1B561CD700D35D97 /* LMAddHomeMemberViewController.m in Sources */,
+				2124EA691B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m in Sources */,
 				6003F59E195388D20070C39A /* MODEAppDelegate.m in Sources */,
-				2142865D1B4D99D5006E3C1F /* LinkedStoryBoardSegue.m in Sources */,
-				2142867D1B504C91006E3C1F /* ProfileViewController.m in Sources */,
-				219841BA1B4C38A300F57B09 /* VerifyAccountViewController.m in Sources */,
-				212A69211B4C5E1D00D5DAEE /* RegisteredViewController.m in Sources */,
-				214286671B4DEEC9006E3C1F /* HomesTableViewController.m in Sources */,
+				2124EA851B561D1A00D35D97 /* LMVerifyAccountViewController.m in Sources */,
+				2124EA6C1B561CD700D35D97 /* LMButtonUtils.m in Sources */,
+				2124EA821B561D1A00D35D97 /* LMLumosViewController.m in Sources */,
+				2124EA921B561D3B00D35D97 /* LMOverlayViewProtocol.m in Sources */,
+				2124EA6B1B561CD700D35D97 /* LMAddHomeViewController.m in Sources */,
+				2124EA901B561D3B00D35D97 /* LMDeviceManager.m in Sources */,
 				6003F5A7195388D20070C39A /* MODEViewController.m in Sources */,
-				214286711B4EF93D006E3C1F /* ButtonUtils.m in Sources */,
-				213CD2C31B55855B0032C5B5 /* DeviceManager.m in Sources */,
-				219841B61B4C35E600F57B09 /* Utils.m in Sources */,
-				212A691B1B4C499C00D5DAEE /* AddDevicesViewController.m in Sources */,
-				219841B11B4B526C00F57B09 /* SignUpViewController.m in Sources */,
-				2142867A1B503E27006E3C1F /* AddDeviceInConsoleViewController.m in Sources */,
-				2142866E1B4EF603006E3C1F /* UIColor+Extentions.m in Sources */,
+				2124EA6F1B561CD700D35D97 /* LMProfileEditViewController.m in Sources */,
+				2124EA801B561D1A00D35D97 /* LMAuthenticateAccountViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
-				212A692A1B4C8A1600D5DAEE /* LoginViewController.m in Sources */,
-				212A69151B4C46DC00D5DAEE /* LumosViewController.m in Sources */,
-				214286741B4F8889006E3C1F /* AddHomeViewController.m in Sources */,
-				214286771B4F95EA006E3C1F /* AddHomeMemberViewController.m in Sources */,
+				2124EA6E1B561CD700D35D97 /* LMHomesTableViewController.m in Sources */,
+				2124EA701B561CD700D35D97 /* LMProfileViewController.m in Sources */,
+				2124EA7F1B561D1A00D35D97 /* LMAddDevicesViewController.m in Sources */,
+				2124EA8F1B561D3B00D35D97 /* LMDataHolder.m in Sources */,
+				2124EA911B561D3B00D35D97 /* LMLinkedStoryBoardSegue.m in Sources */,
+				2124EA811B561D1A00D35D97 /* LMLoginViewController.m in Sources */,
+				2124EA841B561D1A00D35D97 /* LMSignUpViewController.m in Sources */,
+				2124EA831B561D1A00D35D97 /* LMRegisteredViewController.m in Sources */,
+				2124EA981B561D4900D35D97 /* LMUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
