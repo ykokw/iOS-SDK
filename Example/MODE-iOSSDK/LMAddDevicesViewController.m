@@ -6,7 +6,6 @@
 #import "LMUtils.h"
 #import "ModeApp.h"
 
-
 UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextField* devicenameField, UILabel*message) {
     setupStandardTextField(verificationCodeField, @"Claim Code", @"ClaimCode.png");
     setupStandardTextField(devicenameField, @"Nickname (e.g. Office Lamp)", @"Nickname.png");
