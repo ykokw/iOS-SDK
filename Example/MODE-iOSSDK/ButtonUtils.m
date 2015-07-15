@@ -2,10 +2,10 @@
 #import "UIColor+Extentions.h"
 
 UIButton* setupEditButton(UIView* view, id target, SEL edit) {
-    UIButton *editButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+    UIButton *editButton = [[UIButton alloc] init];
     [editButton setImage:[UIImage imageNamed:@"Settings.png"] forState:UIControlStateNormal];
+    [editButton setImage:[UIImage imageNamed:@"Settings Red.png"] forState:UIControlStateSelected];
     editButton.frame = CGRectMake(0, 0, 50, 50);
-    editButton.tintColor = [UIColor defaultThemeColor];
     [editButton addTarget:target action:edit forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:editButton];
 
