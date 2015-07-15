@@ -18,7 +18,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GTM-M2-hkk" id="1NW-Em-E95">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -76,7 +76,7 @@
         <!--Add Home View Controller-->
         <scene sceneID="3DX-Ow-QMg">
             <objects>
-                <viewController id="WZP-a0-YMi" customClass="AddHomeViewController" sceneMemberID="viewController">
+                <viewController id="WZP-a0-YMi" customClass="LMAddHomeViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7dg-Gh-JAD">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -115,7 +115,7 @@
         <!--Add Home Member View Controller-->
         <scene sceneID="hq4-rE-N1e">
             <objects>
-                <viewController id="u39-au-p51" customClass="AddHomeMemberViewController" sceneMemberID="viewController">
+                <viewController id="u39-au-p51" customClass="LMAddHomeMemberViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ag8-wp-bRH">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -295,6 +295,6 @@
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
         <segue reference="nRF-LK-rSQ"/>
-        <segue reference="Dhu-8c-9nI"/>
+        <segue reference="Wfk-OP-574"/>
     </inferredMetricsTieBreakers>
 </document>
