@@ -205,14 +205,12 @@
         MODEHomeMember* member = self.items[row];
         cellvalue = member.name;
         
-        cell.detailTextLabel.text = formatPhonenumberFromString(member.phoneNumber);
-        cell.detailTextLabel.textColor = [UIColor bodyTextColor];
+        setCellLabel(cell.detailTextLabel, formatPhonenumberFromString(member.phoneNumber),
+                     [UIColor subCellTextColor], 14.0);
         
         if (member.verified == false) {
-            UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 20)];
-            label.text = @"Pending";
-            label.font = [label.font fontWithSize:12];
-            label.textColor = [UIColor bodyTextColor];
+            UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 120, 20)];
+            setCellLabel(label, @"Pending Verification", [UIColor subCellTextColor], 12.0);
             label.textAlignment = NSTextAlignmentRight;
             cell.accessoryView = label;
         }
@@ -227,7 +225,8 @@
         // This initialization is needed, because status query would be already received.
         switchView.on = self.deviceIdToStatus[[NSNumber numberWithInt:device.deviceId]] ? TRUE : FALSE;
     }
-    cell.textLabel.text = cellvalue;
+    setCellLabel(cell.textLabel, cellvalue, [UIColor cellTextColor], 15.0);
+    
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

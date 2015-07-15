@@ -105,6 +105,15 @@ void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color, CGF
     message.textColor = color;
 }
 
+void setCellLabel(UILabel* label, NSString* text, UIColor* color, CGFloat fontSize)
+{
+    [label setFont:[UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:fontSize]];
+    label.text = text;
+    label.adjustsFontSizeToFitWidth = NO;
+    label.numberOfLines = 1;
+    label.textColor = color;
+}
+
 UILabel* setupTitle(NSString* title)
 {
     UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];

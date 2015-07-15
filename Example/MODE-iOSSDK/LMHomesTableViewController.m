@@ -116,6 +116,8 @@
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
         
+        cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+        
         // set up edit icon at the right of UITableViewCell.
         UIButton *editButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
         [editButton setImage:[UIImage imageNamed:@"Edit.png"] forState:UIControlStateNormal];
@@ -132,7 +134,7 @@
     editButton.tag = indexPath.row;
     
     MODEHome* home = self.homes[indexPath.row];
-    cell.textLabel.text = home.name;
+    setCellLabel(cell.textLabel, home.name, [UIColor cellTextColor], 16.0);
     
     return cell;
 }

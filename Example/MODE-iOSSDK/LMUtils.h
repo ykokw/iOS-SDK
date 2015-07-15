@@ -18,6 +18,8 @@ void setupStandardTextField(UITextField* textField, NSString* name, NSString* ic
 void setupMessage(UILabel* message, NSString* text, CGFloat fontSize);
 void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color, CGFloat fontSize);
 
+void setCellLabel(UILabel* cellTextLabel, NSString* text, UIColor* color, CGFloat fontSize);
+
 NSString* formatPhonenumberFromString(NSString* phonenumber);
 
 UILabel* setupTitle(NSString* title);
