@@ -29,7 +29,15 @@
     data.members.phoneNumber = self.phoneNumberField.text;
     [self performSegueWithIdentifier:@"AuthenticateAccountSegue" sender:self];
 
-    initiateAuth(data.projectId, self.phoneNumberField.text);
+    [MODEAppAPI initiateAuthenticationWithSMS:data.projectId phoneNumber:self.phoneNumberField.text
+        completion:^(MODESMSMessageReceipt *receipt, NSError *err) {
+            if (err != nil) {
+                [self.navigationController popToViewController:self animated:YES];
+                showAlert(err);
+            } else {
+                NSLog(@"Reinitiated auth token: %@", receipt);
+            }
+        }];
 }
 
 @end

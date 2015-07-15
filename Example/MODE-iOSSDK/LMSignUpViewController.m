@@ -40,6 +40,7 @@
     [MODEAppAPI createUser:data.projectId phoneNumber:self.phoneNumberField.text name:self.nameField.text
         completion:^(MODEUser *user, NSError *err) {
             if (err != nil) {
+                [self.navigationController popToViewController:self animated:YES];
                 showAlert(err);
             } else {
                 NSLog(@"Added user: %@", user);
