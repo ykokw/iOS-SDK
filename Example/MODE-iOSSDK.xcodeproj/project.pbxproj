@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210F9EE11B56E26000544AE5 /* Lumos_AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 210F9EE01B56E26000544AE5 /* Lumos_AppIcon.png */; };
 		2124EA691B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5A1B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m */; };
 		2124EA6A1B561CD700D35D97 /* LMAddHomeMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5C1B561CD700D35D97 /* LMAddHomeMemberViewController.m */; };
 		2124EA6B1B561CD700D35D97 /* LMAddHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5E1B561CD700D35D97 /* LMAddHomeViewController.m */; };
@@ -73,6 +74,7 @@
 
 /* Begin PBXFileReference section */
 		030D11C9C043D5B1DD1B8AF4 /* Pods-MODE-iOSSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MODE-iOSSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MODE-iOSSDK_Tests/Pods-MODE-iOSSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		210F9EE01B56E26000544AE5 /* Lumos_AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lumos_AppIcon.png; path = Images.xcassets/Lumos_AppIcon.png; sourceTree = "<group>"; };
 		2124EA591B561CD700D35D97 /* LMAddDeviceInConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAddDeviceInConsoleViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2124EA5A1B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMAddDeviceInConsoleViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2124EA5B1B561CD700D35D97 /* LMAddHomeMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAddHomeMemberViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -254,6 +256,7 @@
 		2142869A1B5093BE006E3C1F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				210F9EE01B56E26000544AE5 /* Lumos_AppIcon.png */,
 				2142867E1B5093A8006E3C1F /* TimeZone.png */,
 				2142867F1B5093A8006E3C1F /* Settings White.png */,
 				214286801B5093A8006E3C1F /* Settings.png */,
@@ -467,6 +470,7 @@
 				214286971B5093A9006E3C1F /* Background.png in Resources */,
 				2142868E1B5093A9006E3C1F /* Settings.png in Resources */,
 				214286991B5093A9006E3C1F /* Add.png in Resources */,
+				210F9EE11B56E26000544AE5 /* Lumos_AppIcon.png in Resources */,
 				2142865A1B4D98A2006E3C1F /* console.storyboard in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
 				214286941B5093A9006E3C1F /* Home.png in Resources */,
