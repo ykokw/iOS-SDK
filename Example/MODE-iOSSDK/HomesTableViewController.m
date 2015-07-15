@@ -74,7 +74,6 @@
     setupAddButton(view, self, @selector(addItem));
     self.editButton = setupEditButton(view, self, @selector(editItem));
     [tableHeaderView insertSubview:view atIndex:0];
-    
     return view;
 }
 
