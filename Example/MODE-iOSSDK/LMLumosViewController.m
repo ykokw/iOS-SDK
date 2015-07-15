@@ -26,7 +26,7 @@
     [self.view addSubview:backgroundImage];
     [self.view sendSubviewToBack:backgroundImage];
     
-    if ( [[LMDataHolder sharedInstance] clientAuth].token != nil ) {
+    if ([[LMDataHolder sharedInstance] clientAuth].token != nil) {
          NSString* segue = @"@console";
         [self performSegueWithIdentifier:segue sender:self];
     }

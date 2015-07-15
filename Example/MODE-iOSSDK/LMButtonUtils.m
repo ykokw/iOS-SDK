@@ -23,7 +23,6 @@ UIButton* setupAddButton(UIView* view, id target, SEL add) {
     return addButton;
 }
 
-
 UILabel* setupTitle(NSString* title) {
     UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
     label.text = title;
@@ -33,14 +32,13 @@ UILabel* setupTitle(NSString* title) {
 }
 
 void setupRightBarButtonItem(UINavigationItem* navigationItem, NSString* title, id target, SEL selector) {
-    
-    navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:title style:UIBarButtonItemStylePlain target:target action:selector];
+    navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:title
+        style:UIBarButtonItemStylePlain target:target action:selector];
     
 }
 
-
 void setupProfileButton(UINavigationItem* navigationItem, id target, SEL selector) {
-    navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc]
-                                         initWithImage:[UIImage imageNamed:@"Profile.png"] style:UIBarButtonItemStylePlain target:target action:selector];
+    navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Profile.png"]
+        style:UIBarButtonItemStylePlain target:target action:selector];
 
 }

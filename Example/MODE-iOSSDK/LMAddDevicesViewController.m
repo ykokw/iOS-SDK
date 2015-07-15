@@ -29,7 +29,6 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
     [super viewDidLoad];
     
     self.navigationItem.titleView = setupCommonAddDeviceWidgets(self.verificationCodeField, self.deviceNameField, self.message);
-    
     self.navigationItem.hidesBackButton = YES;
     
     setupMessage(self.message, MESSAGE_ADD_DEVICES);
@@ -40,7 +39,6 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
     removeOverlayViewSub(self.navigationController, nil);
 }
 
-
 - (IBAction)handleSkip:(id)sender {
     [self performSegueWithIdentifier:@"@console" sender:self];
 }
@@ -50,7 +48,6 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
     [self performSegueWithIdentifier:@"@console" sender:self];
 
     LMDataHolder* data = [LMDataHolder sharedInstance];
-    
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:data.members.homeId
         completion:^(MODEDevice *device, NSError *err) {
             if (err == nil) {
@@ -60,19 +57,18 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
                 [self.navigationController popToViewController:self animated:YES];
                 showAlert(err);
             }
-            
         }];
-
 }
 
 -(void)updateDeviceName:(MODEDevice*)device
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
-    [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text completion:^(MODEDevice *device, NSError *err) {
-        if ( err != nil) {
-            showAlert(err);
-        }
-    }];
+    [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text
+        completion:^(MODEDevice *device, NSError *err) {
+            if ( err != nil) {
+                showAlert(err);
+            }
+        }];
 }
 
 @end

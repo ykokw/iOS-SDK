@@ -24,7 +24,6 @@
                   });
     
     return _sharedInstance;
-
 }
 
 - (id) init
@@ -101,6 +100,5 @@
             }
         }];
 }
-
 
 @end

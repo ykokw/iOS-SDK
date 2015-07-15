@@ -62,7 +62,6 @@ void saveObject(NSString* key, id<MTLJSONSerializing> obj)
     
     [[NSUserDefaults standardUserDefaults] setObject:str forKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];
-
 }
 
 -(void)saveData

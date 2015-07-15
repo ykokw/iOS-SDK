@@ -16,19 +16,15 @@
 
 @implementation LMProfileViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     [self fetchUserInfo];
-    
     setupRightBarButtonItem(self.navigationItem, @"Edit", self, @selector(handleEdit));
-    
     self.navigationItem.titleView = setupTitle(@"My Profile");
-
     self.nameIcon.image = [UIImage imageNamed:@"Name.png"];
-
     self.phoneIcon.image = [UIImage imageNamed:@"Phone.png"];
-
 }
 
 -(void)handleEdit
@@ -39,29 +35,25 @@
 -(void)fetchUserInfo
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
-    
     [MODEAppAPI getUser:data.clientAuth userId:data.clientAuth.userId
-             completion:^(MODEUser *user, NSError *err) {
-                 if (err != nil) {
-                     showAlert(err);
-                 } else {
-                     setupMessage(self.userName, user.name);
-                     setupMessage(self.phonenumber, formatPhonenumberFromString(user.phoneNumber));
-                 }
-             }];
+        completion:^(MODEUser *user, NSError *err) {
+            if (err != nil) {
+                showAlert(err);
+            } else {
+                setupMessage(self.userName, user.name);
+                setupMessage(self.phonenumber, formatPhonenumberFromString(user.phoneNumber));
+            }
+        }];
 }
 
-
-- (IBAction)handleLogout:(id)sender {
+- (IBAction)handleLogout:(id)sender
+{
     
     LMDataHolder* data = [LMDataHolder sharedInstance];
-    
     data.members = [[LMDataHolderMembers alloc] init];
     data.clientAuth = [[MODEClientAuthentication alloc] init];
     [data saveData];
-    
     [self.navigationController popToRootViewControllerAnimated:YES];
-
 }
 
 -(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender

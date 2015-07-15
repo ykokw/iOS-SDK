@@ -27,10 +27,8 @@
     setupMessage(self.note, MESSAGE_NOTE);
     
     setupStandardTextField(self.nameField, @"Name", @"Name.png");
-    
     self.navigationItem.titleView = setupTitle(@"Sign Up");
-
-     self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
+    self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
 }
 
 - (IBAction)handleNext:(id)sender
@@ -42,11 +40,11 @@
     [self performSegueWithIdentifier:@"VerifyAccountSegue" sender:self];
 
     [MODEAppAPI createUser:data.projectId phoneNumber:self.phoneNumberField.text name:self.nameField.text
-                completion:^(MODEUser *user, NSError *err) {
-                    if (err != nil) {
-                        showAlert(err);
-                    }
-                }];
+        completion:^(MODEUser *user, NSError *err) {
+            if (err != nil) {
+                showAlert(err);
+            }
+        }];
 }
 
 @end

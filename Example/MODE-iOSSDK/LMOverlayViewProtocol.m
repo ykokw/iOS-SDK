@@ -6,18 +6,17 @@ void removeOverlayViewSub(UINavigationController* navigationController, void(^co
     UILabel *label = (UILabel *)[navigationController.view viewWithTag:99];
     
     [UIView animateWithDuration:0.5
-                     animations:^{
-                         view.alpha = 0.0;
-                         label.alpha = 0.0;
-                     }
-                     completion:^(BOOL finished){
-                         [view removeFromSuperview];
-                         [label removeFromSuperview];
-                         if (completion != nil) {
-                             completion();
-                         }
-                     }
-     ];
+         animations:^{
+             view.alpha = 0.0;
+             label.alpha = 0.0;
+         }
+         completion:^(BOOL finished){
+             [view removeFromSuperview];
+             [label removeFromSuperview];
+             if (completion != nil) {
+                 completion();
+             }
+         }];
 
 }
 
@@ -40,5 +39,4 @@ void setupOverlayView(UINavigationController* navigationController, NSString* te
     // and just add them to navigationbar view
     [navigationController.view addSubview:overlayView];
     [navigationController.view addSubview:message];
-    
 }

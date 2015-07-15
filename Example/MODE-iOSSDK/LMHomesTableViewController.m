@@ -27,8 +27,6 @@
     self.navigationItem.hidesBackButton = YES;
     
     [self fetchHomes];
-
-
 }
 
 -(void)handleProfile
@@ -86,7 +84,6 @@
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-
     return 1;
 }
 
@@ -101,7 +98,6 @@
 
 -(void)handleEdit:(UIButton*)sender
 {
-    NSLog(@"hoge %ld", sender.tag);
     self.editTargetHome = [self.homes objectAtIndex:sender.tag];
     
     [self performSegueWithIdentifier:@"EditHomeSegue" sender:nil];
@@ -109,7 +105,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     static NSString *cellIdentifier = @"homeCellId";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
   
@@ -132,16 +127,14 @@
     editButton.tag = indexPath.row;
     
     MODEHome* home = self.homes[indexPath.row];
-    NSString* cellvalue = home.name;
-    
-    cell.textLabel.text = cellvalue;
+    cell.textLabel.text = home.name;
     
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-      [self performSegueWithIdentifier:@"HomeDetailSegue" sender:nil];
+    [self performSegueWithIdentifier:@"HomeDetailSegue" sender:nil];
 }
 
 // Override to support conditional editing of the table view.
@@ -152,9 +145,10 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     LMDataHolder* data = [LMDataHolder sharedInstance];
-        MODEHome* targetHome = self.homes[indexPath.row];
-        [self.homes removeObjectAtIndex:indexPath.row];
-        [MODEAppAPI deleteHome:data.clientAuth homeId:targetHome.homeId completion:^(MODEHome *home, NSError *err) {
+    MODEHome* targetHome = self.homes[indexPath.row];
+    [self.homes removeObjectAtIndex:indexPath.row];
+    [MODEAppAPI deleteHome:data.clientAuth homeId:targetHome.homeId
+        completion:^(MODEHome *home, NSError *err) {
             if (err != nil) {
                 showAlert(err);
                 [self fetchHomes];
@@ -162,11 +156,10 @@
         }];
     
     // Then perform the action on the tableView
-    if (editingStyle == UITableViewCellEditingStyleDelete)
-    {
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
         [tableView beginUpdates];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath]
-                         withRowAnimation:UITableViewRowAnimationFade];
+            withRowAnimation:UITableViewRowAnimationFade];
         [tableView endUpdates];
     }
 }

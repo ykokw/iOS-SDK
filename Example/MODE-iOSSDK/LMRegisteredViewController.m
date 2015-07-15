@@ -19,7 +19,6 @@
     
     self.navigationItem.hidesBackButton = YES;
     setupMessage(self.message, MESSAGE_REGISTERED);
-    
 }
 
 -(void) removeOverlayViews{
@@ -27,6 +26,6 @@
 }
 
 - (IBAction)handleSkip:(id)sender {
-      [self performSegueWithIdentifier:@"@console" sender:self];
+    [self performSegueWithIdentifier:@"@console" sender:self];
 }
 @end

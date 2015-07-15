@@ -34,7 +34,6 @@
     self.deviceIdToSwitches = [[NSMutableDictionary alloc]init];
     self.deviceIdToStatus = [[NSMutableDictionary alloc]init];
     
-    
     setupProfileButton(self.navigationItem, self, @selector(handleProfile));
     self.navigationItem.titleView = setupTitle(self.targetHome.name);
     
@@ -108,7 +107,6 @@
 
 - (void) editItem
 {
-    NSLog(@"editItem");
     self.editButton.selected = !self.editing;
     [self setEditing:!self.editing animated:true];
 }

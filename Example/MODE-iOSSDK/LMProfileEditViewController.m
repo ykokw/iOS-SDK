@@ -20,14 +20,9 @@
     [super viewDidLoad];
     
     setupStandardTextField(self.nameField, @"Name", @"Name.png");
-    
-    
     setupMessage(self.message, MESSAGE_EDIT_PROFILE);
-    
     setupRightBarButtonItem(self.navigationItem, @"Done", self, @selector(handleDone));
-    
     self.navigationItem.titleView = setupTitle(@"My Profile");
-    
     self.phonenumberField.enabled = false;
     
     [self fetchUserInfo];
@@ -37,33 +32,31 @@
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
     
-    [MODEAppAPI updateUserInfo:data.clientAuth userId:data.clientAuth.userId name:self.nameField.text completion:^(MODEUser *user, NSError *err) {
-        
-        if (err != nil) {
-            showAlert(err);
-        } else {
-            NSLog(@"added %@", user);
-           [self.sourceVC fetchUserInfo];
-        }
-    }];
+    [MODEAppAPI updateUserInfo:data.clientAuth userId:data.clientAuth.userId name:self.nameField.text
+        completion:^(MODEUser *user, NSError *err) {
+            if (err != nil) {
+                showAlert(err);
+            } else {
+                NSLog(@"added %@", user);
+                [self.sourceVC fetchUserInfo];
+            }
+        }];
     
     [self.navigationController popToViewController:self.sourceVC animated:YES];
-
 }
 
 -(void)fetchUserInfo
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
-    
     [MODEAppAPI getUser:data.clientAuth userId:data.clientAuth.userId
-             completion:^(MODEUser *user, NSError *err) {
-                 if (err != nil) {
-                     showAlert(err);
-                 } else {
-                     setupStandardTextField(self.nameField, user.name, @"Name.png");
-                     setupStandardTextField(self.phonenumberField, formatPhonenumberFromString(user.phoneNumber), @"Phone.png");
-                 }
-             }];
+        completion:^(MODEUser *user, NSError *err) {
+            if (err != nil) {
+                showAlert(err);
+            } else {
+                setupStandardTextField(self.nameField, user.name, @"Name.png");
+                setupStandardTextField(self.phonenumberField, formatPhonenumberFromString(user.phoneNumber), @"Phone.png");
+            }
+        }];
 }
 
 
