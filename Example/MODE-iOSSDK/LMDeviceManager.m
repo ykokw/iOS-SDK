@@ -67,14 +67,21 @@
     }
 }
 
-- (void) startListenToEvents:(MODEClientAuthentication*)clientAuth
+- (BOOL) startListenToEvents:(MODEClientAuthentication*)clientAuth
 {
     NSLog(@"Start listenning to device events.");
+    if (clientAuth.token == nil) {
+        NSLog(@"Failed to start listening because auth token is nil");
+        return false;
+    }
+    
     self.listener = [[MODEEventListener alloc] initWithClientAuthentication:clientAuth];
     
     [self.listener startListenToEvents:^(MODEDeviceEvent *event, NSError *err) {
         [self callDeviceEventDelegates:event err:err];
     }];
+    
+    return true;
 }
 
 -(void)stopListenToEvents

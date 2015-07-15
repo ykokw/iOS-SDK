@@ -15,7 +15,7 @@
 - (void)addMODEDeviceDelegate:(id<MODEDeviceEventDelegate>) delegate;
 - (void)removeMODEDeviceDelegate:(id<MODEDeviceEventDelegate>) delegate;
 
-- (void)startListenToEvents:(MODEClientAuthentication*)clientAuth;
+- (BOOL)startListenToEvents:(MODEClientAuthentication*)clientAuth;
 - (void)stopListenToEvents;
 - (void)reconnect;
 

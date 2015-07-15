@@ -60,7 +60,11 @@ PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* phoneNumberField)
     phoneNumberField.keyboardType = UIKeyboardTypeNumberPad;
     PhoneNumberFieldDelegate* phoneNumberDelegate = [[PhoneNumberFieldDelegate alloc] initWithTextField:phoneNumberField];
     phoneNumberField.delegate = phoneNumberDelegate;
-
+    
+//    CGRect rect = phoneNumberField.frame;
+//    rect.size.height = 100;
+//    phoneNumberField.frame = rect;
+//
     return phoneNumberDelegate;
 }
 
