@@ -26,6 +26,8 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
 
         MODEDeviceEvent* event = [MTLJSONAdapter modelOfClass:MODEDeviceEvent.class fromJSONDictionary:dict error:&err];
         didReceive(event, err);
+    } else {
+        NSLog(@"didReceiveMessage is called but no callback block.");
     }
 }
 
@@ -33,6 +35,8 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
 {
     if (self.didOpen) {
         self.didOpen();
+    } else {
+         NSLog(@"webSocketDidOpen is called but no callback block.");
     }
 
     retryWait = 1;
@@ -44,6 +48,8 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
 {
     if (self.didFail) {
         self.didFail(error);
+    } else {
+        NSLog(@"didFailWithError is called but no callback block.");
     }
 
     if (self.autoReconnect) {
@@ -71,6 +77,8 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
 {
     if (self.didClose) {
         self.didClose(code, reason, wasClean);
+    } else {
+        NSLog(@"didCloseWithCode is called but no callback block.");
     }
 
     if (self.autoReconnect) {
