@@ -2,9 +2,9 @@
 #import "LMDataHolder.h"
 #import "LMHomeDetailableViewController.h"
 #import "LMMessages.h"
-#import "MODEApp.h"
 #import "LMUtils.h"
 #import "LMButtonUtils.h"
+#import "MODEApp.h"
 
 @interface LMAddHomeMemberViewController ()
 

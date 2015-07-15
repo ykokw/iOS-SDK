@@ -2,9 +2,9 @@
 #import "LMButtonUtils.h"
 #import "LMDataHolder.h"
 #import "LMMessages.h"
-#import "ModeApp.h"
 #import "LMOverlayViewProtocol.h"
 #import "LMUtils.h"
+#import "ModeApp.h"
 
 
 UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextField* devicenameField, UILabel*message) {

@@ -2,9 +2,9 @@
 #import "LMButtonUtils.h"
 #import "LMDataHolder.h"
 #import "LMMessages.h"
-#import "MODEApp.h"
 #import "LMOverlayViewProtocol.h"
 #import "LMUtils.h"
+#import "MODEApp.h"
 
 @interface LMAuthenticateAccountViewController ()
 

@@ -3,8 +3,8 @@
 #import "LMDataHolder.h"
 #import "LMHomesTableViewController.h"
 #import "LMMessages.h"
-#import "MODEApp.h"
 #import "LMUtils.h"
+#import "MODEApp.h"
 
 // LMAddHomeViewController is shared for Edit/Add Home.
 

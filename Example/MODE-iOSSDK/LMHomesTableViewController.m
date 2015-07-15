@@ -3,10 +3,10 @@
 #import "LMDataHolder.h"
 #import "LMHomeDetailableViewController.h"
 #import "LMHomesTableViewController.h"
-#import "MODEApp.h"
 #import "LMOverlayViewProtocol.h"
 #import "LMUIColor+Extentions.h"
 #import "LMUtils.h"
+#import "MODEApp.h"
 
 @interface LMHomesTableViewController ()
 

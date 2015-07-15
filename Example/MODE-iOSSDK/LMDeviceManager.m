@@ -1,8 +1,8 @@
 #import "LMDataHolder.h"
 #import "LMDeviceManager.h"
-#import "MODEApp.h"
 #import "ModeEventListener.h"
 #import "LMUtils.h"
+#import "MODEApp.h"
 
 @interface LMDeviceManager ()
 

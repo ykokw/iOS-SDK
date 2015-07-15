@@ -4,10 +4,10 @@
 #import "LMDataHolder.h"
 #import "LMHomeDetailableViewController.h"
 #import "LMMessages.h"
-#import "ModeApp.h"
 #import "LMOverlayViewProtocol.h"
 #import "LMUIColor+Extentions.h"
 #import "LMUtils.h"
+#import "ModeApp.h"
 
 // This view is almost the same as LMAddDevicesViewController, but it wasn't merged well because a couple of behavior are different.
 

@@ -1,9 +1,9 @@
 #import "LMButtonUtils.h"
 #import "LMDataHolder.h"
 #import "LMMessages.h"
-#import "MODEApp.h"
 #import "LMSignUpViewController.h"
 #import "LMUtils.h"
+#import "MODEApp.h"
 
 @interface LMSignUpViewController ()
 

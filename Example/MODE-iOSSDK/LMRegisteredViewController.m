@@ -1,9 +1,9 @@
 #import "LMDataHolder.h"
-#import "ModeApp.h"
 #import "LMMessages.h"
 #import "LMOverlayViewProtocol.h"
 #import "LMRegisteredViewController.h"
 #import "LMUtils.h"
+#import "ModeApp.h"
 
 @interface LMRegisteredViewController ()
 

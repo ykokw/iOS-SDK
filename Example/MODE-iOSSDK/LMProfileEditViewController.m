@@ -1,10 +1,10 @@
 #import "LMButtonUtils.h"
 #import "LMDataHolder.h"
 #import "LMMessages.h"
-#import "MODEApp.h"
 #import "LMProfileViewController.h"
 #import "LMProfileEditViewController.h"
 #import "LMUtils.h"
+#import "MODEApp.h"
 
 @interface ProfileEditViewController ()
 
