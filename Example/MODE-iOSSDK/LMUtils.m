@@ -2,6 +2,8 @@
 #import "LMUtils.h"
 #import "MODEApp.h"
 
+#define TEXTFIELD_HEIGHT 48
+
 /**
  * This is very basic alert function.
  * You should rewrite the error to get more user friendly.
@@ -19,9 +21,15 @@ void showAlert(NSError* err)
 
 }
 
+void setTextFieldHeight(UITextField* textField)
+{
+    CGRect rect = textField.frame;
+    rect.size.height = TEXTFIELD_HEIGHT;
+    textField.frame = rect;
+}
+
 void setupTextFieldWithLeftIcon(UITextField* textField, NSString* iconName)
 {
-    
     UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:iconName]];
     imageView.frame = CGRectMake(10,0,16,16);
     
@@ -30,12 +38,14 @@ void setupTextFieldWithLeftIcon(UITextField* textField, NSString* iconName)
     
     [textField setLeftViewMode:UITextFieldViewModeAlways];
     textField.leftView = objLeftView;
+    setTextFieldHeight(textField);
 }
 
 void setupStandardTextField(UITextField* textField, NSString* name, NSString* iconName)
 {
     [textField setPlaceholder:name];
     setupTextFieldWithLeftIcon(textField, iconName);
+    setTextFieldHeight(textField);
 }
 
 NumericTextFieldDelegate* setupNumericTextField(UITextField* numericField, NSString* name, NSString* iconName)
@@ -47,6 +57,8 @@ NumericTextFieldDelegate* setupNumericTextField(UITextField* numericField, NSStr
     numericField.keyboardType = UIKeyboardTypeNumberPad;
     NumericTextFieldDelegate* numericDelegate = [[NumericTextFieldDelegate alloc] init];
     numericField.delegate = numericDelegate;
+    
+    setTextFieldHeight(numericField);
 
     return numericDelegate;
 }
@@ -60,11 +72,9 @@ PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* phoneNumberField)
     phoneNumberField.keyboardType = UIKeyboardTypeNumberPad;
     PhoneNumberFieldDelegate* phoneNumberDelegate = [[PhoneNumberFieldDelegate alloc] initWithTextField:phoneNumberField];
     phoneNumberField.delegate = phoneNumberDelegate;
+ 
+    setTextFieldHeight(phoneNumberField);
     
-//    CGRect rect = phoneNumberField.frame;
-//    rect.size.height = 100;
-//    phoneNumberField.frame = rect;
-//
     return phoneNumberDelegate;
 }
 
