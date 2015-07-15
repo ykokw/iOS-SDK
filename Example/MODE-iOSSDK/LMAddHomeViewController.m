@@ -20,11 +20,13 @@
 
 @implementation LMAddHomeViewController
 
--(NSString*) getMessage {
+-(NSString*) getMessage
+{
     return self.targetHome ? MESSAGE_EDIT_HOME : MESSAGE_CREATE_HOME;
 }
 
--(NSString*) getTitle {
+-(NSString*) getTitle
+{
     return self.targetHome ? @"Edit Home" : @"Add Home";
 }
 

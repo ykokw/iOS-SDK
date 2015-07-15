@@ -52,15 +52,15 @@
               }];
 }
 
-- (void) addItem
+- (void) handleAdd
 {
     [self performSegueWithIdentifier:@"AddHomeSegue" sender:nil];
     
 }
 
-- (void) editItem
+- (void) handleEdit
 {
-    NSLog(@"editItem");
+    NSLog(@"handleEdit");
     self.editButton.selected = !self.editing;
     [self setEditing:!self.editing animated:true];
 }
@@ -69,8 +69,8 @@
 {
     UIView* tableHeaderView = tableView.tableHeaderView;
     UIView *view=[[UIView alloc]init];
-    setupAddButton(view, self, @selector(addItem));
-    self.editButton = setupEditButton(view, self, @selector(editItem));
+    setupAddButton(view, self, @selector(handleAdd));
+    self.editButton = setupEditButton(view, self, @selector(handleEdit));
     [tableHeaderView insertSubview:view atIndex:0];
     return view;
 }

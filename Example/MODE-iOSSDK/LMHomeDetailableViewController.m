@@ -99,13 +99,13 @@
         }];
 }
 
-- (void) addItem
+- (void) handleAdd
 {
     [self performSegueWithIdentifier:
      ([self isMembers] ? @"AddHomeMemberSegue" : @"AddDeviceSegue") sender:nil];
 }
 
-- (void) editItem
+- (void) handleEdit
 {
     self.editButton.selected = !self.editing;
     [self setEditing:!self.editing animated:true];
@@ -125,8 +125,8 @@
     if (self.tableHeaderSubView == nil) {
         UIView* tableHeaderView = tableView.tableHeaderView;
         UIView *view=[[UIView alloc]init];
-        setupAddButton(view, self, @selector(addItem));
-        self.editButton = setupEditButton(view, self, @selector(editItem));
+        setupAddButton(view, self, @selector(handelAdd));
+        self.editButton = setupEditButton(view, self, @selector(handleEdit));
         [tableHeaderView insertSubview:view atIndex:0];
     
         NSArray *itemArray = [NSArray arrayWithObjects: @"Devices", @"Members", nil];
@@ -174,7 +174,7 @@
     self.deviceIdToStatus[[NSNumber numberWithInt:deviceId]] = [NSNumber numberWithBool:status];
 }
 
-- (void)switchChanged:(UISwitch*)sw
+- (void)handleSwitch:(UISwitch*)sw
 {
     if ([self isMembers]) {
         NSDictionary* reason = @{@"reason": @"Wrong state"};
@@ -233,7 +233,7 @@
             cell.accessoryView = switchView;
             switchView.tag = indexPath.row;
             [switchView setOn:NO animated:YES];
-            [switchView addTarget:self action:@selector(switchChanged:) forControlEvents:UIControlEventValueChanged];
+            [switchView addTarget:self action:@selector(handleSwitch:) forControlEvents:UIControlEventValueChanged];
         }
     }
     
@@ -248,7 +248,6 @@
 {
     return self.editing;
 }
-
 
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath

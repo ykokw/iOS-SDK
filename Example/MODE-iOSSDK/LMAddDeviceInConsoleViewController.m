@@ -21,7 +21,8 @@
 
 @implementation LMAddDeviceInConsoleViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
 
     self.navigationItem.titleView = setupCommonAddDeviceWidgets(self.verificationCodeField, self.deviceNameField, self.message);
@@ -42,7 +43,8 @@
         }];
 }
 
--(void)handleAdd {
+-(void)handleAdd
+{
     LMDataHolder* data = [LMDataHolder sharedInstance];
     
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:self.sourceVC.targetHome.homeId

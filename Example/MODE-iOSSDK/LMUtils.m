@@ -125,7 +125,7 @@ NSString* formatPhonenumberFromString(NSString* phonenumber)
     if (self)
     {
         self.phoneNumberField = textField;
-        [textField addTarget:self action:@selector(formatPhoneNumber) forControlEvents:UIControlEventEditingChanged];
+        [textField addTarget:self action:@selector(handleFormatPhoneNumber) forControlEvents:UIControlEventEditingChanged];
     }
     return self;
 }
@@ -139,7 +139,7 @@ NSString* formatPhonenumberFromString(NSString* phonenumber)
     return YES;
 }
 
-- (void)formatPhoneNumber
+- (void)handleFormatPhoneNumber
 {
      if (!_shouldAttemptFormat) {
         return;

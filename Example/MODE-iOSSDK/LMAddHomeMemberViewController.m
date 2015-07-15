@@ -16,7 +16,8 @@
 
 @implementation LMAddHomeMemberViewController
 
--(void)viewDidLoad {
+-(void)viewDidLoad
+{
     [super viewDidLoad];
     
     self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
