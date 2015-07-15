@@ -43,6 +43,19 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
     [self performSegueWithIdentifier:@"@console" sender:self];
 }
 
+-(void)updateDeviceName:(MODEDevice*)device
+{
+    LMDataHolder* data = [LMDataHolder sharedInstance];
+    [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text
+        completion:^(MODEDevice *device, NSError *err) {
+            if ( err != nil) {
+                showAlert(err);
+            } else {
+                NSLog(@"Updated device name: %@", self.deviceNameField.text);
+            }
+        }];
+}
+
 - (IBAction)handleNext:(id)sender
 {
     [self performSegueWithIdentifier:@"@console" sender:self];
@@ -51,21 +64,11 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:data.members.homeId
         completion:^(MODEDevice *device, NSError *err) {
             if (err == nil) {
+                NSLog(@"Attached device: %@ to homeId %d", device, data.members.homeId);
                 [self updateDeviceName:device];
             } else {
                 // You need to rollback because auth failed.
                 [self.navigationController popToViewController:self animated:YES];
-                showAlert(err);
-            }
-        }];
-}
-
--(void)updateDeviceName:(MODEDevice*)device
-{
-    LMDataHolder* data = [LMDataHolder sharedInstance];
-    [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text
-        completion:^(MODEDevice *device, NSError *err) {
-            if ( err != nil) {
                 showAlert(err);
             }
         }];

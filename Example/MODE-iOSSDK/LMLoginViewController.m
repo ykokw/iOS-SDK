@@ -29,12 +29,7 @@
     data.members.phoneNumber = self.phoneNumberField.text;
     [self performSegueWithIdentifier:@"AuthenticateAccountSegue" sender:self];
 
-    [MODEAppAPI initiateAuthenticationWithSMS:data.projectId phoneNumber:self.phoneNumberField.text
-        completion:^(MODESMSMessageReceipt *receipt, NSError *err) {
-            if (err != nil) {
-                showAlert(err);
-            }
-        }];
+    initiateAuth(data.projectId, self.phoneNumberField.text);
 }
 
 @end

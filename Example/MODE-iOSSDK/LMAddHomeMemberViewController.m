@@ -36,8 +36,9 @@
         completion:^(MODEHomeMember *member, NSError *err) {
             if (err != nil) {
                 showAlert(err);
+            } else {
+                NSLog(@"Added Home Member: %@", member);
             }
-            NSLog(@"added %@", member);
             [self.sourceVC fetchMembers];
         }];
     

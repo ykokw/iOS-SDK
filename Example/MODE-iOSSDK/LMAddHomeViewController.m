@@ -98,11 +98,12 @@
     return self.timezones[row];
 }
 
--(void)completion:(NSError*)err
+-(void)completion:(NSError*)err log:(NSString*)log
 {
     if(err != nil) {
         showAlert(err);
     } else {
+        NSLog(log);
         // You have to refresh loading homes at this timing, otherwise homes list is not updated.
         [self.sourceVC fetchHomes];
     }
@@ -112,9 +113,10 @@
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
     
-    [MODEAppAPI createHome:data.clientAuth name:self.nameField.text timezone:self.targetTimezone completion:^(MODEHome *home, NSError *err) {
-        [self completion:err];
-    }];
+    [MODEAppAPI createHome:data.clientAuth name:self.nameField.text timezone:self.targetTimezone
+        completion:^(MODEHome *home, NSError *err) {
+            [self completion:err log:[NSString stringWithFormat:@"Added home: %@", home]];
+        }];
 
     [self.navigationController popToViewController:self.sourceVC animated:YES];
 
@@ -125,7 +127,7 @@
     LMDataHolder* data = [LMDataHolder sharedInstance];
     
    [MODEAppAPI updateHome:data.clientAuth homeId:self.targetHome.homeId name:self.nameField.text timezone:self.targetTimezone completion:^(MODEHome *home, NSError *err) {
-       [self completion:err];
+       [self completion:err log:[NSString stringWithFormat:@"Uupdate home name: %@", self.nameField.text]];
     }];
     
     [self.navigationController popToViewController:self.sourceVC animated:YES];

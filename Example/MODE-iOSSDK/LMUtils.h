@@ -23,3 +23,5 @@ NSString* formatPhonenumberFromString(NSString* phonenumber);
 UILabel* setupTitle(NSString* title);
 
 void showAlert(NSError* err);
+
+void initiateAuth(int projectId, NSString* phoneNumber);

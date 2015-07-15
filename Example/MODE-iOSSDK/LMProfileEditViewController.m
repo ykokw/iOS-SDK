@@ -37,7 +37,7 @@
             if (err != nil) {
                 showAlert(err);
             } else {
-                NSLog(@"added %@", user);
+                NSLog(@"Updated user name: %@", self.nameField.text);
                 [self.sourceVC fetchUserInfo];
             }
         }];
@@ -53,6 +53,7 @@
             if (err != nil) {
                 showAlert(err);
             } else {
+                NSLog(@"Get user info: %@", user);
                 setupStandardTextField(self.nameField, user.name, @"Name.png");
                 setupStandardTextField(self.phonenumberField, formatPhonenumberFromString(user.phoneNumber), @"Phone.png");
             }

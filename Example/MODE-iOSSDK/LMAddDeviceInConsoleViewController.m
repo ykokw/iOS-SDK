@@ -36,6 +36,8 @@
         completion:^(MODEDevice *device, NSError *err) {
             if ( err != nil) {
                 showAlert(err);
+            } else {
+                NSLog(@"Assigned device name: %@", device);
             }
             [self.sourceVC fetchDevices];
         }];
@@ -50,7 +52,7 @@
              if (err != nil) {
                  showAlert(err);
              } else {
-                 NSLog(@"added %@", device);
+                 NSLog(@"Added device: %@", device);
                  [self updateDeviceName:device];
              }
          }];

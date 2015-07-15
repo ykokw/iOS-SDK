@@ -11,7 +11,6 @@
 
 @end
 
-
 @implementation LMDeviceManager
 
 + (LMDeviceManager *)sharedInstance
@@ -53,8 +52,10 @@
         if (event && [event.eventType isEqualToString:@"light"]) {
             if([event.eventData[@"status"] isEqualToString:@"on"] ) {
                 [delegate receivedEvent:event.originDeviceId status:TRUE];
+                NSLog(@"Received status deeviceId: %d status TRUE", event.originDeviceId);
             } else if ([event.eventData[@"status"] isEqualToString:@"off"] ) {
                 [delegate receivedEvent:event.originDeviceId status:FALSE];
+                NSLog(@"Received status deeviceId: %d status FALSE", event.originDeviceId);
             }
         }
     }
@@ -62,8 +63,8 @@
 
 - (void) startListenToEvents:(MODEClientAuthentication*)clientAuth
 {
-    
     self.listener = [[MODEEventListener alloc] initWithClientAuthentication:clientAuth];
+    
     [self.listener startListenToEvents:^(MODEDeviceEvent *event, NSError *err) {
         [self callDeviceEventDelegates:event err:err];
     }];
@@ -76,15 +77,17 @@
 
 - (void)queryDeviceStatus:(NSArray*)devices
 {
-    // Broad cast query to all devices.
+    // Broadcast query to all devices.
     LMDataHolder* data = [LMDataHolder sharedInstance];
     for (MODEDevice* device in devices) {
         [MODEAppAPI sendCommandToDevice:data.clientAuth deviceId:device.deviceId action:@"light" parameters:@{@"qeury":@"status"}
-                             completion:^(MODEDevice *device, NSError *err) {
-                                 if (err != nil) {
-                                     showAlert(err);
-                                 }
-                             }];
+             completion:^(MODEDevice *device, NSError *err) {
+                 if (err != nil) {
+                     showAlert(err);
+                 } else {
+                     NSLog(@"Query event triggered: deviceId: %d", device.deviceId);
+                 }
+             }];
     }
 }
 
@@ -96,6 +99,8 @@
         completion:^(MODEDevice *device, NSError *err) {
             if (err != nil) {
                 showAlert(err);
+            } else {
+                NSLog(@"Switch event triggered: deviceId: %d, light %@", deviceId, value);
             }
         }];
 }

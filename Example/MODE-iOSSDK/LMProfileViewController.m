@@ -40,6 +40,7 @@
             if (err != nil) {
                 showAlert(err);
             } else {
+                NSLog(@"Get user info: %@", user);
                 setupMessage(self.userName, user.name);
                 setupMessage(self.phonenumber, formatPhonenumberFromString(user.phoneNumber));
             }

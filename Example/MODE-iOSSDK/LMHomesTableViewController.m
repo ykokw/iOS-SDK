@@ -17,7 +17,8 @@
 
 @implementation LMHomesTableViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
       
     setupProfileButton(self.navigationItem, self, @selector(handleProfile));
@@ -36,19 +37,19 @@
 - (void) fetchHomes
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
-    
     [MODEAppAPI getHomes:data.clientAuth userId:data.clientAuth.userId
-              completion:^(NSArray *homes, NSError *err) {
-                  
-                  NSLog(@"%@", self.navigationController);
-
-                  if (homes != nil) {
-                      self.homes = [NSMutableArray arrayWithArray:homes];
-                      [self.tableView reloadData];
-                  } else {
-                      showAlert(err);
+          completion:^(NSArray *homes, NSError *err) {
+              if (homes != nil) {
+                  NSLog(@"Get homes;");
+                  for (MODEHome* home in homes) {
+                      NSLog(@"Home: %@", home);
                   }
-              }];
+                  self.homes = [NSMutableArray arrayWithArray:homes];
+                  [self.tableView reloadData];
+              } else {
+                  showAlert(err);
+              }
+          }];
 }
 
 - (void) handleAdd

@@ -27,12 +27,14 @@
 
 - (IBAction)handleNext:(id)sender
 {
+    // Need to show overlay until Auth token is taken.
     setupOverlayView(self.navigationController, @"Verifying...");
     
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
         completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
             if (err == nil) {
+                NSLog(@"Got auth token: %@", clientAuth);
                 data.clientAuth = clientAuth;
                 [data saveData];
                 
@@ -49,12 +51,7 @@
 - (IBAction)handleResend:(id)sender
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
-    [MODEAppAPI initiateAuthenticationWithSMS:data.projectId phoneNumber:data.members.phoneNumber
-        completion:^(MODESMSMessageReceipt *receipt, NSError *err) {
-            if (err != nil) {
-                showAlert(err);
-            }
-        }];
+    initiateAuth(data.projectId, data.members.phoneNumber);
 }
 
 @end

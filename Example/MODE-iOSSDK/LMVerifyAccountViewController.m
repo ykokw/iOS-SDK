@@ -40,8 +40,8 @@
         completion:^(MODEHome *home, NSError *err) {
             [destVC removeOverlayViews];
             if (err == nil) {
+                NSLog(@"Created home: %@", home);
                 data.members.homeId = home.homeId;
-                
                 [data saveData];
             } else {
                 showAlert(err);
@@ -52,6 +52,7 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
+    // Need to show overlay until Auth token is taken.
     setupOverlayView(self.navigationController, @"Verifying...");
     UIViewController<LMOverlayViewProtocol> *destVC = [segue destinationViewController];
     
@@ -59,6 +60,7 @@
     [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
           completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
               if (err == nil) {
+                  NSLog(@"Got auth token: %@", clientAuth);
                   data.clientAuth = clientAuth;
                   [data saveData];
                   [self createMyHome:destVC];
@@ -72,15 +74,11 @@
           }];
 }
 
+
 - (IBAction)handleResend:(id)sender
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
-    [MODEAppAPI initiateAuthenticationWithSMS:data.projectId phoneNumber:data.members.phoneNumber
-        completion:^(MODESMSMessageReceipt *receipt, NSError *err) {
-            if (err != nil) {
-                showAlert(err);
-            }
-        }];
+    initiateAuth(data.projectId, data.members.phoneNumber);
 }
 
 @end

@@ -1,5 +1,6 @@
 #import "LMUIColor+Extentions.h"
 #import "LMUtils.h"
+#import "MODEApp.h"
 
 /**
  * This is very basic alert function.
@@ -8,7 +9,7 @@
 void showAlert(NSError* err)
 {
     NSString* msg = err.userInfo[@"reason"];
-    NSLog(@"Failed to call createUser: %@", err);
+    NSLog(@"Failed to call API: %@", err);
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:err.domain
                                                     message:msg
                                                    delegate:nil
@@ -185,3 +186,15 @@ NSString* formatPhonenumberFromString(NSString* phonenumber)
 }
 
 @end
+
+void initiateAuth(int projectId, NSString* phoneNumber)
+{
+    [MODEAppAPI initiateAuthenticationWithSMS:projectId phoneNumber:phoneNumber
+        completion:^(MODESMSMessageReceipt *receipt, NSError *err) {
+            if (err != nil) {
+                showAlert(err);
+            } else {
+                NSLog(@"Reinitiated auth token: %@", receipt);
+            }
+        }];
+}

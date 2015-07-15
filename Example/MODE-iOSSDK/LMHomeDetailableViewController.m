@@ -65,10 +65,12 @@
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI getHomeMembers:data.clientAuth homeId:self.targetHome.homeId
         completion:^(NSArray *members, NSError *err) {
+            NSLog(@"Get home members:");
             self.devicesOrMembersControl.selectedSegmentIndex = MEMBERS_IDX;
             if (members != nil) {
                 self.items = [NSMutableArray arrayWithArray:members];
                 for (MODEHomeMember* member in members) {
+                    NSLog(@"Member: %@", member);
                     if (member.verified == false) {
                         member.name = @"(Unknown)";
                     }
@@ -88,8 +90,12 @@
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI  getDevices:data.clientAuth homeId:self.targetHome.homeId
         completion:^(NSArray *devices, NSError *err) {
+            NSLog(@"Get devices:");
             self.devicesOrMembersControl.selectedSegmentIndex = DEVICES_IDX;
             if (devices != nil) {
+                for (MODEDevice* device in devices) {
+                    NSLog(@"Device: %@", device);
+                }
                 self.items = [NSMutableArray arrayWithArray:devices];
                 [[LMDeviceManager sharedInstance] queryDeviceStatus:devices];
                 [self.tableView reloadData];
@@ -125,7 +131,7 @@
     if (self.tableHeaderSubView == nil) {
         UIView* tableHeaderView = tableView.tableHeaderView;
         UIView *view=[[UIView alloc]init];
-        setupAddButton(view, self, @selector(handelAdd));
+        setupAddButton(view, self, @selector(handleAdd));
         self.editButton = setupEditButton(view, self, @selector(handleEdit));
         [tableHeaderView insertSubview:view atIndex:0];
     
@@ -221,7 +227,6 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    
     NSString *cellIdentifier = [self getCellIdentifier];
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
@@ -242,7 +247,6 @@
     return cell;
 }
 
-
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -252,7 +256,6 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
-
     LMDataHolder* data = [LMDataHolder sharedInstance];
     if ([self isMembers]) {
         MODEHomeMember* targetMember = self.items[indexPath.row];
@@ -285,7 +288,6 @@
         [tableView endUpdates];
     }
 }
-
 
 #pragma mark - Navigation
 

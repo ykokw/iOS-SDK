@@ -41,6 +41,8 @@
         completion:^(MODEUser *user, NSError *err) {
             if (err != nil) {
                 showAlert(err);
+            } else {
+                NSLog(@"Added user: %@", user);
             }
         }];
 }
