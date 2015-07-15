@@ -137,7 +137,7 @@
     
         NSArray *itemArray = [NSArray arrayWithObjects: @"Devices", @"Members", nil];
         UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
-        segmentedControl.frame = CGRectMake(80, 10, 180, 26);
+        segmentedControl.frame = CGRectMake(70, 10, 180, 30);
         [segmentedControl addTarget:self action:@selector(handleDevicesOrMembers:) forControlEvents: UIControlEventValueChanged];
         segmentedControl.tintColor = [UIColor defaultThemeColor];
         
@@ -155,6 +155,11 @@
 - (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 50.0;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
+{
+    return 75.0;
 }
 
 #pragma mark - Table view data source
