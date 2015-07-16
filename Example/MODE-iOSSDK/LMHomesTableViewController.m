@@ -128,7 +128,7 @@
         
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
-        // set up edit icon at the right of UITableViewCell.
+        // Set up edit icon at the right of UITableViewCell.
         UIButton *editButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
         [editButton setImage:[UIImage imageNamed:@"Edit.png"] forState:UIControlStateNormal];
         editButton.frame = CGRectMake(0, 0, 50, 50);
@@ -136,6 +136,7 @@
         [editButton addTarget:self action:@selector(handleEdit:) forControlEvents:UIControlEventTouchUpInside];
         cell.editingAccessoryView = editButton;
         cell.editingAccessoryView.userInteractionEnabled = YES;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
 
     // Need to set the tag to identify accessory icon click.

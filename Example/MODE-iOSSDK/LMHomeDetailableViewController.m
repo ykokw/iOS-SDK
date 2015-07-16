@@ -263,6 +263,7 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         if ([self isMembers] == false) {
             UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
