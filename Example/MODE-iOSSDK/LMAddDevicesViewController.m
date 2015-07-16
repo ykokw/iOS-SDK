@@ -6,11 +6,22 @@
 #import "LMUtils.h"
 #import "ModeApp.h"
 
-UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextField* devicenameField, UILabel*message) {
+UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextField* devicenameField, UILabel*message)
+{
     setupStandardTextField(verificationCodeField, @"Claim Code", @"ClaimCode.png");
     setupStandardTextField(devicenameField, @"Nickname (e.g. Office Lamp)", @"Nickname.png");
+    [verificationCodeField setReturnKeyType:UIReturnKeyDone];
     setupMessage(message, MESSAGE_ADD_DEVICES, 15.0);
     return setupTitle(@"Add device");
+}
+
+void setupKeyboardDismisser(UIViewController* viewController, SEL action)
+{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:viewController
+                                   action:action];
+    
+    [viewController.view addGestureRecognizer:tap];
 }
 
 @interface LMAddDevicesViewController ()
@@ -31,6 +42,14 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
     self.navigationItem.hidesBackButton = YES;
     
     setupMessage(self.message, MESSAGE_ADD_DEVICES, 15.0);
+    setupKeyboardDismisser(self, @selector(dismissKeyboard));
+
+}
+
+- (void)dismissKeyboard
+{
+    [self.verificationCodeField resignFirstResponder];
+    [self.deviceNameField resignFirstResponder];
 }
 
 - (void)removeOverlayViews
@@ -47,7 +66,7 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text
         completion:^(MODEDevice *device, NSError *err) {
-            if ( err != nil) {
+            if (err != nil) {
                 showAlert(err);
             } else {
                 NSLog(@"Updated device name: %@", self.deviceNameField.text);

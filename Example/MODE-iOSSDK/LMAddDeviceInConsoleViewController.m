@@ -27,6 +27,14 @@
     self.navigationItem.titleView = setupCommonAddDeviceWidgets(self.verificationCodeField, self.deviceNameField, self.message);
     
     setupRightBarButtonItem(self.navigationItem, @"Add", self, @selector(handleAdd));
+    
+    setupKeyboardDismisser(self, @selector(dismissKeyboard));
+}
+
+- (void)dismissKeyboard
+{
+    [self.verificationCodeField resignFirstResponder];
+    [self.deviceNameField resignFirstResponder];
 }
 
 -(void)updateDeviceName:(MODEDevice*)device
@@ -34,7 +42,7 @@
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text
         completion:^(MODEDevice *device, NSError *err) {
-            if ( err != nil) {
+            if (err != nil) {
                 showAlert(err);
             } else {
                 NSLog(@"Assigned device name: %@", device);
@@ -46,7 +54,6 @@
 -(void)handleAdd
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
-    
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:self.sourceVC.targetHome.homeId
          completion:^(MODEDevice *device, NSError *err) {
              if (err != nil) {

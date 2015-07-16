@@ -26,6 +26,8 @@ void setTextFieldHeight(UITextField* textField)
     CGRect rect = textField.frame;
     rect.size.height = TEXTFIELD_HEIGHT;
     textField.frame = rect;
+    
+    [textField setReturnKeyType:UIReturnKeyDone];
 }
 
 void setupTextFieldWithLeftIcon(UITextField* textField, NSString* iconName)
@@ -168,8 +170,7 @@ NSString* formatPhonenumberFromString(NSString* phonenumber)
 - (id)initWithTextField:(UITextField*)textField
 {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         self.phoneNumberField = textField;
         [textField addTarget:self action:@selector(handleFormatPhoneNumber) forControlEvents:UIControlEventEditingChanged];
     }
