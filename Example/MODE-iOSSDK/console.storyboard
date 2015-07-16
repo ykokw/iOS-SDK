@@ -28,6 +28,12 @@
                             <outlet property="delegate" destination="WV9-fx-6j3" id="Bno-Tu-r4s"/>
                         </connections>
                     </tableView>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="XTC-5a-5xh">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="pullToRefresh:" destination="WV9-fx-6j3" eventType="valueChanged" id="7PQ-kF-3d3"/>
+                        </connections>
+                    </refreshControl>
                     <connections>
                         <segue destination="uHG-7S-5eH" kind="push" identifier="HomeDetailSegue" id="aPY-IB-lXN"/>
                         <segue destination="WZP-a0-YMi" kind="push" identifier="AddHomeSegue" id="ILo-4J-82q"/>
@@ -63,6 +69,12 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="ScM-Gc-RcO"/>
+                    <refreshControl key="refreshControl" opaque="NO" multipleTouchEnabled="YES" contentMode="center" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" id="3cy-BK-Uy7">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <connections>
+                            <action selector="pullToRefresh:" destination="uHG-7S-5eH" eventType="valueChanged" id="54a-Gn-32B"/>
+                        </connections>
+                    </refreshControl>
                     <connections>
                         <segue destination="u39-au-p51" kind="push" identifier="AddHomeMemberSegue" id="2Dr-JJ-CpC"/>
                         <segue destination="UEc-PW-WvR" kind="push" identifier="AddDeviceSegue" id="IAG-Bf-pa5"/>

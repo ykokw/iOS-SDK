@@ -36,6 +36,11 @@
 
 - (void) fetchHomes
 {
+    [self fetchHomesWithBlock:nil];
+}
+
+- (void) fetchHomesWithBlock:(void(^)())complete
+{
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI getHomes:data.clientAuth userId:data.clientAuth.userId
           completion:^(NSArray *homes, NSError *err) {
@@ -49,6 +54,11 @@
               } else {
                   showAlert(err);
               }
+              
+              if (complete != nil) {
+                  complete();
+              }
+
           }];
 }
 
@@ -193,4 +203,10 @@
     }
 }
 
+- (IBAction)pullToRefresh:(UIRefreshControl *)sender {
+    
+    [self fetchHomesWithBlock:^{
+        [sender endRefreshing];
+    }];
+}
 @end

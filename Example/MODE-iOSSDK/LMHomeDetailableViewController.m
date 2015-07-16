@@ -57,7 +57,13 @@
     [self performSegueWithIdentifier:@"ProfileSegue" sender:nil];
 }
 
+
 - (void)fetchMembers
+{
+    [self fetchMembersWithBlock:nil];
+}
+
+- (void)fetchMembersWithBlock:(void(^)())complete
 {
     self.editButton.selected = false;
     [self setEditing:false animated:true];
@@ -83,10 +89,19 @@
             } else {
                 NSLog(@"Devices is selected, so not updated");
             }
+            
+            if (complete != nil) {
+                complete();
+            }
         }];
 }
 
 - (void)fetchDevices
+{
+    [self fetchDevicesWithBlock:nil];
+}
+
+- (void)fetchDevicesWithBlock:(void(^)())complete
 {
     self.editButton.selected = false;
     [self setEditing:false animated:true];
@@ -109,6 +124,10 @@
                 }
             } else {
                 NSLog(@"Members is selected, so not updated");
+            }
+            
+            if (complete != nil) {
+                complete();
             }
         }];
 }
@@ -314,5 +333,17 @@
         view.sourceVC = self;
     }
 }
+
+- (IBAction)pullToRefresh:(UIRefreshControl *)sender {
+    
+    void(^complete)() = ^{
+        [sender endRefreshing];
+    };
+    
+    if ([self isMembers]) {
+        [self fetchMembersWithBlock:complete];
+    } else {
+        [self fetchDevicesWithBlock:complete];
+    }}
 
 @end
