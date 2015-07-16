@@ -45,21 +45,23 @@
 - (void) callDeviceEventDelegates:(MODEDeviceEvent*) event err:(NSError*) err
 {
     /**
-     * event.evenType == "light"
-     * event.eventData == {"status": "on"} or {"status": "off"}
+     * event.evenType == "status"
+     * event.eventData == {"switch": 1} or {"switch": 0}
      */
     for (id<MODEDeviceEventDelegate> delegate in self.deviceEventDelegates) {
         if (err) {
             NSLog(@"Receive event error %@", err);
         }
         
-        if (event && [event.eventType isEqualToString:@"light"]) {
-            if([event.eventData[@"status"] isEqualToString:@"on"] ) {
+        NSLog(@"event: %@", event);
+        if (event && [event.eventType isEqualToString:@"status"]) {
+            NSLog(@"eventData: %@", event.eventData);
+            if([event.eventData[@"switch"] intValue] == 1) {
                 [delegate receivedEvent:event.originDeviceId status:TRUE];
-                NSLog(@"Received status deeviceId: %d status TRUE", event.originDeviceId);
-            } else if ([event.eventData[@"status"] isEqualToString:@"off"] ) {
+                NSLog(@"Received status deeviceId: %d status 1", event.originDeviceId);
+            } else if([event.eventData[@"switch"] intValue] == 0) {
                 [delegate receivedEvent:event.originDeviceId status:FALSE];
-                NSLog(@"Received status deeviceId: %d status FALSE", event.originDeviceId);
+                NSLog(@"Received status deeviceId: %d status 0", event.originDeviceId);
             } else {
                 NSLog(@"Unknown eventData: %@", event.eventData);
             }
@@ -103,9 +105,13 @@
 - (void)queryDeviceStatus:(NSArray*)devices
 {
     // Broadcast query to all devices.
+    /**
+     * command.action == "query"
+     * command.parameters == {}
+     */
     LMDataHolder* data = [LMDataHolder sharedInstance];
     for (MODEDevice* device in devices) {
-        [MODEAppAPI sendCommandToDevice:data.clientAuth deviceId:device.deviceId action:@"light" parameters:@{@"qeury":@"status"}
+        [MODEAppAPI sendCommandToDevice:data.clientAuth deviceId:device.deviceId action:@"query" parameters:@{}
              completion:^(MODEDevice *device, NSError *err) {
                  if (err != nil) {
                      showAlert(err);
@@ -118,9 +124,13 @@
 
 - (void) triggerSwitch:(int)deviceId status:(BOOL)status
 {
+    /**
+     * command.action == "change"
+     * command.parameters == {"switch": 1} or {"switch": 0}
+     */
     LMDataHolder* data = [LMDataHolder sharedInstance];
     NSNumber* value = [NSNumber numberWithInt:status];
-    [MODEAppAPI sendCommandToDevice:data.clientAuth deviceId:deviceId action:@"light" parameters:@{@"switch":value}
+    [MODEAppAPI sendCommandToDevice:data.clientAuth deviceId:deviceId action:@"change" parameters:@{@"switch":value}
         completion:^(MODEDevice *device, NSError *err) {
             if (err != nil) {
                 showAlert(err);
