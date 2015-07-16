@@ -15,15 +15,6 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
     return setupTitle(@"Add device");
 }
 
-void setupKeyboardDismisser(UIViewController* viewController, SEL action)
-{
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
-                                   initWithTarget:viewController
-                                   action:action];
-    
-    [viewController.view addGestureRecognizer:tap];
-}
-
 @interface LMAddDevicesViewController ()
 
 @property(strong, nonatomic) IBOutlet UILabel* message;

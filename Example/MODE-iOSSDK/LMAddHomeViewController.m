@@ -74,8 +74,14 @@
     [self.timezoneField selectRow:timezoneIdx inComponent:0 animated:TRUE];
     
     self.targetTimezone = self.timezones[timezoneIdx];
+    
+    setupKeyboardDismisser(self, @selector(dismissKeyboard));
 }
 
+-(void)dismissKeyboard
+{
+    [self.timezoneField resignFirstResponder];
+}
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {

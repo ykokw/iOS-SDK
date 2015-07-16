@@ -241,3 +241,13 @@ void initiateAuth(int projectId, NSString* phoneNumber)
             }
         }];
 }
+
+
+void setupKeyboardDismisser(UIViewController* viewController, SEL action)
+{
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
+                                   initWithTarget:viewController
+                                   action:action];
+    
+    [viewController.view addGestureRecognizer:tap];
+}
