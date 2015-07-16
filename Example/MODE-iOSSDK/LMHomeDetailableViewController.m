@@ -66,18 +66,22 @@
     [MODEAppAPI getHomeMembers:data.clientAuth homeId:self.targetHome.homeId
         completion:^(NSArray *members, NSError *err) {
             NSLog(@"Get home members:");
-            self.devicesOrMembersControl.selectedSegmentIndex = MEMBERS_IDX;
-            if (members != nil) {
-                self.items = [NSMutableArray arrayWithArray:members];
-                for (MODEHomeMember* member in members) {
-                    NSLog(@"Member: %@", member);
-                    if (member.verified == false) {
-                        member.name = @"(Unknown)";
-                    }
-                }
-                [self.tableView reloadData];
-            } else {
+            
+            if (err != nil) {
                 showAlert(err);
+            } else if ([self isMembers]){
+                if (members != nil) {
+                    self.items = [NSMutableArray arrayWithArray:members];
+                    for (MODEHomeMember* member in members) {
+                        NSLog(@"Member: %@", member);
+                        if (member.verified == false) {
+                            member.name = @"(Unknown)";
+                        }
+                    }
+                    [self.tableView reloadData];
+                }
+            } else {
+                NSLog(@"Devices is selected, so not updated");
             }
         }];
 }
@@ -91,16 +95,20 @@
     [MODEAppAPI  getDevices:data.clientAuth homeId:self.targetHome.homeId
         completion:^(NSArray *devices, NSError *err) {
             NSLog(@"Get devices:");
-            self.devicesOrMembersControl.selectedSegmentIndex = DEVICES_IDX;
-            if (devices != nil) {
-                for (MODEDevice* device in devices) {
-                    NSLog(@"Device: %@", device);
-                }
-                self.items = [NSMutableArray arrayWithArray:devices];
-                [[LMDeviceManager sharedInstance] queryDeviceStatus:devices];
-                [self.tableView reloadData];
-            } else {
+            
+            if (err != nil) {
                 showAlert(err);
+            } else if (![self isMembers]){
+                if (devices != nil) {
+                    for (MODEDevice* device in devices) {
+                        NSLog(@"Device: %@", device);
+                    }
+                    self.items = [NSMutableArray arrayWithArray:devices];
+                    [[LMDeviceManager sharedInstance] queryDeviceStatus:devices];
+                    [self.tableView reloadData];
+                }
+            } else {
+                NSLog(@"Members is selected, so not updated");
             }
         }];
 }

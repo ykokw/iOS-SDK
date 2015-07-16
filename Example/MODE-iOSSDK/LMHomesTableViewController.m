@@ -20,7 +20,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-      
+    
     setupProfileButton(self.navigationItem, self, @selector(handleProfile));
 
     self.navigationItem.titleView = setupTitle(@"Homes");

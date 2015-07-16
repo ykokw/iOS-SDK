@@ -11,7 +11,8 @@
 
 
 //static NSString *const ModeURL = @"https://api.tinkermode.com";
-static NSString *const ModeURL = @"http://akagi.local:7002";
+//static NSString *const ModeURL = @"http://akagi.local:7002";
+static NSString *const ModeURL = @"http://localhost:7002";
 
 @implementation NSString (NSString_Extended)
 

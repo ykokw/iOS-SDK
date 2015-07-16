@@ -24,6 +24,8 @@
         
         // You need to setup projectId and appId according to your project and App settings.
         // Please see more detail (http://dev.tinkermode.com/tutorials/getting_started.html) to get them.
+//        self.projectId = 154;
+//        self.appId = @"ios-r1";        
         self.projectId = 3;
         self.appId = @"app1";
     }

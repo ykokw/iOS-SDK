@@ -45,20 +45,16 @@
                                     <segue destination="Dcr-ej-Qex" kind="push" id="aG4-m7-mzQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lumos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Wmm-g0-KiD">
-                                <rect key="frame" x="60" y="147" width="200" height="84"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="0QN-oH-6yJ">
+                                <rect key="frame" x="60" y="147" width="200" height="77"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.94117647059999998" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <fontDescription key="fontDescription" name="Zapfino" family="Zapfino" pointSize="52"/>
-                                <color key="textColor" red="0.94117647059999998" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="highlightedColor" red="0.94117647059999998" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
-                                <color key="shadowColor" red="0.94117647059999998" green="0.43137254899999999" blue="0.43529411759999997" alpha="1" colorSpace="calibratedRGB"/>
-                            </label>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="kDY-dj-mQf"/>
                     <connections>
+                        <outlet property="lumosLogo" destination="0QN-oH-6yJ" id="rtj-yk-VRc"/>
                         <outlet property="message" destination="aff-9u-MgQ" id="1Ul-j6-gyB"/>
                         <segue destination="f6O-Dq-1Lv" kind="push" identifier="BypassSignUpSegue" id="Zu0-Q4-fzh"/>
                         <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LMLinkedStoryBoardSegue" id="kfA-9g-xNS"/>
@@ -459,7 +455,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="iKu-R9-eIc"/>
-        <segue reference="TCP-fv-9g4"/>
+        <segue reference="kfA-9g-xNS"/>
+        <segue reference="Zu0-Q4-fzh"/>
     </inferredMetricsTieBreakers>
 </document>

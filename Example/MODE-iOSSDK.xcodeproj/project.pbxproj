@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		210F9EE11B56E26000544AE5 /* Lumos_AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 210F9EE01B56E26000544AE5 /* Lumos_AppIcon.png */; };
+		210F9EE31B57796100544AE5 /* Lumos_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 210F9EE21B57796100544AE5 /* Lumos_logo.png */; };
 		2124EA691B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5A1B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m */; };
 		2124EA6A1B561CD700D35D97 /* LMAddHomeMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5C1B561CD700D35D97 /* LMAddHomeMemberViewController.m */; };
 		2124EA6B1B561CD700D35D97 /* LMAddHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5E1B561CD700D35D97 /* LMAddHomeViewController.m */; };
@@ -75,6 +76,7 @@
 /* Begin PBXFileReference section */
 		030D11C9C043D5B1DD1B8AF4 /* Pods-MODE-iOSSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MODE-iOSSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MODE-iOSSDK_Tests/Pods-MODE-iOSSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
 		210F9EE01B56E26000544AE5 /* Lumos_AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lumos_AppIcon.png; path = Images.xcassets/Lumos_AppIcon.png; sourceTree = "<group>"; };
+		210F9EE21B57796100544AE5 /* Lumos_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lumos_logo.png; path = Images.xcassets/Lumos_logo.png; sourceTree = "<group>"; };
 		2124EA591B561CD700D35D97 /* LMAddDeviceInConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAddDeviceInConsoleViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2124EA5A1B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMAddDeviceInConsoleViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2124EA5B1B561CD700D35D97 /* LMAddHomeMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAddHomeMemberViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -256,6 +258,7 @@
 		2142869A1B5093BE006E3C1F /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				210F9EE21B57796100544AE5 /* Lumos_logo.png */,
 				210F9EE01B56E26000544AE5 /* Lumos_AppIcon.png */,
 				2142867E1B5093A8006E3C1F /* TimeZone.png */,
 				2142867F1B5093A8006E3C1F /* Settings White.png */,
@@ -479,6 +482,7 @@
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				214286911B5093A9006E3C1F /* Phone.png in Resources */,
 				214286981B5093A9006E3C1F /* Authentication.png in Resources */,
+				210F9EE31B57796100544AE5 /* Lumos_logo.png in Resources */,
 				214286901B5093A9006E3C1F /* Profile.png in Resources */,
 				2142868D1B5093A9006E3C1F /* Settings White.png in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,

@@ -7,6 +7,7 @@
 @interface LMLumosViewController ()
 
 @property(strong, nonatomic) IBOutlet UILabel* message;
+@property (strong, nonatomic) IBOutlet UIImageView *lumosLogo;
 
 @end
 
@@ -15,6 +16,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    self.lumosLogo.image = [UIImage imageNamed:@"Lumos_logo.png"];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor defaultThemeColor];
