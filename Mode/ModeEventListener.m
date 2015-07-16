@@ -120,6 +120,7 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
     websocket = nil;
     retryWait = 1;
     fibCounter = 1;
+    autoReconnect = false;
 }
 
 @end
