@@ -88,6 +88,11 @@ void setupMessage(UILabel* message, NSString* text, CGFloat fontSize)
 
 void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color, CGFloat fontSize)
 {
+    setupMessageWithColorAndAlign(message, text, color, fontSize, NSTextAlignmentCenter);
+}
+
+void setupMessageWithColorAndAlign(UILabel* message, NSString* text, UIColor* color, CGFloat fontSize, NSTextAlignment align)
+{
     UIFont *font = [UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:fontSize];
     
     // Multiline line spacing is always 11px.
@@ -103,9 +108,11 @@ void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color, CGF
     message.adjustsFontSizeToFitWidth = NO;
     message.lineBreakMode = NSLineBreakByWordWrapping;
     message.numberOfLines = 0;
-    message.textAlignment = NSTextAlignmentCenter;
+    message.textAlignment = align;
     message.textColor = color;
 }
+
+
 
 void setCellLabel(UILabel* label, NSString* text, UIColor* color, CGFloat fontSize)
 {

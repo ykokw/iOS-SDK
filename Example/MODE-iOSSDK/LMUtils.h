@@ -17,6 +17,7 @@ void setupStandardTextField(UITextField* textField, NSString* name, NSString* ic
 
 void setupMessage(UILabel* message, NSString* text, CGFloat fontSize);
 void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color, CGFloat fontSize);
+void setupMessageWithColorAndAlign(UILabel* message, NSString* text, UIColor* color, CGFloat fontSize, NSTextAlignment align);
 
 void setCellLabel(UILabel* cellTextLabel, NSString* text, UIColor* color, CGFloat fontSize);
 

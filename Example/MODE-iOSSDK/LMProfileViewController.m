@@ -2,6 +2,7 @@
 #import "LMDataHolder.h"
 #import "LMProfileEditViewController.h"
 #import "LMProfileViewController.h"
+#import "LMUIColor+Extentions.h"
 #import "LMUtils.h"
 #import "MODEApp.h"
 
@@ -41,8 +42,8 @@
                 showAlert(err);
             } else {
                 NSLog(@"Get user info: %@", user);
-                setupMessage(self.userName, user.name, 15.0);
-                setupMessage(self.phonenumber, formatPhonenumberFromString(user.phoneNumber), 15.0);
+                setupMessageWithColorAndAlign(self.userName, user.name, [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
+                setupMessageWithColorAndAlign(self.phonenumber, formatPhonenumberFromString(user.phoneNumber), [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
             }
         }];
 }
