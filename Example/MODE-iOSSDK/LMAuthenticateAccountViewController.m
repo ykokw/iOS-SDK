@@ -41,12 +41,12 @@
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
         completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
-            if (err == nil) {
+            if (err != ) {
+                showAlert(err);
+            } else {
                 NSLog(@"Got auth token: %@", clientAuth);
                 data.clientAuth = clientAuth;
                 [data saveData];
-            } else {
-                showAlert(err);
             }
             [weakSelf removeOverlayView];
         }];

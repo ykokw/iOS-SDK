@@ -104,9 +104,7 @@
 
 -(void)updateDeviceItems:(NSArray*)devices err:(NSError*)err
 {
-    if (err != nil) {
-        showAlert(err);
-    } else if (![self isMembers]){
+    if (![self isMembers]){
         if (devices != nil) {
             for (MODEDevice* device in devices) {
                 NSLog(@"Device: %@", device);
@@ -131,7 +129,11 @@
         completion:^(NSArray *devices, NSError *err) {
             NSLog(@"Get devices:");
             
-            [weakSelf updateDeviceItems:devices err:err];
+            if (err != nil) {
+                showAlert(err);
+            } else {
+                [weakSelf updateDeviceItems:devices err:err];
+            }
             if (complete != nil) {
                 complete();
             }
@@ -302,6 +304,7 @@
             completion:^(MODEHomeMember *member, NSError *err) {
                 if (err != nil) {
                     showAlert(err);
+                    // Failed to delete and view and model is out of sync, so call fetchMembers again.
                     [weakSelf fetchMembers];
                 }
             }];
@@ -312,6 +315,7 @@
             completion:^(MODEDevice* device, NSError *err) {
                 if (err != nil) {
                     showAlert(err);
+                    // Failed to delete and view and model is out of sync, so call fetchDevices again.
                     [weakSelf fetchDevices];
                 }
         }];

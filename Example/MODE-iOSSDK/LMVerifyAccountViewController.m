@@ -39,12 +39,12 @@ void createMyHome(UIViewController<LMOverlayViewProtocol>* destVC)
     [MODEAppAPI createHome:data.clientAuth name:@"My Home" timezone:@"America/Los_Angeles"
         completion:^(MODEHome *home, NSError *err) {
             [destVC removeOverlayViews];
-            if (err == nil) {
+            if (err != nil) {
+                showAlert(err);
+            } else {
                 NSLog(@"Created home: %@", home);
                 data.members.homeId = home.homeId;
                 [data saveData];
-            } else {
-                showAlert(err);
             }
         }];
 
@@ -59,17 +59,17 @@ void createMyHome(UIViewController<LMOverlayViewProtocol>* destVC)
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
           completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
-              if (err == nil) {
-                  NSLog(@"Got auth token: %@", clientAuth);
-                  data.clientAuth = clientAuth;
-                  [data saveData];
-                  createMyHome(destVC);
-              } else {
+              if (err != nil) {
                   // You need to rollback because auth failed.
                   [destVC removeOverlayViews];
                   
                   [self.navigationController popToViewController:self animated:YES];
                   showAlert(err);
+              } else {
+                  NSLog(@"Got auth token: %@", clientAuth);
+                  data.clientAuth = clientAuth;
+                  [data saveData];
+                  createMyHome(destVC);
               }
           }];
 }

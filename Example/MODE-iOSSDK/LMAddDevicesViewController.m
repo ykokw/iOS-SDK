@@ -74,13 +74,13 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:data.members.homeId
         completion:^(MODEDevice *device, NSError *err) {
-            if (err == nil) {
-                NSLog(@"Attached device: %@ to homeId %d", device, data.members.homeId);
-                [weakSelf updateDeviceName:device];
-            } else {
+            if (err != nil) {
                 // You need to rollback because auth failed.
                 [weakSelf.navigationController popToViewController:weakSelf animated:YES];
                 showAlert(err);
+            } else {
+                NSLog(@"Attached device: %@ to homeId %d", device, data.members.homeId);
+                [weakSelf updateDeviceName:device];
             }
         }];
 }
