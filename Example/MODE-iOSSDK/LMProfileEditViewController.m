@@ -30,23 +30,30 @@
 
 -(void)handleDone
 {
+    LMProfileViewController* __weak sourceVC = self.sourceVC;
     LMDataHolder* data = [LMDataHolder sharedInstance];
-    
     [MODEAppAPI updateUserInfo:data.clientAuth userId:data.clientAuth.userId name:self.nameField.text
         completion:^(MODEUser *user, NSError *err) {
             if (err != nil) {
                 showAlert(err);
             } else {
                 NSLog(@"Updated user name: %@", self.nameField.text);
-                [self.sourceVC fetchUserInfo];
+                [sourceVC fetchUserInfo];
             }
         }];
     
     [self.navigationController popToViewController:self.sourceVC animated:YES];
 }
 
+-(void) updateFields:(MODEUser*) user
+{
+    setupStandardTextField(self.nameField, user.name, @"Name.png");
+    setupStandardTextField(self.phonenumberField, formatPhonenumberFromString(user.phoneNumber), @"Phone.png");
+}
+
 -(void)fetchUserInfo
 {
+    __weak __typeof__(self) weakSelf = self;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI getUser:data.clientAuth userId:data.clientAuth.userId
         completion:^(MODEUser *user, NSError *err) {
@@ -54,8 +61,7 @@
                 showAlert(err);
             } else {
                 NSLog(@"Get user info: %@", user);
-                setupStandardTextField(self.nameField, user.name, @"Name.png");
-                setupStandardTextField(self.phonenumberField, formatPhonenumberFromString(user.phoneNumber), @"Phone.png");
+                [weakSelf updateFields:user];
             }
         }];
 }

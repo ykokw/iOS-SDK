@@ -67,7 +67,8 @@
 {
     self.editButton.selected = false;
     [self setEditing:false animated:true];
-
+    
+     __weak __typeof__(self) weakSelf = self;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI getHomeMembers:data.clientAuth homeId:self.targetHome.homeId
         completion:^(NSArray *members, NSError *err) {
@@ -75,16 +76,16 @@
             
             if (err != nil) {
                 showAlert(err);
-            } else if ([self isMembers]){
+            } else if ([weakSelf isMembers]){
                 if (members != nil) {
-                    self.items = [NSMutableArray arrayWithArray:members];
+                    weakSelf.items = [NSMutableArray arrayWithArray:members];
                     for (MODEHomeMember* member in members) {
                         NSLog(@"Member: %@", member);
                         if (member.verified == false) {
                             member.name = @"(Unknown)";
                         }
                     }
-                    [self.tableView reloadData];
+                    [weakSelf.tableView reloadData];
                 }
             } else {
                 NSLog(@"Devices is selected, so not updated");
@@ -106,6 +107,7 @@
     self.editButton.selected = false;
     [self setEditing:false animated:true];
     
+    LMHomeDetailableViewController* __weak weakSelf = self;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI  getDevices:data.clientAuth homeId:self.targetHome.homeId
         completion:^(NSArray *devices, NSError *err) {
@@ -113,14 +115,14 @@
             
             if (err != nil) {
                 showAlert(err);
-            } else if (![self isMembers]){
+            } else if (![weakSelf isMembers]){
                 if (devices != nil) {
                     for (MODEDevice* device in devices) {
                         NSLog(@"Device: %@", device);
                     }
-                    self.items = [NSMutableArray arrayWithArray:devices];
+                    weakSelf.items = [NSMutableArray arrayWithArray:devices];
                     [[LMDeviceManager sharedInstance] queryDeviceStatus:devices];
-                    [self.tableView reloadData];
+                    [weakSelf.tableView reloadData];
                 }
             } else {
                 NSLog(@"Members is selected, so not updated");
@@ -288,6 +290,7 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    __weak __typeof__(self) weakSelf = self;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     if ([self isMembers]) {
         MODEHomeMember* targetMember = self.items[indexPath.row];
@@ -296,7 +299,7 @@
             completion:^(MODEHomeMember *member, NSError *err) {
                 if (err != nil) {
                     showAlert(err);
-                    [self fetchMembers];
+                    [weakSelf fetchMembers];
                 }
             }];
     } else {
@@ -306,7 +309,7 @@
             completion:^(MODEDevice *device, NSError *err) {
                 if (err != nil) {
                     showAlert(err);
-                    [self fetchDevices];
+                    [weakSelf fetchDevices];
                 }
         }];
     }

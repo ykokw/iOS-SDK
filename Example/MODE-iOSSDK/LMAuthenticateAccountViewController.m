@@ -25,11 +25,19 @@
     setupMessage(self.message, MESSAGE_VERIFY_YOU, 15.0);
 }
 
+-(void)removeOverlayView
+{
+    removeOverlayViewSub(self.navigationController, ^(){
+        [self performSegueWithIdentifier:@"@console" sender:self];
+    });
+}
+
 - (IBAction)handleNext:(id)sender
 {
     // Need to show overlay until Auth token is taken.
     setupOverlayView(self.navigationController, @"Verifying...");
     
+    __weak __typeof__(self) weakSelf = self;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
         completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
@@ -37,14 +45,10 @@
                 NSLog(@"Got auth token: %@", clientAuth);
                 data.clientAuth = clientAuth;
                 [data saveData];
-                
-                removeOverlayViewSub(self.navigationController, ^(){
-                    [self performSegueWithIdentifier:@"@console" sender:self];
-                });
             } else {
-                removeOverlayViewSub(self.navigationController, nil);
                 showAlert(err);
             }
+            [weakSelf removeOverlayView];
         }];
 }
 

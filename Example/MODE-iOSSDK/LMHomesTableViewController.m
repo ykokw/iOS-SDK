@@ -41,6 +41,7 @@
 
 - (void) fetchHomesWithBlock:(void(^)())complete
 {
+    __weak __typeof__(self) weakSelf = self;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI getHomes:data.clientAuth userId:data.clientAuth.userId
           completion:^(NSArray *homes, NSError *err) {
@@ -49,8 +50,8 @@
                   for (MODEHome* home in homes) {
                       NSLog(@"Home: %@", home);
                   }
-                  self.homes = [NSMutableArray arrayWithArray:homes];
-                  [self.tableView reloadData];
+                  weakSelf.homes = [NSMutableArray arrayWithArray:homes];
+                  [weakSelf.tableView reloadData];
               } else {
                   showAlert(err);
               }
@@ -164,14 +165,15 @@
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    __weak __typeof__(self) weakSelf = self;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     MODEHome* targetHome = self.homes[indexPath.row];
-    [self.homes removeObjectAtIndex:indexPath.row];
+    [weakSelf.homes removeObjectAtIndex:indexPath.row];
     [MODEAppAPI deleteHome:data.clientAuth homeId:targetHome.homeId
         completion:^(MODEHome *home, NSError *err) {
             if (err != nil) {
                 showAlert(err);
-                [self fetchHomes];
+                [weakSelf fetchHomes];
             }
         }];
     

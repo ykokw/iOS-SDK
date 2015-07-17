@@ -30,7 +30,7 @@
     [self performSegueWithIdentifier:@"RegisteredSegue" sender:self];
 }
 
--(void)createMyHome:(UIViewController<LMOverlayViewProtocol>*)destVC
+void createMyHome(UIViewController<LMOverlayViewProtocol>* destVC)
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
     
@@ -63,7 +63,7 @@
                   NSLog(@"Got auth token: %@", clientAuth);
                   data.clientAuth = clientAuth;
                   [data saveData];
-                  [self createMyHome:destVC];
+                  createMyHome(destVC);
               } else {
                   // You need to rollback because auth failed.
                   [destVC removeOverlayViews];

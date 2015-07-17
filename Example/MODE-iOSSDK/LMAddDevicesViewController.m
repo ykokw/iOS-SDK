@@ -54,13 +54,14 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
 
 -(void)updateDeviceName:(MODEDevice*)device
 {
+    NSString* name = self.deviceNameField.text;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text
         completion:^(MODEDevice *device, NSError *err) {
             if (err != nil) {
                 showAlert(err);
             } else {
-                NSLog(@"Updated device name: %@", self.deviceNameField.text);
+                NSLog(@"Updated device name: %@", name);
             }
         }];
 }
@@ -69,15 +70,16 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
 {
     [self performSegueWithIdentifier:@"@console" sender:self];
 
+    __weak __typeof__(self) weakSelf = self;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:data.members.homeId
         completion:^(MODEDevice *device, NSError *err) {
             if (err == nil) {
                 NSLog(@"Attached device: %@ to homeId %d", device, data.members.homeId);
-                [self updateDeviceName:device];
+                [weakSelf updateDeviceName:device];
             } else {
                 // You need to rollback because auth failed.
-                [self.navigationController popToViewController:self animated:YES];
+                [weakSelf.navigationController popToViewController:weakSelf animated:YES];
                 showAlert(err);
             }
         }];

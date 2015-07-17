@@ -39,6 +39,7 @@
 
 -(void)updateDeviceName:(MODEDevice*)device
 {
+    LMHomeDetailableViewController* __weak sourceVC = self.sourceVC;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text
         completion:^(MODEDevice *device, NSError *err) {
@@ -47,12 +48,13 @@
             } else {
                 NSLog(@"Assigned device name: %@", device);
             }
-            [self.sourceVC fetchDevices];
+            [sourceVC fetchDevices];
         }];
 }
 
 -(void)handleAdd
 {
+     __weak __typeof__(self) weakSelf = self;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:self.sourceVC.targetHome.homeId
          completion:^(MODEDevice *device, NSError *err) {
@@ -60,7 +62,7 @@
                  showAlert(err);
              } else {
                  NSLog(@"Added device: %@", device);
-                 [self updateDeviceName:device];
+                 [weakSelf updateDeviceName:device];
              }
          }];
     

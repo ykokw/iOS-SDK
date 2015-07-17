@@ -30,8 +30,8 @@
 
 -(void)handleAdd
 {
+    LMHomeDetailableViewController* __weak sourceVC = self.sourceVC;
     LMDataHolder* data = [LMDataHolder sharedInstance];
-    
     [MODEAppAPI addHomeMember:data.clientAuth homeId:self.sourceVC.targetHome.homeId phoneNumber:self.phoneNumberField.text
         completion:^(MODEHomeMember *member, NSError *err) {
             if (err != nil) {
@@ -39,7 +39,7 @@
             } else {
                 NSLog(@"Added Home Member: %@", member);
             }
-            [self.sourceVC fetchMembers];
+            [sourceVC fetchMembers];
         }];
     
     [self.navigationController popToViewController:self.sourceVC animated:YES];

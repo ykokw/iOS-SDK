@@ -33,8 +33,15 @@
     [self performSegueWithIdentifier:@"ProfileEditSegue" sender:nil];
 }
 
+-(void) updateFields:(MODEUser*) user
+{
+    setupMessageWithColorAndAlign(self.userName, user.name, [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
+    setupMessageWithColorAndAlign(self.phonenumber, formatPhonenumberFromString(user.phoneNumber), [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
+}
+
 -(void)fetchUserInfo
 {
+    __weak __typeof__(self) weakSelf = self;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI getUser:data.clientAuth userId:data.clientAuth.userId
         completion:^(MODEUser *user, NSError *err) {
@@ -42,8 +49,7 @@
                 showAlert(err);
             } else {
                 NSLog(@"Get user info: %@", user);
-                setupMessageWithColorAndAlign(self.userName, user.name, [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
-                setupMessageWithColorAndAlign(self.phonenumber, formatPhonenumberFromString(user.phoneNumber), [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
+                [weakSelf updateFields:user];
             }
         }];
 }

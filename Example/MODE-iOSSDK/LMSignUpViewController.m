@@ -31,8 +31,14 @@
     self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
 }
 
+-(void)windBack
+{
+    [self.navigationController popToViewController:self animated:YES];
+}
+
 - (IBAction)handleNext:(id)sender
 {
+    __weak __typeof__(self) weakSelf = self;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     data.members.phoneNumber = self.phoneNumberField.text;
     [self performSegueWithIdentifier:@"VerifyAccountSegue" sender:self];
@@ -40,7 +46,7 @@
     [MODEAppAPI createUser:data.projectId phoneNumber:self.phoneNumberField.text name:self.nameField.text
         completion:^(MODEUser *user, NSError *err) {
             if (err != nil) {
-                [self.navigationController popToViewController:self animated:YES];
+                [weakSelf windBack];
                 showAlert(err);
             } else {
                 NSLog(@"Added user: %@", user);
