@@ -190,7 +190,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"HomeDetailSegue"]) {
-        LMHomeDetailableViewController *view = [segue destinationViewController];
+        LMHomeDetailableViewController* view = [segue destinationViewController];
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         view.targetHome = [self.homes objectAtIndex:indexPath.row];
     } else if ([segue.identifier isEqualToString:@"AddHomeSegue"] ||
