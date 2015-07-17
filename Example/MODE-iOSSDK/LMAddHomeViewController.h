@@ -3,7 +3,7 @@
 @class LMHomesTableViewController;
 @class MODEHome;
 
-@interface LMAddHomeViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
+@interface LMAddHomeViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 
 @property(weak, nonatomic) LMHomesTableViewController *sourceVC;
 

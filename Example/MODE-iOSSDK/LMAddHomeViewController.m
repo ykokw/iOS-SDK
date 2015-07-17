@@ -12,7 +12,8 @@
 
 @property(strong, nonatomic) IBOutlet UILabel *message;
 @property(strong, nonatomic) IBOutlet UITextField *nameField;
-@property(strong, nonatomic) IBOutlet UIPickerView *timezoneField;
+@property(strong, nonatomic) IBOutlet UITextField *timezoneField;
+@property(strong, nonatomic) IBOutlet UIPickerView *timezonePick;
 @property(strong, nonatomic) NSString *targetTimezone;
 @property(strong, nonatomic) NSArray *timezones;
 
@@ -55,8 +56,9 @@
     
     self.navigationItem.titleView = setupTitle([self getTitle]);
     
-    self.timezoneField.delegate = self;
-    self.timezoneField.dataSource = self;
+    self.timezonePick.delegate = self;
+    self.timezonePick.dataSource = self;
+    
     
     int timezoneIdx = 0;
     self.timezones = @[@"America/Los_Angeles", @"America/Detroit", @"America/Denver"];
@@ -71,11 +73,26 @@
         }
     }
     
-    [self.timezoneField selectRow:timezoneIdx inComponent:0 animated:TRUE];
+    self.timezonePick.alpha = 0;
+    [self.timezonePick selectRow:timezoneIdx inComponent:0 animated:TRUE];
     
     self.targetTimezone = self.timezones[timezoneIdx];
     
+    setupStandardTextField(self.timezoneField, self.targetTimezone, @"TimeZone.png");
+    self.timezoneField.delegate = self;
+    
     setupKeyboardDismisser(self, @selector(dismissKeyboard));
+}
+
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField
+{
+    [self.nameField resignFirstResponder];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        self.timezonePick.alpha = 1.0f;
+    }];
+    
+    return NO;
 }
 
 - (void)dismissKeyboard
@@ -95,12 +112,12 @@
 
 - (void)pickerView:(UIPickerView*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.targetTimezone = self.timezones[row];
+     self.targetTimezone = self.timezones[row];
 }
 
 -(NSString *)pickerView:(UIPickerView*)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    
+    self.timezoneField.text = self.timezones[row];
     return self.timezones[row];
 }
 
