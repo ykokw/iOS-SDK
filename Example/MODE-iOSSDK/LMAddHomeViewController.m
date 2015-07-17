@@ -80,7 +80,7 @@
 
 -(void)dismissKeyboard
 {
-    [self.timezoneField resignFirstResponder];
+    [self.nameField resignFirstResponder];
 }
 
 -(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
