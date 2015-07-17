@@ -8,7 +8,7 @@
 
 @interface ProfileEditViewController ()
 
-@property (strong, nonatomic) IBOutlet UILabel *message;
+@property (strong, nonatomic) IBOutlet UILabel* message;
 @property (strong, nonatomic) IBOutlet UITextField* nameField;
 @property (strong, nonatomic) IBOutlet UITextField* phonenumberField;
 

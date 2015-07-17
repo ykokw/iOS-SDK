@@ -77,22 +77,22 @@
 }
 
 
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView*)pickerView
 {
     return 1;
 }
 
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+-(NSInteger)pickerView:(UIPickerView*)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     return self.timezones.count;
 }
 
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+-(void)pickerView:(UIPickerView*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     self.targetTimezone = self.timezones[row];
 }
 
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+-(NSString *)pickerView:(UIPickerView*)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     
     return self.timezones[row];
@@ -114,7 +114,7 @@
     LMDataHolder* data = [LMDataHolder sharedInstance];
     
     [MODEAppAPI createHome:data.clientAuth name:self.nameField.text timezone:self.targetTimezone
-        completion:^(MODEHome *home, NSError *err) {
+        completion:^(MODEHome* home, NSError* err) {
             [self completion:err log:[NSString stringWithFormat:@"Added home: %@", home]];
         }];
 
@@ -126,7 +126,7 @@
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
     
-   [MODEAppAPI updateHome:data.clientAuth homeId:self.targetHome.homeId name:self.nameField.text timezone:self.targetTimezone completion:^(MODEHome *home, NSError *err) {
+   [MODEAppAPI updateHome:data.clientAuth homeId:self.targetHome.homeId name:self.nameField.text timezone:self.targetTimezone completion:^(MODEHome* home, NSError *err) {
        [self completion:err log:[NSString stringWithFormat:@"Uupdate home name: %@", self.nameField.text]];
     }];
     

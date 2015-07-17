@@ -33,7 +33,7 @@
     LMDataHolder* data = [LMDataHolder sharedInstance];
     
     [MODEAppAPI addHomeMember:data.clientAuth homeId:self.sourceVC.targetHome.homeId phoneNumber:self.phoneNumberField.text
-        completion:^(MODEHomeMember *member, NSError *err) {
+        completion:^(MODEHomeMember* member, NSError* err) {
             if (err != nil) {
                 showAlert(err);
             } else {

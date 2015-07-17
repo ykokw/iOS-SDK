@@ -37,7 +37,7 @@
 {
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI getUser:data.clientAuth userId:data.clientAuth.userId
-        completion:^(MODEUser *user, NSError *err) {
+        completion:^(MODEUser* user, NSError* err) {
             if (err != nil) {
                 showAlert(err);
             } else {
