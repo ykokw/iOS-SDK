@@ -72,7 +72,7 @@ PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* phoneNumberField)
     
     setupTextFieldWithLeftIcon(phoneNumberField, @"Phone.png");
     
-    phoneNumberField.keyboardType = UIKeyboardTypePhonePad;
+    phoneNumberField.keyboardType = UIKeyboardTypeNumberPad;
     PhoneNumberFieldDelegate* phoneNumberDelegate = [[PhoneNumberFieldDelegate alloc] initWithTextField:phoneNumberField];
     phoneNumberField.delegate = phoneNumberDelegate;
  

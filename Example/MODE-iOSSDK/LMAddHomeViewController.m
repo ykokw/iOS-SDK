@@ -12,10 +12,7 @@
 
 @property(strong, nonatomic) IBOutlet UILabel* message;
 @property(strong, nonatomic) IBOutlet UITextField* nameField;
-
-@property (strong, nonatomic) IBOutlet UITextField *timezoneField;
-
-@property(strong, nonatomic) UIPickerView* timezonePicker;
+@property(strong, nonatomic) IBOutlet UIPickerView* timezoneField;
 @property(strong, nonatomic) NSString* targetTimezone;
 @property(strong, nonatomic) NSArray* timezones;
 
@@ -58,12 +55,8 @@
     
     self.navigationItem.titleView = setupTitle([self getTitle]);
     
-    self.timezonePicker = [[UIPickerView alloc]initWithFrame:CGRectMake(0, 0, 0, 0)];
-    self.timezonePicker.showsSelectionIndicator  = YES;
-    self.timezonePicker.delegate = self;
-    self.timezonePicker.dataSource = self;
-    
-    self.timezoneField.inputView = self.timezonePicker;
+    self.timezoneField.delegate = self;
+    self.timezoneField.dataSource = self;
     
     int timezoneIdx = 0;
     self.timezones = @[@"America/Los_Angeles", @"America/Detroit", @"America/Denver"];
@@ -78,9 +71,7 @@
         }
     }
     
-    [self.timezonePicker selectRow:timezoneIdx inComponent:0 animated:TRUE];
-    
-    setupStandardTextField(self.timezoneField, self.timezones[timezoneIdx], @"TimeZone");
+    [self.timezoneField selectRow:timezoneIdx inComponent:0 animated:TRUE];
     
     self.targetTimezone = self.timezones[timezoneIdx];
     
@@ -104,12 +95,12 @@
 
 -(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    self.timezoneField.text = self.timezones[row];
     self.targetTimezone = self.timezones[row];
 }
 
 -(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
+    
     return self.timezones[row];
 }
 

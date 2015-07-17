@@ -106,12 +106,10 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" id="vFW-g3-6Ui">
-                                <rect key="frame" x="25" y="265" width="270" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
+                            <pickerView contentMode="scaleToFill" id="zS4-Dr-skp">
+                                <rect key="frame" x="35" y="258" width="250" height="162"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            </pickerView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -119,7 +117,7 @@
                     <connections>
                         <outlet property="message" destination="tby-yY-1NR" id="21C-cw-NBU"/>
                         <outlet property="nameField" destination="OW3-cG-g1d" id="8Yl-Mr-Mu3"/>
-                        <outlet property="timezoneField" destination="vFW-g3-6Ui" id="FGW-YP-qpv"/>
+                        <outlet property="timezoneField" destination="zS4-Dr-skp" id="Ul8-qB-eDN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PTW-hN-S8R" userLabel="First Responder" sceneMemberID="firstResponder"/>
