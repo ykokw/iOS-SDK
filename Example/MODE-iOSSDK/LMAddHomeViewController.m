@@ -83,22 +83,22 @@
     [self.nameField resignFirstResponder];
 }
 
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView*)pickerView
 {
     return 1;
 }
 
--(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+-(NSInteger)pickerView:(UIPickerView*)pickerView numberOfRowsInComponent:(NSInteger)component
 {
     return self.timezones.count;
 }
 
--(void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+-(void)pickerView:(UIPickerView*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     self.targetTimezone = self.timezones[row];
 }
 
--(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+-(NSString *)pickerView:(UIPickerView*)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
     
     return self.timezones[row];
@@ -126,12 +126,14 @@
 -(void)handleDone
 {
     LMHomesTableViewController* __weak sourceVC = self.sourceVC;
+    NSString* name = self.nameField.text;
     LMDataHolder* data = [LMDataHolder sharedInstance];
-    [MODEAppAPI updateHome:data.clientAuth homeId:self.targetHome.homeId name:self.nameField.text timezone:self.targetTimezone completion:^(MODEHome *home, NSError *err) {
+    [MODEAppAPI updateHome:data.clientAuth homeId:self.targetHome.homeId name:self.nameField.text timezone:self.targetTimezone
+                completion:^(MODEHome *home, NSError *err) {
        if(err != nil) {
            showAlert(err);
        } else {
-           NSLog(@"Uupdate home name: %@", self.nameField.text);
+           NSLog(@"Update home name: %@", name);
            // You have to refresh loading homes at this timing, otherwise homes list is not updated.
            [sourceVC fetchHomes];
        }

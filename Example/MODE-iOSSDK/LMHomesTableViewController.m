@@ -79,31 +79,31 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     UIView* tableHeaderView = tableView.tableHeaderView;
-    UIView *view=[[UIView alloc]init];
+    UIView* view=[[UIView alloc]init];
     setupAddButton(view, self, @selector(handleAdd));
     self.editButton = setupEditButton(view, self, @selector(handleEdit));
     [tableHeaderView insertSubview:view atIndex:0];
     return view;
 }
 
-- (CGFloat) tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+- (CGFloat) tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 50.0;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
+-(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     return 60.0;
 }
 
 #pragma mark - Table view data source
 
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+- (NSInteger)numberOfSectionsInTableView:(UITableView*)tableView
 {
     return 1;
 }
 
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+- (NSInteger)tableView:(UITableView*)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (self.homes != nil) {
         return self.homes.count;
@@ -130,7 +130,7 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         // Set up edit icon at the right of UITableViewCell.
-        UIButton *editButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+        UIButton* editButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
         [editButton setImage:[UIImage imageNamed:@"Edit.png"] forState:UIControlStateNormal];
         editButton.frame = CGRectMake(0, 0, 50, 50);
         editButton.tintColor = [UIColor bodyTextColor];
@@ -192,7 +192,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"HomeDetailSegue"]) {
-        LMHomeDetailableViewController *view = [segue destinationViewController];
+        LMHomeDetailableViewController* view = [segue destinationViewController];
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         view.targetHome = [self.homes objectAtIndex:indexPath.row];
     } else if ([segue.identifier isEqualToString:@"AddHomeSegue"] ||

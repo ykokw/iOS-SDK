@@ -42,7 +42,7 @@
     LMHomeDetailableViewController* __weak sourceVC = self.sourceVC;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text
-        completion:^(MODEDevice *device, NSError *err) {
+        completion:^(MODEDevice* device, NSError* err) {
             if (err != nil) {
                 showAlert(err);
             } else {
@@ -57,7 +57,7 @@
      __weak __typeof__(self) weakSelf = self;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:self.sourceVC.targetHome.homeId
-         completion:^(MODEDevice *device, NSError *err) {
+         completion:^(MODEDevice* device, NSError* err) {
              if (err != nil) {
                  showAlert(err);
              } else {

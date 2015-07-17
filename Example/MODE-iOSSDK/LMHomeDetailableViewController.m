@@ -88,7 +88,7 @@
                     [weakSelf.tableView reloadData];
                 }
             } else {
-                NSLog(@"Devices is selected, so not updated");
+                NSLog(@"Devices is selected. No update needed.");
             }
             
             if (complete != nil) {
@@ -159,13 +159,13 @@
 {
     if (self.tableHeaderSubView == nil) {
         UIView* tableHeaderView = tableView.tableHeaderView;
-        UIView *view=[[UIView alloc]init];
+        UIView* view=[[UIView alloc]init];
         setupAddButton(view, self, @selector(handleAdd));
         self.editButton = setupEditButton(view, self, @selector(handleEdit));
         [tableHeaderView insertSubview:view atIndex:0];
     
-        NSArray *itemArray = [NSArray arrayWithObjects: @"Devices", @"Members", nil];
-        UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
+        NSArray* itemArray = [NSArray arrayWithObjects: @"Devices", @"Members", nil];
+        UISegmentedControl* segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
         segmentedControl.frame = CGRectMake(70, 10, 180, 30);
         [segmentedControl addTarget:self action:@selector(handleDevicesOrMembers:) forControlEvents: UIControlEventValueChanged];
         segmentedControl.tintColor = [UIColor defaultThemeColor];
@@ -243,7 +243,6 @@
             label.textAlignment = NSTextAlignmentRight;
             cell.accessoryView = label;
         }
-        
     } else {
         MODEDevice* device = self.items[row];
         cellvalue = [device.name isEqual:@""] ? device.tag : device.name;
@@ -260,15 +259,15 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString *cellIdentifier = [self getCellIdentifier];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    NSString* cellIdentifier = [self getCellIdentifier];
+    UITableViewCell* cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         if ([self isMembers] == false) {
-            UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
+            UISwitch* switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
             cell.accessoryView = switchView;
             switchView.tag = indexPath.row;
             [switchView setOn:NO animated:YES];
@@ -306,7 +305,7 @@
         MODEDevice* targetDevice = self.items[indexPath.row];
         [self.items removeObjectAtIndex:indexPath.row];
         [MODEAppAPI deleteDevice:data.clientAuth deviceId:targetDevice.deviceId
-            completion:^(MODEDevice *device, NSError *err) {
+            completion:^(MODEDevice* device, NSError *err) {
                 if (err != nil) {
                     showAlert(err);
                     [weakSelf fetchDevices];
