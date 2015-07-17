@@ -5,12 +5,12 @@
 #define TEXTFIELD_HEIGHT 48
 
 /**
- * This is very basic alert function.
- * You should rewrite the error to get more user friendly.
+  *This is very basic alert function.
+  *You should rewrite the error to get more user friendly.
  */
-void showAlert(NSError* err)
+void showAlert(NSError *err)
 {
-    NSString* msg = err.userInfo[@"reason"];
+    NSString *msg = err.userInfo[@"reason"];
     NSLog(@"Failed to call API: %@", err);
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:err.domain
                                                     message:msg
@@ -21,7 +21,7 @@ void showAlert(NSError* err)
 
 }
 
-void setTextFieldHeight(UITextField* textField)
+void setTextFieldHeight(UITextField *textField)
 {
     CGRect rect = textField.frame;
     rect.size.height = TEXTFIELD_HEIGHT;
@@ -30,13 +30,13 @@ void setTextFieldHeight(UITextField* textField)
     [textField setReturnKeyType:UIReturnKeyDone];
 }
 
-void setupTextFieldWithLeftIcon(UITextField* textField, NSString* iconName)
+void setupTextFieldWithLeftIcon(UITextField *textField, NSString *iconName)
 {
-    UIImageView* imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:iconName]];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:iconName]];
     
     imageView.frame = CGRectMake(14,0, imageView.frame.size.width, imageView.frame.size.height);
     
-    UIView* objLeftView = [[UIView alloc] initWithFrame:CGRectMake(0,0,34,16)];
+    UIView *objLeftView = [[UIView alloc] initWithFrame:CGRectMake(0,0,34,16)];
     [objLeftView addSubview:imageView];
     
     [textField setLeftViewMode:UITextFieldViewModeAlways];
@@ -44,21 +44,21 @@ void setupTextFieldWithLeftIcon(UITextField* textField, NSString* iconName)
     setTextFieldHeight(textField);
 }
 
-void setupStandardTextField(UITextField* textField, NSString* name, NSString* iconName)
+void setupStandardTextField(UITextField *textField, NSString *name, NSString *iconName)
 {
     [textField setPlaceholder:name];
     setupTextFieldWithLeftIcon(textField, iconName);
     setTextFieldHeight(textField);
 }
 
-NumericTextFieldDelegate* setupNumericTextField(UITextField* numericField, NSString* name, NSString* iconName)
+NumericTextFieldDelegate *setupNumericTextField(UITextField *numericField, NSString *name, NSString *iconName)
 {
     [numericField setPlaceholder:name];
     
     setupTextFieldWithLeftIcon(numericField, iconName);
     
     numericField.keyboardType = UIKeyboardTypeNumberPad;
-    NumericTextFieldDelegate* numericDelegate = [[NumericTextFieldDelegate alloc] init];
+    NumericTextFieldDelegate *numericDelegate = [[NumericTextFieldDelegate alloc] init];
     numericField.delegate = numericDelegate;
     
     setTextFieldHeight(numericField);
@@ -66,14 +66,14 @@ NumericTextFieldDelegate* setupNumericTextField(UITextField* numericField, NSStr
     return numericDelegate;
 }
 
-PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* phoneNumberField)
+PhoneNumberFieldDelegate *setupPhoneNumberField(UITextField *phoneNumberField)
 {
     [phoneNumberField setPlaceholder:@"Phonenumber"];
     
     setupTextFieldWithLeftIcon(phoneNumberField, @"Phone.png");
     
     phoneNumberField.keyboardType = UIKeyboardTypeNumberPad;
-    PhoneNumberFieldDelegate* phoneNumberDelegate = [[PhoneNumberFieldDelegate alloc] initWithTextField:phoneNumberField];
+    PhoneNumberFieldDelegate *phoneNumberDelegate = [[PhoneNumberFieldDelegate alloc] initWithTextField:phoneNumberField];
     phoneNumberField.delegate = phoneNumberDelegate;
  
     setTextFieldHeight(phoneNumberField);
@@ -81,17 +81,17 @@ PhoneNumberFieldDelegate* setupPhoneNumberField(UITextField* phoneNumberField)
     return phoneNumberDelegate;
 }
 
-void setupMessage(UILabel* message, NSString* text, CGFloat fontSize)
+void setupMessage(UILabel *message, NSString *text, CGFloat fontSize)
 {
     return setupMessageWithColor(message, text, [UIColor bodyTextColor], fontSize);
 }
 
-void setupMessageWithColor(UILabel* message, NSString* text, UIColor* color, CGFloat fontSize)
+void setupMessageWithColor(UILabel *message, NSString *text, UIColor *color, CGFloat fontSize)
 {
     setupMessageWithColorAndAlign(message, text, color, fontSize, NSTextAlignmentCenter);
 }
 
-void setupMessageWithColorAndAlign(UILabel* message, NSString* text, UIColor* color, CGFloat fontSize, NSTextAlignment align)
+void setupMessageWithColorAndAlign(UILabel *message, NSString *text, UIColor *color, CGFloat fontSize, NSTextAlignment align)
 {
     UIFont *font = [UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:fontSize];
     
@@ -114,7 +114,7 @@ void setupMessageWithColorAndAlign(UILabel* message, NSString* text, UIColor* co
 
 
 
-void setCellLabel(UILabel* label, NSString* text, UIColor* color, CGFloat fontSize)
+void setCellLabel(UILabel *label, NSString *text, UIColor *color, CGFloat fontSize)
 {
     [label setFont:[UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:fontSize]];
     label.text = text;
@@ -123,9 +123,9 @@ void setCellLabel(UILabel* label, NSString* text, UIColor* color, CGFloat fontSi
     label.textColor = color;
 }
 
-UILabel* setupTitle(NSString* title)
+UILabel *setupTitle(NSString *title)
 {
-    UILabel* label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
+    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, 100, 100)];
     label.text = title;
     label.textColor = [UIColor whiteColor];
     label.textAlignment = NSTextAlignmentCenter;
@@ -148,7 +148,7 @@ UILabel* setupTitle(NSString* title)
 @end
 
 // It assumes only US phonenumber.
-NSString* formatPhonenumberFromString(NSString* phonenumber)
+NSString *formatPhonenumberFromString(NSString *phonenumber)
 {
     return [NSString stringWithFormat:@"(%@) %@-%@", [phonenumber subString:2 end:5], [phonenumber subString:5 end:8], [phonenumber subString:8 end:12]];
 }
@@ -166,7 +166,7 @@ NSString* formatPhonenumberFromString(NSString* phonenumber)
 
 @interface PhoneNumberFieldDelegate ()
 
-@property(strong, nonatomic)UITextField* phoneNumberField;
+@property(strong, nonatomic)UITextField *phoneNumberField;
 @property(assign, nonatomic) BOOL shouldAttemptFormat;
 
 @end
@@ -230,7 +230,7 @@ NSString* formatPhonenumberFromString(NSString* phonenumber)
 
 @end
 
-void initiateAuth(int projectId, NSString* phoneNumber)
+void initiateAuth(int projectId, NSString *phoneNumber)
 {
     [MODEAppAPI initiateAuthenticationWithSMS:projectId phoneNumber:phoneNumber
         completion:^(MODESMSMessageReceipt *receipt, NSError *err) {
@@ -243,7 +243,7 @@ void initiateAuth(int projectId, NSString* phoneNumber)
 }
 
 
-void setupKeyboardDismisser(UIViewController* viewController, SEL action)
+void setupKeyboardDismisser(UIViewController *viewController, SEL action)
 {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc]
                                    initWithTarget:viewController

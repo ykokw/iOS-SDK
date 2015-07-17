@@ -8,9 +8,9 @@
 
 @interface LMAddHomeMemberViewController ()
 
-@property(strong, nonatomic) IBOutlet UILabel* message;
-@property(strong, nonatomic) IBOutlet UITextField* phoneNumberField;
-@property(strong, nonatomic) PhoneNumberFieldDelegate* phoneNumberDelegate;
+@property(strong, nonatomic) IBOutlet UILabel *message;
+@property(strong, nonatomic) IBOutlet UITextField *phoneNumberField;
+@property(strong, nonatomic) PhoneNumberFieldDelegate *phoneNumberDelegate;
 
 @end
 
@@ -30,10 +30,10 @@
 
 -(void)handleAdd
 {
-    LMHomeDetailViewController* __weak sourceVC = self.sourceVC;
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMHomeDetailViewController *__weak sourceVC = self.sourceVC;
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     [MODEAppAPI addHomeMember:data.clientAuth homeId:self.sourceVC.targetHome.homeId phoneNumber:self.phoneNumberField.text
-        completion:^(MODEHomeMember* member, NSError* err) {
+        completion:^(MODEHomeMember *member, NSError *err) {
             if (err != nil) {
                 showAlert(err);
             } else {

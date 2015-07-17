@@ -8,9 +8,9 @@
 
 @interface ProfileEditViewController ()
 
-@property (strong, nonatomic) IBOutlet UILabel* message;
-@property (strong, nonatomic) IBOutlet UITextField* nameField;
-@property (strong, nonatomic) IBOutlet UITextField* phonenumberField;
+@property (strong, nonatomic) IBOutlet UILabel *message;
+@property (strong, nonatomic) IBOutlet UITextField *nameField;
+@property (strong, nonatomic) IBOutlet UITextField *phonenumberField;
 
 @end
 
@@ -30,8 +30,8 @@
 
 -(void)handleDone
 {
-    LMProfileViewController* __weak sourceVC = self.sourceVC;
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMProfileViewController *__weak sourceVC = self.sourceVC;
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     [MODEAppAPI updateUserInfo:data.clientAuth userId:data.clientAuth.userId name:self.nameField.text
         completion:^(MODEUser *user, NSError *err) {
             if (err != nil) {
@@ -54,7 +54,7 @@
 -(void)fetchUserInfo
 {
     __weak __typeof__(self) weakSelf = self;
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     [MODEAppAPI getUser:data.clientAuth userId:data.clientAuth.userId
         completion:^(MODEUser *user, NSError *err) {
             if (err != nil) {

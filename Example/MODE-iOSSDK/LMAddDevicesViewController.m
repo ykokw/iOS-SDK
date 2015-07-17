@@ -6,7 +6,7 @@
 #import "LMUtils.h"
 #import "ModeApp.h"
 
-UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextField* devicenameField, UILabel*message)
+UIView *setupCommonAddDeviceWidgets(UITextField *verificationCodeField, UITextField *devicenameField, UILabel*message)
 {
     setupStandardTextField(verificationCodeField, @"Claim Code", @"ClaimCode.png");
     setupStandardTextField(devicenameField, @"Nickname (e.g. Office Lamp)", @"Nickname.png");
@@ -17,9 +17,9 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
 
 @interface LMAddDevicesViewController ()
 
-@property(strong, nonatomic) IBOutlet UILabel* message;
-@property(strong, nonatomic) IBOutlet UITextField* verificationCodeField;
-@property(strong, nonatomic) IBOutlet UITextField* deviceNameField;
+@property(strong, nonatomic) IBOutlet UILabel *message;
+@property(strong, nonatomic) IBOutlet UITextField *verificationCodeField;
+@property(strong, nonatomic) IBOutlet UITextField *deviceNameField;
 
 @end
 
@@ -54,8 +54,8 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
 
 -(void)updateDeviceName:(MODEDevice*)device
 {
-    NSString* name = self.deviceNameField.text;
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    NSString *name = self.deviceNameField.text;
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text
         completion:^(MODEDevice *device, NSError *err) {
             if (err != nil) {
@@ -71,7 +71,7 @@ UIView* setupCommonAddDeviceWidgets(UITextField* verificationCodeField, UITextFi
     [self performSegueWithIdentifier:@"@console" sender:self];
 
     __weak __typeof__(self) weakSelf = self;
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:data.members.homeId
         completion:^(MODEDevice *device, NSError *err) {
             if (err != nil) {

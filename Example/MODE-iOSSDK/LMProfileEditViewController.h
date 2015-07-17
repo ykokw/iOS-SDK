@@ -4,6 +4,6 @@
 
 @interface ProfileEditViewController : UIViewController
 
-@property(weak, nonatomic)LMProfileViewController* sourceVC;
+@property(weak, nonatomic)LMProfileViewController *sourceVC;
 
 @end

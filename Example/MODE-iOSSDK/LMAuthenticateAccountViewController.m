@@ -8,9 +8,9 @@
 
 @interface LMAuthenticateAccountViewController ()
 
-@property(strong, nonatomic) IBOutlet UILabel* message;
-@property(strong, nonatomic) IBOutlet UITextField* verificationCodeField;
-@property(strong, nonatomic) NumericTextFieldDelegate* numericDelegate;
+@property(strong, nonatomic) IBOutlet UILabel *message;
+@property(strong, nonatomic) IBOutlet UITextField *verificationCodeField;
+@property(strong, nonatomic) NumericTextFieldDelegate *numericDelegate;
 
 @end
 
@@ -25,10 +25,12 @@
     setupMessage(self.message, MESSAGE_VERIFY_YOU, 15.0);
 }
 
--(void)removeOverlayView
+-(void)removeOverlayView:(BOOL)nextSegue
 {
     removeOverlayViewSub(self.navigationController, ^(){
-        [self performSegueWithIdentifier:@"@console" sender:self];
+        if (nextSegue) {
+            [self performSegueWithIdentifier:@"@console" sender:self];
+        }
     });
 }
 
@@ -38,23 +40,24 @@
     setupOverlayView(self.navigationController, @"Verifying...");
     
     __weak __typeof__(self) weakSelf = self;
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
         completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
-            if (err != ) {
+            if (err != nil) {
                 showAlert(err);
+                [weakSelf removeOverlayView:false];
             } else {
                 NSLog(@"Got auth token: %@", clientAuth);
                 data.clientAuth = clientAuth;
                 [data saveData];
+                [weakSelf removeOverlayView:true];
             }
-            [weakSelf removeOverlayView];
         }];
 }
 
 - (IBAction)handleResend:(id)sender
 {
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     initiateAuth(data.projectId, data.members.phoneNumber);
 }
 

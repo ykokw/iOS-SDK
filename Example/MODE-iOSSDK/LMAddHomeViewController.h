@@ -5,8 +5,8 @@
 
 @interface LMAddHomeViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
 
-@property(weak, nonatomic) LMHomesTableViewController* sourceVC;
+@property(weak, nonatomic) LMHomesTableViewController *sourceVC;
 
-@property(strong, nonatomic) MODEHome* targetHome;
+@property(strong, nonatomic) MODEHome *targetHome;
 
 @end

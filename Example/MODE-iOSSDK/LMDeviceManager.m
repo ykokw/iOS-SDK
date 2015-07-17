@@ -6,8 +6,8 @@
 
 @interface LMDeviceManager ()
 
-@property(strong, nonatomic)NSMutableArray* deviceEventDelegates;
-@property(strong, nonatomic)MODEEventListener* listener;
+@property(strong, nonatomic)NSMutableArray *deviceEventDelegates;
+@property(strong, nonatomic)MODEEventListener *listener;
 
 @end
 
@@ -45,8 +45,8 @@
 - (void) callDeviceEventDelegates:(MODEDeviceEvent*) event err:(NSError*) err
 {
     /**
-     * event.evenType == "status"
-     * event.eventData == {"switch": 1} or {"switch": 0}
+      *event.evenType == "status"
+      *event.eventData == {"switch": 1} or {"switch": 0}
      */
     for (id<MODEDeviceEventDelegate> delegate in self.deviceEventDelegates) {
         if (err) {
@@ -97,7 +97,7 @@
 {
     if (self.listener == nil) {
         NSLog(@"Reconnect to listen to device events.");
-        LMDataHolder* data = [LMDataHolder sharedInstance];
+        LMDataHolder *data = [LMDataHolder sharedInstance];
         [self startListenToEvents:data.clientAuth];
     }
 }
@@ -106,11 +106,11 @@
 {
     // Broadcast query to all devices.
     /**
-     * command.action == "query"
-     * command.parameters == {}
+      *command.action == "query"
+      *command.parameters == {}
      */
-    LMDataHolder* data = [LMDataHolder sharedInstance];
-    for (MODEDevice* device in devices) {
+    LMDataHolder *data = [LMDataHolder sharedInstance];
+    for (MODEDevice *device in devices) {
         [MODEAppAPI sendCommandToDevice:data.clientAuth deviceId:device.deviceId action:@"query" parameters:@{}
              completion:^(MODEDevice *device, NSError *err) {
                  if (err != nil) {
@@ -125,11 +125,11 @@
 - (void) triggerSwitch:(int)deviceId status:(BOOL)status
 {
     /**
-     * command.action == "change"
-     * command.parameters == {"switch": 1} or {"switch": 0}
+      *command.action == "change"
+      *command.parameters == {"switch": 1} or {"switch": 0}
      */
-    LMDataHolder* data = [LMDataHolder sharedInstance];
-    NSNumber* value = [NSNumber numberWithInt:status];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
+    NSNumber *value = [NSNumber numberWithInt:status];
     [MODEAppAPI sendCommandToDevice:data.clientAuth deviceId:deviceId action:@"change" parameters:@{@"switch":value}
         completion:^(MODEDevice *device, NSError *err) {
             if (err != nil) {

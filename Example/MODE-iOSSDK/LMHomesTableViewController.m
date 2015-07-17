@@ -9,9 +9,9 @@
 
 @interface LMHomesTableViewController ()
 
-@property(strong, nonatomic) UIButton* editButton;
-@property(strong, nonatomic) NSMutableArray* homes;
-@property(strong, nonatomic) MODEHome* editTargetHome;
+@property(strong, nonatomic) UIButton *editButton;
+@property(strong, nonatomic) NSMutableArray *homes;
+@property(strong, nonatomic) MODEHome *editTargetHome;
 
 @end
 
@@ -42,7 +42,7 @@
 - (void)updateHomes:(NSArray*)homes err:(NSError*)err
 {
     NSLog(@"Get homes;");
-    for (MODEHome* home in homes) {
+    for (MODEHome *home in homes) {
         NSLog(@"Home: %@", home);
     }
     self.homes = [NSMutableArray arrayWithArray:homes];
@@ -52,7 +52,7 @@
 - (void)fetchHomesWithBlock:(void(^)())complete
 {
     __weak __typeof__(self) weakSelf = self;
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     [MODEAppAPI getHomes:data.clientAuth userId:data.clientAuth.userId
           completion:^(NSArray *homes, NSError *err) {
               if (err != nil) {
@@ -82,8 +82,8 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView* tableHeaderView = tableView.tableHeaderView;
-    UIView* view=[[UIView alloc]init];
+    UIView *tableHeaderView = tableView.tableHeaderView;
+    UIView *view=[[UIView alloc]init];
     setupAddButton(view, self, @selector(handleAdd));
     self.editButton = setupEditButton(view, self, @selector(handleEdit));
     [tableHeaderView insertSubview:view atIndex:0];
@@ -134,7 +134,7 @@
         cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
         
         // Set up edit icon at the right of UITableViewCell.
-        UIButton* editButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
+        UIButton *editButton = [UIButton buttonWithType:UIButtonTypeInfoDark];
         [editButton setImage:[UIImage imageNamed:@"Edit.png"] forState:UIControlStateNormal];
         editButton.frame = CGRectMake(0, 0, 50, 50);
         editButton.tintColor = [UIColor bodyTextColor];
@@ -146,10 +146,10 @@
 
     // Need to set the tag to identify accessory icon click.
     // The tag is used as index in handleEdit:
-    UIButton* editButton = (UIButton*)cell.editingAccessoryView;
+    UIButton *editButton = (UIButton*)cell.editingAccessoryView;
     editButton.tag = indexPath.row;
     
-    MODEHome* home = self.homes[indexPath.row];
+    MODEHome *home = self.homes[indexPath.row];
     setCellLabel(cell.textLabel, home.name, [UIColor cellTextColor], 16.0);
     
     return cell;
@@ -170,8 +170,8 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     __weak __typeof__(self) weakSelf = self;
-    LMDataHolder* data = [LMDataHolder sharedInstance];
-    MODEHome* targetHome = self.homes[indexPath.row];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
+    MODEHome *targetHome = self.homes[indexPath.row];
     [weakSelf.homes removeObjectAtIndex:indexPath.row];
     [MODEAppAPI deleteHome:data.clientAuth homeId:targetHome.homeId
         completion:^(MODEHome *home, NSError *err) {
@@ -196,12 +196,12 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"HomeDetailSegue"]) {
-        LMHomeDetailViewController* view = [segue destinationViewController];
-        NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
+        LMHomeDetailViewController *view = [segue destinationViewController];
+        NSIndexPath *indexPath = [self.tableView indexPathForSelectedRow];
         view.targetHome = [self.homes objectAtIndex:indexPath.row];
     } else if ([segue.identifier isEqualToString:@"AddHomeSegue"] ||
         [segue.identifier isEqualToString:@"EditHomeSegue"] ){
-        LMAddHomeViewController* view = [segue destinationViewController];
+        LMAddHomeViewController *view = [segue destinationViewController];
         view.sourceVC = self;
         
         if([segue.identifier isEqualToString:@"EditHomeSegue"]) {

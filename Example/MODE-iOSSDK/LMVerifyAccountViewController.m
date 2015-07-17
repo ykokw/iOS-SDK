@@ -8,9 +8,9 @@
 
 @interface LMVerifyAccountViewController ()
 
-@property(strong, nonatomic) IBOutlet UILabel* message;
-@property(strong, nonatomic) IBOutlet UITextField* verificationCodeField;
-@property(strong, nonatomic) NumericTextFieldDelegate* numericDelegate;
+@property(strong, nonatomic) IBOutlet UILabel *message;
+@property(strong, nonatomic) IBOutlet UITextField *verificationCodeField;
+@property(strong, nonatomic) NumericTextFieldDelegate *numericDelegate;
 
 @end
 
@@ -30,9 +30,9 @@
     [self performSegueWithIdentifier:@"RegisteredSegue" sender:self];
 }
 
-void createMyHome(UIViewController<LMOverlayViewProtocol>* destVC)
+void createMyHome(UIViewController<LMOverlayViewProtocol> *destVC)
 {
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     
     // Here we just create default "My Home" and set "Los Angeles" timezone.
     // But you have to rewrite according to users' environment.
@@ -56,7 +56,7 @@ void createMyHome(UIViewController<LMOverlayViewProtocol>* destVC)
     setupOverlayView(self.navigationController, @"Verifying...");
     UIViewController<LMOverlayViewProtocol> *destVC = [segue destinationViewController];
     
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
           completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
               if (err != nil) {
@@ -77,7 +77,7 @@ void createMyHome(UIViewController<LMOverlayViewProtocol>* destVC)
 
 - (IBAction)handleResend:(id)sender
 {
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     initiateAuth(data.projectId, data.members.phoneNumber);
 }
 

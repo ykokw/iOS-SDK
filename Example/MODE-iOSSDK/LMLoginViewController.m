@@ -7,9 +7,9 @@
 
 @interface LMLoginViewController ()
 
-@property(strong, nonatomic) IBOutlet UILabel* message;
-@property(strong, nonatomic) IBOutlet UITextField* phoneNumberField;
-@property(strong, nonatomic) PhoneNumberFieldDelegate* phoneNumberDelegate;
+@property(strong, nonatomic) IBOutlet UILabel *message;
+@property(strong, nonatomic) IBOutlet UITextField *phoneNumberField;
+@property(strong, nonatomic) PhoneNumberFieldDelegate *phoneNumberDelegate;
 
 @end
 
@@ -31,7 +31,7 @@
 - (IBAction)handleNext:(id)sender
 {
     __weak __typeof__(self) weakSelf = self;
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     data.members.phoneNumber = self.phoneNumberField.text;
     [self performSegueWithIdentifier:@"AuthenticateAccountSegue" sender:self];
 

@@ -1,7 +1,7 @@
 #import "LMButtonUtils.h"
 #import "LMUIColor+Extentions.h"
 
-UIButton* setupEditButton(UIView* view, id target, SEL edit)
+UIButton *setupEditButton(UIView *view, id target, SEL edit)
 {
     UIButton *editButton = [[UIButton alloc] init];
     [editButton setImage:[UIImage imageNamed:@"Settings.png"] forState:UIControlStateNormal];
@@ -13,7 +13,7 @@ UIButton* setupEditButton(UIView* view, id target, SEL edit)
     return editButton;
 }
 
-UIButton* setupAddButton(UIView* view, id target, SEL add)
+UIButton *setupAddButton(UIView *view, id target, SEL add)
 {
     UIButton *addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [addButton setImage:[UIImage imageNamed:@"Add.png"] forState:UIControlStateNormal];
@@ -25,14 +25,14 @@ UIButton* setupAddButton(UIView* view, id target, SEL add)
     return addButton;
 }
 
-void setupRightBarButtonItem(UINavigationItem* navigationItem, NSString* title, id target, SEL selector)
+void setupRightBarButtonItem(UINavigationItem *navigationItem, NSString *title, id target, SEL selector)
 {
     navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:title
         style:UIBarButtonItemStylePlain target:target action:selector];
     
 }
 
-void setupProfileButton(UINavigationItem* navigationItem, id target, SEL selector)
+void setupProfileButton(UINavigationItem *navigationItem, id target, SEL selector)
 {
     navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"Profile.png"]
         style:UIBarButtonItemStylePlain target:target action:selector];

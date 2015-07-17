@@ -10,11 +10,11 @@
 
 @interface LMAddHomeViewController ()
 
-@property(strong, nonatomic) IBOutlet UILabel* message;
-@property(strong, nonatomic) IBOutlet UITextField* nameField;
-@property(strong, nonatomic) IBOutlet UIPickerView* timezoneField;
-@property(strong, nonatomic) NSString* targetTimezone;
-@property(strong, nonatomic) NSArray* timezones;
+@property(strong, nonatomic) IBOutlet UILabel *message;
+@property(strong, nonatomic) IBOutlet UITextField *nameField;
+@property(strong, nonatomic) IBOutlet UIPickerView *timezoneField;
+@property(strong, nonatomic) NSString *targetTimezone;
+@property(strong, nonatomic) NSArray *timezones;
 
 @end
 
@@ -62,7 +62,7 @@
     self.timezones = @[@"America/Los_Angeles", @"America/Detroit", @"America/Denver"];
     if (self.targetHome != nil) {
         int cnt = 0;
-        for (NSString* tz in self.timezones) {
+        for (NSString *tz in self.timezones) {
             if ([tz isEqualToString:self.targetHome.timezone]) {
                 timezoneIdx = cnt;
                 break;
@@ -106,8 +106,8 @@
 
 -(void)handleAdd
 {
-    LMHomesTableViewController* __weak sourceVC = self.sourceVC;
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMHomesTableViewController *__weak sourceVC = self.sourceVC;
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     [MODEAppAPI createHome:data.clientAuth name:self.nameField.text timezone:self.targetTimezone
         completion:^(MODEHome *home, NSError *err) {
             if(err != nil) {
@@ -125,9 +125,9 @@
 
 -(void)handleDone
 {
-    LMHomesTableViewController* __weak sourceVC = self.sourceVC;
-    NSString* name = self.nameField.text;
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMHomesTableViewController *__weak sourceVC = self.sourceVC;
+    NSString *name = self.nameField.text;
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     [MODEAppAPI updateHome:data.clientAuth homeId:self.targetHome.homeId name:self.nameField.text timezone:self.targetTimezone
                 completion:^(MODEHome *home, NSError *err) {
        if(err != nil) {

@@ -26,8 +26,8 @@
         // Please see more detail (http://dev.tinkermode.com/tutorials/getting_started.html) to get them.
 //        self.projectId = 154;
 //        self.appId = @"ios-r1";
-        self.projectId = 157;
-        self.appId = @"ios";
+        self.projectId = 3;
+        self.appId = @"app1";
     }
     return self;
 }
@@ -45,13 +45,13 @@
 }
 
 
-void saveObject(NSString* key, id<MTLJSONSerializing> obj)
+void saveObject(NSString *key, id<MTLJSONSerializing> obj)
 {
     if (obj == nil) {
         NSLog(@"Object is nil: %@", key);
         return;
     }
-    NSError* err;
+    NSError *err;
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[MTLJSONAdapter JSONDictionaryFromModel:obj error:nil]
                                                        options:0 error:&err];
@@ -59,7 +59,7 @@ void saveObject(NSString* key, id<MTLJSONSerializing> obj)
         NSLog(@"%@", err);
     }
     
-    NSString* str = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    NSString *str = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     NSLog(@"saved: %@", str);
     
     [[NSUserDefaults standardUserDefaults] setObject:str forKey:key];
@@ -72,17 +72,17 @@ void saveObject(NSString* key, id<MTLJSONSerializing> obj)
     saveObject(@"members", self.members);
 }
 
-id loadObj(NSString* key, Class class)
+id loadObj(NSString *key, Class class)
 {
     if ([[NSUserDefaults standardUserDefaults] objectForKey:key])
     {
-        NSString* str = [[NSUserDefaults standardUserDefaults] objectForKey:key];
+        NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:key];
         
         NSLog(@"loaded: %@", str);
         
         NSError *err;
-        NSData* data = [str dataUsingEncoding:NSUTF8StringEncoding];
-        NSDictionary* dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
+        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+        NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:0 error:&err];
         
         id obj = [MTLJSONAdapter modelOfClass:class fromJSONDictionary:dict error:&err];
         

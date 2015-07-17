@@ -1,6 +1,6 @@
 #import "LMOverlayViewProtocol.h"
 
-void removeOverlayViewSub(UINavigationController* navigationController, void(^completion)())
+void removeOverlayViewSub(UINavigationController *navigationController, void(^completion)())
 {
     UIView *view = (UIView *)[navigationController.view viewWithTag:88];
     UILabel *label = (UILabel *)[navigationController.view viewWithTag:99];
@@ -20,7 +20,7 @@ void removeOverlayViewSub(UINavigationController* navigationController, void(^co
 
 }
 
-void setupOverlayView(UINavigationController* navigationController, NSString* text)
+void setupOverlayView(UINavigationController *navigationController, NSString *text)
 {
     // create a custom black view
     UIView *overlayView = [[UIView alloc] initWithFrame:navigationController.view.frame];

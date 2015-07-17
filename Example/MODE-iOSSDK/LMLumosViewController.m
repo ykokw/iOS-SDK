@@ -6,7 +6,7 @@
 
 @interface LMLumosViewController ()
 
-@property(strong, nonatomic) IBOutlet UILabel* message;
+@property(strong, nonatomic) IBOutlet UILabel *message;
 @property (strong, nonatomic) IBOutlet UIImageView *lumosLogo;
 
 @end
@@ -30,7 +30,7 @@
     [self.view sendSubviewToBack:backgroundImage];
     
     if ([[LMDataHolder sharedInstance] clientAuth].token != nil) {
-         NSString* segue = @"@console";
+         NSString *segue = @"@console";
         [self performSegueWithIdentifier:segue sender:self];
     }
 }

@@ -42,9 +42,9 @@
 -(void)fetchUserInfo
 {
     __weak __typeof__(self) weakSelf = self;
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     [MODEAppAPI getUser:data.clientAuth userId:data.clientAuth.userId
-        completion:^(MODEUser* user, NSError* err) {
+        completion:^(MODEUser *user, NSError *err) {
             if (err != nil) {
                 showAlert(err);
             } else {
@@ -56,7 +56,7 @@
 
 - (IBAction)handleLogout:(id)sender
 {
-    LMDataHolder* data = [LMDataHolder sharedInstance];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
     data.members = [[LMDataHolderMembers alloc] init];
     data.clientAuth = [[MODEClientAuthentication alloc] init];
     [data saveData];

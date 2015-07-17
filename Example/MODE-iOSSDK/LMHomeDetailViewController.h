@@ -5,7 +5,7 @@
 
 @interface LMHomeDetailViewController : UITableViewController<MODEDeviceEventDelegate>
 
-@property(strong, nonatomic) MODEHome* targetHome;
+@property(strong, nonatomic) MODEHome *targetHome;
 
 - (void)fetchMembers;
 - (void)fetchDevices;

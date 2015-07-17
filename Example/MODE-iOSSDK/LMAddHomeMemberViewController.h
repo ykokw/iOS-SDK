@@ -4,6 +4,6 @@
 
 @interface LMAddHomeMemberViewController : UIViewController
 
-@property(weak, nonatomic) LMHomeDetailViewController* sourceVC;
+@property(weak, nonatomic) LMHomeDetailViewController *sourceVC;
 
 @end
