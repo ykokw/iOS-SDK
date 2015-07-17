@@ -1,7 +1,7 @@
 #import "LMAddHomeViewController.h"
 #import "LMButtonUtils.h"
 #import "LMDataHolder.h"
-#import "LMHomeDetailableViewController.h"
+#import "LMHomeDetailViewController.h"
 #import "LMHomesTableViewController.h"
 #import "LMUIColor+Extentions.h"
 #import "LMUtils.h"
@@ -196,7 +196,7 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"HomeDetailSegue"]) {
-        LMHomeDetailableViewController* view = [segue destinationViewController];
+        LMHomeDetailViewController* view = [segue destinationViewController];
         NSIndexPath* indexPath = [self.tableView indexPathForSelectedRow];
         view.targetHome = [self.homes objectAtIndex:indexPath.row];
     } else if ([segue.identifier isEqualToString:@"AddHomeSegue"] ||

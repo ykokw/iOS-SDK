@@ -1,9 +1,9 @@
 #import <UIKit/UIKit.h>
 
-@class LMHomeDetailableViewController;
+@class LMHomeDetailViewController;
 
 @interface LMAddHomeMemberViewController : UIViewController
 
-@property(weak, nonatomic) LMHomeDetailableViewController* sourceVC;
+@property(weak, nonatomic) LMHomeDetailViewController* sourceVC;
 
 @end

@@ -3,7 +3,7 @@
 #import "LMButtonUtils.h"
 #import "LMDataHolder.h"
 #import "LMDeviceManager.h"
-#import "LMHomeDetailableViewController.h"
+#import "LMHomeDetailViewController.h"
 #import "LMUIColor+Extentions.h"
 #import "LMUtils.h"
 #import "MODEApp.h"
@@ -11,7 +11,7 @@
 #define DEVICES_IDX 0
 #define MEMBERS_IDX 1
 
-@interface LMHomeDetailableViewController ()
+@interface LMHomeDetailViewController ()
 
 @property(strong, nonatomic) UIView * tableHeaderSubView;
 @property(strong, nonatomic) UIButton* editButton;
@@ -26,7 +26,7 @@
 
 @end
 
-@implementation LMHomeDetailableViewController
+@implementation LMHomeDetailViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];

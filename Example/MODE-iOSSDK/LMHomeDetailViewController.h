@@ -3,7 +3,7 @@
 
 @class MODEHome;
 
-@interface LMHomeDetailableViewController : UITableViewController<MODEDeviceEventDelegate>
+@interface LMHomeDetailViewController : UITableViewController<MODEDeviceEventDelegate>
 
 @property(strong, nonatomic) MODEHome* targetHome;
 

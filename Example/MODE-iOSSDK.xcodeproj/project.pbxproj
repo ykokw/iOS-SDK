@@ -14,7 +14,6 @@
 		2124EA6A1B561CD700D35D97 /* LMAddHomeMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5C1B561CD700D35D97 /* LMAddHomeMemberViewController.m */; };
 		2124EA6B1B561CD700D35D97 /* LMAddHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5E1B561CD700D35D97 /* LMAddHomeViewController.m */; };
 		2124EA6C1B561CD700D35D97 /* LMButtonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA601B561CD700D35D97 /* LMButtonUtils.m */; };
-		2124EA6D1B561CD700D35D97 /* LMHomeDetailableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA621B561CD700D35D97 /* LMHomeDetailableViewController.m */; };
 		2124EA6E1B561CD700D35D97 /* LMHomesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA641B561CD700D35D97 /* LMHomesTableViewController.m */; };
 		2124EA6F1B561CD700D35D97 /* LMProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA661B561CD700D35D97 /* LMProfileEditViewController.m */; };
 		2124EA701B561CD700D35D97 /* LMProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA681B561CD700D35D97 /* LMProfileViewController.m */; };
@@ -46,6 +45,7 @@
 		214286971B5093A9006E3C1F /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286891B5093A9006E3C1F /* Background.png */; };
 		214286981B5093A9006E3C1F /* Authentication.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142868A1B5093A9006E3C1F /* Authentication.png */; };
 		214286991B5093A9006E3C1F /* Add.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142868B1B5093A9006E3C1F /* Add.png */; };
+		21A8E8781B597448002D09E6 /* LMHomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */; };
 		240900B08EFA32630145814C /* Pods_MODE_iOSSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E38AC9A22CAC1AA226C9880 /* Pods_MODE_iOSSDK_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -88,8 +88,6 @@
 		2124EA5E1B561CD700D35D97 /* LMAddHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMAddHomeViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2124EA5F1B561CD700D35D97 /* LMButtonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMButtonUtils.h; sourceTree = "<group>"; };
 		2124EA601B561CD700D35D97 /* LMButtonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMButtonUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
-		2124EA611B561CD700D35D97 /* LMHomeDetailableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMHomeDetailableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
-		2124EA621B561CD700D35D97 /* LMHomeDetailableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMHomeDetailableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2124EA631B561CD700D35D97 /* LMHomesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMHomesTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
 		2124EA641B561CD700D35D97 /* LMHomesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMHomesTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2124EA651B561CD700D35D97 /* LMProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMProfileEditViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -138,6 +136,8 @@
 		214286891B5093A9006E3C1F /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Images.xcassets/Background.png; sourceTree = "<group>"; };
 		2142868A1B5093A9006E3C1F /* Authentication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Authentication.png; path = Images.xcassets/Authentication.png; sourceTree = "<group>"; };
 		2142868B1B5093A9006E3C1F /* Add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Add.png; path = Images.xcassets/Add.png; sourceTree = "<group>"; };
+		21A8E8761B597448002D09E6 /* LMHomeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHomeDetailViewController.h; sourceTree = "<group>"; };
+		21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMHomeDetailViewController.m; sourceTree = "<group>"; };
 		2DFF3826F5A3A2128C83B9FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		47B286A23B4CB7AFC0DD9486 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* MODE-iOSSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MODE-iOSSDK_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -242,14 +242,14 @@
 		214286641B4DEE96006E3C1F /* ConsoleViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				21A8E8761B597448002D09E6 /* LMHomeDetailViewController.h */,
+				21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */,
 				2124EA591B561CD700D35D97 /* LMAddDeviceInConsoleViewController.h */,
 				2124EA5A1B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m */,
 				2124EA5B1B561CD700D35D97 /* LMAddHomeMemberViewController.h */,
 				2124EA5C1B561CD700D35D97 /* LMAddHomeMemberViewController.m */,
 				2124EA5D1B561CD700D35D97 /* LMAddHomeViewController.h */,
 				2124EA5E1B561CD700D35D97 /* LMAddHomeViewController.m */,
-				2124EA611B561CD700D35D97 /* LMHomeDetailableViewController.h */,
-				2124EA621B561CD700D35D97 /* LMHomeDetailableViewController.m */,
 				2124EA631B561CD700D35D97 /* LMHomesTableViewController.h */,
 				2124EA641B561CD700D35D97 /* LMHomesTableViewController.m */,
 				2124EA651B561CD700D35D97 /* LMProfileEditViewController.h */,
@@ -605,11 +605,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2124EA6D1B561CD700D35D97 /* LMHomeDetailableViewController.m in Sources */,
 				2124EA971B561D4900D35D97 /* LMUIColor+Extentions.m in Sources */,
 				2124EA6A1B561CD700D35D97 /* LMAddHomeMemberViewController.m in Sources */,
 				2124EA691B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m in Sources */,
 				6003F59E195388D20070C39A /* MODEAppDelegate.m in Sources */,
+				21A8E8781B597448002D09E6 /* LMHomeDetailViewController.m in Sources */,
 				2124EA851B561D1A00D35D97 /* LMVerifyAccountViewController.m in Sources */,
 				2124EA6C1B561CD700D35D97 /* LMButtonUtils.m in Sources */,
 				2124EA821B561D1A00D35D97 /* LMLumosViewController.m in Sources */,

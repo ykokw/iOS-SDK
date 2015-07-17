@@ -2,7 +2,7 @@
 #import "LMAddDeviceInConsoleViewController.h"
 #import "LMButtonUtils.h"
 #import "LMDataHolder.h"
-#import "LMHomeDetailableViewController.h"
+#import "LMHomeDetailViewController.h"
 #import "LMMessages.h"
 #import "LMUIColor+Extentions.h"
 #import "LMUtils.h"
@@ -39,7 +39,7 @@
 
 -(void)updateDeviceName:(MODEDevice*)device
 {
-    LMHomeDetailableViewController* __weak sourceVC = self.sourceVC;
+    LMHomeDetailViewController* __weak sourceVC = self.sourceVC;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI updateDevice:data.clientAuth deviceId:device.deviceId name:self.deviceNameField.text
         completion:^(MODEDevice* device, NSError* err) {

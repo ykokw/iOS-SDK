@@ -1,6 +1,6 @@
 #import "LMAddHomeMemberViewController.h"
 #import "LMDataHolder.h"
-#import "LMHomeDetailableViewController.h"
+#import "LMHomeDetailViewController.h"
 #import "LMMessages.h"
 #import "LMUtils.h"
 #import "LMButtonUtils.h"
@@ -30,7 +30,7 @@
 
 -(void)handleAdd
 {
-    LMHomeDetailableViewController* __weak sourceVC = self.sourceVC;
+    LMHomeDetailViewController* __weak sourceVC = self.sourceVC;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI addHomeMember:data.clientAuth homeId:self.sourceVC.targetHome.homeId phoneNumber:self.phoneNumberField.text
         completion:^(MODEHomeMember* member, NSError* err) {
