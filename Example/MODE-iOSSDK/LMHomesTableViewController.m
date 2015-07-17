@@ -34,42 +34,46 @@
     [self performSegueWithIdentifier:@"ProfileSegue" sender:nil];
 }
 
-- (void) fetchHomes
+- (void)fetchHomes
 {
     [self fetchHomesWithBlock:nil];
 }
 
-- (void) fetchHomesWithBlock:(void(^)())complete
+- (void)updateHomes:(NSArray*)homes err:(NSError*)err
+{
+    NSLog(@"Get homes;");
+    for (MODEHome* home in homes) {
+        NSLog(@"Home: %@", home);
+    }
+    self.homes = [NSMutableArray arrayWithArray:homes];
+    [self.tableView reloadData];
+}
+
+- (void)fetchHomesWithBlock:(void(^)())complete
 {
     __weak __typeof__(self) weakSelf = self;
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [MODEAppAPI getHomes:data.clientAuth userId:data.clientAuth.userId
           completion:^(NSArray *homes, NSError *err) {
-              if (homes != nil) {
-                  NSLog(@"Get homes;");
-                  for (MODEHome* home in homes) {
-                      NSLog(@"Home: %@", home);
-                  }
-                  weakSelf.homes = [NSMutableArray arrayWithArray:homes];
-                  [weakSelf.tableView reloadData];
-              } else {
+              if (err != nil) {
                   showAlert(err);
+              } else {
+                  [weakSelf updateHomes:homes err:err];
               }
               
               if (complete != nil) {
                   complete();
               }
-
           }];
 }
 
-- (void) handleAdd
+- (void)handleAdd
 {
     [self performSegueWithIdentifier:@"AddHomeSegue" sender:nil];
     
 }
 
-- (void) handleEdit
+- (void)handleEdit
 {
     NSLog(@"handleEdit");
     self.editButton.selected = !self.editing;
