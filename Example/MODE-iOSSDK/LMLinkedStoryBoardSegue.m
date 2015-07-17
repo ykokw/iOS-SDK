@@ -9,8 +9,7 @@
     NSString *storyboard_name = info[1];
     NSString *scene_name = info[0];
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboard_name
-                                                         bundle:nil];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:storyboard_name bundle:nil];
     UIViewController *scene = nil;
     
     if (scene_name.length == 0) {
@@ -26,14 +25,13 @@
                   source:(UIViewController *)source
              destination:(UIViewController *)destination
 {
-    return [super initWithIdentifier:identifier
-                              source:source
+    return [super initWithIdentifier:identifier source:source
                          destination:[LMLinkedStoryBoardSegue sceneNamed:identifier]];
 }
 
 - (void)perform
 {
-    UIViewController *source = (UIViewController *)self.sourceViewController;
+    UIViewController *source = self.sourceViewController;
     [source.navigationController pushViewController:self.destinationViewController
                                            animated:YES];
 }
