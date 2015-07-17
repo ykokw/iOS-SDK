@@ -7,6 +7,45 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		210F9EE11B56E26000544AE5 /* Lumos_AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 210F9EE01B56E26000544AE5 /* Lumos_AppIcon.png */; };
+		210F9EE31B57796100544AE5 /* Lumos_logo.png in Resources */ = {isa = PBXBuildFile; fileRef = 210F9EE21B57796100544AE5 /* Lumos_logo.png */; };
+		210F9EE61B578B2E00544AE5 /* LMRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 210F9EE51B578B2E00544AE5 /* LMRoundButton.m */; };
+		2124EA691B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5A1B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m */; };
+		2124EA6A1B561CD700D35D97 /* LMAddHomeMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5C1B561CD700D35D97 /* LMAddHomeMemberViewController.m */; };
+		2124EA6B1B561CD700D35D97 /* LMAddHomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5E1B561CD700D35D97 /* LMAddHomeViewController.m */; };
+		2124EA6C1B561CD700D35D97 /* LMButtonUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA601B561CD700D35D97 /* LMButtonUtils.m */; };
+		2124EA6E1B561CD700D35D97 /* LMHomesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA641B561CD700D35D97 /* LMHomesTableViewController.m */; };
+		2124EA6F1B561CD700D35D97 /* LMProfileEditViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA661B561CD700D35D97 /* LMProfileEditViewController.m */; };
+		2124EA701B561CD700D35D97 /* LMProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA681B561CD700D35D97 /* LMProfileViewController.m */; };
+		2124EA7F1B561D1A00D35D97 /* LMAddDevicesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA721B561D1A00D35D97 /* LMAddDevicesViewController.m */; };
+		2124EA801B561D1A00D35D97 /* LMAuthenticateAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA741B561D1A00D35D97 /* LMAuthenticateAccountViewController.m */; };
+		2124EA811B561D1A00D35D97 /* LMLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA761B561D1A00D35D97 /* LMLoginViewController.m */; };
+		2124EA821B561D1A00D35D97 /* LMLumosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA781B561D1A00D35D97 /* LMLumosViewController.m */; };
+		2124EA831B561D1A00D35D97 /* LMRegisteredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA7A1B561D1A00D35D97 /* LMRegisteredViewController.m */; };
+		2124EA841B561D1A00D35D97 /* LMSignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA7C1B561D1A00D35D97 /* LMSignUpViewController.m */; };
+		2124EA851B561D1A00D35D97 /* LMVerifyAccountViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA7E1B561D1A00D35D97 /* LMVerifyAccountViewController.m */; };
+		2124EA8F1B561D3B00D35D97 /* LMDataHolder.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA871B561D3B00D35D97 /* LMDataHolder.m */; };
+		2124EA901B561D3B00D35D97 /* LMDeviceManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA891B561D3B00D35D97 /* LMDeviceManager.m */; };
+		2124EA911B561D3B00D35D97 /* LMLinkedStoryBoardSegue.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA8B1B561D3B00D35D97 /* LMLinkedStoryBoardSegue.m */; };
+		2124EA921B561D3B00D35D97 /* LMOverlayViewProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA8E1B561D3B00D35D97 /* LMOverlayViewProtocol.m */; };
+		2124EA971B561D4900D35D97 /* LMUIColor+Extentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA941B561D4900D35D97 /* LMUIColor+Extentions.m */; };
+		2124EA981B561D4900D35D97 /* LMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA961B561D4900D35D97 /* LMUtils.m */; };
+		2142865A1B4D98A2006E3C1F /* console.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214286591B4D98A2006E3C1F /* console.storyboard */; };
+		2142868C1B5093A9006E3C1F /* TimeZone.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142867E1B5093A8006E3C1F /* TimeZone.png */; };
+		2142868D1B5093A9006E3C1F /* Settings White.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142867F1B5093A8006E3C1F /* Settings White.png */; };
+		2142868E1B5093A9006E3C1F /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286801B5093A8006E3C1F /* Settings.png */; };
+		2142868F1B5093A9006E3C1F /* Settings Red.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286811B5093A8006E3C1F /* Settings Red.png */; };
+		214286901B5093A9006E3C1F /* Profile.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286821B5093A8006E3C1F /* Profile.png */; };
+		214286911B5093A9006E3C1F /* Phone.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286831B5093A8006E3C1F /* Phone.png */; };
+		214286921B5093A9006E3C1F /* Nickname.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286841B5093A8006E3C1F /* Nickname.png */; };
+		214286931B5093A9006E3C1F /* Name.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286851B5093A8006E3C1F /* Name.png */; };
+		214286941B5093A9006E3C1F /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286861B5093A9006E3C1F /* Home.png */; };
+		214286951B5093A9006E3C1F /* Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286871B5093A9006E3C1F /* Edit.png */; };
+		214286961B5093A9006E3C1F /* ClaimCode.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286881B5093A9006E3C1F /* ClaimCode.png */; };
+		214286971B5093A9006E3C1F /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 214286891B5093A9006E3C1F /* Background.png */; };
+		214286981B5093A9006E3C1F /* Authentication.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142868A1B5093A9006E3C1F /* Authentication.png */; };
+		214286991B5093A9006E3C1F /* Add.png in Resources */ = {isa = PBXBuildFile; fileRef = 2142868B1B5093A9006E3C1F /* Add.png */; };
+		21A8E8781B597448002D09E6 /* LMHomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */; };
 		240900B08EFA32630145814C /* Pods_MODE_iOSSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E38AC9A22CAC1AA226C9880 /* Pods_MODE_iOSSDK_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -37,6 +76,68 @@
 
 /* Begin PBXFileReference section */
 		030D11C9C043D5B1DD1B8AF4 /* Pods-MODE-iOSSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MODE-iOSSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MODE-iOSSDK_Tests/Pods-MODE-iOSSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		210F9EE01B56E26000544AE5 /* Lumos_AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lumos_AppIcon.png; path = Images.xcassets/Lumos_AppIcon.png; sourceTree = "<group>"; };
+		210F9EE21B57796100544AE5 /* Lumos_logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lumos_logo.png; path = Images.xcassets/Lumos_logo.png; sourceTree = "<group>"; };
+		210F9EE41B578B2E00544AE5 /* LMRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMRoundButton.h; sourceTree = "<group>"; };
+		210F9EE51B578B2E00544AE5 /* LMRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMRoundButton.m; sourceTree = "<group>"; };
+		2124EA591B561CD700D35D97 /* LMAddDeviceInConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAddDeviceInConsoleViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA5A1B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMAddDeviceInConsoleViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA5B1B561CD700D35D97 /* LMAddHomeMemberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAddHomeMemberViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA5C1B561CD700D35D97 /* LMAddHomeMemberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMAddHomeMemberViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA5D1B561CD700D35D97 /* LMAddHomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAddHomeViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA5E1B561CD700D35D97 /* LMAddHomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMAddHomeViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA5F1B561CD700D35D97 /* LMButtonUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMButtonUtils.h; sourceTree = "<group>"; };
+		2124EA601B561CD700D35D97 /* LMButtonUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMButtonUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA631B561CD700D35D97 /* LMHomesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMHomesTableViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA641B561CD700D35D97 /* LMHomesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMHomesTableViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA651B561CD700D35D97 /* LMProfileEditViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMProfileEditViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA661B561CD700D35D97 /* LMProfileEditViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMProfileEditViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA671B561CD700D35D97 /* LMProfileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMProfileViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA681B561CD700D35D97 /* LMProfileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMProfileViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA711B561D1A00D35D97 /* LMAddDevicesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAddDevicesViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA721B561D1A00D35D97 /* LMAddDevicesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMAddDevicesViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA731B561D1A00D35D97 /* LMAuthenticateAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAuthenticateAccountViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA741B561D1A00D35D97 /* LMAuthenticateAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMAuthenticateAccountViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA751B561D1A00D35D97 /* LMLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMLoginViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA761B561D1A00D35D97 /* LMLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMLoginViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA771B561D1A00D35D97 /* LMLumosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLumosViewController.h; sourceTree = "<group>"; };
+		2124EA781B561D1A00D35D97 /* LMLumosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMLumosViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA791B561D1A00D35D97 /* LMRegisteredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMRegisteredViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA7A1B561D1A00D35D97 /* LMRegisteredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMRegisteredViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA7B1B561D1A00D35D97 /* LMSignUpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMSignUpViewController.h; sourceTree = "<group>"; };
+		2124EA7C1B561D1A00D35D97 /* LMSignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMSignUpViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA7D1B561D1A00D35D97 /* LMVerifyAccountViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMVerifyAccountViewController.h; sourceTree = "<group>"; };
+		2124EA7E1B561D1A00D35D97 /* LMVerifyAccountViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMVerifyAccountViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA861B561D3B00D35D97 /* LMDataHolder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMDataHolder.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA871B561D3B00D35D97 /* LMDataHolder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMDataHolder.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA881B561D3B00D35D97 /* LMDeviceManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMDeviceManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA891B561D3B00D35D97 /* LMDeviceManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMDeviceManager.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA8A1B561D3B00D35D97 /* LMLinkedStoryBoardSegue.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMLinkedStoryBoardSegue.h; sourceTree = "<group>"; };
+		2124EA8B1B561D3B00D35D97 /* LMLinkedStoryBoardSegue.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMLinkedStoryBoardSegue.m; sourceTree = "<group>"; };
+		2124EA8C1B561D3B00D35D97 /* LMMessages.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMMessages.h; sourceTree = "<group>"; };
+		2124EA8D1B561D3B00D35D97 /* LMOverlayViewProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMOverlayViewProtocol.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		2124EA8E1B561D3B00D35D97 /* LMOverlayViewProtocol.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMOverlayViewProtocol.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA931B561D4900D35D97 /* LMUIColor+Extentions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "LMUIColor+Extentions.h"; sourceTree = "<group>"; };
+		2124EA941B561D4900D35D97 /* LMUIColor+Extentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "LMUIColor+Extentions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2124EA951B561D4900D35D97 /* LMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMUtils.h; sourceTree = "<group>"; };
+		2124EA961B561D4900D35D97 /* LMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		214286591B4D98A2006E3C1F /* console.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = console.storyboard; sourceTree = "<group>"; };
+		2142867E1B5093A8006E3C1F /* TimeZone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TimeZone.png; path = Images.xcassets/TimeZone.png; sourceTree = "<group>"; };
+		2142867F1B5093A8006E3C1F /* Settings White.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Settings White.png"; path = "Images.xcassets/Settings White.png"; sourceTree = "<group>"; };
+		214286801B5093A8006E3C1F /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Settings.png; path = Images.xcassets/Settings.png; sourceTree = "<group>"; };
+		214286811B5093A8006E3C1F /* Settings Red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = "Settings Red.png"; path = "Images.xcassets/Settings Red.png"; sourceTree = "<group>"; };
+		214286821B5093A8006E3C1F /* Profile.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Profile.png; path = Images.xcassets/Profile.png; sourceTree = "<group>"; };
+		214286831B5093A8006E3C1F /* Phone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Phone.png; path = Images.xcassets/Phone.png; sourceTree = "<group>"; };
+		214286841B5093A8006E3C1F /* Nickname.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Nickname.png; path = Images.xcassets/Nickname.png; sourceTree = "<group>"; };
+		214286851B5093A8006E3C1F /* Name.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Name.png; path = Images.xcassets/Name.png; sourceTree = "<group>"; };
+		214286861B5093A9006E3C1F /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Home.png; path = Images.xcassets/Home.png; sourceTree = "<group>"; };
+		214286871B5093A9006E3C1F /* Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Edit.png; path = Images.xcassets/Edit.png; sourceTree = "<group>"; };
+		214286881B5093A9006E3C1F /* ClaimCode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ClaimCode.png; path = Images.xcassets/ClaimCode.png; sourceTree = "<group>"; };
+		214286891B5093A9006E3C1F /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Images.xcassets/Background.png; sourceTree = "<group>"; };
+		2142868A1B5093A9006E3C1F /* Authentication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Authentication.png; path = Images.xcassets/Authentication.png; sourceTree = "<group>"; };
+		2142868B1B5093A9006E3C1F /* Add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Add.png; path = Images.xcassets/Add.png; sourceTree = "<group>"; };
+		21A8E8761B597448002D09E6 /* LMHomeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHomeDetailViewController.h; sourceTree = "<group>"; };
+		21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMHomeDetailViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DFF3826F5A3A2128C83B9FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		47B286A23B4CB7AFC0DD9486 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* MODE-iOSSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MODE-iOSSDK_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,11 +145,11 @@
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		6003F591195388D20070C39A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		6003F595195388D20070C39A /* MODE-iOSSDK-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "MODE-iOSSDK-Info.plist"; sourceTree = "<group>"; };
-		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		6003F597195388D20070C39A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; lineEnding = 0; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.simpleColoring; };
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6003F59B195388D20070C39A /* MODE-iOSSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MODE-iOSSDK-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* MODEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MODEAppDelegate.h; sourceTree = "<group>"; };
-		6003F59D195388D20070C39A /* MODEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MODEAppDelegate.m; sourceTree = "<group>"; };
+		6003F59D195388D20070C39A /* MODEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MODEAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6003F5A5195388D20070C39A /* MODEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MODEViewController.h; sourceTree = "<group>"; };
 		6003F5A6195388D20070C39A /* MODEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MODEViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
@@ -93,6 +194,95 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		214286551B4D97FE006E3C1F /* misc */ = {
+			isa = PBXGroup;
+			children = (
+				2124EA5F1B561CD700D35D97 /* LMButtonUtils.h */,
+				2124EA601B561CD700D35D97 /* LMButtonUtils.m */,
+				2124EA931B561D4900D35D97 /* LMUIColor+Extentions.h */,
+				2124EA941B561D4900D35D97 /* LMUIColor+Extentions.m */,
+				2124EA951B561D4900D35D97 /* LMUtils.h */,
+				2124EA961B561D4900D35D97 /* LMUtils.m */,
+				2124EA861B561D3B00D35D97 /* LMDataHolder.h */,
+				2124EA871B561D3B00D35D97 /* LMDataHolder.m */,
+				2124EA881B561D3B00D35D97 /* LMDeviceManager.h */,
+				2124EA891B561D3B00D35D97 /* LMDeviceManager.m */,
+				2124EA8A1B561D3B00D35D97 /* LMLinkedStoryBoardSegue.h */,
+				2124EA8B1B561D3B00D35D97 /* LMLinkedStoryBoardSegue.m */,
+				2124EA8C1B561D3B00D35D97 /* LMMessages.h */,
+				2124EA8D1B561D3B00D35D97 /* LMOverlayViewProtocol.h */,
+				2124EA8E1B561D3B00D35D97 /* LMOverlayViewProtocol.m */,
+				210F9EE41B578B2E00544AE5 /* LMRoundButton.h */,
+				210F9EE51B578B2E00544AE5 /* LMRoundButton.m */,
+			);
+			name = misc;
+			sourceTree = "<group>";
+		};
+		214286561B4D9823006E3C1F /* MainViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				2124EA711B561D1A00D35D97 /* LMAddDevicesViewController.h */,
+				2124EA721B561D1A00D35D97 /* LMAddDevicesViewController.m */,
+				2124EA731B561D1A00D35D97 /* LMAuthenticateAccountViewController.h */,
+				2124EA741B561D1A00D35D97 /* LMAuthenticateAccountViewController.m */,
+				2124EA751B561D1A00D35D97 /* LMLoginViewController.h */,
+				2124EA761B561D1A00D35D97 /* LMLoginViewController.m */,
+				2124EA771B561D1A00D35D97 /* LMLumosViewController.h */,
+				2124EA781B561D1A00D35D97 /* LMLumosViewController.m */,
+				2124EA791B561D1A00D35D97 /* LMRegisteredViewController.h */,
+				2124EA7A1B561D1A00D35D97 /* LMRegisteredViewController.m */,
+				2124EA7B1B561D1A00D35D97 /* LMSignUpViewController.h */,
+				2124EA7C1B561D1A00D35D97 /* LMSignUpViewController.m */,
+				2124EA7D1B561D1A00D35D97 /* LMVerifyAccountViewController.h */,
+				2124EA7E1B561D1A00D35D97 /* LMVerifyAccountViewController.m */,
+			);
+			name = MainViewControllers;
+			sourceTree = "<group>";
+		};
+		214286641B4DEE96006E3C1F /* ConsoleViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				21A8E8761B597448002D09E6 /* LMHomeDetailViewController.h */,
+				21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */,
+				2124EA591B561CD700D35D97 /* LMAddDeviceInConsoleViewController.h */,
+				2124EA5A1B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m */,
+				2124EA5B1B561CD700D35D97 /* LMAddHomeMemberViewController.h */,
+				2124EA5C1B561CD700D35D97 /* LMAddHomeMemberViewController.m */,
+				2124EA5D1B561CD700D35D97 /* LMAddHomeViewController.h */,
+				2124EA5E1B561CD700D35D97 /* LMAddHomeViewController.m */,
+				2124EA631B561CD700D35D97 /* LMHomesTableViewController.h */,
+				2124EA641B561CD700D35D97 /* LMHomesTableViewController.m */,
+				2124EA651B561CD700D35D97 /* LMProfileEditViewController.h */,
+				2124EA661B561CD700D35D97 /* LMProfileEditViewController.m */,
+				2124EA671B561CD700D35D97 /* LMProfileViewController.h */,
+				2124EA681B561CD700D35D97 /* LMProfileViewController.m */,
+			);
+			name = ConsoleViewControllers;
+			sourceTree = "<group>";
+		};
+		2142869A1B5093BE006E3C1F /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				210F9EE21B57796100544AE5 /* Lumos_logo.png */,
+				210F9EE01B56E26000544AE5 /* Lumos_AppIcon.png */,
+				2142867E1B5093A8006E3C1F /* TimeZone.png */,
+				2142867F1B5093A8006E3C1F /* Settings White.png */,
+				214286801B5093A8006E3C1F /* Settings.png */,
+				214286811B5093A8006E3C1F /* Settings Red.png */,
+				214286821B5093A8006E3C1F /* Profile.png */,
+				214286831B5093A8006E3C1F /* Phone.png */,
+				214286841B5093A8006E3C1F /* Nickname.png */,
+				214286851B5093A8006E3C1F /* Name.png */,
+				214286861B5093A9006E3C1F /* Home.png */,
+				214286871B5093A9006E3C1F /* Edit.png */,
+				214286881B5093A9006E3C1F /* ClaimCode.png */,
+				214286891B5093A9006E3C1F /* Background.png */,
+				2142868A1B5093A9006E3C1F /* Authentication.png */,
+				2142868B1B5093A9006E3C1F /* Add.png */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -130,9 +320,14 @@
 		6003F593195388D20070C39A /* Example for MODE-iOSSDK */ = {
 			isa = PBXGroup;
 			children = (
+				2142869A1B5093BE006E3C1F /* Images */,
+				214286641B4DEE96006E3C1F /* ConsoleViewControllers */,
+				214286561B4D9823006E3C1F /* MainViewControllers */,
+				214286551B4D97FE006E3C1F /* misc */,
 				6003F59C195388D20070C39A /* MODEAppDelegate.h */,
 				6003F59D195388D20070C39A /* MODEAppDelegate.m */,
 				873B8AEA1B1F5CCA007FD442 /* Main.storyboard */,
+				214286591B4D98A2006E3C1F /* console.storyboard */,
 				6003F5A5195388D20070C39A /* MODEViewController.h */,
 				6003F5A6195388D20070C39A /* MODEViewController.m */,
 				6003F5A8195388D20070C39A /* Images.xcassets */,
@@ -247,6 +442,9 @@
 				LastUpgradeCheck = 0510;
 				ORGANIZATIONNAME = "Naoki Takano";
 				TargetAttributes = {
+					6003F589195388D20070C39A = {
+						DevelopmentTeam = 3QL3SR29C3;
+					};
 					6003F5AD195388D20070C39A = {
 						TestTargetID = 6003F589195388D20070C39A;
 					};
@@ -276,9 +474,26 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				214286931B5093A9006E3C1F /* Name.png in Resources */,
+				214286971B5093A9006E3C1F /* Background.png in Resources */,
+				2142868E1B5093A9006E3C1F /* Settings.png in Resources */,
+				214286991B5093A9006E3C1F /* Add.png in Resources */,
+				210F9EE11B56E26000544AE5 /* Lumos_AppIcon.png in Resources */,
+				2142865A1B4D98A2006E3C1F /* console.storyboard in Resources */,
 				873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */,
+				214286941B5093A9006E3C1F /* Home.png in Resources */,
+				214286961B5093A9006E3C1F /* ClaimCode.png in Resources */,
+				214286921B5093A9006E3C1F /* Nickname.png in Resources */,
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
+				214286911B5093A9006E3C1F /* Phone.png in Resources */,
+				214286981B5093A9006E3C1F /* Authentication.png in Resources */,
+				210F9EE31B57796100544AE5 /* Lumos_logo.png in Resources */,
+				214286901B5093A9006E3C1F /* Profile.png in Resources */,
+				2142868D1B5093A9006E3C1F /* Settings White.png in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
+				214286951B5093A9006E3C1F /* Edit.png in Resources */,
+				2142868C1B5093A9006E3C1F /* TimeZone.png in Resources */,
+				2142868F1B5093A9006E3C1F /* Settings Red.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,9 +605,31 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2124EA971B561D4900D35D97 /* LMUIColor+Extentions.m in Sources */,
+				2124EA6A1B561CD700D35D97 /* LMAddHomeMemberViewController.m in Sources */,
+				2124EA691B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m in Sources */,
 				6003F59E195388D20070C39A /* MODEAppDelegate.m in Sources */,
+				21A8E8781B597448002D09E6 /* LMHomeDetailViewController.m in Sources */,
+				2124EA851B561D1A00D35D97 /* LMVerifyAccountViewController.m in Sources */,
+				2124EA6C1B561CD700D35D97 /* LMButtonUtils.m in Sources */,
+				2124EA821B561D1A00D35D97 /* LMLumosViewController.m in Sources */,
+				2124EA921B561D3B00D35D97 /* LMOverlayViewProtocol.m in Sources */,
+				2124EA6B1B561CD700D35D97 /* LMAddHomeViewController.m in Sources */,
+				2124EA901B561D3B00D35D97 /* LMDeviceManager.m in Sources */,
 				6003F5A7195388D20070C39A /* MODEViewController.m in Sources */,
+				2124EA6F1B561CD700D35D97 /* LMProfileEditViewController.m in Sources */,
+				2124EA801B561D1A00D35D97 /* LMAuthenticateAccountViewController.m in Sources */,
 				6003F59A195388D20070C39A /* main.m in Sources */,
+				2124EA6E1B561CD700D35D97 /* LMHomesTableViewController.m in Sources */,
+				2124EA701B561CD700D35D97 /* LMProfileViewController.m in Sources */,
+				2124EA7F1B561D1A00D35D97 /* LMAddDevicesViewController.m in Sources */,
+				2124EA8F1B561D3B00D35D97 /* LMDataHolder.m in Sources */,
+				2124EA911B561D3B00D35D97 /* LMLinkedStoryBoardSegue.m in Sources */,
+				210F9EE61B578B2E00544AE5 /* LMRoundButton.m in Sources */,
+				2124EA811B561D1A00D35D97 /* LMLoginViewController.m in Sources */,
+				2124EA841B561D1A00D35D97 /* LMSignUpViewController.m in Sources */,
+				2124EA831B561D1A00D35D97 /* LMRegisteredViewController.m in Sources */,
+				2124EA981B561D4900D35D97 /* LMUtils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,7 +687,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Gaku Ueda (N6TXMLTTA4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gaku Ueda (N6TXMLTTA4)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -489,7 +727,8 @@
 				CLANG_WARN_INT_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Gaku Ueda (N6TXMLTTA4)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gaku Ueda (N6TXMLTTA4)";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -512,11 +751,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MODE-iOSSDK/MODE-iOSSDK-Prefix.pch";
 				INFOPLIST_FILE = "MODE-iOSSDK/MODE-iOSSDK-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -527,11 +769,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MODE-iOSSDK/MODE-iOSSDK-Prefix.pch";
 				INFOPLIST_FILE = "MODE-iOSSDK/MODE-iOSSDK-Info.plist";
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;

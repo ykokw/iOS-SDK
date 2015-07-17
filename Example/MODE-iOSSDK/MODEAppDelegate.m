@@ -1,21 +1,42 @@
-//
-//  MODEAppDelegate.m
-//  MODE-iOSSDK
-//
-//  Created by CocoaPods on 06/29/2015.
-//  Copyright (c) 2014 Naoki Takano. All rights reserved.
-//
-
+#import "LMDataHolder.h"
+#import "LMDeviceManager.h"
 #import "MODEAppDelegate.h"
 
 @implementation MODEAppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillTerminate:) name:UIApplicationWillTerminateNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Override point for customization after application launch.
+    [[LMDataHolder sharedInstance] loadData];
     return YES;
 }
-							
+
+- (void)appDidBecomeActive:(NSNotification *)note
+{
+    NSLog(@"appDidBecomeActive");
+    [[LMDeviceManager sharedInstance] reconnect];
+}
+
+- (void)appWillResignActive:(NSNotification *)note
+{
+    NSLog(@"appWillResignActive");
+    [[LMDeviceManager sharedInstance] stopListenToEvents];
+}
+
+- (void)appWillTerminate:(NSNotification *)note
+{
+     NSLog(@"appWillTerminate");
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillTerminateNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[LMDataHolder sharedInstance] saveData];
+}
+
 - (void)applicationWillResignActive:(UIApplication *)application
 {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

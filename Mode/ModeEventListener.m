@@ -4,7 +4,6 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
 
 @implementation MODEEventListener
 
-
 @synthesize didClose;
 @synthesize didFail;
 @synthesize didOpen;
