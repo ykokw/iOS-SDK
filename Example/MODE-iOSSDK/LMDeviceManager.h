@@ -4,7 +4,7 @@
 
 @protocol MODEDeviceEventDelegate <NSObject>
 
--(void)receivedEvent:(int)deviceId status:(BOOL)status;
+- (void)receivedEvent:(int)deviceId status:(BOOL)status;
 
 @end
 

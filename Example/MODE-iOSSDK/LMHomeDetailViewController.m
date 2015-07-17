@@ -47,12 +47,12 @@
     [[LMDeviceManager sharedInstance]removeMODEDeviceDelegate:self];
 }
 
--(BOOL)isMembers
+- (BOOL)isMembers
 {
     return self.devicesOrMembersControl.selectedSegmentIndex == MEMBERS_IDX;
 }
 
--(void) handleProfile
+- (void)handleProfile
 {
     [self performSegueWithIdentifier:@"ProfileSegue" sender:nil];
 }
@@ -102,7 +102,7 @@
     [self fetchDevicesWithBlock:nil];
 }
 
--(void)updateDeviceItems:(NSArray*)devices err:(NSError*)err
+- (void)updateDeviceItems:(NSArray*)devices err:(NSError*)err
 {
     if (![self isMembers]){
         if (devices != nil) {
@@ -140,19 +140,19 @@
         }];
 }
 
-- (void) handleAdd
+- (void)handleAdd
 {
     [self performSegueWithIdentifier:
         ([self isMembers] ? @"AddHomeMemberSegue" : @"AddDeviceSegue") sender:nil];
 }
 
-- (void) handleEdit
+- (void)handleEdit
 {
     self.editButton.selected = !self.editing;
     [self setEditing:!self.editing animated:true];
 }
 
--(void)handleDevicesOrMembers:(UISegmentedControl*)segment
+- (void)handleDevicesOrMembers:(UISegmentedControl*)segment
 {
     if ([self isMembers]) {
         [self fetchMembers];
@@ -192,7 +192,7 @@
     return 50.0;
 }
 
--(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
 {
     return 75.0;
 }
@@ -208,12 +208,12 @@
     return self.items.count;
 }
 
-- (NSString*) getCellIdentifier
+- (NSString *) getCellIdentifier
 {
     return [self isMembers] ? @"membersCellId" : @"devicesCellId";
 }
 
--(void)receivedEvent:(int)deviceId status:(BOOL)status {
+- (void)receivedEvent:(int)deviceId status:(BOOL)status {
     UISwitch *switchView = self.deviceIdToSwitches[[NSNumber numberWithInt:deviceId]];
     [switchView setOn:status animated:TRUE];
     // The status is used when UISwitch is intialized in setupCell.
@@ -232,7 +232,7 @@
     [[LMDeviceManager sharedInstance] triggerSwitch:device.deviceId status:sw.on];
 }
 
-- (void) setupCell:(UITableViewCell*) cell row:(long)row
+- (void)setupCell:(UITableViewCell*) cell row:(long)row
 {
     NSString *cellvalue;
     

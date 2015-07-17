@@ -28,7 +28,7 @@
     [self fetchUserInfo];
 }
 
--(void)handleDone
+- (void)handleDone
 {
     LMProfileViewController *__weak sourceVC = self.sourceVC;
     LMDataHolder *data = [LMDataHolder sharedInstance];
@@ -45,13 +45,13 @@
     [self.navigationController popToViewController:self.sourceVC animated:YES];
 }
 
--(void) updateFields:(MODEUser*) user
+- (void)updateFields:(MODEUser *) user
 {
     setupStandardTextField(self.nameField, user.name, @"Name.png");
     setupStandardTextField(self.phonenumberField, formatPhonenumberFromString(user.phoneNumber), @"Phone.png");
 }
 
--(void)fetchUserInfo
+- (void)fetchUserInfo
 {
     __weak __typeof__(self) weakSelf = self;
     LMDataHolder *data = [LMDataHolder sharedInstance];

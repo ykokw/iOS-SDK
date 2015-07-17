@@ -30,7 +30,7 @@
     return self.targetHome ? @"Edit Home" : @"Add Home";
 }
 
--(void) setupRightBarButton
+- (void)setupRightBarButton
 {
     if (self.targetHome) {
         setupRightBarButtonItem(self.navigationItem, @"Done", self, @selector(handleDone));
@@ -78,7 +78,7 @@
     setupKeyboardDismisser(self, @selector(dismissKeyboard));
 }
 
--(void)dismissKeyboard
+- (void)dismissKeyboard
 {
     [self.nameField resignFirstResponder];
 }
@@ -93,7 +93,7 @@
     return self.timezones.count;
 }
 
--(void)pickerView:(UIPickerView*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+- (void)pickerView:(UIPickerView*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
     self.targetTimezone = self.timezones[row];
 }
@@ -104,7 +104,7 @@
     return self.timezones[row];
 }
 
--(void)handleAdd
+- (void)handleAdd
 {
     LMHomesTableViewController *__weak sourceVC = self.sourceVC;
     LMDataHolder *data = [LMDataHolder sharedInstance];
@@ -123,7 +123,7 @@
 
 }
 
--(void)handleDone
+- (void)handleDone
 {
     LMHomesTableViewController *__weak sourceVC = self.sourceVC;
     NSString *name = self.nameField.text;

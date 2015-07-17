@@ -3,6 +3,6 @@
 
 @interface LMRegisteredViewController : UIViewController<LMOverlayViewProtocol>
 
--(void) removeOverlayViews;
+- (void)removeOverlayViews;
 
 @end

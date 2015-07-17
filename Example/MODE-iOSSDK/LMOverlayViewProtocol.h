@@ -3,6 +3,6 @@ void setupOverlayView(UINavigationController *navigationController, NSString *te
 
 @protocol LMOverlayViewProtocol <NSObject>
 
--(void) removeOverlayViews;
+- (void)removeOverlayViews;
 
 @end

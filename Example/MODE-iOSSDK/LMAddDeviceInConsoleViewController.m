@@ -37,7 +37,7 @@
     [self.deviceNameField resignFirstResponder];
 }
 
--(void)updateDeviceName:(MODEDevice*)device
+- (void)updateDeviceName:(MODEDevice*)device
 {
     LMHomeDetailViewController *__weak sourceVC = self.sourceVC;
     LMDataHolder *data = [LMDataHolder sharedInstance];
@@ -52,7 +52,7 @@
         }];
 }
 
--(void)handleAdd
+- (void)handleAdd
 {
      __weak __typeof__(self) weakSelf = self;
     LMDataHolder *data = [LMDataHolder sharedInstance];

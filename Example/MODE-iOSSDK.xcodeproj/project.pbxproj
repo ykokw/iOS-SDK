@@ -137,7 +137,7 @@
 		2142868A1B5093A9006E3C1F /* Authentication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Authentication.png; path = Images.xcassets/Authentication.png; sourceTree = "<group>"; };
 		2142868B1B5093A9006E3C1F /* Add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Add.png; path = Images.xcassets/Add.png; sourceTree = "<group>"; };
 		21A8E8761B597448002D09E6 /* LMHomeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHomeDetailViewController.h; sourceTree = "<group>"; };
-		21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMHomeDetailViewController.m; sourceTree = "<group>"; };
+		21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMHomeDetailViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2DFF3826F5A3A2128C83B9FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		47B286A23B4CB7AFC0DD9486 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* MODE-iOSSDK_Example.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "MODE-iOSSDK_Example.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -149,7 +149,7 @@
 		6003F599195388D20070C39A /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		6003F59B195388D20070C39A /* MODE-iOSSDK-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MODE-iOSSDK-Prefix.pch"; sourceTree = "<group>"; };
 		6003F59C195388D20070C39A /* MODEAppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MODEAppDelegate.h; sourceTree = "<group>"; };
-		6003F59D195388D20070C39A /* MODEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MODEAppDelegate.m; sourceTree = "<group>"; };
+		6003F59D195388D20070C39A /* MODEAppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = MODEAppDelegate.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		6003F5A5195388D20070C39A /* MODEViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MODEViewController.h; sourceTree = "<group>"; };
 		6003F5A6195388D20070C39A /* MODEViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MODEViewController.m; sourceTree = "<group>"; };
 		6003F5A8195388D20070C39A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };

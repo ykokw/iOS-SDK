@@ -23,7 +23,7 @@
 @property (strong, nonatomic) MODEClientAuthentication *clientAuth;
 @property (strong, nonatomic) LMDataHolderMembers *members;
 
--(void) saveData;
--(void) loadData;
+- (void)saveData;
+- (void)loadData;
 
 @end

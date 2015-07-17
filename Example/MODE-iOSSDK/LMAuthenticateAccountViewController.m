@@ -25,7 +25,7 @@
     setupMessage(self.message, MESSAGE_VERIFY_YOU, 15.0);
 }
 
--(void)removeOverlayView:(BOOL)nextSegue
+- (void)removeOverlayView:(BOOL)nextSegue
 {
     removeOverlayViewSub(self.navigationController, ^(){
         if (nextSegue) {

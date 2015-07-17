@@ -16,7 +16,7 @@
 
 @implementation LMAddHomeMemberViewController
 
--(void)viewDidLoad
+- (void)viewDidLoad
 {
     [super viewDidLoad];
     
@@ -28,7 +28,7 @@
     self.navigationItem.titleView = setupTitle(@"Add Member");
 }
 
--(void)handleAdd
+- (void)handleAdd
 {
     LMHomeDetailViewController *__weak sourceVC = self.sourceVC;
     LMDataHolder *data = [LMDataHolder sharedInstance];

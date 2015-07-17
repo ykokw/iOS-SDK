@@ -31,7 +31,7 @@
     self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
 }
 
--(void)windBack
+- (void)windBack
 {
     [self.navigationController popToViewController:self animated:YES];
 }

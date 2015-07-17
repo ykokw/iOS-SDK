@@ -28,18 +28,18 @@
     self.phoneIcon.image = [UIImage imageNamed:@"Phone.png"];
 }
 
--(void)handleEdit
+- (void)handleEdit
 {
     [self performSegueWithIdentifier:@"ProfileEditSegue" sender:nil];
 }
 
--(void) updateFields:(MODEUser*) user
+- (void)updateFields:(MODEUser *)user
 {
     setupMessageWithColorAndAlign(self.userName, user.name, [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
     setupMessageWithColorAndAlign(self.phonenumber, formatPhonenumberFromString(user.phoneNumber), [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
 }
 
--(void)fetchUserInfo
+- (void)fetchUserInfo
 {
     __weak __typeof__(self) weakSelf = self;
     LMDataHolder *data = [LMDataHolder sharedInstance];
@@ -63,7 +63,7 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
--(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     ProfileEditViewController *view = [segue destinationViewController];
     view.sourceVC = self;

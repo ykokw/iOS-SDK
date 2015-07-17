@@ -21,7 +21,7 @@
     setupMessage(self.message, MESSAGE_REGISTERED, 15.0);
 }
 
--(void) removeOverlayViews
+- (void)removeOverlayViews
 {
     removeOverlayViewSub(self.navigationController, nil);
 }

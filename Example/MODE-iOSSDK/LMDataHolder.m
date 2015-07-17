@@ -18,8 +18,7 @@
 - (id) init
 {
     self = [super init];
-    if (self)
-    {
+    if (self) {
         self.members = [[LMDataHolderMembers alloc] init];
         
         // You need to setup projectId and appId according to your project and App settings.
@@ -36,8 +35,7 @@
 {
     static LMDataHolder *_sharedInstance = nil;
     static dispatch_once_t onceSecurePredicate;
-    dispatch_once(&onceSecurePredicate,^
-                  {
+    dispatch_once(&onceSecurePredicate, ^{
                       _sharedInstance = [[self alloc] init];
                   });
     
@@ -66,7 +64,7 @@ void saveObject(NSString *key, id<MTLJSONSerializing> obj)
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
--(void)saveData
+- (void)saveData
 {
     saveObject(@"auth", self.clientAuth);
     saveObject(@"members", self.members);
@@ -101,13 +99,13 @@ id loadObj(NSString *key, Class class)
     return [[class alloc] init];
 }
 
--(void)loadData
+- (void)loadData
 {
     self.clientAuth = loadObj(@"auth", MODEClientAuthentication.class);
     self.members = loadObj(@"members", LMDataHolderMembers.class);
 }
 
--(void)setClientAuth:(MODEClientAuthentication *)clientAuth
+- (void)setClientAuth:(MODEClientAuthentication *)clientAuth
 {
     self->_clientAuth = clientAuth;
     if (clientAuth.token) {

@@ -23,7 +23,7 @@
     setupMessage(self.message, MESSAGE_WELCOME_BACK, 15.0);
 }
 
--(void)windBack
+- (void)windBack
 {
     [self.navigationController popToViewController:self animated:YES];
 }

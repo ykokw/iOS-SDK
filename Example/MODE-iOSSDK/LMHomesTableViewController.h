@@ -2,6 +2,6 @@
 
 @interface LMHomesTableViewController : UITableViewController
 
-- (void) fetchHomes;
+- (void)fetchHomes;
 
 @end

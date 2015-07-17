@@ -17,8 +17,7 @@
 {
     static LMDeviceManager *_sharedInstance = nil;
     static dispatch_once_t onceSecurePredicate;
-    dispatch_once(&onceSecurePredicate,^
-                  {
+    dispatch_once(&onceSecurePredicate, ^{
                       _sharedInstance = [[self alloc] init];
                   });
     
@@ -42,7 +41,7 @@
     [self.deviceEventDelegates removeObject:delegate];
 }
 
-- (void) callDeviceEventDelegates:(MODEDeviceEvent*) event err:(NSError*) err
+- (void)callDeviceEventDelegates:(MODEDeviceEvent*) event err:(NSError*) err
 {
     /**
       *event.evenType == "status"
@@ -86,14 +85,14 @@
     return true;
 }
 
--(void)stopListenToEvents
+- (void)stopListenToEvents
 {
     NSLog(@"Stop listenning to device events.");
     [self.listener stopListenToEvents];
     self.listener = nil;
 }
 
--(void)reconnect
+- (void)reconnect
 {
     if (self.listener == nil) {
         NSLog(@"Reconnect to listen to device events.");
@@ -102,7 +101,7 @@
     }
 }
 
-- (void)queryDeviceStatus:(NSArray*)devices
+- (void)queryDeviceStatus:(NSArray *)devices
 {
     // Broadcast query to all devices.
     /**
@@ -122,7 +121,7 @@
     }
 }
 
-- (void) triggerSwitch:(int)deviceId status:(BOOL)status
+- (void)triggerSwitch:(int)deviceId status:(BOOL)status
 {
     /**
       *command.action == "change"

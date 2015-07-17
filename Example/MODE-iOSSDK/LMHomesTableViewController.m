@@ -29,7 +29,7 @@
     [self fetchHomes];
 }
 
--(void)handleProfile
+- (void)handleProfile
 {
     [self performSegueWithIdentifier:@"ProfileSegue" sender:nil];
 }
@@ -90,12 +90,12 @@
     return view;
 }
 
-- (CGFloat) tableView:(UITableView*)tableView heightForHeaderInSection:(NSInteger)section
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
     return 50.0;
 }
 
--(CGFloat)tableView:(UITableView*)tableView heightForRowAtIndexPath:(NSIndexPath*)indexPath
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     return 60.0;
 }
@@ -116,7 +116,7 @@
     return 0;
 }
 
--(void)handleEdit:(UIButton*)sender
+- (void)handleEdit:(UIButton*)sender
 {
     self.editTargetHome = [self.homes objectAtIndex:sender.tag];
     

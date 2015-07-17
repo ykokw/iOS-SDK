@@ -16,19 +16,19 @@
     return YES;
 }
 
--(void)appDidBecomeActive:(NSNotification*)note
+- (void)appDidBecomeActive:(NSNotification *)note
 {
     NSLog(@"appDidBecomeActive");
     [[LMDeviceManager sharedInstance] reconnect];
 }
 
--(void)appWillResignActive:(NSNotification*)note
+- (void)appWillResignActive:(NSNotification *)note
 {
     NSLog(@"appWillResignActive");
     [[LMDeviceManager sharedInstance] stopListenToEvents];
 }
 
--(void)appWillTerminate:(NSNotification*)note
+- (void)appWillTerminate:(NSNotification *)note
 {
      NSLog(@"appWillTerminate");
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];

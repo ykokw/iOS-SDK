@@ -112,8 +112,6 @@ void setupMessageWithColorAndAlign(UILabel *message, NSString *text, UIColor *co
     message.textColor = color;
 }
 
-
-
 void setCellLabel(UILabel *label, NSString *text, UIColor *color, CGFloat fontSize)
 {
     [label setFont:[UIFont fontWithName:@"AppleSDGothicNeo-Regular" size:fontSize]];

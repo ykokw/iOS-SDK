@@ -3,7 +3,7 @@
 
 @implementation LMRoundButton
 
--(id)initWithCoder:(NSCoder*)aDecoder {
+- (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     
     if (self) {
@@ -17,7 +17,7 @@
 
 @implementation LMRoundBoundaryButton
 
--(id)initWithCoder:(NSCoder*)aDecoder {
+- (id)initWithCoder:(NSCoder *)aDecoder {
     self = [super initWithCoder:aDecoder];
     
     if (self) {
@@ -28,6 +28,5 @@
     
     return self;
 }
-
 
 @end

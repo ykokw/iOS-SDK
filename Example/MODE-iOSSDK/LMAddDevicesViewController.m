@@ -52,7 +52,7 @@ UIView *setupCommonAddDeviceWidgets(UITextField *verificationCodeField, UITextFi
     [self performSegueWithIdentifier:@"@console" sender:self];
 }
 
--(void)updateDeviceName:(MODEDevice*)device
+- (void)updateDeviceName:(MODEDevice*)device
 {
     NSString *name = self.deviceNameField.text;
     LMDataHolder *data = [LMDataHolder sharedInstance];

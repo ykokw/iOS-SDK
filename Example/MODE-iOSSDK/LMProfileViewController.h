@@ -2,6 +2,6 @@
 
 @interface LMProfileViewController : UIViewController
 
--(void)fetchUserInfo;
+- (void)fetchUserInfo;
 
 @end
