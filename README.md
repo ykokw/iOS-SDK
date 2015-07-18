@@ -85,7 +85,7 @@ $ pod install
 
 Then open `MODE-iOSSDK.xcworkspace` with Xcode. 
 
-Before you run your app, you have to setup `Project` and `App` on [MODE developer console](https://console.tinkermode.com/). If you are not sure, please read (our documentation)[http://dev.tinkermode.com/docs/] first.
+Before you run your app, you need to setup `Project` and `App` on [MODE developer console](https://console.tinkermode.com/). If you are not sure, please read [our documentation](http://dev.tinkermode.com/docs/) first.
 
 Find your `App ID` and `Project ID` on the console. Open `LMDataHolder.m` on Xcode. Please find the following lines.
 
