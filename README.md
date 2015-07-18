@@ -109,6 +109,8 @@ Build the app. You can see `Lumos` logo as following.
 
 ![Lumos Logo](/Example/MODE-iOSSDK/Images.xcassets/Lumos.png)
 
+Signup or Login from the screen and poke around the App.
+
 ## Author
 
 Naoki Takano, honten@tinkermode.com
