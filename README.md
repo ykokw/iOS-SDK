@@ -107,7 +107,7 @@ You need to replace `12345` to your own `Project ID` and `AppID` to your won `Ap
 
 Build the app. You can see `Lumos` logo as following.
 
-![Lumos Logo](/Example/MODE-iOSSDK/Images.xcassets/Lumos_logo.png)
+![Lumos Logo](/Example/MODE-iOSSDK/Images.xcassets/Background.png)
 
 ## Author
 
