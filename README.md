@@ -78,6 +78,8 @@ Then you can get verification code via SMS. Please set the code into the followi
 
 ## Example App
 
+The example App name is `Lumos`. This is a sample app for your smart light.
+
 Go to `Example` directory and run
 ~~~
 $ pod install
@@ -86,7 +88,7 @@ $ pod install
 Then open `MODE-iOSSDK.xcworkspace` with Xcode. 
 
 Before you run your app, you need to setup `Project` and `App` on [MODE developer console](https://console.tinkermode.com/). If you are not sure, please read [our documentation](http://dev.tinkermode.com/docs/) first.
-
+]
 Find your `App ID` and `Project ID` on the console. Open `LMDataHolder.m` on Xcode. Please find the following lines.
 
 ~~~
@@ -100,8 +102,7 @@ Find your `App ID` and `Project ID` on the console. Open `LMDataHolder.m` on Xco
     }
 ~~~
 
-You need to replace `12345` to your own `Project ID` and `AppID` to your won `App ID`.
-
+You need to replace `12345` to your own `Project ID` and `AppID` to your own `App ID`.
 
 Build the app. You can see `Lumos` logo as following.
 
