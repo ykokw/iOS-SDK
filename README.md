@@ -76,9 +76,38 @@ Then you can get verification code via SMS. Please set the code into the followi
       }];
 ~~~
 
-## Todo
+## Example App
 
-Example is not implemented.
+Go to `Example` directory and run
+~~~
+$ pod install
+~~~
+
+Then open `MODE-iOSSDK.xcworkspace` with Xcode. 
+
+Before you run your app, you have to setup `Project` and `App` on [MODE developer console](https://console.tinkermode.com/). If you are not sure, please read (our documentation)[http://dev.tinkermode.com/docs/] first.
+
+Find your `App ID` and `Project ID` on the console. Open `LMDataHolder.m` on Xcode. Please find the following lines.
+
+~~~
+    if (self) {
+        self.members = [[LMDataHolderMembers alloc] init];
+        
+        // You need to setup projectId and appId according to your project and App settings.
+        // Please see more detail (http://dev.tinkermode.com/tutorials/getting_started.html) to get them.
+        self.projectId = 12345;
+        self.appId = @"AppID";
+    }
+~~~
+
+You need to replace `12345` to your own `Project ID` and `AppID` to your won `App ID`.
+
+
+Build the app. You can see `Lumos` logo as following.
+
+![Lumos Logo](/Example/MODE-iOSSDK/Images.xcassets/Lumos.png)
+
+Signup or Login from the screen and poke around the App.
 
 ## Author
 
