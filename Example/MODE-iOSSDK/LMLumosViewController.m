@@ -21,6 +21,7 @@
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor defaultThemeColor];
+    self.navigationController.navigationBar.translucent = NO;
 
     setupMessageWithColor(self.message, MESSAGE_SAMPLE_APP, [UIColor bodyTextColor], 15.0);
     

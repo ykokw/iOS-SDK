@@ -29,6 +29,14 @@
     setupStandardTextField(self.nameField, @"Name", @"Name.png");
     self.navigationItem.titleView = setupTitle(@"Sign Up");
     self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
+    setupKeyboardDismisser(self, @selector(dismissKeyboard));
+}
+
+
+- (void)dismissKeyboard
+{
+    [self.phoneNumberField resignFirstResponder];
+    [self.nameField resignFirstResponder];
 }
 
 - (void)windBack

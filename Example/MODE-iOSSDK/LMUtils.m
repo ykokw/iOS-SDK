@@ -68,7 +68,7 @@ NumericTextFieldDelegate *setupNumericTextField(UITextField *numericField, NSStr
 
 PhoneNumberFieldDelegate *setupPhoneNumberField(UITextField *phoneNumberField)
 {
-    [phoneNumberField setPlaceholder:@"Phonenumber"];
+    [phoneNumberField setPlaceholder:@"Phone number"];
     
     setupTextFieldWithLeftIcon(phoneNumberField, @"Phone.png");
     
