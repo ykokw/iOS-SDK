@@ -21,7 +21,7 @@
     self = [super initWithCoder:aDecoder];
     
     if (self) {
-        self.layer.borderColor = [UIColor defaultThemeColor].CGColor;
+        self.layer.borderColor = [UIColor defaultDisplayColor].CGColor;
         self.layer.borderWidth = 1.0f;
         self.layer.cornerRadius = 5.0f;
     }

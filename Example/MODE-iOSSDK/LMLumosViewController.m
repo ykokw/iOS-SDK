@@ -17,17 +17,12 @@
 {
     [super viewDidLoad];
     
-    self.lumosLogo.image = [UIImage imageNamed:@"Lumos_logo.png"];
+    self.lumosLogo.image = [UIImage imageNamed:@"LumosLogo.png"];
     
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
     self.navigationController.navigationBar.barTintColor = [UIColor defaultThemeColor];
 
-    setupMessageWithColor(self.message, MESSAGE_SAMPLE_APP, [UIColor whiteColor], 15.0);
-    
-    UIImageView *backgroundImage = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"Background.png"]];
-    
-    [self.view addSubview:backgroundImage];
-    [self.view sendSubviewToBack:backgroundImage];
+    setupMessageWithColor(self.message, MESSAGE_SAMPLE_APP, [UIColor bodyTextColor], 15.0);
     
     if ([[LMDataHolder sharedInstance] clientAuth].token != nil) {
          NSString *segue = @"@console";

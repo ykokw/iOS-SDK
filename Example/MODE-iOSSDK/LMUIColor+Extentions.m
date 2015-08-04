@@ -4,12 +4,12 @@
 
 + (UIColor *)defaultThemeColor
 {
-    return [UIColor colorWithRed:249.0/255.0 green:160.0/255.0 blue:117.0/255.0 alpha:1.0];
+    return [UIColor colorWithRed:253.0/255.0 green:178.0/255.0 blue:109.0/255.0 alpha:1.0];
 }
 
 + (UIColor *)defaultDisplayColor
 {
-    return [UIColor colorWithRed:240.0/255.0 green:110.0/255.0 blue:111.0/255.0 alpha:1.0];
+    return [UIColor colorWithRed:234.0/255.0 green:91.0/255.0 blue:97.0/255.0 alpha:1.0];
 }
 
 + (UIColor *)bodyTextColor
