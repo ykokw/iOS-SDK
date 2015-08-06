@@ -23,8 +23,8 @@
         
         // You need to setup projectId and appId according to your project and App settings.
         // Please see more detail (http://dev.tinkermode.com/tutorials/getting_started.html) to get them.
-        self.projectId = 3;
-        self.appId = @"app1";
+        self.projectId = 12345;
+        self.appId = @"AppID";
     }
     return self;
 }
