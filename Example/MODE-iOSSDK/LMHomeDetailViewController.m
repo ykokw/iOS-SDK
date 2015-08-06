@@ -230,7 +230,7 @@
 {
     UITableViewCell *cell = self.deviceIdToCell[[NSNumber numberWithInt:deviceId]];
     
-    [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^
+    [UIView animateWithDuration:0.0 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^
     {
         [cell setHighlighted:YES animated:YES];
     } completion:^(BOOL finished)
