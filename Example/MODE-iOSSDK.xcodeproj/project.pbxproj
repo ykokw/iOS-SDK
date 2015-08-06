@@ -771,6 +771,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = Lumos;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Debug;
@@ -789,6 +790,7 @@
 				MODULE_NAME = ExampleApp;
 				PRODUCT_NAME = Lumos;
 				PROVISIONING_PROFILE = "";
+				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
 			};
 			name = Release;
