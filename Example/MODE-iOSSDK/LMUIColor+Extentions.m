@@ -7,6 +7,11 @@
     return [UIColor colorWithRed:253.0/255.0 green:178.0/255.0 blue:109.0/255.0 alpha:1.0];
 }
 
++ (UIColor *)defaultThemeColorWithAlpha:(double) alpha
+{
+    return [UIColor colorWithRed:253.0/255.0 green:178.0/255.0 blue:109.0/255.0 alpha:alpha];
+}
+
 + (UIColor *)defaultDisplayColor
 {
     return [UIColor colorWithRed:234.0/255.0 green:91.0/255.0 blue:97.0/255.0 alpha:1.0];
