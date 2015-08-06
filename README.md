@@ -1,97 +1,94 @@
 # MODE-iOSSDK
 
-[![CI Status](http://img.shields.io/travis/Naoki Takano/MODE-iOSSDK.svg?style=flat)](https://travis-ci.org/Naoki Takano/MODE-iOSSDK)
 [![Version](https://img.shields.io/cocoapods/v/MODE-iOSSDK.svg?style=flat)](http://cocoapods.org/pods/MODE-iOSSDK)
 [![License](https://img.shields.io/cocoapods/l/MODE-iOSSDK.svg?style=flat)](http://cocoapods.org/pods/MODE-iOSSDK)
 [![Platform](https://img.shields.io/cocoapods/p/MODE-iOSSDK.svg?style=flat)](http://cocoapods.org/pods/MODE-iOSSDK)
 
 ## Overview
-MODE-iOSDK provides API call wrapper to [MODE cloud](http://www.tinkermode.com) and handles the data to connect iOS app, devices and smart modules.
+MODE-iOSDK provides a wrapper for the [MODE](http://www.tinkermode.com) cloud [API](http://dev.tinkermode.com/docs/api/) and handles the data objects connecting iOS apps, devices and Smart Modules.
 
-You can write MODE cloud iOS app without this SDK, but it makes developers easier to use MODE cloud to communicate each other with IoT devices.
+With this SDK, you can implement iOS apps for your MODE project with ease.
+
 
 ## Requirements
 
-You need to use the SDK on at least iOS7 platform. The library depends on [Mantle](https://github.com/Mantle/Mantle) and [SocketRocket](https://github.com/square/SocketRocket). See more detail `MODE-iOSSDK.podspec`.
+This SDK works on iOS 7 and up. The library depends on [Mantle](https://github.com/Mantle/Mantle) and [SocketRocket](https://github.com/square/SocketRocket). See more details in `MODE-iOSSDK.podspec`.
+
 
 ## Installation
 
-MODE-iOSSDK is available through [CocoaPods](http://cocoapods.org). To install
-it, simply add the following line to your Podfile:
+MODE-iOSSDK is available through [CocoaPods](http://cocoapods.org). To install, simply add the following line to your Podfile:
 
-```ruby
-pod "MODE-iOSSDK"
-```
+    pod "MODE-iOSSDK"
+
 
 ## Classes
 
 All classes start with `MODE` as prefix.
 
 ### MODEAppAPI
-`MODEAppAPI.h` defines API wrappter classes to call `MODE cloud` service from `App`. Each function is corresponding to [each MODE cloud API](http://dev.tinkermode.com/api/api_reference.html).
+`ModeApp.h` defines the API wrapper class, `MODEAppAPI`, that interacts with the MODE cloud service. Each method corresponds to a [MODE cloud API](http://dev.tinkermode.com/docs/api/) endpoint.
 
-All function calls are aysnc, so you need to pass callback function as `Objective-C` block and check `NSError` object when the block is called. Whenever an error happens, `NSError` has non-`nil`. Otherwise it means success to call.
+All methods are asynchronous, so you need to pass a callback function as an `Objective-C` block and check the `NSError` object when the block is called. Whenever an error happens, `NSError` has a non-nil value. Otherwise it means the call was successful.
 
-All callback block is called in main GUI thread as default behavior. So you can call other UI related APIs from callback. If you want to change the behavior, please set `EXECUTE_BLOCK_IN_MAIN_THREAD` macro value to `0` in `ModeApp.m`.
+The callback block is called in the main GUI thread by default. So you can call other UI-related APIs from the callback. If you want to change the behavior, please set the `EXECUTE_BLOCK_IN_MAIN_THREAD` macro value to `0` in `ModeApp.m`.
 
-The detail parameter meaning is written in `ModeApp.h` as comments.
+See comments in `ModeApp.h` for detailed documentation on the class methods.
+
 
 ### MODEData
-`ModeData.h` defines data classes and each class corresponding to each JSON data at [Data Model Reference](http://dev.tinkermode.com/api/model_reference.html). All JSON data is parsed and stored to each properties as proper type in the class.  But `eventData` in `MODEDeviceEvent` is `NSDictionary`, because it can be defined by developers.
+`ModeData.h` defines the data classes, each corresponding to a [JSON schema defined by MODE](http://dev.tinkermode.com/docs/api/models.html). A JSON object is parsed and each of its properties is stored as the expected data type.  One exception is `eventData` in `MODEDeviceEvent`. It is an `NSDictionary`, as its actual structure is determined by developers.
 
-The classes are sub-classes of `MTLModel`, so you can use nifty [Mantle](https://github.com/Mantle/Mantle) functions.
+The classes are sub-classes of `MTLModel`, so you can use the nifty [Mantle](https://github.com/Mantle/Mantle) functions.
+
 
 ### MODEEventListener
-`MODEEventListener` is a class to receive events delivered by `MODE cloud`. So you need to keep connection to `MODE cloud` and don't delete the object while `App` is waiting for events.
+`MODEEventListener` is a class for maintaining connection to the MODE cloud and receiving events delivered by MODE. Do not delete the object while your app is waiting for events.
 
 
-## Simple example
 
-The following is a simple example code to listen to events. The sample code doesn't check errors, so you need more error checks if you want to reuse the code.
+## Usage Example
 
-You need to define a project on `MODE cloud` console page. Also you need to define `appId` on the page. If you want to know detail what are `appId` and `projectId`, please read [Getting Started with MODE](http://dev.tinkermode.com/tutorials/getting_started.html). Here we assume, `projectId` is `1234` and `appId` is `SampleApp1`
+The following is a code snippet that listens to events. The sample code doesn't check for errors, so make sure you add more error checking if you want to reuse the code.
 
-~~~
+You need to define a project on the [MODE Developer Console](https://console.tinkermode.com/). You also need to define an app for your project. For detailed instructions on setting up a MODE project, see the [Getting Started](http://dev.tinkermode.com/docs/getting_started.html) tutorial. Here we assume `projectId` is `1234` and `appId` is `SampleApp1`
+
     // You have to trigger somewhere with button or menu.
     [MODEAppAPI initiateAuthenticationWithSMS:1234 phoneNumber:@"YOUR PHONE NUMBER"
         completion:(void(^)(MODESMSMessageReceipt* obj, NSError* err)){ /* Need to error check */ };
-~~~
 
-Then you can get verification code via SMS. Please set the code into the following `CODE VIA SMS`. Then your App can listen to the events coming from devices or Smart Modules.
+You will get your verification code via SMS. In the following code snippet, replace `CODE VIA SMS` with this code. Now your app can listen to the events coming from devices or Smart Modules.
 
-~~~
-  MODEEventListener* listener = nil; // Maybe you should define as property in the class to keep the object alive.
+    MODEEventListener* listener = nil; // Maybe you should define this as property in the class to keep the object alive.
 
-  [MODEAppAPI authenticateWithCode:1234 phoneNumber:@"YOUR PHONE NUMBER" appId:@"SampleApp1" code:@"CODE VIA SMS"
-      completion:(void(^)(MODEClientAuthentication* auth, NSError* err)){
+    [MODEAppAPI authenticateWithCode:1234 phoneNumber:@"YOUR PHONE NUMBER" appId:@"SampleApp1" code:@"CODE VIA SMS"
+        completion:(void(^)(MODEClientAuthentication* auth, NSError* err)){
 
-        listner = [[MODEEventListener alloc] initWithClientAuthentication:auth]; 
+          listner = [[MODEEventListener alloc] initWithClientAuthentication:auth]; 
 
-        [listener startListenToEvents:^(MODEDeviceEvent* event, NSError* err){
-          if (event) {
-            NSLog(@"Event: %@", event);
-          }
+          [listener startListenToEvents:^(MODEDeviceEvent* event, NSError* err){
+            if (event) {
+              NSLog(@"Event: %@", event);
+            }
 
+          }];
         }];
-      }];
-~~~
 
 ## Example App
 
-The example App name is `Lumos`. This is a sample app for your smart light.
+Also included with the SDK is an example app called `Lumos`.  It is a simple controller app for a smart light system.
 
-Go to `Example` directory and run
-~~~
-$ pod install
-~~~
+Go to the `Example` directory and run
+
+    $ pod install
 
 Then open `MODE-iOSSDK.xcworkspace` with Xcode. 
 
-Before you run your app, you need to setup `Project` and `App` on [MODE developer console](https://console.tinkermode.com/). If you are not sure, please read [our documentation](http://dev.tinkermode.com/docs/) first.
-]
-Find your `App ID` and `Project ID` on the console. Open `LMDataHolder.m` on Xcode. Please find the following lines.
+Before you run your app, you need to set up a Project and an App on the [MODE Developer Console](https://console.tinkermode.com/). If you are not familiar with the Developer Console, please read our [documentation](http://dev.tinkermode.com/docs/) first.
 
-~~~
+
+Find your `App ID` and `Project ID` on the console. Open `LMDataHolder.m` on Xcode. Please find the following lines:
+
     if (self) {
         self.members = [[LMDataHolderMembers alloc] init];
         
@@ -100,15 +97,16 @@ Find your `App ID` and `Project ID` on the console. Open `LMDataHolder.m` on Xco
         self.projectId = 12345;
         self.appId = @"AppID";
     }
-~~~
 
-You need to replace `12345` to your own `Project ID` and `AppID` to your own `App ID`.
+You need to replace `12345` to your own project ID and `AppID` with your own app ID.
 
-Build the app. You can see `Lumos` logo as following.
+Build the app and run it in the iOS simulator. You should see the following screen when the app launches:
 
-![Lumos Logo](/Example/MODE-iOSSDK/Images.xcassets/Lumos.png)
+![Lumos screen](Example/MODE-iOSSDK/Images.xcassets/Lumos.png)
 
-Signup or Login from the screen and poke around the App.
+
+For full instructions on building an iOS app for your MODE project, see this [tutorial](http://dev.tinkermode.com/docs/lumos.html).
+
 
 ## Author
 
