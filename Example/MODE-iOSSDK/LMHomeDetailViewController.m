@@ -298,7 +298,7 @@
         //cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         UIView *bgColorView = [[UIView alloc] init];
-        bgColorView.backgroundColor = [UIColor defaultThemeColorWithAlpha:0.50];
+        bgColorView.backgroundColor = [UIColor defaultThemeColorWithAlpha:0.40];
         [cell setSelectedBackgroundView:bgColorView];
         
         if ([self isMembers] == false) {
