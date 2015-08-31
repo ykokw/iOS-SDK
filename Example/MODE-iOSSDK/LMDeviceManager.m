@@ -64,7 +64,16 @@
             } else {
                 NSLog(@"Unknown eventData: %@", event.eventData);
             }
+        } else if (event && [event.eventType isEqualToString:@"click"]) {
+            NSLog(@"eventData: %@", event.eventData);
+            if([event.eventData[@"button"] intValue] == 1) {
+                [delegate receivedButtonPressed:event.originDeviceId];
+                NSLog(@"Received button pressed deeviceId: %d button 1", event.originDeviceId);
+            } else {
+                NSLog(@"Unknown eventData: %@", event.eventData);
+            }
         }
+
     }
 }
 

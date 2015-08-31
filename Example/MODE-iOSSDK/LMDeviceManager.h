@@ -5,6 +5,8 @@
 @protocol MODEDeviceEventDelegate <NSObject>
 
 - (void)receivedEvent:(int)deviceId status:(BOOL)status;
+- (void)receivedButtonPressed:(int)deviceId;
+
 
 @end
 

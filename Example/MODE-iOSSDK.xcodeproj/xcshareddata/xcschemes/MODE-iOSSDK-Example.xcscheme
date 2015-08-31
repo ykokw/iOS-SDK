@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "6003F589195388D20070C39A"
-               BuildableName = "MODE-iOSSDK_Example.app"
+               BuildableName = "Lumos.app"
                BlueprintName = "MODE-iOSSDK_Example"
                ReferencedContainer = "container:MODE-iOSSDK.xcodeproj">
             </BuildableReference>
@@ -43,7 +43,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "MODE-iOSSDK_Example.app"
+            BuildableName = "Lumos.app"
             BlueprintName = "MODE-iOSSDK_Example"
             ReferencedContainer = "container:MODE-iOSSDK.xcodeproj">
          </BuildableReference>
@@ -63,7 +63,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "MODE-iOSSDK_Example.app"
+            BuildableName = "Lumos.app"
             BlueprintName = "MODE-iOSSDK_Example"
             ReferencedContainer = "container:MODE-iOSSDK.xcodeproj">
          </BuildableReference>
@@ -82,7 +82,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "6003F589195388D20070C39A"
-            BuildableName = "MODE-iOSSDK_Example.app"
+            BuildableName = "Lumos.app"
             BlueprintName = "MODE-iOSSDK_Example"
             ReferencedContainer = "container:MODE-iOSSDK.xcodeproj">
          </BuildableReference>

@@ -20,9 +20,11 @@
 // Here we assume only either array is non nil to show which.
 @property(strong, nonatomic) NSMutableArray *items;
 
+// We should revisit this lookup table, it could be the root cause of leak.
 @property(strong, nonatomic)NSMutableDictionary *deviceIdToSwitches;
 // We need this status dictionary to sync out of order query result arrival.
 @property(strong, nonatomic)NSMutableDictionary *deviceIdToStatus;
+@property(strong, nonatomic)NSMutableDictionary *deviceIdToCell;
 
 @end
 
@@ -33,6 +35,7 @@
     
     self.deviceIdToSwitches = [[NSMutableDictionary alloc]init];
     self.deviceIdToStatus = [[NSMutableDictionary alloc]init];
+    self.deviceIdToCell = [[NSMutableDictionary alloc]init];
     
     setupProfileButton(self.navigationItem, self, @selector(handleProfile));
     self.navigationItem.titleView = setupTitle(self.targetHome.name);
@@ -40,6 +43,8 @@
     [[LMDeviceManager sharedInstance] addMODEDeviceDelegate:self];
 
     [self fetchDevices];
+
+    self.tableView.allowsSelection = NO;
 }
 
 - (void)didReceiveMemoryWarning
@@ -213,12 +218,30 @@
     return [self isMembers] ? @"membersCellId" : @"devicesCellId";
 }
 
-- (void)receivedEvent:(int)deviceId status:(BOOL)status {
+- (void)receivedEvent:(int)deviceId status:(BOOL)status
+{
     UISwitch *switchView = self.deviceIdToSwitches[[NSNumber numberWithInt:deviceId]];
     [switchView setOn:status animated:TRUE];
     // The status is used when UISwitch is intialized in setupCell.
     self.deviceIdToStatus[[NSNumber numberWithInt:deviceId]] = [NSNumber numberWithBool:status];
 }
+
+- (void)receivedButtonPressed:(int)deviceId
+{
+    UITableViewCell *cell = self.deviceIdToCell[[NSNumber numberWithInt:deviceId]];
+    
+    [UIView animateWithDuration:0.0 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^
+    {
+        [cell setHighlighted:YES animated:YES];
+    } completion:^(BOOL finished)
+    {
+        [UIView animateWithDuration:0.5 delay:0.0 options:UIViewAnimationOptionAllowUserInteraction|UIViewAnimationOptionCurveEaseInOut animations:^
+         {
+             [cell setHighlighted:NO animated:YES];
+         } completion: NULL];
+    }];
+}
+
 
 - (void)handleSwitch:(UISwitch*)sw
 {
@@ -258,6 +281,8 @@
         self.deviceIdToSwitches[[NSNumber numberWithInt:device.deviceId]] = switchView;
         // This initialization is needed, because status query would be already received.
         switchView.on = self.deviceIdToStatus[[NSNumber numberWithInt:device.deviceId]] ? TRUE : FALSE;
+
+        self.deviceIdToCell[[NSNumber numberWithInt:device.deviceId]] = cell;
     }
     setCellLabel(cell.textLabel, cellvalue, [UIColor cellTextColor], 15.0);
     
@@ -270,7 +295,11 @@
     
     if (cell == nil) {
         cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        //cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        
+        UIView *bgColorView = [[UIView alloc] init];
+        bgColorView.backgroundColor = [UIColor defaultThemeColorWithAlpha:0.40];
+        [cell setSelectedBackgroundView:bgColorView];
         
         if ([self isMembers] == false) {
             UISwitch *switchView = [[UISwitch alloc] initWithFrame:CGRectZero];
