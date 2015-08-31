@@ -30,3 +30,5 @@ void showAlert(NSError *err);
 void initiateAuth(int projectId, NSString *phoneNumber);
 
 void setupKeyboardDismisser(UIViewController *viewController, SEL action);
+
+NSArray *getTimezoneArray();

@@ -61,7 +61,7 @@
     
     
     int timezoneIdx = 0;
-    self.timezones = @[@"America/Los_Angeles", @"America/Detroit", @"America/Denver"];
+    self.timezones = getTimezoneArray();
     if (self.targetHome != nil) {
         int cnt = 0;
         for (NSString *tz in self.timezones) {
