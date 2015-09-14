@@ -67,6 +67,7 @@
 @property (nonatomic, copy)NSDate* lastDisconnectTime;
 @property (nonatomic, copy)NSDate* lastCommandTime;
 @property (nonatomic, copy)NSDate* lastEventTime;
+@property (nonatomic, copy)NSString* apiKey;
 
 @end
 

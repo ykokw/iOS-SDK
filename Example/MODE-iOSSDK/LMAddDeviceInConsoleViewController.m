@@ -56,7 +56,9 @@
 {
      __weak __typeof__(self) weakSelf = self;
     LMDataHolder *data = [LMDataHolder sharedInstance];
-    [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:self.sourceVC.targetHome.homeId
+    
+#if 1
+    [MODEAppAPI addDeviceToHomeWithClaimCode:data.clientAuth claimCode:self.verificationCodeField.text homeId:self.sourceVC.targetHome.homeId
          completion:^(MODEDevice *device, NSError *err) {
              if (err != nil) {
                  showAlert(err);
@@ -65,6 +67,20 @@
                  [weakSelf updateDeviceName:device];
              }
          }];
+#else
+    // This is the example how to call on-demand device addition to a home.
+    [MODEAppAPI addDeviceToHomeOnDemand:data.clientAuth homeId:self.sourceVC.targetHome.homeId deviceClass:@"class1" deviceTag:nil
+                             deviceName:self.deviceNameField.text
+          completion:^(MODEDevice *device, NSError *err) {
+              if (err != nil) {
+                  showAlert(err);
+              } else {
+                  NSLog(@"Added device: %@", device);
+                  [weakSelf updateDeviceName:device];
+              }
+          }];
+    
+#endif
     
      [self.navigationController popToViewController:self.sourceVC animated:YES];
 }

@@ -72,7 +72,7 @@ UIView *setupCommonAddDeviceWidgets(UITextField *verificationCodeField, UITextFi
 
     __weak __typeof__(self) weakSelf = self;
     LMDataHolder *data = [LMDataHolder sharedInstance];
-    [MODEAppAPI claimDevice:data.clientAuth claimCode:self.verificationCodeField.text homeId:data.members.homeId
+    [MODEAppAPI addDeviceToHomeWithClaimCode:data.clientAuth claimCode:self.verificationCodeField.text homeId:data.members.homeId
         completion:^(MODEDevice *device, NSError *err) {
             if (err != nil) {
                 // You need to rollback because auth failed.

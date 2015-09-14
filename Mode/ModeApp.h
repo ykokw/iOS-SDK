@@ -264,7 +264,7 @@ typedef void(^MODEDeviceBlock)(MODEDevice*, NSError*);
            completion:(MODEDeviceBlock)completion;
 
 /**
- *  Claim a device and register it to the specified home.
+ *  Claim a device and register it to the specified home with claim code. This API is valid only if the device is pre-provisioned.
  *
  *  @param clientAuthentication USER_TOKEN belonging to the home.
  *  @param claimCode            claim code for the device.
@@ -273,9 +273,23 @@ typedef void(^MODEDeviceBlock)(MODEDevice*, NSError*);
  *
  *  @return
  */
-+ (NSURLSessionDataTask*)claimDevice:(MODEClientAuthentication *)clientAuthentication claimCode:(NSString*)claimCode homeId:(int)homeId
++ (NSURLSessionDataTask*)addDeviceToHomeWithClaimCode:(MODEClientAuthentication *)clientAuthentication claimCode:(NSString*)claimCode homeId:(int)homeId
          completion:(MODEDeviceBlock)completion;
 
+/**
+ *  Add a device to the home on-demand. This API is valid only if on-demand device provisioning is enabled.
+ *
+ *  @param clientAuthentication USER_TOKEN belonging to the home.
+ *  @param homeId               ID of the home that the device is added with a successful claim.
+ *  @param deviceClass          device class for which the device is made
+ *  @param deviceTag            device tag with which the device is made, optional
+ *  @param deviceName           device name with which the device is made, optional
+ *  @param completion           Callback block: MODEDevice is valid if successful.
+ *
+ *  @return
+ */
++ (NSURLSessionDataTask*)addDeviceToHomeOnDemand:(MODEClientAuthentication *)clientAuthentication homeId:(int)homeId deviceClass:(NSString*)deviceClass
+                                       deviceTag:(NSString*)deviceTag deviceName:(NSString*)deviceName completion:(MODEDeviceBlock)completion;
 
 /**
  *  Update the device with the specified ID.

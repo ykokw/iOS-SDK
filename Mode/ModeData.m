@@ -137,6 +137,7 @@ JSONTransformerFunc(creationTime, TRUE)
              @"lastDisconnectTime": @"lastDisconnectTime",
              @"lastCommandTime": @"lastCommandTime",
              @"lastEventTime": @"lastEventTime",
+             @"apiKey": @"apiKey",
              };
 }
 

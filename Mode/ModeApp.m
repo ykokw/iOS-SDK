@@ -11,6 +11,7 @@
 
 static NSString *const ModeURL = @"https://api.tinkermode.com";
 
+
 @implementation NSString (NSString_Extended)
 
 - (NSString *)urlencode {
@@ -329,13 +330,37 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
     return callHTTPRequest2(clientAuthentication, false, @"GET", [NSString stringWithFormat:@"/devices/%d", deviceId], nil, MODEDevice.class, completion);
 }
 
-+(NSURLSessionDataTask*)claimDevice:(MODEClientAuthentication *)clientAuthentication claimCode:(NSString *)claimCode homeId:(int)homeId completion:(void (^)(MODEDevice *, NSError *))completion
++(NSURLSessionDataTask*)addDeviceToHomeWithClaimCode:(MODEClientAuthentication *)clientAuthentication claimCode:(NSString *)claimCode homeId:(int)homeId completion:(void (^)(MODEDevice *, NSError *))completion
 {
     if (claimCode == nil) {
         NSLog(@"claimCode is nil");
         return nil;
     }
     NSDictionary *parameters = @{@"claimCode": claimCode, @"homeId": [@(homeId) stringValue]};
+    return callHTTPRequest2(clientAuthentication, false, @"POST", @"/devices", parameters, MODEDevice.class, completion);
+}
+
++ (NSURLSessionDataTask*)addDeviceToHomeOnDemand:(MODEClientAuthentication *)clientAuthentication homeId:(int)homeId deviceClass:(NSString*)deviceClass
+                                       deviceTag:(NSString*)deviceTag deviceName:(NSString*)deviceName completion:(MODEDeviceBlock)completion
+{
+    if (deviceClass == nil) {
+        NSLog(@"deviceClass is nil");
+        return nil;
+    }
+    
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+  
+    parameters[@"homeId"] = [@(homeId) stringValue];
+    parameters[@"deviceClass"] = deviceClass;
+    
+    if (deviceTag != nil) {
+        parameters[@"deviceTag"] = deviceTag;
+    }
+
+    if (deviceName != nil) {
+        parameters[@"deviceName"] = deviceName;
+    }
+    
     return callHTTPRequest2(clientAuthentication, false, @"POST", @"/devices", parameters, MODEDevice.class, completion);
 }
 
