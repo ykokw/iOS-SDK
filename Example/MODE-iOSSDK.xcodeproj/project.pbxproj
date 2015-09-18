@@ -49,6 +49,7 @@
 		213520B51B73EAA7005DD0E2 /* TimeZone.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520A91B73EAA7005DD0E2 /* TimeZone.png */; };
 		2142865A1B4D98A2006E3C1F /* console.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214286591B4D98A2006E3C1F /* console.storyboard */; };
 		21A8E8781B597448002D09E6 /* LMHomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */; };
+		21F9424B1BACD29100A784E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F9424A1BACD29100A784E8 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		240900B08EFA32630145814C /* Pods_MODE_iOSSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E38AC9A22CAC1AA226C9880 /* Pods_MODE_iOSSDK_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -144,6 +145,7 @@
 		214286591B4D98A2006E3C1F /* console.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = console.storyboard; sourceTree = "<group>"; };
 		21A8E8761B597448002D09E6 /* LMHomeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHomeDetailViewController.h; sourceTree = "<group>"; };
 		21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMHomeDetailViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		21F9424A1BACD29100A784E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "MODE-iOSSDK_Example/Images.xcassets"; sourceTree = "<group>"; };
 		2DFF3826F5A3A2128C83B9FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		47B286A23B4CB7AFC0DD9486 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* Lumos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lumos.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -295,6 +297,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				21F9424A1BACD29100A784E8 /* Images.xcassets */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for MODE-iOSSDK */,
 				6003F5B5195388D20070C39A /* Tests */,
@@ -492,6 +495,7 @@
 				6003F5A9195388D20070C39A /* Images.xcassets in Resources */,
 				213520B31B73EAA7005DD0E2 /* Settings White.png in Resources */,
 				2135209D1B73EAA1005DD0E2 /* Home.png in Resources */,
+				21F9424B1BACD29100A784E8 /* Images.xcassets in Resources */,
 				213520931B73EA95005DD0E2 /* Add.png in Resources */,
 				6003F598195388D20070C39A /* InfoPlist.strings in Resources */,
 				213520AD1B73EAA7005DD0E2 /* Lumos.png in Resources */,
@@ -762,7 +766,7 @@
 			baseConfigurationReference = A25ED04E2BC25E65A7F871D3 /* Pods-MODE-iOSSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -781,7 +785,7 @@
 			baseConfigurationReference = D485B01F952A1DA6676080AD /* Pods-MODE-iOSSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
