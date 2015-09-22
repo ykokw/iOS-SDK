@@ -32,18 +32,15 @@ void setTextFieldHeight(UITextField *textField)
 
 void setupTextFieldWithLeftIcon(UITextField *textField, NSString *iconName)
 {
-    if (iconName != nil) {
-        UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:iconName]];
+    UIImageView *imageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:iconName]];
     
-        imageView.frame = CGRectMake(14,0, imageView.frame.size.width, imageView.frame.size.height);
+    imageView.frame = CGRectMake(14,0, imageView.frame.size.width, imageView.frame.size.height);
     
-        UIView *objLeftView = [[UIView alloc] initWithFrame:CGRectMake(0,0,34,16)];
-        [objLeftView addSubview:imageView];
+    UIView *objLeftView = [[UIView alloc] initWithFrame:CGRectMake(0,0,34,16)];
+    [objLeftView addSubview:imageView];
     
-        textField.leftView = objLeftView;
-    }
-
     [textField setLeftViewMode:UITextFieldViewModeAlways];
+    textField.leftView = objLeftView;
     setTextFieldHeight(textField);
 }
 
