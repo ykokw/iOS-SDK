@@ -9,6 +9,12 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillResignActive:) name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appWillTerminate:) name:UIApplicationWillTerminateNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(appDidBecomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults addObserver:self
+               forKeyPath:@"projectId"
+                  options:NSKeyValueObservingOptionNew
+                  context:NULL];
     
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Override point for customization after application launch.
@@ -16,9 +22,37 @@
     return YES;
 }
 
+-(void)observeValueForKeyPath:(NSString *)keyPath
+                     ofObject:(id)object
+                       change:(NSDictionary *)change
+                      context:(void *)context
+{
+    LMDataHolder* data = [LMDataHolder sharedInstance];
+    [data loadProjectId];
+
+    if (data.oldProjectId != data.projectId) {
+        // When projectId is changed, reset the session and go back to the root view.
+        
+        data.oldProjectId = data.projectId;
+        [data saveOldProjectId];
+        
+        data.members = [[LMDataHolderMembers alloc] init];
+        data.clientAuth = [[MODEClientAuthentication alloc] init];
+
+        // Stop WebSocket connection because projectId is changed.
+        [[LMDeviceManager sharedInstance] stopListenToEvents];
+        [data saveData];
+        
+        UINavigationController *navigationController = (UINavigationController *)self.window.rootViewController;
+        [navigationController popToRootViewControllerAnimated:YES];
+    }
+}
+
 - (void)appDidBecomeActive:(NSNotification *)note
 {
     NSLog(@"appDidBecomeActive");
+    [self observeValueForKeyPath:nil ofObject:nil change:nil context:nil];
+    
     [[LMDeviceManager sharedInstance] reconnect];
 }
 
@@ -34,7 +68,13 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillTerminateNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] removeObserver:self name:NSUserDefaultsDidChangeNotification object:nil];
+
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults removeObserver:self forKeyPath:@"projectId"];
+    
     [[LMDataHolder sharedInstance] saveData];
+    
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application

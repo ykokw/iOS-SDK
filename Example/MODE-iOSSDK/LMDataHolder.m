@@ -23,8 +23,8 @@
         
         // You need to setup projectId and appId according to your project and App settings.
         // Please see more detail (http://dev.tinkermode.com/tutorials/getting_started.html) to get them.
-        self.projectId = 12345;
-        self.appId = @"AppID";
+        //self.projectId = 12345;
+        self.appId = @"controller_app";
     }
     return self;
 }
@@ -62,10 +62,24 @@ void saveObject(NSString *key, id<MTLJSONSerializing> obj)
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
+- (void)saveProjectId
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", self.oldProjectId] forKey:@"projectId"];
+}
+
+
+- (void)saveOldProjectId
+{
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", self.projectId] forKey:@"oldProjectId"];
+}
+
 - (void)saveData
 {
     saveObject(@"auth", self.clientAuth);
     saveObject(@"members", self.members);
+
+    [[NSUserDefaults standardUserDefaults] synchronize];
+
 }
 
 id loadObj(NSString *key, Class class)
@@ -97,10 +111,27 @@ id loadObj(NSString *key, Class class)
     return [[class alloc] init];
 }
 
+- (void)loadProjectId
+{
+    NSString* oldPid = [[NSUserDefaults standardUserDefaults] objectForKey:@"oldProjectId"];
+    
+    if (oldPid != nil) {
+        self.oldProjectId = [oldPid intValue];
+    }
+    
+    NSString* pid = [[NSUserDefaults standardUserDefaults] objectForKey:@"projectId"];
+    
+    if (pid != nil) {
+        self.projectId = [pid intValue];
+    }
+}
+
 - (void)loadData
 {
     self.clientAuth = loadObj(@"auth", MODEClientAuthentication.class);
     self.members = loadObj(@"members", LMDataHolderMembers.class);
+
+    [self loadProjectId];
 }
 
 - (void)setClientAuth:(MODEClientAuthentication *)clientAuth

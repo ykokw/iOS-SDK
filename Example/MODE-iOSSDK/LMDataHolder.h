@@ -5,6 +5,7 @@
 
 @property (strong, nonatomic) NSString *phoneNumber;
 @property (assign, nonatomic) int homeId;
+@property (assign, nonatomic) long projectId;
 
 @end
 
@@ -18,6 +19,7 @@
 + (LMDataHolder *)sharedInstance;
 
 @property (assign, nonatomic) int projectId;
+@property (assign, nonatomic) int oldProjectId;
 @property (strong, nonatomic) NSString *appId;
 
 @property (strong, nonatomic) MODEClientAuthentication *clientAuth;
@@ -25,5 +27,10 @@
 
 - (void)saveData;
 - (void)loadData;
+
+- (void)saveProjectId;
+- (void)saveOldProjectId;
+- (void)loadProjectId;
+
 
 @end
