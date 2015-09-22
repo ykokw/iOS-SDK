@@ -5,7 +5,6 @@
 
 @property (strong, nonatomic) NSString *phoneNumber;
 @property (assign, nonatomic) int homeId;
-@property (assign, nonatomic) long projectId;
 
 @end
 
