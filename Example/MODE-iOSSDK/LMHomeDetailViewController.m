@@ -47,6 +47,11 @@
     self.tableView.allowsSelection = NO;
 }
 
+- (void)viewDidDisappear:(BOOL)animated
+{
+    [[LMDeviceManager sharedInstance]removeMODEDeviceDelegate:self];
+}
+
 - (void)didReceiveMemoryWarning
 {
     [[LMDeviceManager sharedInstance]removeMODEDeviceDelegate:self];
