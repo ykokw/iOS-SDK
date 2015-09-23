@@ -7,6 +7,7 @@
 #import "LMUIColor+Extentions.h"
 #import "LMUtils.h"
 #import "ModeApp.h"
+#import "QRCodeUtils.h"
 
 // This view is almost the same as LMAddDevicesViewController, but it wasn't merged well because a couple of behavior are different.
 
@@ -15,6 +16,12 @@
 @property(strong, nonatomic) IBOutlet UILabel *message;
 @property(strong, nonatomic) IBOutlet UITextField *verificationCodeField;
 @property(strong, nonatomic) IBOutlet UITextField *deviceNameField;
+
+@property (strong, nonatomic) IBOutlet UIView *viewPreview;
+@property (strong, nonatomic) IBOutlet UIButton *readButton;
+@property (nonatomic) BOOL isReading;
+@property (nonatomic, strong) AVCaptureSession *captureSession;
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 
 @end
 
@@ -27,8 +34,53 @@
     self.navigationItem.titleView = setupCommonAddDeviceWidgets(self.verificationCodeField, self.deviceNameField, self.message);
     
     setupRightBarButtonItem(self.navigationItem, @"Add", self, @selector(handleAdd));
-    
     setupKeyboardDismisser(self, @selector(dismissKeyboard));
+    
+    _isReading = NO;
+}
+
+- (IBAction)startStopReading:(id)sender {
+    [self dismissKeyboard];
+    
+    if (!_isReading) {
+        [self startReading];
+    } else {
+        [self stopReading];
+    }
+    _isReading = !_isReading;
+}
+
+- (BOOL)startReading
+{
+    [_readButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _readButton.backgroundColor = [UIColor defaultDisplayColor];
+
+    _captureSession = [[AVCaptureSession alloc] init];
+    _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
+    return startReadingQRCode(_viewPreview, _captureSession, _videoPreviewLayer, self);
+}
+
+-(void)stopReading
+{
+    [_readButton setTitleColor:[UIColor defaultDisplayColor] forState:UIControlStateNormal];
+    _readButton.backgroundColor = [UIColor whiteColor];
+
+    [_captureSession stopRunning];
+    _captureSession = nil;
+    
+    [_videoPreviewLayer removeFromSuperlayer];
+}
+
+-(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
+{
+    if (metadataObjects != nil && [metadataObjects count] > 0) {
+        AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
+        if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
+            [_verificationCodeField performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue]waitUntilDone:NO];
+            [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
+            _isReading = NO;
+        }
+    }
 }
 
 - (void)dismissKeyboard

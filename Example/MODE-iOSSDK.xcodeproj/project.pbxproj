@@ -28,6 +28,7 @@
 		2124EA921B561D3B00D35D97 /* LMOverlayViewProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA8E1B561D3B00D35D97 /* LMOverlayViewProtocol.m */; };
 		2124EA971B561D4900D35D97 /* LMUIColor+Extentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA941B561D4900D35D97 /* LMUIColor+Extentions.m */; };
 		2124EA981B561D4900D35D97 /* LMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA961B561D4900D35D97 /* LMUtils.m */; };
+		212E75A41BB31F9B00E5D4FE /* QRCodeUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 212E75A31BB31F9B00E5D4FE /* QRCodeUtils.m */; settings = {ASSET_TAGS = (); }; };
 		2134DFFE1BB0E32500BE450C /* LMProjectSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134DFFD1BB0E32500BE450C /* LMProjectSettingViewController.m */; settings = {ASSET_TAGS = (); }; };
 		213520911B73EA59005DD0E2 /* LumosLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520901B73EA59005DD0E2 /* LumosLogo.png */; };
 		213520931B73EA95005DD0E2 /* Add.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520921B73EA95005DD0E2 /* Add.png */; };
@@ -125,6 +126,8 @@
 		2124EA941B561D4900D35D97 /* LMUIColor+Extentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "LMUIColor+Extentions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2124EA951B561D4900D35D97 /* LMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMUtils.h; sourceTree = "<group>"; };
 		2124EA961B561D4900D35D97 /* LMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		212E75A31BB31F9B00E5D4FE /* QRCodeUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = QRCodeUtils.m; sourceTree = "<group>"; };
+		212E75A51BB31FA800E5D4FE /* QRCodeUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QRCodeUtils.h; sourceTree = "<group>"; };
 		2134DFFC1BB0E32500BE450C /* LMProjectSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMProjectSettingViewController.h; sourceTree = "<group>"; };
 		2134DFFD1BB0E32500BE450C /* LMProjectSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMProjectSettingViewController.m; sourceTree = "<group>"; };
 		213520901B73EA59005DD0E2 /* LumosLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LumosLogo.png; path = Images.xcassets/LumosLogo.png; sourceTree = "<group>"; };
@@ -227,6 +230,8 @@
 				2124EA8E1B561D3B00D35D97 /* LMOverlayViewProtocol.m */,
 				210F9EE41B578B2E00544AE5 /* LMRoundButton.h */,
 				210F9EE51B578B2E00544AE5 /* LMRoundButton.m */,
+				212E75A31BB31F9B00E5D4FE /* QRCodeUtils.m */,
+				212E75A51BB31FA800E5D4FE /* QRCodeUtils.h */,
 			);
 			name = misc;
 			sourceTree = "<group>";
@@ -650,6 +655,7 @@
 				2124EA7F1B561D1A00D35D97 /* LMAddDevicesViewController.m in Sources */,
 				2124EA8F1B561D3B00D35D97 /* LMDataHolder.m in Sources */,
 				2124EA911B561D3B00D35D97 /* LMLinkedStoryBoardSegue.m in Sources */,
+				212E75A41BB31F9B00E5D4FE /* QRCodeUtils.m in Sources */,
 				2134DFFE1BB0E32500BE450C /* LMProjectSettingViewController.m in Sources */,
 				210F9EE61B578B2E00544AE5 /* LMRoundButton.m in Sources */,
 				2124EA811B561D1A00D35D97 /* LMLoginViewController.m in Sources */,
