@@ -129,7 +129,7 @@ UIView *setupCommonAddDeviceWidgets(UITextField *verificationCodeField, UITextFi
             if (err != nil) {
                 showAlert(err);
             } else {
-                NSLog(@"Updated device name: %@", name);
+                DLog(@"Updated device name: %@", name);
             }
         }];
 }
@@ -147,7 +147,7 @@ UIView *setupCommonAddDeviceWidgets(UITextField *verificationCodeField, UITextFi
                 [weakSelf.navigationController popToViewController:weakSelf animated:YES];
                 showAlert(err);
             } else {
-                NSLog(@"Attached device: %@ to homeId %d", device, data.members.homeId);
+                DLog(@"Attached device: %@ to homeId %d", device, data.members.homeId);
                 [weakSelf updateDeviceName:device];
             }
         }];

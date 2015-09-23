@@ -77,7 +77,7 @@
     LMDataHolder *data = [LMDataHolder sharedInstance];
     [MODEAppAPI getHomeMembers:data.clientAuth homeId:self.targetHome.homeId
         completion:^(NSArray *members, NSError *err) {
-            NSLog(@"Get home members:");
+            DLog(@"Get home members:");
             
             if (err != nil) {
                 showAlert(err);
@@ -85,7 +85,7 @@
                 if (members != nil) {
                     weakSelf.items = [NSMutableArray arrayWithArray:members];
                     for (MODEHomeMember *member in members) {
-                        NSLog(@"Member: %@", member);
+                        DLog(@"Member: %@", member);
                         if (member.verified == false) {
                             member.name = @"(Unknown)";
                         }
@@ -93,7 +93,7 @@
                     [weakSelf.tableView reloadData];
                 }
             } else {
-                NSLog(@"Devices is selected. No update needed.");
+                DLog(@"Devices is selected. No update needed.");
             }
             
             if (complete != nil) {
@@ -112,14 +112,14 @@
     if (![self isMembers]){
         if (devices != nil) {
             for (MODEDevice *device in devices) {
-                NSLog(@"Device: %@", device);
+                DLog(@"Device: %@", device);
             }
             self.items = [NSMutableArray arrayWithArray:devices];
             [[LMDeviceManager sharedInstance] queryDeviceStatus:devices];
             [self.tableView reloadData];
         }
     } else {
-        NSLog(@"Members is selected, so not updated");
+        DLog(@"Members is selected, so not updated");
     }
 }
 
@@ -132,7 +132,7 @@
     LMDataHolder *data = [LMDataHolder sharedInstance];
     [MODEAppAPI  getDevices:data.clientAuth homeId:self.targetHome.homeId
         completion:^(NSArray *devices, NSError *err) {
-            NSLog(@"Get devices:");
+            DLog(@"Get devices:");
             
             if (err != nil) {
                 showAlert(err);

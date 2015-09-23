@@ -1,6 +1,7 @@
 #import "LMDataHolder.h"
 #import "LMDeviceManager.h"
 #import "MODEAppDelegate.h"
+#import "LMUtils.h"
 
 @implementation MODEAppDelegate
 
@@ -50,7 +51,7 @@
 
 - (void)appDidBecomeActive:(NSNotification *)note
 {
-    NSLog(@"appDidBecomeActive");
+    DLog(@"appDidBecomeActive");
     [self observeValueForKeyPath:nil ofObject:nil change:nil context:nil];
     
     [[LMDeviceManager sharedInstance] reconnect];
@@ -58,13 +59,13 @@
 
 - (void)appWillResignActive:(NSNotification *)note
 {
-    NSLog(@"appWillResignActive");
+    DLog(@"appWillResignActive");
     [[LMDeviceManager sharedInstance] stopListenToEvents];
 }
 
 - (void)appWillTerminate:(NSNotification *)note
 {
-     NSLog(@"appWillTerminate");
+     DLog(@"appWillTerminate");
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillTerminateNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];

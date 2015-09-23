@@ -41,9 +41,9 @@
 
 - (void)updateHomes:(NSArray*)homes err:(NSError*)err
 {
-    NSLog(@"Get homes;");
+    DLog(@"Get homes;");
     for (MODEHome *home in homes) {
-        NSLog(@"Home: %@", home);
+        DLog(@"Home: %@", home);
     }
     self.homes = [NSMutableArray arrayWithArray:homes];
     [self.tableView reloadData];
@@ -75,7 +75,7 @@
 
 - (void)handleEdit
 {
-    NSLog(@"handleEdit");
+    DLog(@"handleEdit");
     self.editButton.selected = !self.editing;
     [self setEditing:!self.editing animated:true];
 }

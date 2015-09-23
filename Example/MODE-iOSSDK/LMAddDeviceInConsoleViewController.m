@@ -98,7 +98,7 @@
             if (err != nil) {
                 showAlert(err);
             } else {
-                NSLog(@"Assigned device name: %@", device);
+                DLog(@"Assigned device name: %@", device);
             }
             [sourceVC fetchDevices];
         }];
@@ -115,7 +115,7 @@
              if (err != nil) {
                  showAlert(err);
              } else {
-                 NSLog(@"Added device: %@", device);
+                 DLog(@"Added device: %@", device);
                  [weakSelf updateDeviceName:device];
              }
          }];
@@ -127,7 +127,7 @@
               if (err != nil) {
                   showAlert(err);
               } else {
-                  NSLog(@"Added device: %@", device);
+                  DLog(@"Added device: %@", device);
                   [weakSelf updateDeviceName:device];
               }
           }];

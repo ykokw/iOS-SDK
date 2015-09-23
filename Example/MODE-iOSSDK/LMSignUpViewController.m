@@ -57,7 +57,7 @@
                 [weakSelf windBack];
                 showAlert(err);
             } else {
-                NSLog(@"Added user: %@", user);
+                DLog(@"Added user: %@", user);
             }
         }];
 }

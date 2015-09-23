@@ -1,6 +1,7 @@
 #import <Foundation/Foundation.h>
 #import "ModeApp.h"
 #import "ModeData.h"
+#import "ModeLog.h"
 
 #include <stdlib.h>
 
@@ -9,8 +10,7 @@
 #define EXECUTE_BLOCK_IN_MAIN_THERAD 1
 #define HTTP_REQUEST_TIMEOUT 10
 
-//static NSString *const ModeURL = @"https://api.tinkermode.com";
-static NSString *const ModeURL = @"http://10.1.10.100:7002";
+static NSString *const ModeURL = @"https://api.tinkermode.com";
 
 
 @implementation NSString (NSString_Extended)
@@ -187,11 +187,11 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
 + (NSURLSessionDataTask*)createUser:(int)projectId phoneNumber:(NSString *)phoneNumber name:(NSString *)name completion:(void(^)(MODEUser*, NSError*))completion
 {
     if (name == nil) {
-        NSLog(@"name is nil");
+        DLog(@"name is nil");
         return nil;
     }
     if (phoneNumber == nil) {
-        NSLog(@"phoneNumber is nil");
+        DLog(@"phoneNumber is nil");
         return nil;
     }
     
@@ -216,7 +216,7 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
 +(NSURLSessionDataTask*)updateUserInfo:(MODEClientAuthentication *)clientAuthentication userId:(int)userId name:(NSString *)name completion:(void (^)(MODEUser *, NSError *))completion
 {
     if (name == nil) {
-        NSLog(@"name is nil");
+        DLog(@"name is nil");
         return nil;
     }
     return callHTTPRequest2(clientAuthentication, true, @"PATCH", [NSString stringWithFormat:@"/users/%d", userId], @{@"name": name}, MODEUser.class, completion);
@@ -233,11 +233,11 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
 + (NSURLSessionDataTask*)createHome:(MODEClientAuthentication *)clientAuthentication name:(NSString*)name timezone:(NSString*)timezone completion:(void (^)(MODEHome *, NSError *))completion
 {
     if (name == nil) {
-        NSLog(@"name is nil");
+        DLog(@"name is nil");
         return nil;
     }
     if (timezone == nil) {
-        NSLog(@"timezone is nil");
+        DLog(@"timezone is nil");
         return nil;
     }
     NSDictionary *parameters =@{
@@ -282,7 +282,7 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
 +(NSURLSessionDataTask*)addHomeMember:(MODEClientAuthentication *)clientAuthentication homeId:(int)homeId phoneNumber:(NSString *)phoneNumber completion:(void (^)(MODEHomeMember *, NSError *))completion
 {
     if (phoneNumber == nil) {
-        NSLog(@"phoneNumber is nil");
+        DLog(@"phoneNumber is nil");
         return nil;
     }
     NSDictionary *parameters = @{@"phoneNumber": phoneNumber};
@@ -308,11 +308,11 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
 +(NSURLSessionDataTask*)sendCommandToSmartModule:(MODEClientAuthentication *)clientAuthentication homeId:(int)homeId moduleId:(NSString *)moduleId action:(NSString *)action parameters:(NSDictionary *)eventParameters completion:(void (^)(MODESmartModule *, NSError *))completion
 {
     if (action == nil) {
-        NSLog(@"action is nil");
+        DLog(@"action is nil");
         return nil;
     }
     if (eventParameters == nil) {
-        NSLog(@"eventParameters is nil");
+        DLog(@"eventParameters is nil");
         return nil;
     }
     NSDictionary *parameters = @{@"action": action, @"parameters": eventParameters};
@@ -334,7 +334,7 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
 +(NSURLSessionDataTask*)addDeviceToHomeWithClaimCode:(MODEClientAuthentication *)clientAuthentication claimCode:(NSString *)claimCode homeId:(int)homeId completion:(void (^)(MODEDevice *, NSError *))completion
 {
     if (claimCode == nil) {
-        NSLog(@"claimCode is nil");
+        DLog(@"claimCode is nil");
         return nil;
     }
     NSDictionary *parameters = @{@"claimCode": claimCode, @"homeId": [@(homeId) stringValue]};
@@ -345,7 +345,7 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
                                        deviceTag:(NSString*)deviceTag deviceName:(NSString*)deviceName completion:(MODEDeviceBlock)completion
 {
     if (deviceClass == nil) {
-        NSLog(@"deviceClass is nil");
+        DLog(@"deviceClass is nil");
         return nil;
     }
     
@@ -368,7 +368,7 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
 +(NSURLSessionDataTask*)updateDevice:(MODEClientAuthentication *)clientAuthentication deviceId:(int)deviceId name:(NSString *)name completion:(void (^)(MODEDevice *, NSError *))completion
 {
     if (name == nil) {
-        NSLog(@"name is nil");
+        DLog(@"name is nil");
         return nil;
     }
     return callHTTPRequest2(clientAuthentication, true, @"PATCH", [NSString stringWithFormat:@"/devices/%d", deviceId], @{@"name": name}, MODEDevice.class, completion);
@@ -382,11 +382,11 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
 +(NSURLSessionDataTask*)sendCommandToDevice:(MODEClientAuthentication *)clientAuthentication deviceId:(int)deviceId action:(NSString *)action parameters:(NSDictionary *)eventParameters completion:(void (^)(MODEDevice *, NSError *))completion
 {
     if (action == nil) {
-        NSLog(@"action is nil");
+        DLog(@"action is nil");
         return nil;
     }
     if (eventParameters == nil) {
-        NSLog(@"eventParameters is nil");
+        DLog(@"eventParameters is nil");
         return nil;
     }
     NSDictionary *parameters = @{@"action": action, @"parameters": eventParameters};
@@ -410,7 +410,7 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
                                    completion:(void(^)(MODESMSMessageReceipt*, NSError*))completion
 {
     if (phoneNumber == nil) {
-        NSLog(@"phoneNumber is nil");
+        DLog(@"phoneNumber is nil");
         return nil;
     }
     NSDictionary *parameters = @{@"projectId": [@(projectId) stringValue], @"phoneNumber": phoneNumber};
@@ -421,11 +421,11 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
                             completion:(void(^)(MODEClientAuthentication*, NSError*))completion;
 {
     if (phoneNumber == nil) {
-        NSLog(@"phoneNumber is nil");
+        DLog(@"phoneNumber is nil");
         return nil;
     }
     if (appId == nil) {
-        NSLog(@"appId is nil");
+        DLog(@"appId is nil");
         return nil;
     }
     NSDictionary *parameters = @{@"code": code, @"projectId": [@(projectId) stringValue], @"phoneNumber": phoneNumber, @"appId": appId};

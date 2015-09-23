@@ -42,7 +42,7 @@ void createMyHome(UIViewController<LMOverlayViewProtocol> *destVC)
             if (err != nil) {
                 showAlert(err);
             } else {
-                NSLog(@"Created home: %@", home);
+                DLog(@"Created home: %@", home);
                 data.members.homeId = home.homeId;
                 [data saveData];
             }
@@ -66,7 +66,7 @@ void createMyHome(UIViewController<LMOverlayViewProtocol> *destVC)
                   [self.navigationController popToViewController:self animated:YES];
                   showAlert(err);
               } else {
-                  NSLog(@"Got auth token: %@", clientAuth);
+                  DLog(@"Got auth token: %@", clientAuth);
                   data.clientAuth = clientAuth;
                   [data saveData];
                   createMyHome(destVC);

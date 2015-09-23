@@ -41,7 +41,7 @@
                 [weakSelf windBack];
                 showAlert(err);
             } else {
-                NSLog(@"Reinitiated auth token: %@", receipt);
+                DLog(@"Reinitiated auth token: %@", receipt);
             }
         }];
 }

@@ -49,28 +49,28 @@
      */
     for (id<MODEDeviceEventDelegate> delegate in self.deviceEventDelegates) {
         if (err) {
-            NSLog(@"Receive event error %@", err);
+            DLog(@"Receive event error %@", err);
         }
         
-        NSLog(@"event: %@", event);
+        DLog(@"event: %@", event);
         if (event && [event.eventType isEqualToString:@"status"]) {
-            NSLog(@"eventData: %@", event.eventData);
+            DLog(@"eventData: %@", event.eventData);
             if([event.eventData[@"switch"] intValue] == 1) {
                 [delegate receivedEvent:event.originDeviceId status:TRUE];
-                NSLog(@"Received status deeviceId: %d status 1", event.originDeviceId);
+                DLog(@"Received status deeviceId: %d status 1", event.originDeviceId);
             } else if([event.eventData[@"switch"] intValue] == 0) {
                 [delegate receivedEvent:event.originDeviceId status:FALSE];
-                NSLog(@"Received status deeviceId: %d status 0", event.originDeviceId);
+                DLog(@"Received status deeviceId: %d status 0", event.originDeviceId);
             } else {
-                NSLog(@"Unknown eventData: %@", event.eventData);
+                DLog(@"Unknown eventData: %@", event.eventData);
             }
         } else if (event && [event.eventType isEqualToString:@"click"]) {
-            NSLog(@"eventData: %@", event.eventData);
+            DLog(@"eventData: %@", event.eventData);
             if([event.eventData[@"button"] intValue] == 1) {
                 [delegate receivedButtonPressed:event.originDeviceId];
-                NSLog(@"Received button pressed deeviceId: %d button 1", event.originDeviceId);
+                DLog(@"Received button pressed deeviceId: %d button 1", event.originDeviceId);
             } else {
-                NSLog(@"Unknown eventData: %@", event.eventData);
+                DLog(@"Unknown eventData: %@", event.eventData);
             }
         }
 
@@ -79,9 +79,9 @@
 
 - (BOOL) startListenToEvents:(MODEClientAuthentication*)clientAuth
 {
-    NSLog(@"Start listenning to device events.");
+    DLog(@"Start listenning to device events.");
     if (clientAuth.token == nil) {
-        NSLog(@"Failed to start listening because auth token is nil");
+        DLog(@"Failed to start listening because auth token is nil");
         return false;
     }
     
@@ -96,7 +96,7 @@
 
 - (void)stopListenToEvents
 {
-    NSLog(@"Stop listenning to device events.");
+    DLog(@"Stop listenning to device events.");
     [self.listener stopListenToEvents];
     self.listener = nil;
 }
@@ -104,7 +104,7 @@
 - (void)reconnect
 {
     if (self.listener == nil) {
-        NSLog(@"Reconnect to listen to device events.");
+        DLog(@"Reconnect to listen to device events.");
         LMDataHolder *data = [LMDataHolder sharedInstance];
         [self startListenToEvents:data.clientAuth];
     }
@@ -124,7 +124,7 @@
                  if (err != nil) {
                      showAlert(err);
                  } else {
-                     NSLog(@"Query event triggered: deviceId: %d", device.deviceId);
+                     DLog(@"Query event triggered: deviceId: %d", device.deviceId);
                  }
              }];
     }
@@ -143,7 +143,7 @@
             if (err != nil) {
                 showAlert(err);
             } else {
-                NSLog(@"Switch event triggered: deviceId: %d, light %@", deviceId, value);
+                DLog(@"Switch event triggered: deviceId: %d, light %@", deviceId, value);
             }
         }];
 }

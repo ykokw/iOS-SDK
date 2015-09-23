@@ -32,3 +32,11 @@ void initiateAuth(int projectId, NSString *phoneNumber);
 void setupKeyboardDismisser(UIViewController *viewController, SEL action);
 
 NSArray *getTimezoneArray();
+
+
+#ifdef DEBUG
+#    define DLog(...) NSLog(__VA_ARGS__)
+#else
+#    define DLog(...) /* */
+#endif
+#define ALog(...) NSLog(__VA_ARGS__)

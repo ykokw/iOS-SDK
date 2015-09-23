@@ -48,7 +48,7 @@
             if (err != nil) {
                 showAlert(err);
             } else {
-                NSLog(@"Get user info: %@", user);
+                DLog(@"Get user info: %@", user);
                 [weakSelf updateFields:user];
             }
         }];

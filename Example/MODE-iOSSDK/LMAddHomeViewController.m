@@ -130,7 +130,7 @@
             if(err != nil) {
                 showAlert(err);
             } else {
-                NSLog(@"Added home: %@", home);
+                DLog(@"Added home: %@", home);
                 // You have to refresh loading homes at this timing, otherwise homes list is not updated.
                 [sourceVC fetchHomes];
             }
@@ -150,7 +150,7 @@
        if(err != nil) {
            showAlert(err);
        } else {
-           NSLog(@"Update home name: %@", name);
+           DLog(@"Update home name: %@", name);
            // You have to refresh loading homes at this timing, otherwise homes list is not updated.
            [sourceVC fetchHomes];
        }

@@ -47,7 +47,7 @@
                 showAlert(err);
                 [weakSelf removeOverlayView:false];
             } else {
-                NSLog(@"Got auth token: %@", clientAuth);
+                DLog(@"Got auth token: %@", clientAuth);
                 data.clientAuth = clientAuth;
                 [data saveData];
                 [weakSelf removeOverlayView:true];

@@ -37,7 +37,7 @@
             if (err != nil) {
                 showAlert(err);
             } else {
-                NSLog(@"Updated user name: %@", self.nameField.text);
+                DLog(@"Updated user name: %@", self.nameField.text);
                 [sourceVC fetchUserInfo];
             }
         }];
@@ -60,7 +60,7 @@
             if (err != nil) {
                 showAlert(err);
             } else {
-                NSLog(@"Get user info: %@", user);
+                DLog(@"Get user info: %@", user);
                 [weakSelf updateFields:user];
             }
         }];

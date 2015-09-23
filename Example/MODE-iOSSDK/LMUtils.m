@@ -11,7 +11,7 @@
 void showAlert(NSError *err)
 {
     NSString *msg = err.userInfo[@"reason"];
-    NSLog(@"Failed to call API: %@", err);
+    DLog(@"Failed to call API: %@", err);
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:err.domain
                                                     message:msg
                                                    delegate:nil
@@ -235,7 +235,7 @@ void initiateAuth(int projectId, NSString *phoneNumber)
             if (err != nil) {
                 showAlert(err);
             } else {
-                NSLog(@"Reinitiated auth token: %@", receipt);
+                DLog(@"Reinitiated auth token: %@", receipt);
             }
         }];
 }

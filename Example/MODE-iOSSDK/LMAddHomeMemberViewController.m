@@ -37,7 +37,7 @@
             if (err != nil) {
                 showAlert(err);
             } else {
-                NSLog(@"Added Home Member: %@", member);
+                DLog(@"Added Home Member: %@", member);
             }
             [sourceVC fetchMembers];
         }];

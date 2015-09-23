@@ -1,5 +1,6 @@
 #import "LMDataHolder.h"
 #import "LMDeviceManager.h"
+#import "LMUtils.h"
 
 @implementation LMDataHolderMembers
 
@@ -46,7 +47,7 @@
 void saveObject(NSString *key, id<MTLJSONSerializing> obj)
 {
     if (obj == nil) {
-        NSLog(@"Object is nil: %@", key);
+        DLog(@"Object is nil: %@", key);
         return;
     }
     NSError *err;
@@ -54,11 +55,11 @@ void saveObject(NSString *key, id<MTLJSONSerializing> obj)
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:[MTLJSONAdapter JSONDictionaryFromModel:obj error:nil]
                                                        options:0 error:&err];
     if (err) {
-        NSLog(@"%@", err);
+        DLog(@"%@", err);
     }
     
     NSString *str = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    NSLog(@"saved: %@", str);
+    DLog(@"saved: %@", str);
     
     [[NSUserDefaults standardUserDefaults] setObject:str forKey:key];
     [[NSUserDefaults standardUserDefaults] synchronize];
@@ -90,7 +91,7 @@ id loadObj(NSString *key, Class class)
     {
         NSString *str = [[NSUserDefaults standardUserDefaults] objectForKey:key];
         
-        NSLog(@"loaded: %@", str);
+        DLog(@"loaded: %@", str);
         
         NSError *err;
         NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
@@ -99,16 +100,16 @@ id loadObj(NSString *key, Class class)
         id obj = [MTLJSONAdapter modelOfClass:class fromJSONDictionary:dict error:&err];
         
         if (err) {
-            NSLog(@"%@", err);
+            DLog(@"%@", err);
         }
         
         if (obj) {
-            NSLog(@"Auth %@", obj);
+            DLog(@"Auth %@", obj);
         }
         
         return obj;
     } else {
-        NSLog(@"Cannot find object in key: %@", key);
+        DLog(@"Cannot find object in key: %@", key);
     }
     return [[class alloc] init];
 }
