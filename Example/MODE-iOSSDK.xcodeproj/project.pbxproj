@@ -28,6 +28,7 @@
 		2124EA921B561D3B00D35D97 /* LMOverlayViewProtocol.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA8E1B561D3B00D35D97 /* LMOverlayViewProtocol.m */; };
 		2124EA971B561D4900D35D97 /* LMUIColor+Extentions.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA941B561D4900D35D97 /* LMUIColor+Extentions.m */; };
 		2124EA981B561D4900D35D97 /* LMUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA961B561D4900D35D97 /* LMUtils.m */; };
+		2134DFFE1BB0E32500BE450C /* LMProjectSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2134DFFD1BB0E32500BE450C /* LMProjectSettingViewController.m */; settings = {ASSET_TAGS = (); }; };
 		213520911B73EA59005DD0E2 /* LumosLogo.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520901B73EA59005DD0E2 /* LumosLogo.png */; };
 		213520931B73EA95005DD0E2 /* Add.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520921B73EA95005DD0E2 /* Add.png */; };
 		213520991B73EAA1005DD0E2 /* Authentication.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520941B73EAA1005DD0E2 /* Authentication.png */; };
@@ -48,6 +49,7 @@
 		213520B41B73EAA7005DD0E2 /* Settings.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520A81B73EAA7005DD0E2 /* Settings.png */; };
 		213520B51B73EAA7005DD0E2 /* TimeZone.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520A91B73EAA7005DD0E2 /* TimeZone.png */; };
 		2142865A1B4D98A2006E3C1F /* console.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 214286591B4D98A2006E3C1F /* console.storyboard */; };
+		219B54541BB0AF6200611B43 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 219B54531BB0AF6200611B43 /* Settings.bundle */; settings = {ASSET_TAGS = (); }; };
 		21A8E8781B597448002D09E6 /* LMHomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */; };
 		21F9424B1BACD29100A784E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F9424A1BACD29100A784E8 /* Images.xcassets */; settings = {ASSET_TAGS = (); }; };
 		240900B08EFA32630145814C /* Pods_MODE_iOSSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9E38AC9A22CAC1AA226C9880 /* Pods_MODE_iOSSDK_Example.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
@@ -123,6 +125,8 @@
 		2124EA941B561D4900D35D97 /* LMUIColor+Extentions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = "LMUIColor+Extentions.m"; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		2124EA951B561D4900D35D97 /* LMUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMUtils.h; sourceTree = "<group>"; };
 		2124EA961B561D4900D35D97 /* LMUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMUtils.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		2134DFFC1BB0E32500BE450C /* LMProjectSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMProjectSettingViewController.h; sourceTree = "<group>"; };
+		2134DFFD1BB0E32500BE450C /* LMProjectSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMProjectSettingViewController.m; sourceTree = "<group>"; };
 		213520901B73EA59005DD0E2 /* LumosLogo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = LumosLogo.png; path = Images.xcassets/LumosLogo.png; sourceTree = "<group>"; };
 		213520921B73EA95005DD0E2 /* Add.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Add.png; path = Images.xcassets/Add.png; sourceTree = "<group>"; };
 		213520941B73EAA1005DD0E2 /* Authentication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Authentication.png; path = Images.xcassets/Authentication.png; sourceTree = "<group>"; };
@@ -143,6 +147,7 @@
 		213520A81B73EAA7005DD0E2 /* Settings.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Settings.png; path = Images.xcassets/Settings.png; sourceTree = "<group>"; };
 		213520A91B73EAA7005DD0E2 /* TimeZone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = TimeZone.png; path = Images.xcassets/TimeZone.png; sourceTree = "<group>"; };
 		214286591B4D98A2006E3C1F /* console.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = console.storyboard; sourceTree = "<group>"; };
+		219B54531BB0AF6200611B43 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		21A8E8761B597448002D09E6 /* LMHomeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHomeDetailViewController.h; sourceTree = "<group>"; };
 		21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMHomeDetailViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
 		21F9424A1BACD29100A784E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "MODE-iOSSDK_Example/Images.xcassets"; sourceTree = "<group>"; };
@@ -229,6 +234,8 @@
 		214286561B4D9823006E3C1F /* MainViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				2134DFFC1BB0E32500BE450C /* LMProjectSettingViewController.h */,
+				2134DFFD1BB0E32500BE450C /* LMProjectSettingViewController.m */,
 				2124EA711B561D1A00D35D97 /* LMAddDevicesViewController.h */,
 				2124EA721B561D1A00D35D97 /* LMAddDevicesViewController.m */,
 				2124EA731B561D1A00D35D97 /* LMAuthenticateAccountViewController.h */,
@@ -297,6 +304,7 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				219B54531BB0AF6200611B43 /* Settings.bundle */,
 				21F9424A1BACD29100A784E8 /* Images.xcassets */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for MODE-iOSSDK */,
@@ -508,6 +516,7 @@
 				213520B11B73EAA7005DD0E2 /* Profile.png in Resources */,
 				213520AC1B73EAA7005DD0E2 /* Lumos_logo.png in Resources */,
 				213520B51B73EAA7005DD0E2 /* TimeZone.png in Resources */,
+				219B54541BB0AF6200611B43 /* Settings.bundle in Resources */,
 				213520AB1B73EAA7005DD0E2 /* Lumos_AppIcon2.png in Resources */,
 				2135209B1B73EAA1005DD0E2 /* ClaimCode.png in Resources */,
 			);
@@ -641,6 +650,7 @@
 				2124EA7F1B561D1A00D35D97 /* LMAddDevicesViewController.m in Sources */,
 				2124EA8F1B561D3B00D35D97 /* LMDataHolder.m in Sources */,
 				2124EA911B561D3B00D35D97 /* LMLinkedStoryBoardSegue.m in Sources */,
+				2134DFFE1BB0E32500BE450C /* LMProjectSettingViewController.m in Sources */,
 				210F9EE61B578B2E00544AE5 /* LMRoundButton.m in Sources */,
 				2124EA811B561D1A00D35D97 /* LMLoginViewController.m in Sources */,
 				2124EA841B561D1A00D35D97 /* LMSignUpViewController.m in Sources */,
@@ -706,6 +716,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gaku Ueda (N6TXMLTTA4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gaku Ueda (N6TXMLTTA4)";
 				COPY_PHASE_STRIP = NO;
+				DYLIB_COMPATIBILITY_VERSION = "";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -746,6 +757,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer: Gaku Ueda (N6TXMLTTA4)";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Gaku Ueda (N6TXMLTTA4)";
 				COPY_PHASE_STRIP = YES;
+				DYLIB_COMPATIBILITY_VERSION = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -769,6 +781,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DYLIB_COMPATIBILITY_VERSION = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MODE-iOSSDK/MODE-iOSSDK-Prefix.pch";
 				INFOPLIST_FILE = "MODE-iOSSDK/MODE-iOSSDK-Info.plist";
@@ -788,6 +801,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DYLIB_COMPATIBILITY_VERSION = "";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MODE-iOSSDK/MODE-iOSSDK-Prefix.pch";
 				INFOPLIST_FILE = "MODE-iOSSDK/MODE-iOSSDK-Info.plist";
@@ -804,6 +818,7 @@
 			baseConfigurationReference = 030D11C9C043D5B1DD1B8AF4 /* Pods-MODE-iOSSDK_Tests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DYLIB_COMPATIBILITY_VERSION = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -827,6 +842,7 @@
 			baseConfigurationReference = F81B5A6EA90058513513C2FC /* Pods-MODE-iOSSDK_Tests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DYLIB_COMPATIBILITY_VERSION = "";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",

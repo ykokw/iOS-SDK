@@ -9,6 +9,8 @@
 @property(strong, nonatomic) IBOutlet UILabel *message;
 @property (strong, nonatomic) IBOutlet UIImageView *lumosLogo;
 
+@property (strong, nonatomic) IBOutlet UIButton *projectSettingButton;
+
 @end
 
 @implementation LMLumosViewController
@@ -28,6 +30,12 @@
     if ([[LMDataHolder sharedInstance] clientAuth].token != nil) {
          NSString *segue = @"@console";
         [self performSegueWithIdentifier:segue sender:self];
+    }
+    
+    self.lumosLogo.userInteractionEnabled = YES;
+    
+    if ([LMDataHolder sharedInstance].projectId == 0) {
+        [self performSegueWithIdentifier:@"ProjectSettingSegue" sender:self];
     }
 }
 
