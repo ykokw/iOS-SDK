@@ -18,7 +18,7 @@
                                 <rect key="frame" x="0.0" y="22" width="320" height="44"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="GTM-M2-hkk" id="1NW-Em-E95">
-                                    <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </tableViewCellContentView>
                             </tableViewCell>
@@ -206,7 +206,7 @@
                                     <color key="titleShadowColor" red="0.53725490200000003" green="0.53725490200000003" blue="0.53725490200000003" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="startStopReading:" destination="UEc-PW-WvR" eventType="touchUpInside" id="0lv-dp-d5D"/>
+                                    <action selector="startStopReading:" destination="UEc-PW-WvR" eventType="touchUpInside" id="q6n-Vb-D3t"/>
                                 </connections>
                             </button>
                         </subviews>

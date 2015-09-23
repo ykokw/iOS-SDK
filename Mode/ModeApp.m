@@ -9,7 +9,8 @@
 #define EXECUTE_BLOCK_IN_MAIN_THERAD 1
 #define HTTP_REQUEST_TIMEOUT 10
 
-static NSString *const ModeURL = @"https://api.tinkermode.com";
+//static NSString *const ModeURL = @"https://api.tinkermode.com";
+static NSString *const ModeURL = @"http://10.1.10.100:7002";
 
 
 @implementation NSString (NSString_Extended)

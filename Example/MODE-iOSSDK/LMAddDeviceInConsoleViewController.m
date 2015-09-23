@@ -7,6 +7,7 @@
 #import "LMUIColor+Extentions.h"
 #import "LMUtils.h"
 #import "ModeApp.h"
+#import "QRCodeUtils.h"
 
 // This view is almost the same as LMAddDevicesViewController, but it wasn't merged well because a couple of behavior are different.
 
@@ -39,115 +40,41 @@
 }
 
 - (IBAction)startStopReading:(id)sender {
+    [self dismissKeyboard];
     
     if (!_isReading) {
-        if ([self startReading]) {
-            //[_readButton setTitle:@"Stop" forState:UIControlStateNormal];
-        }
+        [self startReading];
     } else {
         [self stopReading];
-        //[_readButton setTitle:@"Start!" forState:UIControlStateNormal];
     }
     _isReading = !_isReading;
 }
 
-- (BOOL)startReading {
-    NSError *error;
-    
-    AVCaptureDevice *captureDevice = [AVCaptureDevice defaultDeviceWithMediaType:AVMediaTypeVideo];
-    
-    AVCaptureDeviceInput *input = [AVCaptureDeviceInput deviceInputWithDevice:captureDevice error:&error];
-    if (!input) {
-        NSLog(@"%@", [error localizedDescription]);
-        return NO;
-    }
-
+- (BOOL)startReading
+{
     _captureSession = [[AVCaptureSession alloc] init];
-    [_captureSession addInput:input];
-
-    AVCaptureMetadataOutput *captureMetadataOutput = [[AVCaptureMetadataOutput alloc] init];
-    [_captureSession addOutput:captureMetadataOutput];
-
-    dispatch_queue_t dispatchQueue;
-    dispatchQueue = dispatch_queue_create("myQueue", NULL);
-    [captureMetadataOutput setMetadataObjectsDelegate:self queue:dispatchQueue];
-    [captureMetadataOutput setMetadataObjectTypes:[NSArray arrayWithObject:AVMetadataObjectTypeQRCode]];
-
     _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
-    [_videoPreviewLayer setVideoGravity:AVLayerVideoGravityResizeAspectFill];
-    [_videoPreviewLayer setFrame:_viewPreview.layer.bounds];
-    
-    [_viewPreview.layer addSublayer:_videoPreviewLayer];
-    
-    
-    // 1 - Set up the text layer
-    CATextLayer *subtitle1Text = [[CATextLayer alloc] init];
-    [subtitle1Text setFont:@"Helvetica-Bold"];
-    [subtitle1Text setFontSize:14];
-    [subtitle1Text setFrame:CGRectMake(0, 0, 200, 100)];
-    [subtitle1Text setString:@"Scan QR code here"];
-    [subtitle1Text setAlignmentMode:kCAAlignmentCenter];
-    [subtitle1Text setForegroundColor:[[UIColor whiteColor] CGColor]];
-    
-    CALayer *textLayer = [CALayer layer];
-    [textLayer addSublayer:subtitle1Text];
-    textLayer.frame = CGRectMake(0, 8, 200, 100);
-    [textLayer setMasksToBounds:YES];
- 
-    [_viewPreview.layer addSublayer:textLayer];
-    
-    // 3 - Focus overlay
-
-    // Create CAShapeLayerS
-    CAShapeLayer* rectShape = [CAShapeLayer layer];
-    rectShape.bounds = CGRectMake(0, 0, 300, 300);
-    rectShape.position = CGPointMake(175, 175);
-    rectShape.lineWidth = 3;
-    CGMutablePathRef path = CGPathCreateMutable();
-   
-    CGPathMoveToPoint(path, nil, 0, 0);
-    CGPathAddLineToPoint(path, nil, 150, 0);
-    CGPathAddLineToPoint(path, nil, 150, 150);
-    CGPathAddLineToPoint(path, nil, 0, 150);
-    CGPathAddLineToPoint(path, nil, 0, 0);
-    CGPathCloseSubpath(path);
-    rectShape.path = path;
-    
-    rectShape.masksToBounds = NO;
-    rectShape.strokeColor = [UIColor whiteColor].CGColor;
-    rectShape.fillColor = [UIColor clearColor].CGColor;
-    
-    
-    [_viewPreview.layer addSublayer:rectShape];
-    
-    [_captureSession startRunning];
-    
-    return YES;
+    return startReadingQRCode(_viewPreview, _captureSession, _videoPreviewLayer, self);
 }
 
--(void)stopReading{
+-(void)stopReading
+{
     [_captureSession stopRunning];
     _captureSession = nil;
     
     [_videoPreviewLayer removeFromSuperlayer];
 }
 
--(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection{
-        if (metadataObjects != nil && [metadataObjects count] > 0) {
-                AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
-                if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
-                        NSLog([metadataObj stringValue]);
-            
-                        [_verificationCodeField performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue] waitUntilDone:NO];
-            
-                        
-                        [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
-                        [_readButton performSelectorOnMainThread:@selector(setTitle:) withObject:@"Start!" waitUntilDone:NO];
-                        _isReading = NO;
-                    }
-            }
-
-    
+-(void)captureOutput:(AVCaptureOutput *)captureOutput didOutputMetadataObjects:(NSArray *)metadataObjects fromConnection:(AVCaptureConnection *)connection
+{
+    if (metadataObjects != nil && [metadataObjects count] > 0) {
+        AVMetadataMachineReadableCodeObject *metadataObj = [metadataObjects objectAtIndex:0];
+        if ([[metadataObj type] isEqualToString:AVMetadataObjectTypeQRCode]) {
+            [_verificationCodeField performSelectorOnMainThread:@selector(setText:) withObject:[metadataObj stringValue]waitUntilDone:NO];
+            [self performSelectorOnMainThread:@selector(stopReading) withObject:nil waitUntilDone:NO];
+            _isReading = NO;
+        }
+    }
 }
 
 - (void)dismissKeyboard

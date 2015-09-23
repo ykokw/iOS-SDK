@@ -5,6 +5,7 @@
 #import "LMOverlayViewProtocol.h"
 #import "LMUtils.h"
 #import "ModeApp.h"
+#import "QRCodeUtils.h"
 
 UIView *setupCommonAddDeviceWidgets(UITextField *verificationCodeField, UITextField *devicenameField, UILabel*message)
 {
@@ -20,6 +21,13 @@ UIView *setupCommonAddDeviceWidgets(UITextField *verificationCodeField, UITextFi
 @property(strong, nonatomic) IBOutlet UILabel *message;
 @property(strong, nonatomic) IBOutlet UITextField *verificationCodeField;
 @property(strong, nonatomic) IBOutlet UITextField *deviceNameField;
+
+
+@property (strong, nonatomic) IBOutlet UIView *viewPreview;
+@property (strong, nonatomic) IBOutlet UIButton *readButton;
+@property (nonatomic) BOOL isReading;
+@property (nonatomic, strong) AVCaptureSession *captureSession;
+@property (nonatomic, strong) AVCaptureVideoPreviewLayer *videoPreviewLayer;
 
 @end
 
