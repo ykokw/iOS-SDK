@@ -21,10 +21,13 @@
     if (self) {
         self.members = [[LMDataHolderMembers alloc] init];
         
-        // You need to setup projectId and appId according to your project and App settings.
+        // You would need to setup appId according to your App settings.
+        // The sample project pregenerates "controller_app" App. So you don't have to change the project
+        // if you use it as it is.
         // Please see more detail (http://dev.tinkermode.com/tutorials/getting_started.html) to get them.
         self.appId = @"controller_app";
     }
+    
     return self;
 }
 
