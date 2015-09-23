@@ -87,17 +87,14 @@ Then open `MODE-iOSSDK.xcworkspace` with Xcode.
 Before you run your app, you need to set up a Project and an App on the [MODE Developer Console](https://console.tinkermode.com/). If you are not familiar with the Developer Console, please read our [documentation](http://dev.tinkermode.com/docs/) first.
 
 Build the app and run it in the iOS simulator or your iOS machine. You should see the following screen when the app launches:
+
 ![Project setting screen](Example/MODE-iOSSDK/Images.xcassets/ProjectId.png)
 
-Find your `Project ID` on the console of sample project. Type the `Project Id` press `Done` button.
-
-Then you should see the following launch screen:
+Find your `Project ID` on the console of sample project. Type the `Project Id` press `Done` button. Then you should see the following launch screen:
 
 ![Lumos screen](Example/MODE-iOSSDK/Images.xcassets/Lumos.png)
 
-If you want to change the `Project ID` later, you can go to the Setting -> Lumos page from the iOS home page. Or reinstall Lumos after you uninstall it.
-
-For full instructions on building an iOS app for your MODE project, see this [tutorial](http://dev.tinkermode.com/docs/lumos.html).
+If you want to change the `Project ID` later, you can go to the Setting -> Lumos page from the iOS home page. Or reinstall Lumos after you uninstall it. For full instructions on building an iOS app for your MODE project, see this [tutorial](http://dev.tinkermode.com/docs/lumos.html).
 
 The `App ID` is fixed as `controller_app` in `LMDataHolder.m`. `controller_app` is already predefined in the Sample project. Please replace it if you want to assign other `App ID` and rebuild Lumos on Xcode.
 
