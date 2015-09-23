@@ -52,6 +52,9 @@
 
 - (BOOL)startReading
 {
+    [_readButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    _readButton.backgroundColor = [UIColor defaultDisplayColor];
+
     _captureSession = [[AVCaptureSession alloc] init];
     _videoPreviewLayer = [[AVCaptureVideoPreviewLayer alloc] initWithSession:_captureSession];
     return startReadingQRCode(_viewPreview, _captureSession, _videoPreviewLayer, self);
@@ -59,6 +62,9 @@
 
 -(void)stopReading
 {
+    [_readButton setTitleColor:[UIColor defaultDisplayColor] forState:UIControlStateNormal];
+    _readButton.backgroundColor = [UIColor whiteColor];
+
     [_captureSession stopRunning];
     _captureSession = nil;
     
