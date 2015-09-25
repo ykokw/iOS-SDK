@@ -84,7 +84,7 @@
 {
     UIView *tableHeaderView = tableView.tableHeaderView;
     UIView *view=[[UIView alloc]init];
-    setupAddButton(view, self, @selector(handleAdd));
+    setupAddButton(view, self, @selector(handleAdd), self.view.frame.size.width);
     self.editButton = setupEditButton(view, self, @selector(handleEdit));
     [tableHeaderView insertSubview:view atIndex:0];
     return view;

@@ -13,11 +13,11 @@ UIButton *setupEditButton(UIView *view, id target, SEL edit)
     return editButton;
 }
 
-UIButton *setupAddButton(UIView *view, id target, SEL add)
+UIButton *setupAddButton(UIView *view, id target, SEL add, int width)
 {
     UIButton *addButton = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [addButton setImage:[UIImage imageNamed:@"Add.png"] forState:UIControlStateNormal];
-    addButton.frame = CGRectMake(250, 0, 100, 50);
+    addButton.frame = CGRectMake(width - 50, 0, 50, 50);
     addButton.tintColor = [UIColor defaultThemeColor];
     [addButton addTarget:target action:add forControlEvents:UIControlEventTouchUpInside];
     [view addSubview:addButton];
