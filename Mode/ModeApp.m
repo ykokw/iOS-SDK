@@ -12,7 +12,6 @@
 
 static NSString *const ModeURL = @"https://api.tinkermode.com";
 
-
 @implementation NSString (NSString_Extended)
 
 - (NSString *)urlencode {

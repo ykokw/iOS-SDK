@@ -24,11 +24,18 @@
 }
 
 - (IBAction)handleOK:(id)sender {
+    int projectId = (int)[self.projectIdField.text integerValue];
+    
+    if (projectId == 0) {
+        showAlert([NSError errorWithDomain:@"Invalid Project ID" code:0 userInfo:nil]);
+        return;
+    }
+    
     LMDataHolder *data = [LMDataHolder sharedInstance];
     data.members = [[LMDataHolderMembers alloc] init];
     data.clientAuth = [[MODEClientAuthentication alloc] init];
     
-    data.projectId = [self.projectIdField.text integerValue];
+    data.projectId = projectId;
     data.oldProjectId = data.projectId;
     
     [data saveProjectId];

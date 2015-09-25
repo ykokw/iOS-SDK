@@ -176,13 +176,13 @@
     if (self.tableHeaderSubView == nil) {
         UIView *tableHeaderView = tableView.tableHeaderView;
         UIView *view=[[UIView alloc]init];
-        setupAddButton(view, self, @selector(handleAdd));
+        setupAddButton(view, self, @selector(handleAdd), self.view.frame.size.width);
         self.editButton = setupEditButton(view, self, @selector(handleEdit));
         [tableHeaderView insertSubview:view atIndex:0];
     
         NSArray *itemArray = [NSArray arrayWithObjects: @"Devices", @"Members", nil];
         UISegmentedControl *segmentedControl = [[UISegmentedControl alloc] initWithItems:itemArray];
-        segmentedControl.frame = CGRectMake(70, 10, 180, 30);
+        segmentedControl.frame = CGRectMake(self.view.frame.size.width/2 - 90, 10, 180, 30);
         [segmentedControl addTarget:self action:@selector(handleDevicesOrMembers:) forControlEvents: UIControlEventValueChanged];
         segmentedControl.tintColor = [UIColor defaultThemeColor];
         
