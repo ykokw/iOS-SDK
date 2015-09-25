@@ -784,7 +784,7 @@
 			baseConfigurationReference = A25ED04E2BC25E65A7F871D3 /* Pods-MODE-iOSSDK_Example.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "BrandAsset-2";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DYLIB_COMPATIBILITY_VERSION = "";
@@ -805,7 +805,7 @@
 			baseConfigurationReference = D485B01F952A1DA6676080AD /* Pods-MODE-iOSSDK_Example.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = BrandAsset;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "BrandAsset-2";
 				CODE_SIGN_IDENTITY = "iPhone Distribution";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				DYLIB_COMPATIBILITY_VERSION = "";
