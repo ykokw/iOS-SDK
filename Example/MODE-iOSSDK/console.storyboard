@@ -256,7 +256,7 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ejo-Fr-mzQ" customClass="LMRoundBoundaryButton">
-                                <rect key="frame" x="245" y="110" width="50" height="50"/>
+                                <rect key="frame" x="245" y="99" width="50" height="50"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="50" id="9zK-HK-4Vf"/>
@@ -278,7 +278,7 @@
                             <constraint firstItem="QaE-64-GCh" firstAttribute="centerX" secondItem="tqm-v6-3pz" secondAttribute="centerX" id="SFg-CC-tgN"/>
                             <constraint firstItem="fkP-sr-LQE" firstAttribute="centerY" secondItem="tqm-v6-3pz" secondAttribute="centerY" constant="67" id="Vp2-x0-9dD"/>
                             <constraint firstItem="fuz-qN-S0s" firstAttribute="centerX" secondItem="tqm-v6-3pz" secondAttribute="centerX" id="hzn-hl-iKA"/>
-                            <constraint firstItem="Ejo-Fr-mzQ" firstAttribute="centerY" secondItem="tqm-v6-3pz" secondAttribute="centerY" constant="-149" id="ljx-92-MPD"/>
+                            <constraint firstItem="Ejo-Fr-mzQ" firstAttribute="centerY" secondItem="tqm-v6-3pz" secondAttribute="centerY" constant="-160" id="ljx-92-MPD"/>
                             <constraint firstItem="QaE-64-GCh" firstAttribute="centerY" secondItem="tqm-v6-3pz" secondAttribute="centerY" constant="-99" id="rtQ-J6-o5j"/>
                             <constraint firstItem="fkP-sr-LQE" firstAttribute="centerX" secondItem="tqm-v6-3pz" secondAttribute="centerX" id="scv-Ll-g9O"/>
                             <constraint firstItem="FMy-IC-4Hi" firstAttribute="centerX" secondItem="tqm-v6-3pz" secondAttribute="centerX" constant="-30" id="wWf-0Z-3hL"/>
