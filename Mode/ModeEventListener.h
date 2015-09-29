@@ -1,5 +1,5 @@
 
-#import "SRWebSocket.h"
+#import <SocketRocket/SRWebSocket.h>
 #import "ModeData.h"
 
 @interface MODEEventListener : NSObject<SRWebSocketDelegate> {

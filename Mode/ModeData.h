@@ -1,4 +1,4 @@
-#import "Mantle.h"
+#import <Mantle/Mantle.h>
 
 //////////////////////////////////////////////////////////////////////////////////////////////////////
 // See mroe detail at http://dev.tinkermode.com/api/model_reference.html to get more detail schema
