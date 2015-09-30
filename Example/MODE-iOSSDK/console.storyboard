@@ -3,6 +3,8 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <scenes>
         <!--Homes Table View Controller-->
@@ -110,7 +112,6 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OW3-cG-g1d">
                                 <rect key="frame" x="25" y="185" width="270" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="NXA-i8-VfN"/>
                                     <constraint firstAttribute="height" constant="50" id="npg-KH-499"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -120,7 +121,6 @@
                                 <rect key="frame" x="25" y="245" width="270" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PEF-4R-BYe"/>
-                                    <constraint firstAttribute="width" constant="270" id="s8L-rj-8Bz"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -142,6 +142,8 @@
                             <constraint firstItem="OW3-cG-g1d" firstAttribute="centerX" secondItem="7dg-Gh-JAD" secondAttribute="centerX" id="cO5-hf-SEq"/>
                             <constraint firstItem="tby-yY-1NR" firstAttribute="centerY" secondItem="7dg-Gh-JAD" secondAttribute="centerY" constant="-134.5" id="ix8-cH-XG5"/>
                             <constraint firstItem="OW3-cG-g1d" firstAttribute="centerY" secondItem="7dg-Gh-JAD" secondAttribute="centerY" constant="-74" id="ju7-uv-pJp"/>
+                            <constraint firstAttribute="width" secondItem="OW3-cG-g1d" secondAttribute="width" multiplier="1.185" id="nZE-TV-EZd"/>
+                            <constraint firstAttribute="width" secondItem="Btu-Y7-hNG" secondAttribute="width" multiplier="1.185" id="sZI-af-kf3"/>
                             <constraint firstItem="Btu-Y7-hNG" firstAttribute="centerX" secondItem="7dg-Gh-JAD" secondAttribute="centerX" id="uOR-4G-13d"/>
                         </constraints>
                     </view>
@@ -183,7 +185,6 @@
                                 <rect key="frame" x="25" y="220" width="270" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="PfX-61-xnP"/>
-                                    <constraint firstAttribute="width" constant="270" id="nLt-Pa-Fme"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -191,6 +192,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstAttribute="width" secondItem="Jr0-JX-thl" secondAttribute="width" multiplier="1.185" id="Dqa-9V-cKa"/>
                             <constraint firstItem="Jr0-JX-thl" firstAttribute="centerX" secondItem="Ag8-wp-bRH" secondAttribute="centerX" id="Rt2-Vp-Icm"/>
                             <constraint firstItem="Jr0-JX-thl" firstAttribute="centerY" secondItem="Ag8-wp-bRH" secondAttribute="centerY" constant="-39" id="biC-i3-J46"/>
                             <constraint firstItem="6Co-7J-FAA" firstAttribute="centerX" secondItem="Ag8-wp-bRH" secondAttribute="centerX" id="lBn-l6-jcf"/>
@@ -223,7 +225,6 @@
                                 <rect key="frame" x="25" y="100" width="210" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="96z-gI-EXI"/>
-                                    <constraint firstAttribute="width" constant="210" id="sJi-TU-Afc"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -242,7 +243,6 @@
                                 <rect key="frame" x="25" y="160" width="270" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="W9R-go-TwZ"/>
-                                    <constraint firstAttribute="width" constant="270" id="xa3-Oy-aRs"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -251,8 +251,7 @@
                                 <rect key="frame" x="60" y="251" width="200" height="200"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="200" id="qiq-6k-lnj"/>
-                                    <constraint firstAttribute="height" constant="200" id="txu-vd-jJA"/>
+                                    <constraint firstAttribute="width" secondItem="fkP-sr-LQE" secondAttribute="height" multiplier="1:1" id="RCI-7m-zct"/>
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ejo-Fr-mzQ" customClass="LMRoundBoundaryButton">
@@ -274,13 +273,18 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="FMy-IC-4Hi" firstAttribute="centerY" secondItem="tqm-v6-3pz" secondAttribute="centerY" constant="-159" id="45f-XD-pg8"/>
-                            <constraint firstItem="Ejo-Fr-mzQ" firstAttribute="centerX" secondItem="tqm-v6-3pz" secondAttribute="centerX" constant="110" id="GzN-AS-tVm"/>
+                            <constraint firstItem="FMy-IC-4Hi" firstAttribute="leading" secondItem="QaE-64-GCh" secondAttribute="leading" id="IzJ-dg-yH9"/>
+                            <constraint firstItem="QaE-64-GCh" firstAttribute="trailing" secondItem="Ejo-Fr-mzQ" secondAttribute="trailing" id="LCT-3k-QY6"/>
+                            <constraint firstAttribute="width" secondItem="FMy-IC-4Hi" secondAttribute="width" multiplier="1.52" id="M09-h3-qC5"/>
                             <constraint firstItem="QaE-64-GCh" firstAttribute="centerX" secondItem="tqm-v6-3pz" secondAttribute="centerX" id="SFg-CC-tgN"/>
                             <constraint firstItem="fkP-sr-LQE" firstAttribute="centerY" secondItem="tqm-v6-3pz" secondAttribute="centerY" constant="67" id="Vp2-x0-9dD"/>
                             <constraint firstItem="fuz-qN-S0s" firstAttribute="centerX" secondItem="tqm-v6-3pz" secondAttribute="centerX" id="hzn-hl-iKA"/>
+                            <constraint firstAttribute="width" secondItem="fkP-sr-LQE" secondAttribute="width" multiplier="1.6" id="iSf-TS-fgv"/>
+                            <constraint firstItem="Ejo-Fr-mzQ" firstAttribute="baseline" secondItem="FMy-IC-4Hi" secondAttribute="baseline" id="iXD-Ml-J5f"/>
                             <constraint firstItem="Ejo-Fr-mzQ" firstAttribute="centerY" secondItem="tqm-v6-3pz" secondAttribute="centerY" constant="-160" id="ljx-92-MPD"/>
                             <constraint firstItem="QaE-64-GCh" firstAttribute="centerY" secondItem="tqm-v6-3pz" secondAttribute="centerY" constant="-99" id="rtQ-J6-o5j"/>
                             <constraint firstItem="fkP-sr-LQE" firstAttribute="centerX" secondItem="tqm-v6-3pz" secondAttribute="centerX" id="scv-Ll-g9O"/>
+                            <constraint firstAttribute="width" secondItem="QaE-64-GCh" secondAttribute="width" multiplier="1.185" id="u9G-Bx-djy"/>
                             <constraint firstItem="FMy-IC-4Hi" firstAttribute="centerX" secondItem="tqm-v6-3pz" secondAttribute="centerX" constant="-30" id="wWf-0Z-3hL"/>
                             <constraint firstItem="fuz-qN-S0s" firstAttribute="centerY" secondItem="tqm-v6-3pz" secondAttribute="centerY" constant="-230" id="wiz-be-SAU"/>
                         </constraints>
@@ -349,7 +353,6 @@
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="lwK-e1-fEi"/>
-                                    <constraint firstAttribute="width" constant="270" id="maZ-0q-swv"/>
                                 </constraints>
                                 <state key="normal" title="Logout">
                                     <color key="titleColor" red="0.91764705882352937" green="0.35686274509803922" blue="0.38039215686274508" alpha="1" colorSpace="calibratedRGB"/>
@@ -372,6 +375,7 @@
                             <constraint firstItem="kIE-8Q-ev1" firstAttribute="centerX" secondItem="Mqd-ly-TQJ" secondAttribute="centerX" id="X8U-iC-slw"/>
                             <constraint firstItem="IFE-oq-NpA" firstAttribute="centerY" secondItem="Mqd-ly-TQJ" secondAttribute="centerY" constant="14" id="Xhi-Ew-LGt"/>
                             <constraint firstItem="dIV-L7-ZuO" firstAttribute="centerY" secondItem="Mqd-ly-TQJ" secondAttribute="centerY" constant="-38.5" id="ge9-zN-OZK"/>
+                            <constraint firstAttribute="width" secondItem="kIE-8Q-ev1" secondAttribute="width" multiplier="1.185" id="pdy-9J-FdK"/>
                             <constraint firstItem="bKJ-SS-GVf" firstAttribute="centerX" secondItem="Mqd-ly-TQJ" secondAttribute="centerX" constant="20" id="vI4-YA-4kv"/>
                         </constraints>
                     </view>
@@ -403,7 +407,6 @@
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="XOL-tD-gkR">
                                 <rect key="frame" x="25" y="160" width="270" height="50"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="270" id="JK6-ix-bPU"/>
                                     <constraint firstAttribute="height" constant="50" id="k2j-Ij-ce2"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -423,7 +426,6 @@
                                 <rect key="frame" x="25" y="220" width="270" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="KWk-ed-jwc"/>
-                                    <constraint firstAttribute="width" constant="270" id="MJv-VL-hmg"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
@@ -433,9 +435,11 @@
                         <constraints>
                             <constraint firstItem="XOL-tD-gkR" firstAttribute="centerY" secondItem="iCG-zp-zTZ" secondAttribute="centerY" constant="-99" id="4pI-cu-wma"/>
                             <constraint firstItem="nFg-qJ-BXO" firstAttribute="centerX" secondItem="iCG-zp-zTZ" secondAttribute="centerX" id="Kkf-vq-2oa"/>
+                            <constraint firstAttribute="width" secondItem="nFg-qJ-BXO" secondAttribute="width" multiplier="1.185" id="VW2-sz-ktd"/>
                             <constraint firstItem="XOL-tD-gkR" firstAttribute="centerX" secondItem="iCG-zp-zTZ" secondAttribute="centerX" id="fTN-Qg-Ra5"/>
                             <constraint firstItem="NbL-Yo-WyD" firstAttribute="centerY" secondItem="iCG-zp-zTZ" secondAttribute="centerY" constant="-171.5" id="hQz-wh-OgW"/>
                             <constraint firstItem="nFg-qJ-BXO" firstAttribute="centerY" secondItem="iCG-zp-zTZ" secondAttribute="centerY" constant="-39" id="i0q-bb-kRF"/>
+                            <constraint firstAttribute="width" secondItem="XOL-tD-gkR" secondAttribute="width" multiplier="1.185" id="shE-Er-Jez"/>
                             <constraint firstItem="NbL-Yo-WyD" firstAttribute="centerX" secondItem="iCG-zp-zTZ" secondAttribute="centerX" id="wwD-NK-vda"/>
                         </constraints>
                     </view>
