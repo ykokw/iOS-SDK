@@ -68,10 +68,9 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lAf-nA-C6s">
-                                <rect key="frame" x="135" y="102" width="52" height="82"/>
+                                <rect key="frame" x="135" y="115" width="52" height="82"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="82" id="IvY-Hu-yzb"/>
-                                    <constraint firstAttribute="width" constant="52" id="Yxx-Zm-6cy"/>
+                                    <constraint firstAttribute="width" secondItem="lAf-nA-C6s" secondAttribute="height" multiplier="26:41" id="lFy-rQ-YJl"/>
                                 </constraints>
                             </imageView>
                         </subviews>
@@ -83,10 +82,11 @@
                             <constraint firstItem="Bjx-EP-DRF" firstAttribute="centerX" secondItem="Ojv-6h-sTs" secondAttribute="centerX" id="A92-Fo-yxZ"/>
                             <constraint firstItem="aff-9u-MgQ" firstAttribute="centerY" secondItem="Ojv-6h-sTs" secondAttribute="centerY" constant="14" id="Bn8-RY-yoM"/>
                             <constraint firstItem="Bjx-EP-DRF" firstAttribute="centerY" secondItem="Ojv-6h-sTs" secondAttribute="centerY" constant="161" id="Qdl-d3-lJ4"/>
+                            <constraint firstAttribute="width" secondItem="lAf-nA-C6s" secondAttribute="width" multiplier="6.15" id="Qlf-TX-7k7"/>
                             <constraint firstItem="Z2C-19-Snp" firstAttribute="centerX" secondItem="Ojv-6h-sTs" secondAttribute="centerX" id="Y1c-F6-3Og"/>
                             <constraint firstItem="aff-9u-MgQ" firstAttribute="centerX" secondItem="Ojv-6h-sTs" secondAttribute="centerX" id="ZAP-hy-PRy"/>
                             <constraint firstItem="Z2C-19-Snp" firstAttribute="centerY" secondItem="Ojv-6h-sTs" secondAttribute="centerY" constant="93.5" id="gkQ-Ck-vHA"/>
-                            <constraint firstItem="lAf-nA-C6s" firstAttribute="centerY" secondItem="Ojv-6h-sTs" secondAttribute="centerY" constant="-141" id="j7R-f5-NHz"/>
+                            <constraint firstItem="lAf-nA-C6s" firstAttribute="centerY" secondItem="Ojv-6h-sTs" secondAttribute="centerY" multiplier="0.55" id="j7R-f5-NHz"/>
                             <constraint firstAttribute="width" secondItem="Bjx-EP-DRF" secondAttribute="width" multiplier="1.185" id="qJM-HA-vwx"/>
                             <constraint firstItem="lAf-nA-C6s" firstAttribute="centerX" secondItem="Ojv-6h-sTs" secondAttribute="centerX" constant="1" id="yUs-p7-Dqd"/>
                         </constraints>
@@ -751,7 +751,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kfA-9g-xNS"/>
+        <segue reference="nae-TT-8aK"/>
         <segue reference="iKu-R9-eIc"/>
     </inferredMetricsTieBreakers>
 </document>
