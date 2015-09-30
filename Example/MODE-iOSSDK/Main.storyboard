@@ -458,10 +458,10 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="e4m-ud-hDS" firstAttribute="centerX" secondItem="ESy-au-i5Q" secondAttribute="centerX" constant="110" id="4HH-6N-fOF"/>
                             <constraint firstItem="CRg-Cs-zhp" firstAttribute="centerY" secondItem="ESy-au-i5Q" secondAttribute="centerY" constant="-119" id="AyU-fS-Ytl"/>
                             <constraint firstItem="JeL-uo-mgg" firstAttribute="centerX" secondItem="ESy-au-i5Q" secondAttribute="centerX" id="GzZ-XT-9sE"/>
                             <constraint firstAttribute="width" secondItem="5BI-4F-14v" secondAttribute="width" multiplier="1.185" id="KY6-YU-f2c"/>
+                            <constraint firstItem="e4m-ud-hDS" firstAttribute="trailing" secondItem="5BI-4F-14v" secondAttribute="trailing" id="MAL-54-i7b"/>
                             <constraint firstItem="CRg-Cs-zhp" firstAttribute="centerX" secondItem="ESy-au-i5Q" secondAttribute="centerX" constant="-30" id="Uro-MK-Ux4"/>
                             <constraint firstItem="YUH-es-yDm" firstAttribute="centerX" secondItem="ESy-au-i5Q" secondAttribute="centerX" id="V6V-e5-9fs"/>
                             <constraint firstItem="5BI-4F-14v" firstAttribute="centerY" secondItem="ESy-au-i5Q" secondAttribute="centerY" constant="-59" id="V6x-1I-jKI"/>
@@ -477,6 +477,7 @@
                             <constraint firstItem="EGj-EE-f2y" firstAttribute="centerY" secondItem="ESy-au-i5Q" secondAttribute="centerY" constant="-189" id="jpF-FO-Ko7"/>
                             <constraint firstItem="JeL-uo-mgg" firstAttribute="centerY" secondItem="ESy-au-i5Q" secondAttribute="centerY" constant="154.5" id="pic-HM-Vdx"/>
                             <constraint firstItem="EGj-EE-f2y" firstAttribute="centerX" secondItem="ESy-au-i5Q" secondAttribute="centerX" id="sh2-a5-mLe"/>
+                            <constraint firstItem="CRg-Cs-zhp" firstAttribute="leading" secondItem="5BI-4F-14v" secondAttribute="leading" id="tcd-LE-RWi"/>
                             <constraint firstItem="5BI-4F-14v" firstAttribute="centerX" secondItem="ESy-au-i5Q" secondAttribute="centerX" id="zOu-ne-iHf"/>
                         </constraints>
                     </view>
@@ -750,7 +751,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="kfA-9g-xNS"/>
         <segue reference="iKu-R9-eIc"/>
-        <segue reference="Qcv-2p-LtW"/>
     </inferredMetricsTieBreakers>
 </document>
