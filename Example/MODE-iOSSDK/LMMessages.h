@@ -1,6 +1,6 @@
 
 #define MESSAGE_SAMPLE_APP @"\
-A Sample App for your Smart Light \
+A Companion App for MODE \
 "
 #define MESSAGE_CREATE_HOME @"\
 Create a New Home.\
