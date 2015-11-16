@@ -72,7 +72,7 @@ PhoneNumberFieldDelegate *setupPhoneNumberField(UITextField *phoneNumberField)
     
     setupTextFieldWithLeftIcon(phoneNumberField, @"Phone.png");
     
-    phoneNumberField.keyboardType = UIKeyboardTypeNumberPad;
+    phoneNumberField.keyboardType = UIKeyboardTypePhonePad;
     PhoneNumberFieldDelegate *phoneNumberDelegate = [[PhoneNumberFieldDelegate alloc] initWithTextField:phoneNumberField];
     phoneNumberField.delegate = phoneNumberDelegate;
  
@@ -177,7 +177,7 @@ NSString *formatPhonenumberFromString(NSString *phonenumber)
     self = [super init];
     if (self) {
         self.phoneNumberField = textField;
-        [textField addTarget:self action:@selector(handleFormatPhoneNumber) forControlEvents:UIControlEventEditingChanged];
+        //[textField addTarget:self action:@selector(handleFormatPhoneNumber) forControlEvents:UIControlEventEditingChanged];
     }
     return self;
 }
