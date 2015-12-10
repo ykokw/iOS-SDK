@@ -49,6 +49,14 @@ typedef void (^completionBlock)(id, NSError*);
 typedef void (^completionBlockForArray)(NSArray*, NSError*);
 typedef id (^targetBlock)(id resposeObject, Class targetClass, NSError**);
 
+completionBlock convertCompletionError(void(^completionError)(NSError*))
+{
+    return ^(id dummy, NSError *err) {
+        completionError(err);
+        return;
+    };
+}
+
 static NSString* encodeDictionary(NSDictionary* dictionary) {
     NSMutableArray *parts = [[NSMutableArray alloc] init];
     for (NSString *key in dictionary) {
@@ -202,6 +210,31 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
     return callHTTPRequest2(nil, true,  @"POST", @"/users", parameters, MODEUser.class, completion);
 }
 
++ (NSURLSessionDataTask*)createUser:(int)projectId email:(NSString *)email password:(NSString *)password name:(NSString *)name completion:(MODEUserBlock)completion
+{
+    if (name == nil) {
+        DLog(@"name is nil");
+        return nil;
+    }
+    if (email == nil) {
+        DLog(@"email is nil");
+        return nil;
+    }
+    if (password == nil) {
+        DLog(@"password is nil");
+        return nil;
+    }
+    
+    NSDictionary *parameters =@{
+                                @"projectId":   [NSNumber numberWithInt:projectId],
+                                @"email": email,
+                                @"password": password,
+                                @"name": name
+                                };
+    return callHTTPRequest2(nil, true,  @"POST", @"/users", parameters, MODEUser.class, completion);
+}
+
+
 + (NSURLSessionDataTask*)getUser:(MODEClientAuthentication *)clientAuthentication userId:(int)userId completion:(void (^)(MODEUser *, NSError *))completion
 {
     return callHTTPRequest2(clientAuthentication, false, @"GET", [NSString stringWithFormat:@"/users/%d", userId], nil, MODEUser.class, completion);
@@ -287,6 +320,17 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
     NSDictionary *parameters = @{@"phoneNumber": phoneNumber};
     return callHTTPRequest2(clientAuthentication, false, @"POST",  [NSString stringWithFormat:@"/homes/%d/members", homeId], parameters, MODEHomeMember.class, completion);
 }
+
++(NSURLSessionDataTask*)addHomeMember:(MODEClientAuthentication *)clientAuthentication homeId:(int)homeId email:(NSString *)email completion:(void (^)(MODEHomeMember *, NSError *))completion
+{
+    if (email == nil) {
+        DLog(@"email is nil");
+        return nil;
+    }
+    NSDictionary *parameters = @{@"email": email};
+    return callHTTPRequest2(clientAuthentication, false, @"POST",  [NSString stringWithFormat:@"/homes/%d/members", homeId], parameters, MODEHomeMember.class, completion);
+}
+
 
 +(NSURLSessionDataTask*)getHomeMember:(MODEClientAuthentication *)clientAuthentication homeId:(int)homeId userId:(int)userId completion:(void (^)(MODEHomeMember *, NSError *))completion
 {
@@ -434,6 +478,57 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
 + (NSURLSessionDataTask*)getCurrentAuthenticationState:(MODEClientAuthentication*)clientAuthentication completion:(void(^)(MODEAuthenticationInfo*, NSError*))completion
 {
     return callHTTPRequest2(clientAuthentication, false, @"GET", @"/auth", nil, MODEAuthenticationInfo.class, completion);
+}
+
+
++ (NSURLSessionDataTask*)verifyUserEmailAddress:(int)projectId token:(NSString*)token completion:(void(^)(NSError*))completion;
+{
+    if (token == nil) {
+        DLog(@"token is nil");
+        return nil;
+    }
+    NSDictionary *parameters = @{@"projectId": [@(projectId) stringValue], @"token": token};
+    return callHTTPRequest2(nil, false, @"POST", @"/auth/user", parameters, MODEClientAuthentication.class, convertCompletionError(completion));
+}
+
++ (NSURLSessionDataTask*)initiateUserEmailVerification:(int)projectId email:(NSString*)email completion:(void(^)(NSError*))completion;
+{
+    if (email == nil) {
+        DLog(@"email is nil");
+        return nil;
+    }
+    NSDictionary *parameters = @{@"projectId": [@(projectId) stringValue], @"email": email};
+    return callHTTPRequest2(nil, false, @"POST", @"/auth/user/emailVerification/start", parameters, MODEClientAuthentication.class, convertCompletionError(completion));
+}
+
++ (NSURLSessionDataTask*)initiateUserPasswordReset:(int)projectId email:(NSString*)email completion:(void(^)(NSError*))completion;
+{
+    if (email == nil) {
+        DLog(@"email is nil");
+        return nil;
+    }
+    NSDictionary *parameters = @{@"projectId": [@(projectId) stringValue], @"email": email};
+    return callHTTPRequest2(nil, false, @"POST", @"/auth/user/passwordReset/start", parameters, MODEClientAuthentication.class, convertCompletionError(completion));
+    
+}
+
++ (NSURLSessionDataTask*)authenticateWithEmail:(int)projectId email:(NSString*)email  password:(NSString*)password appId:(NSString*)appId
+                                    completion:(void(^)(MODEClientAuthentication*, NSError*))completion;
+{
+    if (email == nil) {
+        DLog(@"email is nil");
+        return nil;
+    }
+    if (password == nil) {
+        DLog(@"password is nil");
+        return nil;
+    }
+    if (appId == nil) {
+        DLog(@"appId is nil");
+        return nil;
+    }
+    NSDictionary *parameters = @{@"projectId": [@(projectId) stringValue], @"email": email, @"password": password, @"appId": appId};
+    return callHTTPRequest2(nil, false, @"POST", @"/auth/user", parameters, MODEClientAuthentication.class, completion);
 }
 
 @end

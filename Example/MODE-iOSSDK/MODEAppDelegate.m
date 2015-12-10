@@ -16,7 +16,12 @@
                forKeyPath:@"projectId"
                   options:NSKeyValueObservingOptionNew
                   context:NULL];
-    
+
+    [defaults addObserver:self
+               forKeyPath:@"isEmailLogin"
+                  options:NSKeyValueObservingOptionNew
+                  context:NULL];
+
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Override point for customization after application launch.
     [[LMDataHolder sharedInstance] loadData];
@@ -31,10 +36,13 @@
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [data loadProjectId];
 
-    if (data.oldProjectId != data.projectId) {
+    if (data.oldProjectId != data.projectId ||
+        data.oldIsEmailLogin != data.isEmailLogin) {
         // When projectId is changed, reset the session and go back to the root view.
         
         data.oldProjectId = data.projectId;
+        data.oldIsEmailLogin = data.isEmailLogin;
+        
         [data saveOldProjectId];
         
         data.members = [[LMDataHolderMembers alloc] init];
@@ -70,9 +78,6 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationWillTerminateNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIApplicationDidBecomeActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] removeObserver:self name:NSUserDefaultsDidChangeNotification object:nil];
-
-    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-    [defaults removeObserver:self forKeyPath:@"projectId"];
     
     [[LMDataHolder sharedInstance] saveData];
     

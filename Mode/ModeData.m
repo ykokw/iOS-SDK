@@ -48,6 +48,7 @@ NSValueTransformer* getTimeTransformer(BOOL hasMillisec) {
              @"projectId": @"projectId",
              @"creationTime": @"creationTime",
              @"phoneNumber": @"phoneNumber",
+             @"email": @"email",
              @"name": @"name",
              @"verified": @"verified"
              };
@@ -91,6 +92,7 @@ JSONTransformerFunc(creationTime, TRUE)
              @"creationTime": @"creationTime",
              @"name": @"name",
              @"phoneNumber": @"phoneNumber",
+             @"email": @"email",
              @"verified": @"verified"
              };
 }
