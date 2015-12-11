@@ -13,7 +13,10 @@
 
 @property(strong, nonatomic) IBOutlet UITextField *nameField;
 @property(strong, nonatomic) IBOutlet UITextField *phoneNumberField;
+@property (strong, nonatomic) IBOutlet UITextField *passwordField;
+
 @property(strong, nonatomic) PhoneNumberFieldDelegate *phoneNumberDelegate;
+@property(strong, nonatomic) EmailFieldDelegate *emailFieldDelegate;
 
 @end
 
@@ -23,15 +26,23 @@
 {
     [super viewDidLoad];
 
-    setupMessage(self.message, MESSAGE_WELCOME, 15.0);
-    setupMessage(self.note, MESSAGE_NOTE, 15.0);
+    LMDataHolder *data = [LMDataHolder sharedInstance];
+
+    if (data.isEmailLogin) {
+        setupMessage(self.note, MESSAGE_NOTE_EMAIL, 15.0);
+        self.emailFieldDelegate = setupEmailField(self.phoneNumberField);
+        setupPassowrdField(self.passwordField);
+    } else {
+        setupMessage(self.note, MESSAGE_NOTE, 15.0);
+        self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
+        self.phoneNumberField.hidden = TRUE;
+    }
     
-    setupStandardTextField(self.nameField, @"Name", @"Name.png");
     self.navigationItem.titleView = setupTitle(@"Sign Up");
-    self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
+    setupMessage(self.message, MESSAGE_WELCOME, 15.0);
+    setupStandardTextField(self.nameField, @"Name", @"Name.png");
     setupKeyboardDismisser(self, @selector(dismissKeyboard));
 }
-
 
 - (void)dismissKeyboard
 {
@@ -48,18 +59,34 @@
 {
     __weak __typeof__(self) weakSelf = self;
     LMDataHolder *data = [LMDataHolder sharedInstance];
-    data.members.phoneNumber = self.phoneNumberField.text;
     [self performSegueWithIdentifier:@"VerifyAccountSegue" sender:self];
 
-    [MODEAppAPI createUser:data.projectId phoneNumber:self.phoneNumberField.text name:self.nameField.text
-        completion:^(MODEUser *user, NSError *err) {
-            if (err != nil) {
-                [weakSelf windBack];
-                showAlert(err);
-            } else {
-                DLog(@"Added user: %@", user);
-            }
-        }];
+    if (data.isEmailLogin) {
+        data.members.email = self.phoneNumberField.text;
+        data.members.password = self.passwordField.text;
+        [MODEAppAPI createUser:data.projectId email:self.phoneNumberField.text
+                      password:self.passwordField.text name:self.nameField.text
+                    completion:^(MODEUser *user, NSError *err) {
+                        if (err != nil) {
+                            [weakSelf windBack];
+                            showAlert(err);
+                        } else {
+                            DLog(@"Added user: %@", user);
+                        }
+                    }];
+    } else {
+        data.members.phoneNumber = self.phoneNumberField.text;
+        [MODEAppAPI createUser:data.projectId phoneNumber:self.phoneNumberField.text
+                          name:self.nameField.text
+            completion:^(MODEUser *user, NSError *err) {
+                if (err != nil) {
+                    [weakSelf windBack];
+                    showAlert(err);
+                } else {
+                    DLog(@"Added user: %@", user);
+                }
+            }];
+    }
 }
 
 @end
