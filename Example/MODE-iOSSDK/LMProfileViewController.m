@@ -25,7 +25,8 @@
     setupRightBarButtonItem(self.navigationItem, @"Edit", self, @selector(handleEdit));
     self.navigationItem.titleView = setupTitle(@"My Profile");
     self.nameIcon.image = [UIImage imageNamed:@"Name.png"];
-    self.phoneIcon.image = [UIImage imageNamed:@"Phone.png"];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
+    self.phoneIcon.image = [UIImage imageNamed:data.isEmailLogin ? @"Email.png" : @"Phone.png"];
 }
 
 - (void)handleEdit
