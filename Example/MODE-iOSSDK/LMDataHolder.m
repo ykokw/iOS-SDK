@@ -69,15 +69,13 @@ void saveObject(NSString *key, id<MTLJSONSerializing> obj)
 
 - (void)saveProjectId
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", self.oldProjectId] forKey:@"projectId"];
-    [[NSUserDefaults standardUserDefaults] setBool:self.oldIsEmailLogin forKey:@"isEmailLogin"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", self.projectId] forKey:@"projectId"];
+    [[NSUserDefaults standardUserDefaults] setBool:self.isEmailLogin forKey:@"isEmailLogin"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", self.oldProjectId] forKey:@"oldProjectId"];
+    [[NSUserDefaults standardUserDefaults] setBool:self.oldIsEmailLogin forKey:@"oldIsEmailLogin"];
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-
-- (void)saveOldProjectId
-{
-}
 
 - (void)saveData
 {

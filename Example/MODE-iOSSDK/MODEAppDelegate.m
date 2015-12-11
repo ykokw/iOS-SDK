@@ -36,14 +36,13 @@
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [data loadProjectId];
 
-    if (data.oldProjectId != data.projectId ||
-        data.oldIsEmailLogin != data.isEmailLogin) {
+    if (data.oldProjectId != data.projectId) {
         // When projectId is changed, reset the session and go back to the root view.
         
         data.oldProjectId = data.projectId;
         data.oldIsEmailLogin = data.isEmailLogin;
         
-        [data saveOldProjectId];
+        [data saveProjectId];
         
         data.members = [[LMDataHolderMembers alloc] init];
         data.clientAuth = [[MODEClientAuthentication alloc] init];

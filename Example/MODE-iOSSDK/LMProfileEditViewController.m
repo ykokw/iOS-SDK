@@ -48,7 +48,9 @@
 - (void)updateFields:(MODEUser *) user
 {
     setupStandardTextField(self.nameField, user.name, @"Name.png");
-    setupStandardTextField(self.phonenumberField, formatPhonenumberFromString(user.phoneNumber), @"Phone.png");
+    LMDataHolder *data = [LMDataHolder sharedInstance];
+    NSString* ident = data.isEmailLogin ? user.email : formatPhonenumberFromString(user.phoneNumber);
+    setupStandardTextField(self.phonenumberField, ident, @"Phone.png");
 }
 
 - (void)fetchUserInfo

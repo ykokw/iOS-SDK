@@ -40,6 +40,11 @@ Welcome back!\n\
 Please enter your phone number below\
 "
 
+#define MESSAGE_WELCOME_BACK_EMAIL @"\
+Welcome back!\n\
+Please enter your email and password below\
+"
+
 #define MESSAGE_ADD_DEVICES @"\
 1. Turn on Claim Mode on your Device.\n\
 2. Enter the Claim Code below."

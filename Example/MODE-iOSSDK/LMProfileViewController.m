@@ -36,7 +36,11 @@
 - (void)updateFields:(MODEUser *)user
 {
     setupMessageWithColorAndAlign(self.userName, user.name, [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
-    setupMessageWithColorAndAlign(self.phonenumber, formatPhonenumberFromString(user.phoneNumber), [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
+    
+    LMDataHolder *data = [LMDataHolder sharedInstance];
+
+    NSString* ident = data.isEmailLogin ? user.email : formatPhonenumberFromString(user.phoneNumber);
+    setupMessageWithColorAndAlign(self.phonenumber, ident, [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
 }
 
 - (void)fetchUserInfo

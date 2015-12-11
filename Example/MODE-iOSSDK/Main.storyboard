@@ -705,15 +705,27 @@
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Vb1-Qa-yeT">
+                                <rect key="frame" x="25" y="251" width="270" height="50"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="bDm-fP-E13"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="p64-KE-O6j" firstAttribute="centerY" secondItem="8Fe-K3-Ixk" secondAttribute="centerY" constant="-68" id="3VE-IA-Q1n"/>
                             <constraint firstAttribute="width" secondItem="p64-KE-O6j" secondAttribute="width" multiplier="1.185" id="DaC-8g-zTE"/>
+                            <constraint firstItem="Vb1-Qa-yeT" firstAttribute="leading" secondItem="p64-KE-O6j" secondAttribute="leading" id="JIr-w1-g48"/>
+                            <constraint firstItem="Vb1-Qa-yeT" firstAttribute="top" secondItem="p64-KE-O6j" secondAttribute="bottom" constant="10" id="TZE-Bq-IuH"/>
                             <constraint firstItem="2eY-El-X21" firstAttribute="centerY" secondItem="8Fe-K3-Ixk" secondAttribute="centerY" constant="-134" id="Var-Sa-ZyF"/>
                             <constraint firstItem="2eY-El-X21" firstAttribute="centerX" secondItem="8Fe-K3-Ixk" secondAttribute="centerX" constant="-10" id="ZqR-X2-tvR"/>
                             <constraint firstItem="p64-KE-O6j" firstAttribute="centerX" secondItem="8Fe-K3-Ixk" secondAttribute="centerX" id="tvN-DN-Drf"/>
+                            <constraint firstItem="Vb1-Qa-yeT" firstAttribute="trailing" secondItem="p64-KE-O6j" secondAttribute="trailing" id="zmM-aw-hNy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Log In" id="b3O-e5-C48">
@@ -725,8 +737,10 @@
                     </navigationItem>
                     <connections>
                         <outlet property="message" destination="2eY-El-X21" id="qaA-Oj-Fwp"/>
+                        <outlet property="passwordField" destination="Vb1-Qa-yeT" id="nKc-mZ-4yx"/>
                         <outlet property="phoneNumberField" destination="p64-KE-O6j" id="vFU-5u-G7c"/>
                         <segue destination="ZB1-S3-Zf2" kind="push" identifier="AuthenticateAccountSegue" id="Qrb-ff-O7J"/>
+                        <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LMLinkedStoryBoardSegue" id="URq-zQ-GlD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="k5N-zm-ABe" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -809,7 +823,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ms9-bj-5Ee" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-65" y="1281.9999999999995"/>
+            <point key="canvasLocation" x="-23" y="1869"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="UqN-FO-Rg4">
@@ -850,7 +864,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="kfA-9g-xNS"/>
+        <segue reference="URq-zQ-GlD"/>
         <segue reference="iKu-R9-eIc"/>
     </inferredMetricsTieBreakers>
 </document>
