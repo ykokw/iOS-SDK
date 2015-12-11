@@ -264,11 +264,16 @@
 {
     NSString *cellvalue;
     
+    
+    
     if([self isMembers]) {
         MODEHomeMember *member = self.items[row];
         cellvalue = member.name;
         
-        setCellLabel(cell.detailTextLabel, formatPhonenumberFromString(member.phoneNumber),
+        LMDataHolder *data = [LMDataHolder sharedInstance];
+
+        NSString* ident = data.isEmailLogin ? member.email : formatPhonenumberFromString(member.phoneNumber);
+        setCellLabel(cell.detailTextLabel, ident,
                      [UIColor subCellTextColor], 14.0);
         
         if (member.verified == false) {
