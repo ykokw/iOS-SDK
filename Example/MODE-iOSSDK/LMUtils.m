@@ -85,7 +85,7 @@ EmailFieldDelegate *setupEmailField(UITextField *emailField)
 {
     [emailField setPlaceholder:@"Email"];
     
-    setupTextFieldWithLeftIcon(emailField, @"Phone.png");
+    setupTextFieldWithLeftIcon(emailField, @"Email.png");
     
     emailField.keyboardType = UIKeyboardTypeEmailAddress;
     EmailFieldDelegate *emailDelegate = [[EmailFieldDelegate alloc] initWithTextField:emailField];
@@ -99,7 +99,7 @@ EmailFieldDelegate *setupEmailField(UITextField *emailField)
 void setupPassowrdField(UITextField *passwordField) {
     [passwordField setPlaceholder:@"Password"];
     
-    setupTextFieldWithLeftIcon(passwordField, @"Phone.png");
+    setupTextFieldWithLeftIcon(passwordField, @"Authentication.png");
     
     passwordField.secureTextEntry = YES;
     passwordField.keyboardType = UIKeyboardTypeDefault;

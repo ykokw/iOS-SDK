@@ -36,7 +36,6 @@
 		213520991B73EAA1005DD0E2 /* Authentication.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520941B73EAA1005DD0E2 /* Authentication.png */; };
 		2135209A1B73EAA1005DD0E2 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520951B73EAA1005DD0E2 /* Background.png */; };
 		2135209B1B73EAA1005DD0E2 /* ClaimCode.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520961B73EAA1005DD0E2 /* ClaimCode.png */; };
-		2135209C1B73EAA1005DD0E2 /* Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520971B73EAA1005DD0E2 /* Edit.png */; };
 		2135209D1B73EAA1005DD0E2 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520981B73EAA1005DD0E2 /* Home.png */; };
 		213520AA1B73EAA7005DD0E2 /* Lumos_AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2135209E1B73EAA7005DD0E2 /* Lumos_AppIcon.png */; };
 		213520AB1B73EAA7005DD0E2 /* Lumos_AppIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2135209F1B73EAA7005DD0E2 /* Lumos_AppIcon2.png */; };
@@ -54,6 +53,7 @@
 		219B54541BB0AF6200611B43 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 219B54531BB0AF6200611B43 /* Settings.bundle */; };
 		21A8E8781B597448002D09E6 /* LMHomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */; };
 		21BD6DB61BEA9AE700FD7DDD /* Pods_MODE_iOSSDK_Example.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32363722C77D44A693D2A580 /* Pods_MODE_iOSSDK_Example.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21CF7EF51C1B671D000368F7 /* Email.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CF7EF41C1B671D000368F7 /* Email.png */; };
 		21F9424B1BACD29100A784E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F9424A1BACD29100A784E8 /* Images.xcassets */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
@@ -149,7 +149,6 @@
 		213520941B73EAA1005DD0E2 /* Authentication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Authentication.png; path = Images.xcassets/Authentication.png; sourceTree = "<group>"; };
 		213520951B73EAA1005DD0E2 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Images.xcassets/Background.png; sourceTree = "<group>"; };
 		213520961B73EAA1005DD0E2 /* ClaimCode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ClaimCode.png; path = Images.xcassets/ClaimCode.png; sourceTree = "<group>"; };
-		213520971B73EAA1005DD0E2 /* Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Edit.png; path = Images.xcassets/Edit.png; sourceTree = "<group>"; };
 		213520981B73EAA1005DD0E2 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Home.png; path = Images.xcassets/Home.png; sourceTree = "<group>"; };
 		2135209E1B73EAA7005DD0E2 /* Lumos_AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lumos_AppIcon.png; path = Images.xcassets/Lumos_AppIcon.png; sourceTree = "<group>"; };
 		2135209F1B73EAA7005DD0E2 /* Lumos_AppIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lumos_AppIcon2.png; path = Images.xcassets/Lumos_AppIcon2.png; sourceTree = "<group>"; };
@@ -167,6 +166,7 @@
 		219B54531BB0AF6200611B43 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		21A8E8761B597448002D09E6 /* LMHomeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHomeDetailViewController.h; sourceTree = "<group>"; };
 		21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMHomeDetailViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		21CF7EF41C1B671D000368F7 /* Email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Email.png; path = Images.xcassets/Email.png; sourceTree = "<group>"; };
 		21F9424A1BACD29100A784E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "MODE-iOSSDK_Example/Images.xcassets"; sourceTree = "<group>"; };
 		2DFF3826F5A3A2128C83B9FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		32363722C77D44A693D2A580 /* Pods_MODE_iOSSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MODE_iOSSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -298,6 +298,7 @@
 			isa = PBXGroup;
 			children = (
 				2135209E1B73EAA7005DD0E2 /* Lumos_AppIcon.png */,
+				21CF7EF41C1B671D000368F7 /* Email.png */,
 				2135209F1B73EAA7005DD0E2 /* Lumos_AppIcon2.png */,
 				213520A01B73EAA7005DD0E2 /* Lumos_logo.png */,
 				213520A11B73EAA7005DD0E2 /* Lumos.png */,
@@ -312,7 +313,6 @@
 				213520941B73EAA1005DD0E2 /* Authentication.png */,
 				213520951B73EAA1005DD0E2 /* Background.png */,
 				213520961B73EAA1005DD0E2 /* ClaimCode.png */,
-				213520971B73EAA1005DD0E2 /* Edit.png */,
 				213520981B73EAA1005DD0E2 /* Home.png */,
 				213520921B73EA95005DD0E2 /* Add.png */,
 				213520901B73EA59005DD0E2 /* LumosLogo.png */,
@@ -529,7 +529,6 @@
 				213520AD1B73EAA7005DD0E2 /* Lumos.png in Resources */,
 				213520AF1B73EAA7005DD0E2 /* Nickname.png in Resources */,
 				213520911B73EA59005DD0E2 /* LumosLogo.png in Resources */,
-				2135209C1B73EAA1005DD0E2 /* Edit.png in Resources */,
 				213520B01B73EAA7005DD0E2 /* Phone.png in Resources */,
 				213520991B73EAA1005DD0E2 /* Authentication.png in Resources */,
 				213520AE1B73EAA7005DD0E2 /* Name.png in Resources */,
@@ -538,6 +537,7 @@
 				213520B51B73EAA7005DD0E2 /* TimeZone.png in Resources */,
 				219B54541BB0AF6200611B43 /* Settings.bundle in Resources */,
 				213520AB1B73EAA7005DD0E2 /* Lumos_AppIcon2.png in Resources */,
+				21CF7EF51C1B671D000368F7 /* Email.png in Resources */,
 				2135209B1B73EAA1005DD0E2 /* ClaimCode.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
