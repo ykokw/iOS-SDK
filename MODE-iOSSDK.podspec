@@ -9,7 +9,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "MODE-iOSSDK"
-  s.version          = "1.1.1"
+  s.version          = "1.2.0"
   s.summary          = "iOS library to access the MODE cloud API."
   s.description      = <<-DESC
                        This is the iOS library to access the MODE cloud API.

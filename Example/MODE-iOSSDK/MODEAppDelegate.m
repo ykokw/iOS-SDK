@@ -33,6 +33,10 @@
                        change:(NSDictionary *)change
                       context:(void *)context
 {
+    if (self.doNotObserveValue) {
+        return;
+    }
+    
     LMDataHolder* data = [LMDataHolder sharedInstance];
     [data loadProjectId];
 
@@ -42,8 +46,11 @@
         
         data.oldProjectId = data.projectId;
         data.oldIsEmailLogin = data.isEmailLogin;
-        
+    
+        // Do not observe values while calling saveProjectId, otherwise infinite recursion will happen.
+        self.doNotObserveValue = TRUE;
         [data saveProjectId];
+        self.doNotObserveValue = FALSE;
         
         data.members = [[LMDataHolderMembers alloc] init];
         data.clientAuth = [[MODEClientAuthentication alloc] init];
