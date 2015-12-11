@@ -25,7 +25,8 @@
     setupRightBarButtonItem(self.navigationItem, @"Edit", self, @selector(handleEdit));
     self.navigationItem.titleView = setupTitle(@"My Profile");
     self.nameIcon.image = [UIImage imageNamed:@"Name.png"];
-    self.phoneIcon.image = [UIImage imageNamed:@"Phone.png"];
+    LMDataHolder *data = [LMDataHolder sharedInstance];
+    self.phoneIcon.image = [UIImage imageNamed:data.isEmailLogin ? @"Email.png" : @"Phone.png"];
 }
 
 - (void)handleEdit
@@ -36,7 +37,11 @@
 - (void)updateFields:(MODEUser *)user
 {
     setupMessageWithColorAndAlign(self.userName, user.name, [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
-    setupMessageWithColorAndAlign(self.phonenumber, formatPhonenumberFromString(user.phoneNumber), [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
+    
+    LMDataHolder *data = [LMDataHolder sharedInstance];
+
+    NSString* ident = data.isEmailLogin ? user.email : formatPhonenumberFromString(user.phoneNumber);
+    setupMessageWithColorAndAlign(self.phonenumber, ident, [UIColor bodyTextColor], 24.0, NSTextAlignmentLeft);
 }
 
 - (void)fetchUserInfo

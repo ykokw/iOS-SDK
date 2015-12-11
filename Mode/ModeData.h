@@ -12,6 +12,7 @@
 @property (nonatomic, assign)int projectId;
 @property (nonatomic, copy)NSDate* creationTime;
 @property (nonatomic, copy)NSString* phoneNumber;
+@property (nonatomic, copy)NSString* email;
 @property (nonatomic, copy)NSString* name;
 @property (nonatomic, assign)BOOL verified;
 
@@ -37,6 +38,7 @@
 @property (nonatomic, copy)NSDate* creationTime;
 @property (nonatomic, copy)NSString* name;
 @property (nonatomic, copy)NSString* phoneNumber;
+@property (nonatomic, copy)NSString* email;
 @property (nonatomic, assign)BOOL verified;
 
 @end

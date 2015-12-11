@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0E8C05BA0F1A836FA0CD3183 /* Pods_MODE_iOSSDK_Tests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A9D825BFF24E606F6ADC4C42 /* Pods_MODE_iOSSDK_Tests.framework */; settings = {ATTRIBUTES = (Weak, ); }; };
 		210F9EE61B578B2E00544AE5 /* LMRoundButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 210F9EE51B578B2E00544AE5 /* LMRoundButton.m */; };
 		2124EA691B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5A1B561CD700D35D97 /* LMAddDeviceInConsoleViewController.m */; };
 		2124EA6A1B561CD700D35D97 /* LMAddHomeMemberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2124EA5C1B561CD700D35D97 /* LMAddHomeMemberViewController.m */; };
@@ -36,7 +35,6 @@
 		213520991B73EAA1005DD0E2 /* Authentication.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520941B73EAA1005DD0E2 /* Authentication.png */; };
 		2135209A1B73EAA1005DD0E2 /* Background.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520951B73EAA1005DD0E2 /* Background.png */; };
 		2135209B1B73EAA1005DD0E2 /* ClaimCode.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520961B73EAA1005DD0E2 /* ClaimCode.png */; };
-		2135209C1B73EAA1005DD0E2 /* Edit.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520971B73EAA1005DD0E2 /* Edit.png */; };
 		2135209D1B73EAA1005DD0E2 /* Home.png in Resources */ = {isa = PBXBuildFile; fileRef = 213520981B73EAA1005DD0E2 /* Home.png */; };
 		213520AA1B73EAA7005DD0E2 /* Lumos_AppIcon.png in Resources */ = {isa = PBXBuildFile; fileRef = 2135209E1B73EAA7005DD0E2 /* Lumos_AppIcon.png */; };
 		213520AB1B73EAA7005DD0E2 /* Lumos_AppIcon2.png in Resources */ = {isa = PBXBuildFile; fileRef = 2135209F1B73EAA7005DD0E2 /* Lumos_AppIcon2.png */; };
@@ -54,7 +52,9 @@
 		219B54541BB0AF6200611B43 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 219B54531BB0AF6200611B43 /* Settings.bundle */; };
 		21A8E8781B597448002D09E6 /* LMHomeDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */; };
 		21BD6DB61BEA9AE700FD7DDD /* Pods_MODE_iOSSDK_Example.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 32363722C77D44A693D2A580 /* Pods_MODE_iOSSDK_Example.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		21CF7EF51C1B671D000368F7 /* Email.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CF7EF41C1B671D000368F7 /* Email.png */; };
 		21F9424B1BACD29100A784E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F9424A1BACD29100A784E8 /* Images.xcassets */; };
+		3100A986DCFA2FB7B1B6CC32 /* libPods-MODE-iOSSDK_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0533434627DC62BBCAD08C8 /* libPods-MODE-iOSSDK_Example.a */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -69,7 +69,7 @@
 		6003F5BA195388D20070C39A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6003F5B8195388D20070C39A /* InfoPlist.strings */; };
 		6003F5BC195388D20070C39A /* Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6003F5BB195388D20070C39A /* Tests.m */; };
 		873B8AEB1B1F5CCA007FD442 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 873B8AEA1B1F5CCA007FD442 /* Main.storyboard */; };
-		9B6154E33294C401BD0B6C84 /* Pods_MODE_iOSSDK_Example.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 32363722C77D44A693D2A580 /* Pods_MODE_iOSSDK_Example.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		F313E3407C121BCDE614BDDB /* libPods-MODE-iOSSDK_Tests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 1C80354A97C0225DF07BB8DF /* libPods-MODE-iOSSDK_Tests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,6 +97,7 @@
 
 /* Begin PBXFileReference section */
 		030D11C9C043D5B1DD1B8AF4 /* Pods-MODE-iOSSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MODE-iOSSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MODE-iOSSDK_Tests/Pods-MODE-iOSSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
+		1C80354A97C0225DF07BB8DF /* libPods-MODE-iOSSDK_Tests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MODE-iOSSDK_Tests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		210F9EE41B578B2E00544AE5 /* LMRoundButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMRoundButton.h; sourceTree = "<group>"; };
 		210F9EE51B578B2E00544AE5 /* LMRoundButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LMRoundButton.m; sourceTree = "<group>"; };
 		2124EA591B561CD700D35D97 /* LMAddDeviceInConsoleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = LMAddDeviceInConsoleViewController.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
@@ -149,7 +150,6 @@
 		213520941B73EAA1005DD0E2 /* Authentication.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Authentication.png; path = Images.xcassets/Authentication.png; sourceTree = "<group>"; };
 		213520951B73EAA1005DD0E2 /* Background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Background.png; path = Images.xcassets/Background.png; sourceTree = "<group>"; };
 		213520961B73EAA1005DD0E2 /* ClaimCode.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = ClaimCode.png; path = Images.xcassets/ClaimCode.png; sourceTree = "<group>"; };
-		213520971B73EAA1005DD0E2 /* Edit.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Edit.png; path = Images.xcassets/Edit.png; sourceTree = "<group>"; };
 		213520981B73EAA1005DD0E2 /* Home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Home.png; path = Images.xcassets/Home.png; sourceTree = "<group>"; };
 		2135209E1B73EAA7005DD0E2 /* Lumos_AppIcon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lumos_AppIcon.png; path = Images.xcassets/Lumos_AppIcon.png; sourceTree = "<group>"; };
 		2135209F1B73EAA7005DD0E2 /* Lumos_AppIcon2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Lumos_AppIcon2.png; path = Images.xcassets/Lumos_AppIcon2.png; sourceTree = "<group>"; };
@@ -167,6 +167,7 @@
 		219B54531BB0AF6200611B43 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		21A8E8761B597448002D09E6 /* LMHomeDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LMHomeDetailViewController.h; sourceTree = "<group>"; };
 		21A8E8771B597448002D09E6 /* LMHomeDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LMHomeDetailViewController.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		21CF7EF41C1B671D000368F7 /* Email.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = Email.png; path = Images.xcassets/Email.png; sourceTree = "<group>"; };
 		21F9424A1BACD29100A784E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "MODE-iOSSDK_Example/Images.xcassets"; sourceTree = "<group>"; };
 		2DFF3826F5A3A2128C83B9FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		32363722C77D44A693D2A580 /* Pods_MODE_iOSSDK_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MODE_iOSSDK_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -192,9 +193,9 @@
 		606FC2411953D9B200FFA9A0 /* Tests-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Tests-Prefix.pch"; sourceTree = "<group>"; };
 		873B8AEA1B1F5CCA007FD442 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		A25ED04E2BC25E65A7F871D3 /* Pods-MODE-iOSSDK_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MODE-iOSSDK_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MODE-iOSSDK_Example/Pods-MODE-iOSSDK_Example.debug.xcconfig"; sourceTree = "<group>"; };
-		A9D825BFF24E606F6ADC4C42 /* Pods_MODE_iOSSDK_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MODE_iOSSDK_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D270C4FA96498139FD44B2A5 /* MODE-iOSSDK.podspec */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = "MODE-iOSSDK.podspec"; path = "../MODE-iOSSDK.podspec"; sourceTree = "<group>"; };
 		D485B01F952A1DA6676080AD /* Pods-MODE-iOSSDK_Example.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MODE-iOSSDK_Example.release.xcconfig"; path = "Pods/Target Support Files/Pods-MODE-iOSSDK_Example/Pods-MODE-iOSSDK_Example.release.xcconfig"; sourceTree = "<group>"; };
+		F0533434627DC62BBCAD08C8 /* libPods-MODE-iOSSDK_Example.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MODE-iOSSDK_Example.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F81B5A6EA90058513513C2FC /* Pods-MODE-iOSSDK_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MODE-iOSSDK_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-MODE-iOSSDK_Tests/Pods-MODE-iOSSDK_Tests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -206,7 +207,7 @@
 				6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */,
 				6003F592195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F58E195388D20070C39A /* Foundation.framework in Frameworks */,
-				9B6154E33294C401BD0B6C84 /* Pods_MODE_iOSSDK_Example.framework in Frameworks */,
+				3100A986DCFA2FB7B1B6CC32 /* libPods-MODE-iOSSDK_Example.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -217,7 +218,7 @@
 				6003F5B0195388D20070C39A /* XCTest.framework in Frameworks */,
 				6003F5B2195388D20070C39A /* UIKit.framework in Frameworks */,
 				6003F5B1195388D20070C39A /* Foundation.framework in Frameworks */,
-				0E8C05BA0F1A836FA0CD3183 /* Pods_MODE_iOSSDK_Tests.framework in Frameworks */,
+				F313E3407C121BCDE614BDDB /* libPods-MODE-iOSSDK_Tests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -298,6 +299,7 @@
 			isa = PBXGroup;
 			children = (
 				2135209E1B73EAA7005DD0E2 /* Lumos_AppIcon.png */,
+				21CF7EF41C1B671D000368F7 /* Email.png */,
 				2135209F1B73EAA7005DD0E2 /* Lumos_AppIcon2.png */,
 				213520A01B73EAA7005DD0E2 /* Lumos_logo.png */,
 				213520A11B73EAA7005DD0E2 /* Lumos.png */,
@@ -312,7 +314,6 @@
 				213520941B73EAA1005DD0E2 /* Authentication.png */,
 				213520951B73EAA1005DD0E2 /* Background.png */,
 				213520961B73EAA1005DD0E2 /* ClaimCode.png */,
-				213520971B73EAA1005DD0E2 /* Edit.png */,
 				213520981B73EAA1005DD0E2 /* Home.png */,
 				213520921B73EA95005DD0E2 /* Add.png */,
 				213520901B73EA59005DD0E2 /* LumosLogo.png */,
@@ -350,8 +351,8 @@
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
 				6003F5AF195388D20070C39A /* XCTest.framework */,
-				32363722C77D44A693D2A580 /* Pods_MODE_iOSSDK_Example.framework */,
-				A9D825BFF24E606F6ADC4C42 /* Pods_MODE_iOSSDK_Tests.framework */,
+				F0533434627DC62BBCAD08C8 /* libPods-MODE-iOSSDK_Example.a */,
+				1C80354A97C0225DF07BB8DF /* libPods-MODE-iOSSDK_Tests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -529,7 +530,6 @@
 				213520AD1B73EAA7005DD0E2 /* Lumos.png in Resources */,
 				213520AF1B73EAA7005DD0E2 /* Nickname.png in Resources */,
 				213520911B73EA59005DD0E2 /* LumosLogo.png in Resources */,
-				2135209C1B73EAA1005DD0E2 /* Edit.png in Resources */,
 				213520B01B73EAA7005DD0E2 /* Phone.png in Resources */,
 				213520991B73EAA1005DD0E2 /* Authentication.png in Resources */,
 				213520AE1B73EAA7005DD0E2 /* Name.png in Resources */,
@@ -538,6 +538,7 @@
 				213520B51B73EAA7005DD0E2 /* TimeZone.png in Resources */,
 				219B54541BB0AF6200611B43 /* Settings.bundle in Resources */,
 				213520AB1B73EAA7005DD0E2 /* Lumos_AppIcon2.png in Resources */,
+				21CF7EF51C1B671D000368F7 /* Email.png in Resources */,
 				2135209B1B73EAA1005DD0E2 /* ClaimCode.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

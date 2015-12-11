@@ -19,14 +19,30 @@ Note: Your phone number is used only for logging in.\
 We will never spam you.\
 "
 
+#define MESSAGE_NOTE_EMAIL @"\
+Note: Your email is used only for logging in.\
+We will never spam you.\
+"
+
 #define MESSAGE_VERIFY_YOU @"\
 Great! We just texted you a code \
 via SMS - Enter the code to prove \
 you're a real person."
 
+#define MESSAGE_VERIFY_EMAIL1 @"\
+A verification email has been sent to "
+
+#define MESSAGE_VERIFY_EMAIL2 @"\
+. Please click the link inside the email to verify your account, then click the button below."
+
 #define MESSAGE_WELCOME_BACK @"\
 Welcome back!\n\
 Please enter your phone number below\
+"
+
+#define MESSAGE_WELCOME_BACK_EMAIL @"\
+Welcome back!\n\
+Please enter your email and password below\
 "
 
 #define MESSAGE_ADD_DEVICES @"\

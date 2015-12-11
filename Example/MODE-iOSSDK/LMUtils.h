@@ -8,10 +8,19 @@
 
 @end
 
+@interface EmailFieldDelegate : NSObject<UITextFieldDelegate>
+
+- (id)initWithTextField:(UITextField*)textField;
+
+@end
+
+
 // These functions are for mixin to restrict UITextField only for numbers and phone numbers.
 // You could make your subclasses derived from UITextField.
 NumericTextFieldDelegate *setupNumericTextField(UITextField *textField, NSString *name, NSString *iconName);
 PhoneNumberFieldDelegate *setupPhoneNumberField(UITextField *textField);
+EmailFieldDelegate *setupEmailField(UITextField *textField);
+void setupPassowrdField(UITextField *textField);
 
 void setupStandardTextField(UITextField *textField, NSString *name, NSString *iconName);
 

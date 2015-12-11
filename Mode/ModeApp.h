@@ -33,6 +33,9 @@ typedef void(^MODEUserBlock)(MODEUser*, NSError*);
 + (NSURLSessionDataTask*)createUser:(int)projectId phoneNumber:(NSString*)phoneNumber name:(NSString*)name
         completion:(MODEUserBlock)completion;
 
++ (NSURLSessionDataTask*)createUser:(int)projectId email:(NSString*)email password:(NSString*)password name:(NSString*)name
+                         completion:(MODEUserBlock)completion;
+
 /**
  *  Returns the account information of the user with the specified ID.
  *
@@ -170,6 +173,9 @@ typedef void(^MODEHomeMemberBlock)(MODEHomeMember*, NSError*);
  */
 + (NSURLSessionDataTask*)addHomeMember:(MODEClientAuthentication *)clientAuthentication homeId:(int)homeId phoneNumber:(NSString*)phoneNumber
            completion:(MODEHomeMemberBlock)completion;
+
++ (NSURLSessionDataTask*)addHomeMember:(MODEClientAuthentication *)clientAuthentication homeId:(int)homeId email:(NSString*)email
+                            completion:(MODEHomeMemberBlock)completion;
 
 /**
  *  Get the home member with the specified user ID.
@@ -401,5 +407,16 @@ typedef void(^MODEUserSessionInfoBlock)(MODEUserSessionInfo*, NSError*);
  */
 + (NSURLSessionDataTask*)getCurrentAuthenticationState:(MODEClientAuthentication*)clientAuthentication
                            completion:(void(^)(MODEAuthenticationInfo*, NSError*))completion;
+
+
++ (NSURLSessionDataTask*)verifyUserEmailAddress:(int)projectId token:(NSString*)token completion:(void(^)(NSError*))completion;
+
++ (NSURLSessionDataTask*)initiateUserEmailVerification:(int)projectId email:(NSString*)email completion:(void(^)(NSError*))completion;
+
++ (NSURLSessionDataTask*)initiateUserPasswordReset:(int)projectId email:(NSString*)email completion:(void(^)(NSError*))completion;
+
++ (NSURLSessionDataTask*)authenticateWithEmail:(int)projectId email:(NSString*)email  password:(NSString*)password appId:(NSString*)appId
+                                   completion:(void(^)(MODEClientAuthentication*, NSError*))completion;
+
 
 @end

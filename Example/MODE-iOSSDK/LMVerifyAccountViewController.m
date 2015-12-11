@@ -11,6 +11,8 @@
 @property(strong, nonatomic) IBOutlet UILabel *message;
 @property(strong, nonatomic) IBOutlet UITextField *verificationCodeField;
 @property(strong, nonatomic) NumericTextFieldDelegate *numericDelegate;
+@property (strong, nonatomic) IBOutlet UIButton *resendButton;
+@property (strong, nonatomic) IBOutlet UIView *verifiedButton;
 
 @end
 
@@ -22,7 +24,18 @@
 
     self.numericDelegate = setupNumericTextField(self.verificationCodeField,@"Verification Code", @"Authentication.png");
     self.navigationItem.titleView = setupTitle(@"Verify Account");
-    setupMessage(self.message, MESSAGE_VERIFY_YOU, 15.0);
+    
+    LMDataHolder *data = [LMDataHolder sharedInstance];
+    if (data.isEmailLogin) {
+        NSString* msg = MESSAGE_VERIFY_EMAIL1;
+        setupMessage(self.message,
+                     [[msg stringByAppendingString:data.members.email] stringByAppendingString:MESSAGE_VERIFY_EMAIL2] , 15.0);
+        self.verificationCodeField.hidden = TRUE;
+        self.resendButton.hidden = TRUE;
+    } else {
+        self.verifiedButton.hidden = TRUE;
+        setupMessage(self.message, MESSAGE_VERIFY_YOU, 15.0);
+    }
 }
 
 - (IBAction)handleNext:(id)sender
@@ -50,6 +63,24 @@ void createMyHome(UIViewController<LMOverlayViewProtocol> *destVC)
 
 }
 
+- (void) authenticateCallback:(UIViewController<LMOverlayViewProtocol> *) destVC
+clientAuth:(MODEClientAuthentication*)clientAuth err:(NSError*)err
+{
+    LMDataHolder *data = [LMDataHolder sharedInstance];
+    if (err != nil) {
+        // You need to rollback because auth failed.
+        [destVC removeOverlayViews];
+        
+        [self.navigationController popToViewController:self animated:YES];
+        showAlert(err);
+    } else {
+        DLog(@"Got auth token: %@", clientAuth);
+        data.clientAuth = clientAuth;
+        [data saveData];
+        createMyHome(destVC);
+    }
+}
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     // Need to show overlay until Auth token is taken.
@@ -57,21 +88,18 @@ void createMyHome(UIViewController<LMOverlayViewProtocol> *destVC)
     UIViewController<LMOverlayViewProtocol> *destVC = [segue destinationViewController];
     
     LMDataHolder *data = [LMDataHolder sharedInstance];
-    [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
-          completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
-              if (err != nil) {
-                  // You need to rollback because auth failed.
-                  [destVC removeOverlayViews];
-                  
-                  [self.navigationController popToViewController:self animated:YES];
-                  showAlert(err);
-              } else {
-                  DLog(@"Got auth token: %@", clientAuth);
-                  data.clientAuth = clientAuth;
-                  [data saveData];
-                  createMyHome(destVC);
-              }
-          }];
+    
+    if (data.isEmailLogin) {
+        [MODEAppAPI authenticateWithEmail:data.projectId email:data.members.email password:data.members.password appId:data.appId
+            completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
+                [self authenticateCallback:destVC clientAuth:clientAuth err:err];
+            }];
+    } else {
+        [MODEAppAPI authenticateWithCode:data.projectId phoneNumber:data.members.phoneNumber appId:data.appId code:self.verificationCodeField.text
+              completion:^(MODEClientAuthentication *clientAuth, NSError *err) {
+                  [self authenticateCallback:destVC clientAuth:clientAuth err:err];
+              }];
+    }
 }
 
 

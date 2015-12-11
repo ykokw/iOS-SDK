@@ -81,6 +81,31 @@ PhoneNumberFieldDelegate *setupPhoneNumberField(UITextField *phoneNumberField)
     return phoneNumberDelegate;
 }
 
+EmailFieldDelegate *setupEmailField(UITextField *emailField)
+{
+    [emailField setPlaceholder:@"Email"];
+    
+    setupTextFieldWithLeftIcon(emailField, @"Email.png");
+    
+    emailField.keyboardType = UIKeyboardTypeEmailAddress;
+    EmailFieldDelegate *emailDelegate = [[EmailFieldDelegate alloc] initWithTextField:emailField];
+    emailField.delegate = emailDelegate;
+    
+    setTextFieldHeight(emailField);
+    
+    return emailDelegate;
+}
+
+void setupPassowrdField(UITextField *passwordField) {
+    [passwordField setPlaceholder:@"Password"];
+    
+    setupTextFieldWithLeftIcon(passwordField, @"Authentication.png");
+    
+    passwordField.secureTextEntry = YES;
+    passwordField.keyboardType = UIKeyboardTypeDefault;
+    setTextFieldHeight(passwordField);
+}
+
 void setupMessage(UILabel *message, NSString *text, CGFloat fontSize)
 {
     return setupMessageWithColor(message, text, [UIColor bodyTextColor], fontSize);
@@ -157,6 +182,27 @@ NSString *formatPhonenumberFromString(NSString *phonenumber)
 {
     NSCharacterSet *nonNumberSet = [[NSCharacterSet decimalDigitCharacterSet] invertedSet];
     return ([string stringByTrimmingCharactersInSet:nonNumberSet].length > 0) || [string isEqualToString:@""];
+}
+
+@end
+
+
+@interface EmailFieldDelegate ()
+
+@property(strong, nonatomic)UITextField *emailField;
+
+@end
+
+@implementation EmailFieldDelegate
+
+
+- (id)initWithTextField:(UITextField*)textField
+{
+    self = [super init];
+    if (self) {
+        self.emailField = textField;
+    }
+    return self;
 }
 
 @end

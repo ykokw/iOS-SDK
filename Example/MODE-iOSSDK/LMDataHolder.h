@@ -4,6 +4,8 @@
 @interface LMDataHolderMembers : MTLModel<MTLJSONSerializing>
 
 @property (strong, nonatomic) NSString *phoneNumber;
+@property (strong, nonatomic) NSString *email;
+@property (strong, nonatomic) NSString *password;
 @property (assign, nonatomic) int homeId;
 
 @end
@@ -19,6 +21,8 @@
 
 @property (assign, nonatomic) int projectId;
 @property (assign, nonatomic) int oldProjectId;
+@property (assign, nonatomic) BOOL isEmailLogin;
+@property (assign, nonatomic) BOOL oldIsEmailLogin;
 @property (strong, nonatomic) NSString *appId;
 
 @property (strong, nonatomic) MODEClientAuthentication *clientAuth;
@@ -28,7 +32,6 @@
 - (void)loadData;
 
 - (void)saveProjectId;
-- (void)saveOldProjectId;
 - (void)loadProjectId;
 
 

@@ -8,6 +8,8 @@
 {
     return @{
              @"phoneNumber": @"phoneNumber",
+             @"email": @"email",
+             // Intentional not to save @"password": @"password",
              @"homeId": @"homeId"
              };
 }
@@ -67,14 +69,13 @@ void saveObject(NSString *key, id<MTLJSONSerializing> obj)
 
 - (void)saveProjectId
 {
-    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", self.oldProjectId] forKey:@"projectId"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", self.projectId] forKey:@"projectId"];
+    [[NSUserDefaults standardUserDefaults] setBool:self.isEmailLogin forKey:@"isEmailLogin"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", self.oldProjectId] forKey:@"oldProjectId"];
+    [[NSUserDefaults standardUserDefaults] setBool:self.oldIsEmailLogin forKey:@"oldIsEmailLogin"];
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
-
-- (void)saveOldProjectId
-{
-    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", self.projectId] forKey:@"oldProjectId"];
-}
 
 - (void)saveData
 {
@@ -127,6 +128,19 @@ id loadObj(NSString *key, Class class)
     if (pid != nil) {
         self.projectId = [pid intValue];
     }
+
+    NSString* oldEmail = [[NSUserDefaults standardUserDefaults] objectForKey:@"oldIsEmailLogin"];
+    
+    if (oldEmail != nil) {
+        self.oldIsEmailLogin = [oldEmail boolValue];
+    }
+    
+    NSString* email = [[NSUserDefaults standardUserDefaults] objectForKey:@"isEmailLogin"];
+    
+    if (email != nil) {
+        self.isEmailLogin = [email boolValue];
+    }
+
 }
 
 - (void)loadData
