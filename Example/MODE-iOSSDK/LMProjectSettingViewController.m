@@ -24,7 +24,16 @@
     [self.isEmailLoginSwitch setOn:data.isEmailLogin];
     
     self.numericDelegate = setupNumericTextField(self.projectIdField, @"Project ID", nil);
+    
+    setupKeyboardDismisser(self, @selector(dismissKeyboard));
 }
+
+
+- (void)dismissKeyboard
+{
+    [self.projectIdField resignFirstResponder];
+}
+
 
 - (IBAction)handleOK:(id)sender {
     int projectId = (int)[self.projectIdField.text integerValue];

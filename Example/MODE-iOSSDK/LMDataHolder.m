@@ -135,7 +135,7 @@ id loadObj(NSString *key, Class class)
         self.oldIsEmailLogin = [oldEmail boolValue];
     }
     
-    NSString* email = [[NSUserDefaults standardUserDefaults] objectForKey:@"projectId"];
+    NSString* email = [[NSUserDefaults standardUserDefaults] objectForKey:@"isEmailLogin"];
     
     if (email != nil) {
         self.isEmailLogin = [email boolValue];

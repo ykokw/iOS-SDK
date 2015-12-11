@@ -35,7 +35,7 @@
     } else {
         setupMessage(self.note, MESSAGE_NOTE, 15.0);
         self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
-        self.phoneNumberField.hidden = TRUE;
+        self.passwordField.hidden = TRUE;
     }
     
     self.navigationItem.titleView = setupTitle(@"Sign Up");
