@@ -1,4 +1,5 @@
 #import "LMUIColor+Extentions.h"
+#import "LMMessages.h"
 #import "LMUtils.h"
 #import "MODEApp.h"
 
@@ -11,6 +12,11 @@
 void showAlert(NSError *err)
 {
     NSString *msg = err.userInfo[@"reason"];
+    
+    if ([msg  isEqual: @"INVALID_APP_ID"]) {
+        msg = [msg stringByAppendingString:MESSAGE_EMAIL_LOGIN];
+    }
+    
     DLog(@"Failed to call API: %@", err);
     UIAlertView *alert = [[UIAlertView alloc] initWithTitle:err.domain
                                                     message:msg

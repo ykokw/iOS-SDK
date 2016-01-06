@@ -573,7 +573,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkQ-KJ-gsD" customClass="LMRoundButton">
-                                <rect key="frame" x="25" y="287" width="270" height="55"/>
+                                <rect key="frame" x="25" y="390" width="270" height="55"/>
                                 <color key="backgroundColor" red="0.91764705879999997" green="0.35686274509999999" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="3no-dp-ZMS"/>
@@ -595,13 +595,23 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bw8-Cu-bFI">
-                                <rect key="frame" x="246" y="224" width="51" height="31"/>
+                                <rect key="frame" x="246" y="327" width="51" height="31"/>
                             </switch>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use email login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHb-m1-tyM">
-                                <rect key="frame" x="25" y="215" width="174" height="50"/>
+                                <rect key="frame" x="25" y="318" width="174" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="174" id="6RU-OB-C8H"/>
                                     <constraint firstAttribute="height" constant="50" id="MWx-P4-lVp"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" To use email login, your project has to be configured with email login mode when it's made." lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edw-0E-NQ7">
+                                <rect key="frame" x="25" y="210" width="270" height="100"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="270" id="FL9-We-zHV"/>
+                                    <constraint firstAttribute="height" constant="100" id="rFO-aW-RhQ"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -611,13 +621,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="XHb-m1-tyM" firstAttribute="leading" secondItem="wkQ-KJ-gsD" secondAttribute="leading" id="7LW-pe-uUe"/>
+                            <constraint firstItem="edw-0E-NQ7" firstAttribute="leading" secondItem="dCw-Hn-18z" secondAttribute="leading" constant="-46" id="Kfg-s8-Zuu"/>
                             <constraint firstItem="wkQ-KJ-gsD" firstAttribute="top" secondItem="Bw8-Cu-bFI" secondAttribute="bottom" constant="32" id="NT8-hU-aAy"/>
+                            <constraint firstItem="XHb-m1-tyM" firstAttribute="top" secondItem="edw-0E-NQ7" secondAttribute="bottom" constant="8" symbolic="YES" id="Nk7-AY-r27"/>
                             <constraint firstItem="XHb-m1-tyM" firstAttribute="centerY" secondItem="Bw8-Cu-bFI" secondAttribute="centerY" id="dj8-QB-y9B"/>
                             <constraint firstAttribute="width" secondItem="cnC-Zr-JHy" secondAttribute="width" multiplier="1.185" id="eTu-by-QxE"/>
                             <constraint firstItem="wkQ-KJ-gsD" firstAttribute="centerX" secondItem="5fc-FC-WUI" secondAttribute="centerX" id="hSq-aZ-eIF"/>
                             <constraint firstItem="dCw-Hn-18z" firstAttribute="centerX" secondItem="5fc-FC-WUI" secondAttribute="centerX" constant="-2" id="jVD-rR-UdK"/>
                             <constraint firstItem="cnC-Zr-JHy" firstAttribute="centerX" secondItem="5fc-FC-WUI" secondAttribute="centerX" id="jbI-Ng-oOc"/>
-                            <constraint firstItem="wkQ-KJ-gsD" firstAttribute="centerY" secondItem="5fc-FC-WUI" secondAttribute="centerY" constant="30" id="le7-IC-t5j"/>
+                            <constraint firstItem="wkQ-KJ-gsD" firstAttribute="centerY" secondItem="5fc-FC-WUI" secondAttribute="centerY" constant="133.5" id="le7-IC-t5j"/>
                             <constraint firstAttribute="width" secondItem="wkQ-KJ-gsD" secondAttribute="width" multiplier="1.185" id="puk-Rm-Dpg"/>
                             <constraint firstItem="cnC-Zr-JHy" firstAttribute="centerY" secondItem="5fc-FC-WUI" secondAttribute="centerY" constant="-128" id="rjk-DH-Lfp"/>
                             <constraint firstItem="Bw8-Cu-bFI" firstAttribute="trailing" secondItem="wkQ-KJ-gsD" secondAttribute="trailing" id="rvl-0f-z5o"/>
@@ -626,8 +638,11 @@
                     </view>
                     <navigationItem key="navigationItem" id="Qmz-D9-99R"/>
                     <connections>
+                        <outlet property="emailLoginMessage" destination="edw-0E-NQ7" id="QUz-Tr-SVA"/>
                         <outlet property="isEmailLoginSwitch" destination="Bw8-Cu-bFI" id="Evd-Wg-CaK"/>
                         <outlet property="projectIdField" destination="cnC-Zr-JHy" id="vch-AW-eKn"/>
+                        <outlet property="projectIdMessage" destination="dCw-Hn-18z" id="pgi-K0-CPQ"/>
+                        <outlet property="useEmailLoginMessage" destination="XHb-m1-tyM" id="R5d-q1-R0I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8W8-Zw-ynT" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -68,3 +68,11 @@ Invite more members to join your home and share device access!\
 Edit Your Profile Information\
 "
 
+#define MESSAGE_EMAIL_LOGIN @"\
+: To use email login, your project has to be configured with email login mode when it's made.\
+"
+
+#define MESSAGE_INVALID_APP @"\
+Your project doesn't have \"controller_app\" entry in App. Please add \"controller_app\" in your project.\
+"
+

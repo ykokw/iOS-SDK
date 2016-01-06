@@ -1,15 +1,26 @@
 #import "LMProjectSettingViewController.h"
 #import "LMDataHolder.h"
+#import "LMMessages.h"
 #import "LMUtils.h"
+#import "LMUIColor+Extentions.h"
 
 @interface LMProjectSettingViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *projectIdField;
 @property(strong, nonatomic) NumericTextFieldDelegate *numericDelegate;
 @property (strong, nonatomic) IBOutlet UISwitch *isEmailLoginSwitch;
+@property (strong, nonatomic) IBOutlet UILabel *emailLoginMessage;
+@property (strong, nonatomic) IBOutlet UILabel *projectIdMessage;
+@property (strong, nonatomic) IBOutlet UILabel *useEmailLoginMessage;
 
 @end
 
 @implementation LMProjectSettingViewController
+
+
+void setupMessageConfigure(UILabel *message, NSString *text)
+{
+    setupMessageWithColorAndAlign(message, text,  [UIColor bodyTextColor], 15.0, NSTextAlignmentLeft);
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,6 +35,11 @@
     [self.isEmailLoginSwitch setOn:data.isEmailLogin];
     
     self.numericDelegate = setupNumericTextField(self.projectIdField, @"Project ID", nil);
+    
+    
+    setupMessageConfigure(self.projectIdMessage, @"Enter your Project ID");
+    setupMessageConfigure(self.emailLoginMessage, MESSAGE_EMAIL_LOGIN);
+    setupMessageConfigure(self.useEmailLoginMessage, @"Use email login");
     
     setupKeyboardDismisser(self, @selector(dismissKeyboard));
 }
