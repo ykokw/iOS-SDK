@@ -481,13 +481,13 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
 }
 
 
-+ (NSURLSessionDataTask*)verifyUserEmailAddress:(int)projectId token:(NSString*)token completion:(void(^)(NSError*))completion;
++ (NSURLSessionDataTask*)verifyUserEmailAddress:(NSString*)token completion:(void(^)(NSError*))completion;
 {
     if (token == nil) {
         DLog(@"token is nil");
         return nil;
     }
-    NSDictionary *parameters = @{@"projectId": [@(projectId) stringValue], @"token": token};
+    NSDictionary *parameters = @{@"token": token};
     return callHTTPRequest2(nil, false, @"POST", @"/auth/user", parameters, MODEClientAuthentication.class, convertCompletionError(completion));
 }
 

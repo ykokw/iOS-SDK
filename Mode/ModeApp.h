@@ -174,6 +174,17 @@ typedef void(^MODEHomeMemberBlock)(MODEHomeMember*, NSError*);
 + (NSURLSessionDataTask*)addHomeMember:(MODEClientAuthentication *)clientAuthentication homeId:(int)homeId phoneNumber:(NSString*)phoneNumber
            completion:(MODEHomeMemberBlock)completion;
 
+
+/**
+ *  Add a member to the home. The member's email address must be specified. If the member is not an existing user, the "verified" field of the returned member object will be false. An email notification will be sent to the invited member.
+ *
+ *  @param clientAuthentication USER_TOKEN belonging to the home.
+ *  @param homeId               ID of home you want to add a member at.
+ *  @param phoneNumber          Phone number of the user you want to add as a member.
+ *  @param completion           Callback block: MODEHomeMember is valid if successful.
+ *
+ *  @return
+ */
 + (NSURLSessionDataTask*)addHomeMember:(MODEClientAuthentication *)clientAuthentication homeId:(int)homeId email:(NSString*)email
                             completion:(MODEHomeMemberBlock)completion;
 
@@ -408,13 +419,49 @@ typedef void(^MODEUserSessionInfoBlock)(MODEUserSessionInfo*, NSError*);
 + (NSURLSessionDataTask*)getCurrentAuthenticationState:(MODEClientAuthentication*)clientAuthentication
                            completion:(void(^)(MODEAuthenticationInfo*, NSError*))completion;
 
+/**
+ *  Verify a user account by an email verification token. This API call is only allowed for projects with email address-based user accounts.
+ *
+ *  @param token      Verification token emailed to user.
+ *  @param completion Callback block: non nil NSError is passed if unsuccessful
+ *
+ *  @return
+ */
++ (NSURLSessionDataTask*)verifyUserEmailAddress:(NSString*)token completion:(void(^)(NSError*))completion;
 
-+ (NSURLSessionDataTask*)verifyUserEmailAddress:(int)projectId token:(NSString*)token completion:(void(^)(NSError*))completion;
-
+/**
+ *  Initiate the account verification process by sending out a verification email. For users who have lost the original message. This API call is only allowed for projects with email address-based user accounts.
+ *
+ *  @param projectId  ID of project to which the user belongs.
+ *  @param email      Email address of user.
+ *  @param completion Callback block: non nil NSError is passed if unsuccessful
+ *
+ *  @return
+ */
 + (NSURLSessionDataTask*)initiateUserEmailVerification:(int)projectId email:(NSString*)email completion:(void(^)(NSError*))completion;
 
+/**
+ *  Initiate the password reset process by sending out an email containing a password reset token. For users who have forgotten their passwords. This API call is only allowed for projects with email address-based user accounts.
+ *
+ *  @param projectId  ID of project to which the user belongs.
+ *  @param email      Email address of user.
+ *  @param completion Callback block: non nil NSError is passed if unsuccessful
+ *
+ *  @return
+ */
 + (NSURLSessionDataTask*)initiateUserPasswordReset:(int)projectId email:(NSString*)email completion:(void(^)(NSError*))completion;
 
+/**
+ *  Authenticate a user by password and return an API key. The request body must contain the email, appId and password parameters.
+ *
+ *  @param projectId  ID of project to which the user belongs.
+ *  @param email      Email address of user.
+ *  @param password   Password of user to be authenticated.
+ *  @param appId      ID of the app being used to access the API.
+ *  @param completion  Callback block: MODEClientAuthentication is valid if successful.
+ *
+ *  @return
+ */
 + (NSURLSessionDataTask*)authenticateWithEmail:(int)projectId email:(NSString*)email  password:(NSString*)password appId:(NSString*)appId
                                    completion:(void(^)(MODEClientAuthentication*, NSError*))completion;
 
