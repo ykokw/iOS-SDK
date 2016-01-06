@@ -12,7 +12,7 @@
 @property(strong, nonatomic) IBOutlet UITextField *verificationCodeField;
 @property(strong, nonatomic) NumericTextFieldDelegate *numericDelegate;
 @property (strong, nonatomic) IBOutlet UIButton *resendButton;
-@property (strong, nonatomic) IBOutlet UIView *verifiedButton;
+@property (strong, nonatomic) IBOutlet UIButton *verifiedButton;
 
 @end
 
