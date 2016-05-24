@@ -2,6 +2,7 @@
 #import "LMDeviceManager.h"
 #import "MODEAppDelegate.h"
 #import "LMUtils.h"
+#import "MODEApp.h"
 
 @implementation MODEAppDelegate
 
@@ -22,6 +23,12 @@
                   options:NSKeyValueObservingOptionNew
                   context:NULL];
 
+    [defaults addObserver:self
+               forKeyPath:@"apiHost"
+                  options:NSKeyValueObservingOptionNew
+                  context:NULL];
+
+    
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
     // Override point for customization after application launch.
     [[LMDataHolder sharedInstance] loadData];
@@ -41,8 +48,11 @@
     [data loadProjectId];
 
     if (data.oldProjectId != data.projectId ||
-        data.oldIsEmailLogin != data.isEmailLogin) {
+        data.oldIsEmailLogin != data.isEmailLogin ||
+        [data.oldApiHost  isEqualToString:data.apiHost] == 0) {
         // When projectId is changed, reset the session and go back to the root view.
+        
+        data.oldApiHost = data.apiHost;
         
         data.oldProjectId = data.projectId;
         data.oldIsEmailLogin = data.isEmailLogin;

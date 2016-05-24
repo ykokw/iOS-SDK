@@ -7,6 +7,26 @@
 	<key>PreferenceSpecifiers</key>
 	<array>
 		<dict>
+			<key>Titles</key>
+			<array>
+				<string>api.tinkermode.com</string>
+				<string>iot-device.jp-east-1.api.cloud.nifty.com</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<string>api.tinkermode.com</string>
+				<string>iot-device.jp-east-1.api.cloud.nifty.com</string>
+			</array>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>API Host</string>
+			<key>Key</key>
+			<string>apiHost</string>
+			<key>DefaultValue</key>
+			<string>iot-device.jp-east-1.api.cloud.nifty.com</string>
+		</dict>
+		<dict>
 			<key>Type</key>
 			<string>PSGroupSpecifier</string>
 			<key>Title</key>

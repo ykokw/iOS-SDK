@@ -10,7 +10,9 @@
 #define EXECUTE_BLOCK_IN_MAIN_THERAD 1
 #define HTTP_REQUEST_TIMEOUT 10
 
-static NSString *const ModeURL = @"https://api.tinkermode.com";
+//static NSString *ModeURL = @"https://api.tinkermode.com";
+static NSString *APIHost = @"api.tinkermode.com";
+
 
 @implementation NSString (NSString_Extended)
 
@@ -42,7 +44,8 @@ static NSString *const ModeURL = @"https://api.tinkermode.com";
 // Utitiliy functions
 
 static NSString* getModeURL(NSString* path) {
-    return [ModeURL stringByAppendingString:path];
+    //return [ModeURL stringByAppendingString:path];
+    return [[@"https://" stringByAppendingString:APIHost] stringByAppendingString:path];
 }
 
 typedef void (^completionBlock)(id, NSError*);
@@ -187,6 +190,16 @@ static NSURLSessionDataTask* callHTTPRequestSub2(MODEClientAuthentication* clien
     [postDataTask resume];
     
     return postDataTask;
+}
+
++ (void)setAPIHost:(NSString*)host
+{
+    APIHost = host;
+}
+
++ (NSString*)getAPIHost
+{
+    return APIHost;
 }
 
 // User API

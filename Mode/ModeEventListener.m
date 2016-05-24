@@ -1,7 +1,8 @@
 #import "ModeEventListener.h"
 #include "ModeLog.h"
 
-NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websocket";
+//NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websocket";
+NSString* websocketHost = @"api.tinkermode.com";
 
 @implementation MODEEventListener
 
@@ -95,8 +96,10 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
     NSString *encodedString = (NSString *)CFBridgingRelease(CFURLCreateStringByAddingPercentEscapes(
                 NULL, (CFStringRef)clientAuthentication.token, NULL, (CFStringRef)@"!*'();:@&=+$,/?%#[]",kCFStringEncodingUTF8 ));
 
-    // SocketRocket library doesn't allow to pass 'Authorization' HTTP header, so pass the token as URL param. 
-    url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"%@?authToken=%@", ModeWebsocketURL, encodedString]];
+    // SocketRocket library doesn't allow to pass 'Authorization' HTTP header, so pass the token as URL param.
+    //@"wss://api.tinkermode.com/userSession/websocket";
+    NSString* websocketUrl = [@"wss://" stringByAppendingString:[websocketHost stringByAppendingString:@"/userSession/websocket"]];
+    url = [NSURL URLWithString:[[NSString alloc] initWithFormat:@"%@?authToken=%@", websocketUrl , encodedString]];
 
     return self;
 }
@@ -121,6 +124,16 @@ NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websoc
     retryWait = 1;
     fibCounter = 1;
     autoReconnect = false;
+}
+
++ (void)setWebsocketHost:(NSString *)host
+{
+    websocketHost = host;
+}
+
++ (NSString*)getWebsocketHost
+{
+    return websocketHost;
 }
 
 @end

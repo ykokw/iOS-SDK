@@ -24,9 +24,13 @@
 @property (assign, nonatomic) BOOL isEmailLogin;
 @property (assign, nonatomic) BOOL oldIsEmailLogin;
 @property (strong, nonatomic) NSString *appId;
+@property (strong, nonatomic) NSString *apiHost;
+@property (strong, nonatomic) NSString *oldApiHost;
 
 @property (strong, nonatomic) MODEClientAuthentication *clientAuth;
 @property (strong, nonatomic) LMDataHolderMembers *members;
+
+@property (nonatomic) BOOL doNotLoad;
 
 - (void)saveData;
 - (void)loadData;

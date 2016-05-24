@@ -1,6 +1,8 @@
 #import "LMDataHolder.h"
 #import "LMDeviceManager.h"
 #import "LMUtils.h"
+#import "MODEApp.h"
+#import "MODEEventListener.h"
 
 @implementation LMDataHolderMembers
 
@@ -73,9 +75,16 @@ void saveObject(NSString *key, id<MTLJSONSerializing> obj)
     [[NSUserDefaults standardUserDefaults] setBool:self.isEmailLogin forKey:@"isEmailLogin"];
     [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", self.oldProjectId] forKey:@"oldProjectId"];
     [[NSUserDefaults standardUserDefaults] setBool:self.oldIsEmailLogin forKey:@"oldIsEmailLogin"];
+    
+    if (_apiHost != nil) {
+        [MODEAppAPI setAPIHost:_apiHost];
+        [MODEEventListener setWebsocketHost:_apiHost];
+        [[NSUserDefaults standardUserDefaults] setObject:_oldApiHost forKey:@"oldApiHost"];
+        [[NSUserDefaults standardUserDefaults] setObject:_apiHost forKey:@"apiHost"];
+    }
+    
     [[NSUserDefaults standardUserDefaults] synchronize];
 }
-
 
 - (void)saveData
 {
@@ -83,7 +92,6 @@ void saveObject(NSString *key, id<MTLJSONSerializing> obj)
     saveObject(@"members", self.members);
 
     [[NSUserDefaults standardUserDefaults] synchronize];
-
 }
 
 id loadObj(NSString *key, Class class)
@@ -140,15 +148,22 @@ id loadObj(NSString *key, Class class)
     if (email != nil) {
         self.isEmailLogin = [email boolValue];
     }
-
+    
+    _apiHost = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiHost"];
+    _oldApiHost = [[NSUserDefaults standardUserDefaults] objectForKey:@"oldApiHost"];
+    
+    [MODEAppAPI setAPIHost:_apiHost];
+    [MODEEventListener setWebsocketHost:_apiHost];
+    
 }
 
 - (void)loadData
 {
+    [self loadProjectId];
+
     self.clientAuth = loadObj(@"auth", MODEClientAuthentication.class);
     self.members = loadObj(@"members", LMDataHolderMembers.class);
 
-    [self loadProjectId];
 }
 
 - (void)setClientAuth:(MODEClientAuthentication *)clientAuth

@@ -3,6 +3,7 @@
 #import "LMMessages.h"
 #import "LMUtils.h"
 #import "LMUIColor+Extentions.h"
+#import "MODEApp.h"
 
 @interface LMProjectSettingViewController ()
 @property (strong, nonatomic) IBOutlet UITextField *projectIdField;
@@ -11,6 +12,10 @@
 @property (strong, nonatomic) IBOutlet UILabel *emailLoginMessage;
 @property (strong, nonatomic) IBOutlet UILabel *projectIdMessage;
 @property (strong, nonatomic) IBOutlet UILabel *useEmailLoginMessage;
+@property (strong, nonatomic) IBOutlet UIPickerView *apiHostPicker;
+@property (strong, nonatomic) NSString* targetAPIHost;
+@property (strong, nonatomic) NSArray* apiHosts;
+
 
 @end
 
@@ -36,6 +41,26 @@ void setupMessageConfigure(UILabel *message, NSString *text)
     
     self.numericDelegate = setupNumericTextField(self.projectIdField, @"Project ID", nil);
     
+    self.apiHostPicker.delegate = self;
+    self.apiHostPicker.dataSource = self;
+    
+    int apiHostIdx = 0;
+    _apiHosts = @[@"api.tinkermode.com", @"iot-device.jp-east-1.api.cloud.nifty.com"];
+    if ([MODEAppAPI getAPIHost] != nil) {
+        int cnt = 0;
+        for (NSString *host in _apiHosts) {
+            if ([host isEqualToString:[MODEAppAPI getAPIHost]]) {
+                apiHostIdx = cnt;
+                break;
+            }
+            cnt++;
+        }
+    }
+    
+    self.apiHostPicker.alpha = 1.0;
+    [self.apiHostPicker selectRow:apiHostIdx inComponent:0 animated:TRUE];
+    
+    _targetAPIHost = _apiHosts[apiHostIdx];
     
     setupMessageConfigure(self.projectIdMessage, @"Enter your Project ID");
     setupMessageConfigure(self.emailLoginMessage, MESSAGE_EMAIL_LOGIN);
@@ -48,6 +73,26 @@ void setupMessageConfigure(UILabel *message, NSString *text)
 - (void)dismissKeyboard
 {
     [self.projectIdField resignFirstResponder];
+}
+
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView*)pickerView
+{
+    return 1;
+}
+
+-(NSInteger)pickerView:(UIPickerView*)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return _apiHosts.count;
+}
+
+- (void)pickerView:(UIPickerView*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+{
+    _targetAPIHost = _apiHosts[row];
+}
+
+-(NSString *)pickerView:(UIPickerView*)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    return _apiHosts[row];
 }
 
 
@@ -69,6 +114,8 @@ void setupMessageConfigure(UILabel *message, NSString *text)
     
     data.isEmailLogin = isEmailLogin;
     data.oldIsEmailLogin = data.isEmailLogin;
+    data.apiHost = _targetAPIHost;
+    data.oldApiHost = _targetAPIHost;
     
     [data saveProjectId];
     [data saveData];
