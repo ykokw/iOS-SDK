@@ -1,7 +1,6 @@
 #import "ModeEventListener.h"
 #include "ModeLog.h"
 
-//NSString *const ModeWebsocketURL = @"wss://api.tinkermode.com/userSession/websocket";
 NSString* websocketHost = @"api.tinkermode.com";
 
 @implementation MODEEventListener

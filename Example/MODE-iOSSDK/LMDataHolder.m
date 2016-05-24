@@ -159,11 +159,11 @@ id loadObj(NSString *key, Class class)
 
 - (void)loadData
 {
+    // call loadProjectId first to get apiHost. It's used for websocket connection.
     [self loadProjectId];
 
     self.clientAuth = loadObj(@"auth", MODEClientAuthentication.class);
     self.members = loadObj(@"members", LMDataHolderMembers.class);
-
 }
 
 - (void)setClientAuth:(MODEClientAuthentication *)clientAuth

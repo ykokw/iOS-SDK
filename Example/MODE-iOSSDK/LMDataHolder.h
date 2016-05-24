@@ -30,8 +30,6 @@
 @property (strong, nonatomic) MODEClientAuthentication *clientAuth;
 @property (strong, nonatomic) LMDataHolderMembers *members;
 
-@property (nonatomic) BOOL doNotLoad;
-
 - (void)saveData;
 - (void)loadData;
 
