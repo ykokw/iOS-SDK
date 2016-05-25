@@ -576,18 +576,21 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cnC-Zr-JHy">
-                                                <rect key="frame" x="5" y="81" width="278" height="30"/>
+                                                <rect key="frame" x="5" y="81" width="278" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="t64-pp-OEZ"/>
+                                                </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="TopLeft" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To use email login, your project has to be configured with email login mode." lineBreakMode="wordWrap" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edw-0E-NQ7">
-                                                <rect key="frame" x="5" y="161" width="278" height="21"/>
+                                                <rect key="frame" x="5" y="181" width="278" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Use email login" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XHb-m1-tyM">
-                                                <rect key="frame" x="5" y="192" width="278" height="50"/>
+                                                <rect key="frame" x="5" y="212" width="278" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="KWk-sX-HP5"/>
                                                 </constraints>
@@ -596,10 +599,10 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Bw8-Cu-bFI">
-                                                <rect key="frame" x="226" y="201" width="51" height="31"/>
+                                                <rect key="frame" x="226" y="221" width="51" height="31"/>
                                             </switch>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="To change the target API host, choose the following hostname" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dJ9-M5-Bq4">
-                                                <rect key="frame" x="5" y="292" width="278" height="50"/>
+                                                <rect key="frame" x="5" y="312" width="278" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="UYA-Pv-CoH"/>
                                                 </constraints>
@@ -608,7 +611,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkQ-KJ-gsD" customClass="LMRoundButton">
-                                                <rect key="frame" x="5" y="488" width="278" height="50"/>
+                                                <rect key="frame" x="5" y="508" width="278" height="50"/>
                                                 <color key="backgroundColor" red="0.91764705879999997" green="0.35686274509999999" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Rqs-dl-Zh6"/>
@@ -622,7 +625,7 @@
                                                 </connections>
                                             </button>
                                             <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zoF-Ps-Uix">
-                                                <rect key="frame" x="5" y="352" width="278" height="86"/>
+                                                <rect key="frame" x="5" y="372" width="278" height="86"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="86" id="hew-Ox-mG0"/>
