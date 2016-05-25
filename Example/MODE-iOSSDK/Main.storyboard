@@ -608,7 +608,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkQ-KJ-gsD" customClass="LMRoundButton">
-                                                <rect key="frame" x="5" y="502" width="278" height="50"/>
+                                                <rect key="frame" x="5" y="488" width="278" height="50"/>
                                                 <color key="backgroundColor" red="0.91764705879999997" green="0.35686274509999999" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Rqs-dl-Zh6"/>
@@ -621,11 +621,11 @@
                                                     <action selector="handleOK:" destination="a5U-sE-tkb" eventType="touchUpInside" id="tXz-iS-ZBX"/>
                                                 </connections>
                                             </button>
-                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zoF-Ps-Uix">
-                                                <rect key="frame" x="5" y="352" width="278" height="100"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zoF-Ps-Uix">
+                                                <rect key="frame" x="5" y="352" width="278" height="86"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="100" id="hew-Ox-mG0"/>
+                                                    <constraint firstAttribute="height" constant="86" id="hew-Ox-mG0"/>
                                                 </constraints>
                                             </tableView>
                                         </subviews>
@@ -877,4 +877,5 @@
         <segue reference="URq-zQ-GlD"/>
         <segue reference="iKu-R9-eIc"/>
     </inferredMetricsTieBreakers>
+    <color key="tintColor" red="0.8862745098" green="0.25882352939999997" blue="0.30980392159999998" alpha="1" colorSpace="calibratedRGB"/>
 </document>

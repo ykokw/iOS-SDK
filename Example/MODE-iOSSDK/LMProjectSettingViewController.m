@@ -45,14 +45,16 @@ void setupMessageConfigure(UILabel *message, NSString *text)
     LMDataHolder *data = [LMDataHolder sharedInstance];
 
     if (data.projectId != 0) {
-        [self.projectIdField setText:[NSString stringWithFormat:@"%d", data.projectId]];
+        [_projectIdField setText:[NSString stringWithFormat:@"%d", data.projectId]];
     }
 
-    [self.isEmailLoginSwitch setOn:data.isEmailLogin];
-    self.numericDelegate = setupNumericTextField(self.projectIdField, @"Project ID", nil);
+    [_isEmailLoginSwitch setOn:data.isEmailLogin];
+    _numericDelegate = setupNumericTextField(_projectIdField, @"Project ID", nil);
     
-    self.apiHostTableView.delegate = self;
-    self.apiHostTableView.dataSource = self;
+    _apiHostTableView.delegate = self;
+    _apiHostTableView.dataSource = self;
+    _apiHostTableView.layer.borderWidth = 1.0;
+    [_apiHostTableView.layer setBorderColor:[[UIColor colorWithWhite: 0.8 alpha: 1.0] CGColor]];
     
     // We are using UIScrollView as parent view holder to scroll the page.
     // To escape the gensture caputere of UIScrollView, you need this trick.
@@ -77,10 +79,10 @@ void setupMessageConfigure(UILabel *message, NSString *text)
     _targetAPIHostIndex = apiHostIdx;
     
     setupStandardTextField(_projectIdField, @"Project ID", nil);
-    setupMessageConfigure(self.projectIdMessage, @"Enter your Project ID");
-    setupMessageConfigure(self.emailLoginMessage, MESSAGE_EMAIL_LOGIN);
-    setupMessageConfigure(self.apiHostMessage, MESSAGE_API_HOST);
-    setupMessageConfigure(self.useEmailLoginMessage, @"Use email login");
+    setupMessageConfigure(_projectIdMessage, @"Enter your Project ID");
+    setupMessageConfigure(_emailLoginMessage, MESSAGE_EMAIL_LOGIN);
+    setupMessageConfigure(_apiHostMessage, MESSAGE_API_HOST);
+    setupMessageConfigure(_useEmailLoginMessage, @"Use email login");
     
     setupKeyboardDismisser(self, @selector(dismissKeyboard));
 }
@@ -88,7 +90,7 @@ void setupMessageConfigure(UILabel *message, NSString *text)
 
 - (void)dismissKeyboard
 {
-    [self.projectIdField resignFirstResponder];
+    [_projectIdField resignFirstResponder];
 }
 
 
@@ -127,8 +129,8 @@ void setupMessageConfigure(UILabel *message, NSString *text)
 }
 
 - (IBAction)handleOK:(id)sender {
-    int projectId = (int)[self.projectIdField.text integerValue];
-    BOOL isEmailLogin = self.isEmailLoginSwitch.on;
+    int projectId = (int)[_projectIdField.text integerValue];
+    BOOL isEmailLogin = _isEmailLoginSwitch.on;
     
     if (projectId == 0) {
         showAlert([NSError errorWithDomain:@"Invalid Project ID" code:0 userInfo:nil]);
