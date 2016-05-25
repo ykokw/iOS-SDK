@@ -13,25 +13,35 @@
 @property (strong, nonatomic) IBOutlet UILabel *projectIdMessage;
 @property (strong, nonatomic) IBOutlet UILabel *useEmailLoginMessage;
 @property (strong, nonatomic) IBOutlet UILabel *apiHostMessage;
-@property (strong, nonatomic) IBOutlet UIPickerView *apiHostPicker;
-@property (strong, nonatomic) NSString* targetAPIHost;
-@property (strong, nonatomic) NSArray* apiHosts;
+@property (strong, nonatomic) IBOutlet UITableView *apiHostTableView;
+@property (strong, nonatomic) IBOutlet UIScrollView *scrollView;
 
+@property (strong, nonatomic) NSArray* apiHosts;
+@property int targetAPIHostIndex;
 
 @end
 
 @implementation LMProjectSettingViewController
 
+int targetAPIHostIndex;
 
 void setupMessageConfigure(UILabel *message, NSString *text)
 {
     setupMessageWithColorAndAlign(message, text,  [UIColor bodyTextColor], 15.0, NSTextAlignmentLeft);
 }
 
+-(void)gestureAction:(UITapGestureRecognizer *) sender
+{
+    CGPoint touchLocation = [sender locationOfTouch:0 inView:_apiHostTableView];
+    NSIndexPath *indexPath = [_apiHostTableView indexPathForRowAtPoint:touchLocation];
+    
+    _targetAPIHostIndex = (int)indexPath.row;
+    [_apiHostTableView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
     LMDataHolder *data = [LMDataHolder sharedInstance];
 
     if (data.projectId != 0) {
@@ -39,11 +49,17 @@ void setupMessageConfigure(UILabel *message, NSString *text)
     }
 
     [self.isEmailLoginSwitch setOn:data.isEmailLogin];
-    
     self.numericDelegate = setupNumericTextField(self.projectIdField, @"Project ID", nil);
     
-    self.apiHostPicker.delegate = self;
-    self.apiHostPicker.dataSource = self;
+    self.apiHostTableView.delegate = self;
+    self.apiHostTableView.dataSource = self;
+    
+    // We are using UIScrollView as parent view holder to scroll the page.
+    // To escape the gensture caputere of UIScrollView, you need this trick.
+    UITapGestureRecognizer *recognizer = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(gestureAction:)];
+    [recognizer setNumberOfTapsRequired:1];
+    _scrollView.userInteractionEnabled = YES;
+    [_scrollView addGestureRecognizer:recognizer];
     
     int apiHostIdx = 0;
     _apiHosts = @[@"api.tinkermode.com", @"iot-device.jp-east-1.api.cloud.nifty.com"];
@@ -58,10 +74,7 @@ void setupMessageConfigure(UILabel *message, NSString *text)
         }
     }
     
-    self.apiHostPicker.alpha = 1.0;
-    [self.apiHostPicker selectRow:apiHostIdx inComponent:0 animated:TRUE];
-    
-    _targetAPIHost = _apiHosts[apiHostIdx];
+    _targetAPIHostIndex = apiHostIdx;
     
     setupStandardTextField(_projectIdField, @"Project ID", nil);
     setupMessageConfigure(self.projectIdMessage, @"Enter your Project ID");
@@ -78,26 +91,40 @@ void setupMessageConfigure(UILabel *message, NSString *text)
     [self.projectIdField resignFirstResponder];
 }
 
--(NSInteger)numberOfComponentsInPickerView:(UIPickerView*)pickerView
-{
+
+#pragma mark - Table view data source
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 1;
 }
 
--(NSInteger)pickerView:(UIPickerView*)pickerView numberOfRowsInComponent:(NSInteger)component
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     return _apiHosts.count;
 }
 
-- (void)pickerView:(UIPickerView*)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    _targetAPIHost = _apiHosts[row];
-}
+    
+    NSString *cellIdentifier = @"APIHostCell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
+    
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
+        
+        UIView *bgColorView = [[UIView alloc] init];
+        bgColorView.backgroundColor = [UIColor defaultThemeColorWithAlpha:0.40];
+        [cell setSelectedBackgroundView:bgColorView];
+        
+    }
+    
+    cell.accessoryType =  _targetAPIHostIndex == indexPath.row ? UITableViewCellAccessoryCheckmark : UITableViewCellSelectionStyleNone;
+    
+    NSString* cellvalue = _apiHosts[indexPath.row];
+    setCellLabel(cell.textLabel, cellvalue, [UIColor subCellTextColor], 15.0);
 
--(NSString *)pickerView:(UIPickerView*)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
-{
-    return _apiHosts[row];
+    return cell;
 }
-
 
 - (IBAction)handleOK:(id)sender {
     int projectId = (int)[self.projectIdField.text integerValue];
@@ -117,8 +144,8 @@ void setupMessageConfigure(UILabel *message, NSString *text)
     
     data.isEmailLogin = isEmailLogin;
     data.oldIsEmailLogin = data.isEmailLogin;
-    data.apiHost = _targetAPIHost;
-    data.oldApiHost = _targetAPIHost;
+    data.apiHost = _apiHosts[_targetAPIHostIndex];
+    data.oldApiHost = data.apiHost;
     
     [data saveProjectId];
     [data saveData];

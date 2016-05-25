@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
 
-@interface LMProjectSettingViewController : UIViewController<UIPickerViewDataSource, UIPickerViewDelegate>
+@interface LMProjectSettingViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end

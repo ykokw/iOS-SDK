@@ -567,7 +567,7 @@
                                 <rect key="frame" x="16" y="0.0" width="288" height="568"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hrf-QF-Jt4" userLabel="Content View">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="600"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="700"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter your Project ID" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dCw-Hn-18z">
                                                 <rect key="frame" x="5" y="50" width="278" height="21"/>
@@ -608,7 +608,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wkQ-KJ-gsD" customClass="LMRoundButton">
-                                                <rect key="frame" x="5" y="477" width="278" height="50"/>
+                                                <rect key="frame" x="5" y="502" width="278" height="50"/>
                                                 <color key="backgroundColor" red="0.91764705879999997" green="0.35686274509999999" blue="0.3803921569" alpha="1" colorSpace="calibratedRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="Rqs-dl-Zh6"/>
@@ -621,36 +621,35 @@
                                                     <action selector="handleOK:" destination="a5U-sE-tkb" eventType="touchUpInside" id="tXz-iS-ZBX"/>
                                                 </connections>
                                             </button>
-                                            <pickerView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3s-4j-Iof">
-                                                <rect key="frame" x="5" y="352" width="278" height="75"/>
+                                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="zoF-Ps-Uix">
+                                                <rect key="frame" x="5" y="352" width="278" height="100"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="75" id="hOH-P6-IIG"/>
+                                                    <constraint firstAttribute="height" constant="100" id="hew-Ox-mG0"/>
                                                 </constraints>
-                                            </pickerView>
+                                            </tableView>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="U3s-4j-Iof" secondAttribute="trailing" constant="5" id="1OC-h3-Efi"/>
+                                            <constraint firstItem="zoF-Ps-Uix" firstAttribute="leading" secondItem="hrf-QF-Jt4" secondAttribute="leading" constant="5" id="2Gx-h7-EKZ"/>
                                             <constraint firstAttribute="trailing" secondItem="Bw8-Cu-bFI" secondAttribute="trailing" constant="13" id="2Tb-jC-wTq"/>
+                                            <constraint firstItem="zoF-Ps-Uix" firstAttribute="top" secondItem="dJ9-M5-Bq4" secondAttribute="bottom" constant="10" id="3OT-70-Bf0"/>
                                             <constraint firstItem="dCw-Hn-18z" firstAttribute="leading" secondItem="hrf-QF-Jt4" secondAttribute="leading" constant="5" id="4Vd-nH-e09"/>
-                                            <constraint firstItem="U3s-4j-Iof" firstAttribute="centerX" secondItem="hrf-QF-Jt4" secondAttribute="centerX" id="5jK-2a-HHP"/>
                                             <constraint firstItem="dCw-Hn-18z" firstAttribute="top" secondItem="hrf-QF-Jt4" secondAttribute="top" constant="50" id="6Td-Qu-6hP"/>
                                             <constraint firstItem="dJ9-M5-Bq4" firstAttribute="top" secondItem="XHb-m1-tyM" secondAttribute="bottom" constant="50" id="7fL-nu-XZM"/>
                                             <constraint firstAttribute="trailing" secondItem="wkQ-KJ-gsD" secondAttribute="trailing" constant="5" id="Cp8-Uf-LWf"/>
-                                            <constraint firstItem="U3s-4j-Iof" firstAttribute="leading" secondItem="hrf-QF-Jt4" secondAttribute="leading" constant="5" id="IZZ-bK-DVH"/>
+                                            <constraint firstAttribute="trailing" secondItem="zoF-Ps-Uix" secondAttribute="trailing" constant="5" id="G45-bn-Dwk"/>
                                             <constraint firstItem="wkQ-KJ-gsD" firstAttribute="leading" secondItem="hrf-QF-Jt4" secondAttribute="leading" constant="5" id="NTB-iE-gtv"/>
                                             <constraint firstItem="dJ9-M5-Bq4" firstAttribute="leading" secondItem="hrf-QF-Jt4" secondAttribute="leading" constant="5" id="O3x-6d-JYF"/>
                                             <constraint firstItem="XHb-m1-tyM" firstAttribute="top" secondItem="edw-0E-NQ7" secondAttribute="bottom" constant="10" id="OQC-y5-CET"/>
-                                            <constraint firstItem="U3s-4j-Iof" firstAttribute="top" secondItem="dJ9-M5-Bq4" secondAttribute="bottom" constant="10" id="S20-eo-UKP"/>
+                                            <constraint firstItem="wkQ-KJ-gsD" firstAttribute="top" secondItem="zoF-Ps-Uix" secondAttribute="bottom" constant="50" id="Or3-Gc-XV3"/>
                                             <constraint firstAttribute="trailing" secondItem="dCw-Hn-18z" secondAttribute="trailing" constant="5" id="TGB-pf-14w"/>
                                             <constraint firstItem="edw-0E-NQ7" firstAttribute="top" secondItem="cnC-Zr-JHy" secondAttribute="bottom" constant="50" id="Tgk-Yl-pYE"/>
                                             <constraint firstItem="cnC-Zr-JHy" firstAttribute="leading" secondItem="hrf-QF-Jt4" secondAttribute="leading" constant="5" id="U0U-KJ-R1P"/>
                                             <constraint firstItem="Bw8-Cu-bFI" firstAttribute="top" secondItem="edw-0E-NQ7" secondAttribute="bottom" constant="19" id="WhG-WO-Qwc"/>
-                                            <constraint firstAttribute="trailing" secondItem="U3s-4j-Iof" secondAttribute="trailing" constant="5" id="ZiM-zg-seV"/>
-                                            <constraint firstAttribute="height" constant="600" id="coH-Vr-9dq"/>
+                                            <constraint firstAttribute="height" constant="700" id="coH-Vr-9dq"/>
                                             <constraint firstItem="wkQ-KJ-gsD" firstAttribute="leading" secondItem="hrf-QF-Jt4" secondAttribute="leading" constant="5" id="cqp-G6-Dc8"/>
                                             <constraint firstAttribute="trailing" secondItem="wkQ-KJ-gsD" secondAttribute="trailing" constant="5" id="dao-02-IgT"/>
-                                            <constraint firstItem="wkQ-KJ-gsD" firstAttribute="top" secondItem="U3s-4j-Iof" secondAttribute="bottom" constant="50" id="eNs-07-V33"/>
                                             <constraint firstItem="XHb-m1-tyM" firstAttribute="leading" secondItem="edw-0E-NQ7" secondAttribute="leading" id="foR-iR-xGx"/>
                                             <constraint firstItem="XHb-m1-tyM" firstAttribute="trailing" secondItem="edw-0E-NQ7" secondAttribute="trailing" id="nDc-mM-aLy"/>
                                             <constraint firstAttribute="trailing" secondItem="edw-0E-NQ7" secondAttribute="trailing" constant="5" id="nFJ-aw-qEY"/>
@@ -658,7 +657,6 @@
                                             <constraint firstItem="edw-0E-NQ7" firstAttribute="leading" secondItem="hrf-QF-Jt4" secondAttribute="leading" constant="5" id="qcX-uT-I3l"/>
                                             <constraint firstAttribute="trailing" secondItem="cnC-Zr-JHy" secondAttribute="trailing" constant="5" id="t5P-jr-3aq"/>
                                             <constraint firstItem="cnC-Zr-JHy" firstAttribute="top" secondItem="dCw-Hn-18z" secondAttribute="bottom" constant="10" id="uoS-00-s6F"/>
-                                            <constraint firstItem="U3s-4j-Iof" firstAttribute="leading" secondItem="hrf-QF-Jt4" secondAttribute="leading" constant="5" id="xEF-ui-VCg"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -682,11 +680,12 @@
                     <navigationItem key="navigationItem" id="Qmz-D9-99R"/>
                     <connections>
                         <outlet property="apiHostMessage" destination="dJ9-M5-Bq4" id="Xjt-7w-y0q"/>
-                        <outlet property="apiHostPicker" destination="U3s-4j-Iof" id="gjA-t7-lCP"/>
+                        <outlet property="apiHostTableView" destination="zoF-Ps-Uix" id="W4q-Uc-4s9"/>
                         <outlet property="emailLoginMessage" destination="edw-0E-NQ7" id="QUz-Tr-SVA"/>
                         <outlet property="isEmailLoginSwitch" destination="Bw8-Cu-bFI" id="Evd-Wg-CaK"/>
                         <outlet property="projectIdField" destination="cnC-Zr-JHy" id="vch-AW-eKn"/>
                         <outlet property="projectIdMessage" destination="dCw-Hn-18z" id="pgi-K0-CPQ"/>
+                        <outlet property="scrollView" destination="H2B-gm-U2o" id="u8v-4g-X4D"/>
                         <outlet property="useEmailLoginMessage" destination="XHb-m1-tyM" id="R5d-q1-R0I"/>
                     </connections>
                 </viewController>
