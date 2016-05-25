@@ -69,7 +69,11 @@ Edit Your Profile Information\
 "
 
 #define MESSAGE_EMAIL_LOGIN @"\
-: To use email login, your project has to be configured with email login mode when it's made.\
+To use email login, your project has to be configured with email login mode when it's made.\
+"
+
+#define MESSAGE_API_HOST @"\
+To change the target API host, choose the following hostname.\
 "
 
 #define MESSAGE_INVALID_APP @"\

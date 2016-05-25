@@ -12,6 +12,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *emailLoginMessage;
 @property (strong, nonatomic) IBOutlet UILabel *projectIdMessage;
 @property (strong, nonatomic) IBOutlet UILabel *useEmailLoginMessage;
+@property (strong, nonatomic) IBOutlet UILabel *apiHostMessage;
 @property (strong, nonatomic) IBOutlet UIPickerView *apiHostPicker;
 @property (strong, nonatomic) NSString* targetAPIHost;
 @property (strong, nonatomic) NSArray* apiHosts;
@@ -62,8 +63,10 @@ void setupMessageConfigure(UILabel *message, NSString *text)
     
     _targetAPIHost = _apiHosts[apiHostIdx];
     
+    setupStandardTextField(_projectIdField, @"Project ID", nil);
     setupMessageConfigure(self.projectIdMessage, @"Enter your Project ID");
     setupMessageConfigure(self.emailLoginMessage, MESSAGE_EMAIL_LOGIN);
+    setupMessageConfigure(self.apiHostMessage, MESSAGE_API_HOST);
     setupMessageConfigure(self.useEmailLoginMessage, @"Use email login");
     
     setupKeyboardDismisser(self, @selector(dismissKeyboard));
