@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="15C50" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="WV9-fx-6j3">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="WV9-fx-6j3">
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
@@ -172,9 +172,9 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Invite" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Co-7J-FAA">
-                                <rect key="frame" x="35" y="140" width="250" height="50"/>
+                                <rect key="frame" x="35" y="60" width="250" height="110"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="F5E-BG-8gF"/>
+                                    <constraint firstAttribute="height" constant="110" id="F5E-BG-8gF"/>
                                     <constraint firstAttribute="width" constant="250" id="Rrx-JI-UyL"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -196,7 +196,7 @@
                             <constraint firstItem="Jr0-JX-thl" firstAttribute="centerX" secondItem="Ag8-wp-bRH" secondAttribute="centerX" id="Rt2-Vp-Icm"/>
                             <constraint firstItem="Jr0-JX-thl" firstAttribute="centerY" secondItem="Ag8-wp-bRH" secondAttribute="centerY" constant="-39" id="biC-i3-J46"/>
                             <constraint firstItem="6Co-7J-FAA" firstAttribute="centerX" secondItem="Ag8-wp-bRH" secondAttribute="centerX" id="lBn-l6-jcf"/>
-                            <constraint firstItem="6Co-7J-FAA" firstAttribute="centerY" secondItem="Ag8-wp-bRH" secondAttribute="centerY" constant="-119" id="uxF-li-LNy"/>
+                            <constraint firstItem="6Co-7J-FAA" firstAttribute="centerY" secondItem="Ag8-wp-bRH" secondAttribute="centerY" constant="-169" id="uxF-li-LNy"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="DbZ-oQ-rbo"/>

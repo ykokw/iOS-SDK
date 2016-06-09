@@ -234,6 +234,11 @@ NSString *formatPhonenumberFromString(NSString *phonenumber)
     return self;
 }
 
+- (void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    _phoneNumberField.text = @"+1";
+}
+
 - (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
 {
     NSString *resultString = [textField.text stringByReplacingCharactersInRange:range withString:string];

@@ -23,11 +23,12 @@
     LMDataHolder *data = [LMDataHolder sharedInstance];
     if (data.isEmailLogin) {
         setupEmailField(self.phoneNumberField);
+        setupMessage(self.message, MESSAGE_INVITE, 15.0);
     } else {
         self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
+        setupMessage(self.message, [MESSAGE_INVITE stringByAppendingString:MESSAGE_COUNTRY_CODE], 15.0);
     }
     
-    setupMessage(self.message, MESSAGE_INVITE, 15.0);
     setupRightBarButtonItem(self.navigationItem, @"Add", self, @selector(handleAdd));
     
     self.navigationItem.titleView = setupTitle(@"Add Member");

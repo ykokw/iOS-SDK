@@ -32,14 +32,15 @@
         setupMessage(self.note, MESSAGE_NOTE_EMAIL, 15.0);
         self.emailFieldDelegate = setupEmailField(self.phoneNumberField);
         setupPassowrdField(self.passwordField);
+        setupMessage(self.message, MESSAGE_WELCOME, 15.0);
     } else {
         setupMessage(self.note, MESSAGE_NOTE, 15.0);
         self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
         self.passwordField.hidden = TRUE;
+        setupMessage(self.message, [MESSAGE_WELCOME stringByAppendingString:MESSAGE_COUNTRY_CODE], 15.0);
     }
     
     self.navigationItem.titleView = setupTitle(@"Sign Up");
-    setupMessage(self.message, MESSAGE_WELCOME, 15.0);
     setupStandardTextField(self.nameField, @"Name", @"Name.png");
     setupKeyboardDismisser(self, @selector(dismissKeyboard));
 }
