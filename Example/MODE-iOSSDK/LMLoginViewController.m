@@ -26,12 +26,12 @@
     if (data.isEmailLogin) {
         setupEmailField(self.phoneNumberField);
         setupPassowrdField(self.passwordField);
+        setupMessage(self.message, MESSAGE_WELCOME_BACK_EMAIL, 15.0);
     } else {
         self.passwordField.hidden = TRUE;
         self.phoneNumberDelegate = setupPhoneNumberField(self.phoneNumberField);
+        setupMessage(self.message, MESSAGE_WELCOME_BACK, 15.0);
     }
-    
-    setupMessage(self.message, data.isEmailLogin ? MESSAGE_WELCOME_BACK_EMAIL : MESSAGE_WELCOME_BACK, 15.0);
 }
 
 - (void)windBack

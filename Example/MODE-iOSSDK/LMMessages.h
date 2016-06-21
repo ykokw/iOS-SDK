@@ -14,6 +14,10 @@ Welcome! Please fill out the following information \
 to create an account.\
 "
 
+#define MESSAGE_COUNTRY_CODE @"\
+You need to type phone number with country code. \
+"
+
 #define MESSAGE_NOTE @"\
 Note: Your phone number is used only for logging in.\
 We will never spam you.\
@@ -37,7 +41,7 @@ A verification email has been sent to "
 
 #define MESSAGE_WELCOME_BACK @"\
 Welcome back!\n\
-Please enter your phone number below\
+Please enter your phone number with country code below\
 "
 
 #define MESSAGE_WELCOME_BACK_EMAIL @"\
