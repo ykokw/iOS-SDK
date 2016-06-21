@@ -91,6 +91,7 @@ void setupMessageConfigure(UILabel *message, NSString *text)
 - (void)dismissKeyboard
 {
     [_projectIdField resignFirstResponder];
+    [_apiHostTableView resignFirstResponder];
 }
 
 
