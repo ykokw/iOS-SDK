@@ -42,6 +42,9 @@ typedef void (^didReceiveBlock)(MODEDeviceEvent*, NSError*);
  */
 @property (nonatomic, copy)didReceiveBlock didReceive;
 
++ (void)setWebsocketHost:(NSString*)host;
++ (NSString*)getWebsocketHost;
+
 /**
  *  Initializes MODEEventListner with USER_TOKEN.
  *

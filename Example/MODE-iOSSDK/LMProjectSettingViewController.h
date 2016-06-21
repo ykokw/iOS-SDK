@@ -1,5 +1,5 @@
 #import <UIKit/UIKit.h>
 
-@interface LMProjectSettingViewController : UIViewController
+@interface LMProjectSettingViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end

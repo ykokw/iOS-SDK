@@ -14,6 +14,9 @@
  *  @param userInfo  Has more detailed information on why it failed. It is NSDictionary parsed from JSON string.
  */
 
++ (void)setAPIHost:(NSString*)host;
++ (NSString*)getAPIHost;
+
 ////////////////////////////////////////////////
 // User API
 ////////////////////////////////////////////////
