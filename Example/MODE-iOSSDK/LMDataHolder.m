@@ -71,10 +71,11 @@ void saveObject(NSString *key, id<MTLJSONSerializing> obj)
 
 - (void)saveProjectId
 {
+    _doNotObserveValue = TRUE;
     [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", self.projectId] forKey:@"projectId"];
     [[NSUserDefaults standardUserDefaults] setBool:self.isEmailLogin forKey:@"isEmailLogin"];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", self.oldProjectId] forKey:@"oldProjectId"];
-    [[NSUserDefaults standardUserDefaults] setBool:self.oldIsEmailLogin forKey:@"oldIsEmailLogin"];
+    [[NSUserDefaults standardUserDefaults] setObject:[NSString stringWithFormat:@"%d", self.projectId] forKey:@"oldProjectId"];
+    [[NSUserDefaults standardUserDefaults] setBool:self.isEmailLogin forKey:@"oldIsEmailLogin"];
     
     if (_apiHost != nil) {
         [MODEAppAPI setAPIHost:_apiHost];
@@ -84,14 +85,24 @@ void saveObject(NSString *key, id<MTLJSONSerializing> obj)
     }
     
     [[NSUserDefaults standardUserDefaults] synchronize];
+    _doNotObserveValue = FALSE;
+}
+
+-(void) setApiHost:(NSString *)apiHost
+{
+    if (apiHost != _apiHost) {
+        _apiHost = apiHost;
+    }
 }
 
 - (void)saveData
 {
+    _doNotObserveValue = TRUE;
     saveObject(@"auth", self.clientAuth);
     saveObject(@"members", self.members);
 
     [[NSUserDefaults standardUserDefaults] synchronize];
+    _doNotObserveValue = FALSE;
 }
 
 id loadObj(NSString *key, Class class)
@@ -149,12 +160,18 @@ id loadObj(NSString *key, Class class)
         self.isEmailLogin = [email boolValue];
     }
     
-    _apiHost = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiHost"];
-    _oldApiHost = [[NSUserDefaults standardUserDefaults] objectForKey:@"oldApiHost"];
+    NSString* apiHost = [[NSUserDefaults standardUserDefaults] objectForKey:@"apiHost"];
     
-    [MODEAppAPI setAPIHost:_apiHost];
-    [MODEEventListener setWebsocketHost:_apiHost];
+    if (apiHost != nil) {
+        _apiHost = apiHost;
+        [MODEAppAPI setAPIHost:_apiHost];
+        [MODEEventListener setWebsocketHost:_apiHost];
+    }
     
+    NSString* oldApiHost = [[NSUserDefaults standardUserDefaults] objectForKey:@"oldApiHost"];
+    if (oldApiHost != nil) {
+        _oldApiHost = oldApiHost;
+    }
 }
 
 - (void)loadData

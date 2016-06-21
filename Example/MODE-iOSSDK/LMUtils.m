@@ -13,7 +13,7 @@ void showAlert(NSError *err)
 {
     NSString *msg = err.userInfo[@"reason"];
     
-    if ([msg  isEqual: @"INVALID_APP_ID"]) {
+    if ([msg  isEqual: @"INVALID_EMAIL"]) {
         msg = [msg stringByAppendingString:MESSAGE_EMAIL_LOGIN];
     }
     
