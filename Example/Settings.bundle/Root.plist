@@ -24,7 +24,7 @@
 			<key>Key</key>
 			<string>apiHost</string>
 			<key>DefaultValue</key>
-			<string>iot-device.jp-east-1.api.cloud.nifty.com</string>
+			<string>api.tinkermode.com</string>
 		</dict>
 		<dict>
 			<key>Type</key>

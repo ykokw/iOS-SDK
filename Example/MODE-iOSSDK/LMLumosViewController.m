@@ -32,11 +32,7 @@
         [self performSegueWithIdentifier:segue sender:self];
     }
     
-    self.lumosLogo.userInteractionEnabled = YES;
-    
-    if ([LMDataHolder sharedInstance].projectId == 0) {
-        [self performSegueWithIdentifier:@"ProjectSettingSegue" sender:self];
-    }
+    self.lumosLogo.userInteractionEnabled = YES;    
 }
 
 - (void)viewDidAppear:(BOOL)animated

@@ -98,7 +98,7 @@
                         <outlet property="message" destination="aff-9u-MgQ" id="1Ul-j6-gyB"/>
                         <segue destination="f6O-Dq-1Lv" kind="push" identifier="BypassSignUpSegue" id="Zu0-Q4-fzh"/>
                         <segue destination="4iK-Au-IvT" kind="custom" identifier="@console" customClass="LMLinkedStoryBoardSegue" id="kfA-9g-xNS"/>
-                        <segue destination="a5U-sE-tkb" kind="modal" identifier="ProjectSettingSegue" id="dbd-oN-WSa"/>
+                        <segue destination="a5U-sE-tkb" kind="push" identifier="ProjectSettingSegue" id="dbd-oN-WSa"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mL5-uE-rdP" userLabel="First Responder" sceneMemberID="firstResponder"/>
