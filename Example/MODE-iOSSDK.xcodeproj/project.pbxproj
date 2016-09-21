@@ -54,6 +54,15 @@
 		21CF7EF51C1B671D000368F7 /* Email.png in Resources */ = {isa = PBXBuildFile; fileRef = 21CF7EF41C1B671D000368F7 /* Email.png */; };
 		21F9424B1BACD29100A784E8 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 21F9424A1BACD29100A784E8 /* Images.xcassets */; };
 		3100A986DCFA2FB7B1B6CC32 /* libPods-MODE-iOSSDK_Example.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F0533434627DC62BBCAD08C8 /* libPods-MODE-iOSSDK_Example.a */; };
+		5D38C38C1D9222F500E4CC0D /* ModeApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D38C3851D9222F500E4CC0D /* ModeApp.h */; };
+		5D38C38D1D9222F500E4CC0D /* ModeApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D38C3861D9222F500E4CC0D /* ModeApp.m */; };
+		5D38C38E1D9222F500E4CC0D /* ModeData.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D38C3871D9222F500E4CC0D /* ModeData.h */; };
+		5D38C38F1D9222F500E4CC0D /* ModeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D38C3881D9222F500E4CC0D /* ModeData.m */; };
+		5D38C3901D9222F500E4CC0D /* ModeEventListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D38C3891D9222F500E4CC0D /* ModeEventListener.h */; };
+		5D38C3911D9222F500E4CC0D /* ModeEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D38C38A1D9222F500E4CC0D /* ModeEventListener.m */; };
+		5D38C3921D9222F500E4CC0D /* ModeLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D38C38B1D9222F500E4CC0D /* ModeLog.h */; };
+		5D38C3941D923CB300E4CC0D /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D38C3931D923CB300E4CC0D /* SocketRocket.framework */; };
+		5D38C3961D923CC800E4CC0D /* Mantle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D38C3951D923CC800E4CC0D /* Mantle.framework */; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -157,6 +166,17 @@
 		21F9424A1BACD29100A784E8 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = "MODE-iOSSDK_Example/Images.xcassets"; sourceTree = "<group>"; };
 		2DFF3826F5A3A2128C83B9FF /* README.md */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = net.daringfireball.markdown; name = README.md; path = ../README.md; sourceTree = "<group>"; };
 		47B286A23B4CB7AFC0DD9486 /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
+		5D38C36F1D9221BB00E4CC0D /* Mode.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Mode.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5D38C3721D9221BB00E4CC0D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		5D38C3851D9222F500E4CC0D /* ModeApp.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModeApp.h; path = ../../Mode/ModeApp.h; sourceTree = "<group>"; };
+		5D38C3861D9222F500E4CC0D /* ModeApp.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModeApp.m; path = ../../Mode/ModeApp.m; sourceTree = "<group>"; };
+		5D38C3871D9222F500E4CC0D /* ModeData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModeData.h; path = ../../Mode/ModeData.h; sourceTree = "<group>"; };
+		5D38C3881D9222F500E4CC0D /* ModeData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModeData.m; path = ../../Mode/ModeData.m; sourceTree = "<group>"; };
+		5D38C3891D9222F500E4CC0D /* ModeEventListener.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModeEventListener.h; path = ../../Mode/ModeEventListener.h; sourceTree = "<group>"; };
+		5D38C38A1D9222F500E4CC0D /* ModeEventListener.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ModeEventListener.m; path = ../../Mode/ModeEventListener.m; sourceTree = "<group>"; };
+		5D38C38B1D9222F500E4CC0D /* ModeLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModeLog.h; path = ../../Mode/ModeLog.h; sourceTree = "<group>"; };
+		5D38C3931D923CB300E4CC0D /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = Carthage/Build/iOS/SocketRocket.framework; sourceTree = "<group>"; };
+		5D38C3951D923CC800E4CC0D /* Mantle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mantle.framework; path = Carthage/Build/iOS/Mantle.framework; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* Lumos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lumos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -185,6 +205,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		5D38C36B1D9221BB00E4CC0D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D38C3961D923CC800E4CC0D /* Mantle.framework in Frameworks */,
+				5D38C3941D923CB300E4CC0D /* SocketRocket.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F587195388D20070C39A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -306,6 +335,21 @@
 			name = Images;
 			sourceTree = "<group>";
 		};
+		5D38C3701D9221BB00E4CC0D /* Mode */ = {
+			isa = PBXGroup;
+			children = (
+				5D38C3851D9222F500E4CC0D /* ModeApp.h */,
+				5D38C3861D9222F500E4CC0D /* ModeApp.m */,
+				5D38C3871D9222F500E4CC0D /* ModeData.h */,
+				5D38C3881D9222F500E4CC0D /* ModeData.m */,
+				5D38C3891D9222F500E4CC0D /* ModeEventListener.h */,
+				5D38C38A1D9222F500E4CC0D /* ModeEventListener.m */,
+				5D38C38B1D9222F500E4CC0D /* ModeLog.h */,
+				5D38C3721D9221BB00E4CC0D /* Info.plist */,
+			);
+			path = Mode;
+			sourceTree = "<group>";
+		};
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
@@ -314,6 +358,7 @@
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
 				6003F593195388D20070C39A /* Example for MODE-iOSSDK */,
 				6003F5B5195388D20070C39A /* Tests */,
+				5D38C3701D9221BB00E4CC0D /* Mode */,
 				6003F58C195388D20070C39A /* Frameworks */,
 				6003F58B195388D20070C39A /* Products */,
 				F34A422E91B6E1AA520D2906 /* Pods */,
@@ -325,6 +370,7 @@
 			children = (
 				6003F58A195388D20070C39A /* Lumos.app */,
 				6003F5AE195388D20070C39A /* MODE-iOSSDK_Tests.xctest */,
+				5D38C36F1D9221BB00E4CC0D /* Mode.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -332,6 +378,8 @@
 		6003F58C195388D20070C39A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				5D38C3951D923CC800E4CC0D /* Mantle.framework */,
+				5D38C3931D923CB300E4CC0D /* SocketRocket.framework */,
 				6003F58D195388D20070C39A /* Foundation.framework */,
 				6003F58F195388D20070C39A /* CoreGraphics.framework */,
 				6003F591195388D20070C39A /* UIKit.framework */,
@@ -415,7 +463,40 @@
 		};
 /* End PBXGroup section */
 
+/* Begin PBXHeadersBuildPhase section */
+		5D38C36C1D9221BB00E4CC0D /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D38C38C1D9222F500E4CC0D /* ModeApp.h in Headers */,
+				5D38C3901D9222F500E4CC0D /* ModeEventListener.h in Headers */,
+				5D38C3921D9222F500E4CC0D /* ModeLog.h in Headers */,
+				5D38C38E1D9222F500E4CC0D /* ModeData.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
 /* Begin PBXNativeTarget section */
+		5D38C36E1D9221BB00E4CC0D /* Mode */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5D38C3761D9221BB00E4CC0D /* Build configuration list for PBXNativeTarget "Mode" */;
+			buildPhases = (
+				5D38C36A1D9221BB00E4CC0D /* Sources */,
+				5D38C36B1D9221BB00E4CC0D /* Frameworks */,
+				5D38C36C1D9221BB00E4CC0D /* Headers */,
+				5D38C36D1D9221BB00E4CC0D /* Resources */,
+				5D38C3971D923CE600E4CC0D /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Mode;
+			productName = Mode;
+			productReference = 5D38C36F1D9221BB00E4CC0D /* Mode.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		6003F589195388D20070C39A /* MODE-iOSSDK_Example */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 6003F5BF195388D20070C39A /* Build configuration list for PBXNativeTarget "MODE-iOSSDK_Example" */;
@@ -467,6 +548,10 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "Naoki Takano";
 				TargetAttributes = {
+					5D38C36E1D9221BB00E4CC0D = {
+						CreatedOnToolsVersion = 8.0;
+						ProvisioningStyle = Automatic;
+					};
 					6003F589195388D20070C39A = {
 						DevelopmentTeam = 3QL3SR29C3;
 					};
@@ -490,11 +575,19 @@
 			targets = (
 				6003F589195388D20070C39A /* MODE-iOSSDK_Example */,
 				6003F5AD195388D20070C39A /* MODE-iOSSDK_Tests */,
+				5D38C36E1D9221BB00E4CC0D /* Mode */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		5D38C36D1D9221BB00E4CC0D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F588195388D20070C39A /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -568,6 +661,21 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-MODE-iOSSDK_Tests/Pods-MODE-iOSSDK_Tests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		5D38C3971D923CE600E4CC0D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Carthage/Build/iOS/Mantle.framework",
+				"$(SRCROOT)/Carthage/Build/iOS/SocketRocket.framework",
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "/usr/local/bin/carthage copy-frameworks";
+		};
 		76EFF225DC035284BBD7476A /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -631,6 +739,16 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		5D38C36A1D9221BB00E4CC0D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5D38C38F1D9222F500E4CC0D /* ModeData.m in Sources */,
+				5D38C3911D9222F500E4CC0D /* ModeEventListener.m in Sources */,
+				5D38C38D1D9222F500E4CC0D /* ModeApp.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		6003F586195388D20070C39A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -703,6 +821,79 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		5D38C3741D9221BB00E4CC0D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = Mode/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nifty.cloud.Mode;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		5D38C3751D9221BB00E4CC0D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				ENABLE_BITCODE = YES;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
+				);
+				GCC_NO_COMMON_BLOCKS = YES;
+				INFOPLIST_FILE = Mode/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = NO;
+				PRODUCT_BUNDLE_IDENTIFIER = com.nifty.cloud.Mode;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
+		};
 		6003F5BD195388D20070C39A /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -874,6 +1065,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		5D38C3761D9221BB00E4CC0D /* Build configuration list for PBXNativeTarget "Mode" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5D38C3741D9221BB00E4CC0D /* Debug */,
+				5D38C3751D9221BB00E4CC0D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		6003F585195388D10070C39A /* Build configuration list for PBXProject "MODE-iOSSDK" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
