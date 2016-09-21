@@ -63,6 +63,8 @@
 		5D38C3921D9222F500E4CC0D /* ModeLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D38C38B1D9222F500E4CC0D /* ModeLog.h */; };
 		5D38C3941D923CB300E4CC0D /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D38C3931D923CB300E4CC0D /* SocketRocket.framework */; };
 		5D38C3961D923CC800E4CC0D /* Mantle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D38C3951D923CC800E4CC0D /* Mantle.framework */; };
+		5D38C3C21D927A1100E4CC0D /* Mantle.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D38C3C01D927A1100E4CC0D /* Mantle.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		5D38C3C31D927A1100E4CC0D /* SocketRocket.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5D38C3C11D927A1100E4CC0D /* SocketRocket.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		6003F58E195388D20070C39A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58D195388D20070C39A /* Foundation.framework */; };
 		6003F590195388D20070C39A /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F58F195388D20070C39A /* CoreGraphics.framework */; };
 		6003F592195388D20070C39A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6003F591195388D20070C39A /* UIKit.framework */; };
@@ -89,6 +91,20 @@
 			remoteInfo = "MODE-iOSSDK";
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		5D38C3BF1D92795800E4CC0D /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				5D38C3C21D927A1100E4CC0D /* Mantle.framework in CopyFiles */,
+				5D38C3C31D927A1100E4CC0D /* SocketRocket.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		030D11C9C043D5B1DD1B8AF4 /* Pods-MODE-iOSSDK_Tests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MODE-iOSSDK_Tests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MODE-iOSSDK_Tests/Pods-MODE-iOSSDK_Tests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -177,6 +193,8 @@
 		5D38C38B1D9222F500E4CC0D /* ModeLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ModeLog.h; path = ../../Mode/ModeLog.h; sourceTree = "<group>"; };
 		5D38C3931D923CB300E4CC0D /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = Carthage/Build/iOS/SocketRocket.framework; sourceTree = "<group>"; };
 		5D38C3951D923CC800E4CC0D /* Mantle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mantle.framework; path = Carthage/Build/iOS/Mantle.framework; sourceTree = "<group>"; };
+		5D38C3C01D927A1100E4CC0D /* Mantle.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Mantle.framework; path = Carthage/Build/iOS/Mantle.framework; sourceTree = "<group>"; };
+		5D38C3C11D927A1100E4CC0D /* SocketRocket.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SocketRocket.framework; path = Carthage/Build/iOS/SocketRocket.framework; sourceTree = "<group>"; };
 		6003F58A195388D20070C39A /* Lumos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Lumos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		6003F58D195388D20070C39A /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6003F58F195388D20070C39A /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -353,6 +371,8 @@
 		6003F581195388D10070C39A = {
 			isa = PBXGroup;
 			children = (
+				5D38C3C01D927A1100E4CC0D /* Mantle.framework */,
+				5D38C3C11D927A1100E4CC0D /* SocketRocket.framework */,
 				219B54531BB0AF6200611B43 /* Settings.bundle */,
 				21F9424A1BACD29100A784E8 /* Images.xcassets */,
 				60FF7A9C1954A5C5007DD14C /* Podspec Metadata */,
@@ -487,6 +507,7 @@
 				5D38C36C1D9221BB00E4CC0D /* Headers */,
 				5D38C36D1D9221BB00E4CC0D /* Resources */,
 				5D38C3971D923CE600E4CC0D /* ShellScript */,
+				5D38C3BF1D92795800E4CC0D /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -1072,6 +1093,7 @@
 				5D38C3751D9221BB00E4CC0D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6003F585195388D10070C39A /* Build configuration list for PBXProject "MODE-iOSSDK" */ = {
 			isa = XCConfigurationList;
