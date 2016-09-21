@@ -1,0 +1,6 @@
+[submodule "Carthage/Checkouts/Mantle"]
+	path = Example/Carthage/Checkouts/Mantle
+	url = https://github.com/Mantle/Mantle.git
+[submodule "Carthage/Checkouts/SocketRocket"]
+	path = Example/Carthage/Checkouts/SocketRocket
+	url = https://github.com/facebook/SocketRocket.git
