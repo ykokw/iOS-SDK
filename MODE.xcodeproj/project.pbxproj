@@ -8,12 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		5D38C3E01D9282A800E4CC0D /* ModeData.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D38C3D91D9282A800E4CC0D /* ModeData.m */; };
-		5D38C3E11D9282A800E4CC0D /* ModeApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D38C3DA1D9282A800E4CC0D /* ModeApp.h */; };
+		5D38C3E11D9282A800E4CC0D /* ModeApp.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D38C3DA1D9282A800E4CC0D /* ModeApp.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D38C3E21D9282A800E4CC0D /* ModeApp.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D38C3DB1D9282A800E4CC0D /* ModeApp.m */; };
-		5D38C3E31D9282A800E4CC0D /* ModeData.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D38C3DC1D9282A800E4CC0D /* ModeData.h */; };
-		5D38C3E41D9282A800E4CC0D /* ModeEventListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D38C3DD1D9282A800E4CC0D /* ModeEventListener.h */; };
+		5D38C3E31D9282A800E4CC0D /* ModeData.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D38C3DC1D9282A800E4CC0D /* ModeData.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		5D38C3E41D9282A800E4CC0D /* ModeEventListener.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D38C3DD1D9282A800E4CC0D /* ModeEventListener.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D38C3E51D9282A800E4CC0D /* ModeEventListener.m in Sources */ = {isa = PBXBuildFile; fileRef = 5D38C3DE1D9282A800E4CC0D /* ModeEventListener.m */; };
-		5D38C3E61D9282A800E4CC0D /* ModeLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D38C3DF1D9282A800E4CC0D /* ModeLog.h */; };
+		5D38C3E61D9282A800E4CC0D /* ModeLog.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D38C3DF1D9282A800E4CC0D /* ModeLog.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5D38C3EA1D9283D900E4CC0D /* Mantle.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D38C3E81D9283D900E4CC0D /* Mantle.framework */; };
 		5D38C3EB1D9283D900E4CC0D /* SocketRocket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5D38C3E91D9283D900E4CC0D /* SocketRocket.framework */; };
 		5D38C3F01D92869500E4CC0D /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 5D38C3EF1D92869500E4CC0D /* Info.plist */; };
